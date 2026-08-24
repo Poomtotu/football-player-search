@@ -19,6 +19,7 @@ Pipeline:
 
 import json
 import logging
+import os
 import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -28,6 +29,14 @@ from rank_bm25 import BM25Okapi
 from rapidfuzz import fuzz
 
 logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Path Configuration — กำหนด Path ของไฟล์ข้อมูล (players.json)
+# ---------------------------------------------------------------------------
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "..", "data", "players.json")
+MOCK_DATA_PATH = os.path.join(BASE_DIR, "..", "data", "mock_players.json")
+
 
 # ---------------------------------------------------------------------------
 # Config — กำหนดค่าน้ำหนักและ Threshold ของระบบ Search Engine
@@ -164,7 +173,7 @@ class FootballSearchEngine:
     # ------------------------------------------------------------------
 
     @classmethod
-    def from_file(cls, path: str | Path) -> "FootballSearchEngine":
+    def from_file(cls, path: str | Path | None = None) -> "FootballSearchEngine":
         """Convenience factory: โหลด + build index ในขั้นตอนเดียว"""
         engine = cls()
         engine.load(path)
@@ -191,26 +200,37 @@ class FootballSearchEngine:
     # Loading
     # ------------------------------------------------------------------
 
-    def load(self, path: str | Path) -> None:
+    def load(self, path: str | Path | None = None) -> None:
         """
         โหลดข้อมูลจาก players.json และสร้าง BM25 index
 
         Args:
-            path: path ไปยัง players.json
+            path: path ไปยัง players.json (ถ้าไม่ระบุ จะใช้ DATA_PATH หรือ MOCK_DATA_PATH อัตโนมัติ)
         """
-        path = Path(path)
-        if not path.exists():
+        if path is None:
+            if os.path.exists(DATA_PATH) and os.path.getsize(DATA_PATH) > 2:
+                path = DATA_PATH
+            elif os.path.exists(MOCK_DATA_PATH):
+                path = MOCK_DATA_PATH
+            else:
+                path = DATA_PATH
+
+        target_path = Path(path)
+        if not target_path.exists():
             raise FileNotFoundError(
-                f"ไม่พบไฟล์: {path}\n"
+                f"ไม่พบไฟล์: {target_path}\n"
                 "โปรดรัน 'python scraper.py' เพื่อสร้าง players.json ก่อน"
             )
 
-        logger.info("กำลังโหลด: %s", path)
-        with path.open(encoding="utf-8") as f:
+        logger.info("กำลังโหลด: %s", target_path)
+        with target_path.open(encoding="utf-8") as f:
             data = json.load(f)
 
         if not isinstance(data, list):
             raise ValueError(f"players.json ต้องเป็น JSON array ไม่ใช่ {type(data)}")
+
+        if not data:
+            logger.warning("คำเตือน: ไฟล์ %s ว่างเปล่า (ไม่มีข้อมูลนักเตะ)", target_path)
 
         self._build_index(data)
         logger.info("โหลดสำเร็จ: %d นักเตะ | index พร้อมแล้ว ✓", self.player_count)

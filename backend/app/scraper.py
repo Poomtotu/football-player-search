@@ -16,6 +16,7 @@ Anti-block:
 
 import json
 import logging
+import os
 import random
 import time
 from pathlib import Path
@@ -43,7 +44,8 @@ logger = logging.getLogger(__name__)
 # ทำหน้าที่: กำหนดค่าที่ใช้ร่วมกันทั้ง script เช่น path บันทึกผล, จำนวนเป้าหมาย, User-Agent list
 # ทำไปทำไม: รวมค่าสำคัญไว้ที่เดียว แก้ไขง่าย ไม่ต้องไปแก้ในทุกฟังก์ชัน
 
-OUTPUT_FILE = Path(__file__).parent.parent / "data" / "players.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_FILE = Path(os.path.join(BASE_DIR, "..", "data", "players.json"))
 TARGET_COUNT = 100
 
 # รายการ User-Agent เพื่อสลับ Header ทุก Request (ป้องกันถูกบล็อก)
@@ -55,207 +57,2521 @@ USER_AGENTS: list[str] = [
     "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1",
 ]
 
-# พจนานุกรมชื่อไทย ฉายา และข้อมูลเสริมของนักเตะระดับโลก
+# พจนานุกรมชื่อไทย ฉายา และข้อมูลเสริมของนักเตะระดับโลก (100 คน)
 KNOWN_METADATA: dict[str, dict[str, Any]] = {
     "Lionel Messi": {
         "name_th": "ลิโอเนล เมสซี่",
-        "aliases": ["เมสซี่", "La Pulga", "LM10", "The GOAT", "Messi", "ต่างดาว"],
+        "aliases": [
+            "เมสซี่",
+            "ต่างดาว",
+            "Messi",
+            "The GOAT",
+            "LM10",
+            "La Pulga"
+        ],
         "current_league": "Major League Soccer",
         "current_team": "Inter Miami CF",
-        "teams_history": ["FC Barcelona", "Paris Saint-Germain", "Inter Miami CF"],
-        "national_team": {"played": True, "team_name": "Argentina", "caps": 189, "goals": 109},
-        "stats": {"total_goals": 850, "total_assists": 380, "trophies_count": 44},
+        "teams_history": [
+            "FC Barcelona",
+            "Paris Saint-Germain",
+            "Inter Miami CF"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 189,
+            "goals": 109
+        },
+        "stats": {
+            "total_goals": 850,
+            "total_assists": 380,
+            "trophies_count": 44
+        }
     },
     "Cristiano Ronaldo": {
         "name_th": "คริสเตียโน โรนัลโด",
-        "aliases": ["CR7", "โรนัลโด", "พี่โด้", "Siuuu", "The Portuguese", "Ronaldo"],
+        "aliases": [
+            "CR7",
+            "The Portuguese",
+            "พี่โด้",
+            "โรนัลโด",
+            "Siuuu",
+            "Ronaldo"
+        ],
         "current_league": "Saudi Pro League",
         "current_team": "Al Nassr",
-        "teams_history": ["Sporting CP", "Manchester United", "Real Madrid", "Juventus", "Manchester United", "Al Nassr"],
-        "national_team": {"played": True, "team_name": "Portugal", "caps": 212, "goals": 135},
-        "stats": {"total_goals": 905, "total_assists": 240, "trophies_count": 34},
+        "teams_history": [
+            "Sporting CP",
+            "Manchester United",
+            "Real Madrid",
+            "Juventus",
+            "Manchester United",
+            "Al Nassr"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Portugal",
+            "caps": 212,
+            "goals": 135
+        },
+        "stats": {
+            "total_goals": 905,
+            "total_assists": 240,
+            "trophies_count": 34
+        }
     },
-    "Kylian Mbappe": {
-        "name_th": "กิลิอัน เอ็มบัปเป",
-        "aliases": ["เอ็มบัปเป", "KM7", "ประธานเป้", "Donatello", "Mbappe"],
-        "current_league": "La Liga",
+    "Kylian Mbappé": {
+        "name_th": "คีเลียน เอ็มบัปเป้",
+        "aliases": [
+            "ประธานเป้",
+            "เอ็มบัปเป้",
+            "Mbappe",
+            "KM7",
+            "เอ็มบัปเป",
+            "Donatello"
+        ],
+        "current_league": "N/A",
         "current_team": "Real Madrid",
-        "teams_history": ["AS Monaco", "Paris Saint-Germain", "Real Madrid"],
-        "national_team": {"played": True, "team_name": "France", "caps": 86, "goals": 48},
-        "stats": {"total_goals": 330, "total_assists": 195, "trophies_count": 18},
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 86,
+            "goals": 48
+        },
+        "stats": {
+            "total_goals": 330,
+            "total_assists": 195,
+            "trophies_count": 18
+        }
     },
     "Erling Haaland": {
-        "name_th": "เอร์ลิง ฮาลันด์",
-        "aliases": ["ฮาลันด์", "จอมมารบลู", "Cyborg", "EH9", "Haaland"],
+        "name_th": "เออร์ลิง ฮาแลนด์",
+        "aliases": [
+            "จอมมารบลู",
+            "Cyborg",
+            "Haaland",
+            "ฮาลันด์",
+            "ฮาแลนด์",
+            "EH9"
+        ],
         "current_league": "Premier League",
         "current_team": "Manchester City",
-        "teams_history": ["Bryne", "Molde", "Red Bull Salzburg", "Borussia Dortmund", "Manchester City"],
-        "national_team": {"played": True, "team_name": "Norway", "caps": 39, "goals": 38},
-        "stats": {"total_goals": 290, "total_assists": 65, "trophies_count": 12},
+        "teams_history": [
+            "Bryne",
+            "Molde",
+            "Red Bull Salzburg",
+            "Borussia Dortmund",
+            "Manchester City"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Norway",
+            "caps": 39,
+            "goals": 38
+        },
+        "stats": {
+            "total_goals": 290,
+            "total_assists": 65,
+            "trophies_count": 12
+        }
     },
     "Neymar": {
         "name_th": "เนย์มาร์",
-        "aliases": ["เนย์มาร์", "Ney", "NJR", "O Ney", "Neymar Jr"],
+        "aliases": [
+            "Ney",
+            "Neymar Jr",
+            "เนย์มาร์",
+            "O Ney",
+            "NJR"
+        ],
         "current_league": "Saudi Pro League",
         "current_team": "Al Hilal",
-        "teams_history": ["Santos", "FC Barcelona", "Paris Saint-Germain", "Al Hilal"],
-        "national_team": {"played": True, "team_name": "Brazil", "caps": 128, "goals": 79},
-        "stats": {"total_goals": 440, "total_assists": 310, "trophies_count": 22},
+        "teams_history": [
+            "Santos",
+            "FC Barcelona",
+            "Paris Saint-Germain",
+            "Al Hilal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 128,
+            "goals": 79
+        },
+        "stats": {
+            "total_goals": 440,
+            "total_assists": 310,
+            "trophies_count": 22
+        }
     },
     "Mohamed Salah": {
         "name_th": "โมฮาเหม็ด ซาลาห์",
-        "aliases": ["ซาลาห์", "บังโม", "The Egyptian King", "Mo Salah"],
+        "aliases": [
+            "The Egyptian King",
+            "บังโม",
+            "ซาล่าห์",
+            "ซาลาห์",
+            "Mo Salah"
+        ],
         "current_league": "Premier League",
         "current_team": "Liverpool",
-        "teams_history": ["El Mokawloon", "Basel", "Chelsea", "Fiorentina", "Roma", "Liverpool"],
-        "national_team": {"played": True, "team_name": "Egypt", "caps": 103, "goals": 58},
-        "stats": {"total_goals": 360, "total_assists": 155, "trophies_count": 15},
+        "teams_history": [
+            "El Mokawloon",
+            "Basel",
+            "Chelsea",
+            "Fiorentina",
+            "Roma",
+            "Liverpool"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Egypt",
+            "caps": 103,
+            "goals": 58
+        },
+        "stats": {
+            "total_goals": 360,
+            "total_assists": 155,
+            "trophies_count": 15
+        }
     },
     "Kevin De Bruyne": {
         "name_th": "เควิน เดอ บรอยน์",
-        "aliases": ["เดอ บรอยน์", "KDB", "จอมทัพเบลเยียม", "King Kevin"],
+        "aliases": [
+            "จอมทัพเบลเยียม",
+            "KDB",
+            "เดอ บรอยน์",
+            "เดอบรอยน์",
+            "King Kevin"
+        ],
         "current_league": "Premier League",
         "current_team": "Manchester City",
-        "teams_history": ["Genk", "Chelsea", "Werder Bremen", "VfL Wolfsburg", "Manchester City"],
-        "national_team": {"played": True, "team_name": "Belgium", "caps": 107, "goals": 30},
-        "stats": {"total_goals": 150, "total_assists": 370, "trophies_count": 20},
+        "teams_history": [
+            "Genk",
+            "Chelsea",
+            "Werder Bremen",
+            "VfL Wolfsburg",
+            "Manchester City"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Belgium",
+            "caps": 107,
+            "goals": 30
+        },
+        "stats": {
+            "total_goals": 150,
+            "total_assists": 370,
+            "trophies_count": 20
+        }
     },
     "Jude Bellingham": {
         "name_th": "จูด เบลลิงแฮม",
-        "aliases": ["เบลลิงแฮม", "JB5", "JB22", "Bellingham", "น้องจูด"],
+        "aliases": [
+            "JB22",
+            "Bellingham",
+            "น้องจูด",
+            "JB5",
+            "เบลลิงแฮม"
+        ],
         "current_league": "La Liga",
         "current_team": "Real Madrid",
-        "teams_history": ["Birmingham City", "Borussia Dortmund", "Real Madrid"],
-        "national_team": {"played": True, "team_name": "England", "caps": 40, "goals": 13},
-        "stats": {"total_goals": 95, "total_assists": 55, "trophies_count": 6},
+        "teams_history": [
+            "Birmingham City",
+            "Borussia Dortmund",
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "England",
+            "caps": 40,
+            "goals": 13
+        },
+        "stats": {
+            "total_goals": 95,
+            "total_assists": 55,
+            "trophies_count": 6
+        }
     },
-    "Vinicius Junior": {
+    "Vinícius Júnior": {
         "name_th": "วินิซิอุส จูเนียร์",
-        "aliases": ["วินิ", "Vini Jr", "VJ7", "วินิซิอุส"],
-        "current_league": "La Liga",
+        "aliases": [
+            "วินิซิอุส",
+            "Vini",
+            "VJ7",
+            "Vini Jr",
+            "วินิ"
+        ],
+        "current_league": "N/A",
         "current_team": "Real Madrid",
-        "teams_history": ["Flamengo", "Real Madrid"],
-        "national_team": {"played": True, "team_name": "Brazil", "caps": 38, "goals": 12},
-        "stats": {"total_goals": 130, "total_assists": 115, "trophies_count": 12},
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 38,
+            "goals": 12
+        },
+        "stats": {
+            "total_goals": 130,
+            "total_assists": 115,
+            "trophies_count": 12
+        }
     },
-    "Son Heung-min": {
+    "Heung-min Son": {
         "name_th": "ซน ฮึง-มิน",
-        "aliases": ["ซน", "Sonny", "ตี๋ซน", "SHM7", "โอปป้าซน"],
-        "current_league": "Premier League",
-        "current_team": "Tottenham Hotspur",
-        "teams_history": ["Hamburger SV", "Bayer Leverkusen", "Tottenham Hotspur"],
-        "national_team": {"played": True, "team_name": "South Korea", "caps": 129, "goals": 50},
-        "stats": {"total_goals": 210, "total_assists": 120, "trophies_count": 4},
+        "aliases": [
+            "โอปป้าซน",
+            "Sonny",
+            "ซน",
+            "ซน ฮึงมิน",
+            "SHM7",
+            "ตี๋ซน"
+        ],
+        "current_league": "N/A",
+        "current_team": "Los Angeles FC",
+        "teams_history": [
+            "Los Angeles FC"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "South Korea",
+            "caps": 129,
+            "goals": 50
+        },
+        "stats": {
+            "total_goals": 210,
+            "total_assists": 120,
+            "trophies_count": 4
+        }
     },
     "Harry Kane": {
         "name_th": "แฮร์รี่ เคน",
-        "aliases": ["เคน", "Kane", "พายุเคน", "HurriKane"],
+        "aliases": [
+            "HurriKane",
+            "พายุเคน",
+            "เคน",
+            "Kane"
+        ],
         "current_league": "Bundesliga",
         "current_team": "Bayern Munich",
-        "teams_history": ["Tottenham Hotspur", "Leicester City", "Norwich City", "Millwall", "Bayern Munich"],
-        "national_team": {"played": True, "team_name": "England", "caps": 100, "goals": 68},
-        "stats": {"total_goals": 410, "total_assists": 110, "trophies_count": 5},
+        "teams_history": [
+            "Tottenham Hotspur",
+            "Leicester City",
+            "Norwich City",
+            "Millwall",
+            "Bayern Munich"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "England",
+            "caps": 100,
+            "goals": 68
+        },
+        "stats": {
+            "total_goals": 410,
+            "total_assists": 110,
+            "trophies_count": 5
+        }
     },
     "Robert Lewandowski": {
         "name_th": "โรเบิร์ต เลวานดอฟสกี้",
-        "aliases": ["เลวาน", "Lewy", "เลวานดอฟสกี้", "Lewangoalski"],
+        "aliases": [
+            "Lewy",
+            "Lewangoalski",
+            "เลวาน",
+            "เลวานดอฟสกี้"
+        ],
         "current_league": "La Liga",
         "current_team": "FC Barcelona",
-        "teams_history": ["Lech Poznan", "Borussia Dortmund", "Bayern Munich", "FC Barcelona"],
-        "national_team": {"played": True, "team_name": "Poland", "caps": 154, "goals": 84},
-        "stats": {"total_goals": 650, "total_assists": 185, "trophies_count": 28},
+        "teams_history": [
+            "Lech Poznan",
+            "Borussia Dortmund",
+            "Bayern Munich",
+            "FC Barcelona"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Poland",
+            "caps": 154,
+            "goals": 84
+        },
+        "stats": {
+            "total_goals": 650,
+            "total_assists": 185,
+            "trophies_count": 28
+        }
     },
     "Lamine Yamal": {
         "name_th": "ลามีน ยามาล",
-        "aliases": ["ยามาล", "Yamal", "ดาวรุ่งบาร์ซ่า", "LY19"],
+        "aliases": [
+            "ดาวรุ่งบาร์ซ่า",
+            "Yamal",
+            "ยามาล",
+            "LY19"
+        ],
         "current_league": "La Liga",
         "current_team": "FC Barcelona",
-        "teams_history": ["FC Barcelona"],
-        "national_team": {"played": True, "team_name": "Spain", "caps": 17, "goals": 4},
-        "stats": {"total_goals": 20, "total_assists": 25, "trophies_count": 4},
+        "teams_history": [
+            "FC Barcelona"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 17,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 20,
+            "total_assists": 25,
+            "trophies_count": 4
+        }
     },
-    "Pedri": {
-        "name_th": "เปดรี",
-        "aliases": ["เปดรี", "Pedri", "เปดรี้", "Pedri Gonzalez"],
-        "current_league": "La Liga",
-        "current_team": "FC Barcelona",
-        "teams_history": ["Las Palmas", "FC Barcelona"],
-        "national_team": {"played": True, "team_name": "Spain", "caps": 30, "goals": 4},
-        "stats": {"total_goals": 30, "total_assists": 45, "trophies_count": 7},
+    "Pedrinho": {
+        "name_th": "เปดรี (เปโดร กอนซาเลซ)",
+        "aliases": [
+            "Pedri Gonzalez",
+            "เปดรี้",
+            "เปดรินโญ่",
+            "เปดรี",
+            "Pedri"
+        ],
+        "current_league": "N/A",
+        "current_team": "_Retired Soccer",
+        "teams_history": [
+            "_Retired Soccer"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 30,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 30,
+            "total_assists": 45,
+            "trophies_count": 7
+        }
     },
     "Phil Foden": {
         "name_th": "ฟิล โฟเดน",
-        "aliases": ["โฟเดน", "Foden", "Stockport Iniesta"],
+        "aliases": [
+            "โฟเดน",
+            "Foden",
+            "Stockport Iniesta"
+        ],
         "current_league": "Premier League",
         "current_team": "Manchester City",
-        "teams_history": ["Manchester City"],
-        "national_team": {"played": True, "team_name": "England", "caps": 41, "goals": 4},
-        "stats": {"total_goals": 95, "total_assists": 65, "trophies_count": 17},
+        "teams_history": [
+            "Manchester City"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "England",
+            "caps": 41,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 95,
+            "total_assists": 65,
+            "trophies_count": 17
+        }
     },
     "Bukayo Saka": {
         "name_th": "บูกาโย ซากา",
-        "aliases": ["ซากา", "Saka", "Starboy", "ซาก้า"],
+        "aliases": [
+            "ซาก้า",
+            "Starboy",
+            "Saka",
+            "ซากา"
+        ],
         "current_league": "Premier League",
         "current_team": "Arsenal",
-        "teams_history": ["Arsenal"],
-        "national_team": {"played": True, "team_name": "England", "caps": 42, "goals": 12},
-        "stats": {"total_goals": 75, "total_assists": 65, "trophies_count": 5},
+        "teams_history": [
+            "Arsenal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "England",
+            "caps": 42,
+            "goals": 12
+        },
+        "stats": {
+            "total_goals": 75,
+            "total_assists": 65,
+            "trophies_count": 5
+        }
     },
-    "Rodri": {
-        "name_th": "โรดรี",
-        "aliases": ["โรดรี", "Rodri", "บัลลงดอร์ 2024", "Rodrigo"],
-        "current_league": "Premier League",
+    "Jay Rodriguez": {
+        "name_th": "โรดรี (โรดริโก เอร์นานเดซ)",
+        "aliases": [
+            "Rodri",
+            "บัลลงดอร์ 2024",
+            "โรดรี",
+            "Rodrigo"
+        ],
+        "current_league": "N/A",
+        "current_team": "_Free Agent Soccer",
+        "teams_history": [
+            "_Free Agent Soccer"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 56,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 40,
+            "total_assists": 45,
+            "trophies_count": 18
+        }
+    },
+    "Rúben Dias": {
+        "name_th": "รูเบน ดิอาส",
+        "aliases": [
+            "Dias",
+            "รูเบน ดิอาส",
+            "ดิอาส"
+        ],
+        "current_league": "N/A",
         "current_team": "Manchester City",
-        "teams_history": ["Villarreal", "Atletico Madrid", "Manchester City"],
-        "national_team": {"played": True, "team_name": "Spain", "caps": 56, "goals": 4},
-        "stats": {"total_goals": 40, "total_assists": 45, "trophies_count": 18},
+        "teams_history": [
+            "Manchester City"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Portugal",
+            "caps": 60,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 15,
+            "total_assists": 18,
+            "trophies_count": 15
+        }
     },
-    "Virgil van Dijk": {
-        "name_th": "เฟอร์จิล ฟาน ไดจ์ค",
-        "aliases": ["ฟาน ไดจ์ค", "VVD", "ฟานไดจ์", "ยักษ์ดัตช์"],
-        "current_league": "Premier League",
+    "Bernardo Silva": {
+        "name_th": "แบร์นาร์โด ซิลวา",
+        "aliases": [
+            "พ่อมดโปรตุกีส",
+            "แบร์นาร์โด",
+            "Bernardo"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Portugal",
+            "caps": 93,
+            "goals": 12
+        },
+        "stats": {
+            "total_goals": 90,
+            "total_assists": 110,
+            "trophies_count": 20
+        }
+    },
+    "Karim Benzema": {
+        "name_th": "คาริม เบนเซม่า",
+        "aliases": [
+            "KB9",
+            "เบนซ์",
+            "คาริม",
+            "Benzema",
+            "เบนเซม่า"
+        ],
+        "current_league": "N/A",
+        "current_team": "Al-Hilal",
+        "teams_history": [
+            "Al-Hilal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 97,
+            "goals": 37
+        },
+        "stats": {
+            "total_goals": 470,
+            "total_assists": 210,
+            "trophies_count": 33
+        }
+    },
+    "Antoine Griezmann": {
+        "name_th": "อ็องตวน กรีซมันน์",
+        "aliases": [
+            "Griezmann",
+            "กรีซมันน์",
+            "Grizou",
+            "กริซมันน์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Orlando City",
+        "teams_history": [
+            "Orlando City"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 137,
+            "goals": 44
+        },
+        "stats": {
+            "total_goals": 260,
+            "total_assists": 130,
+            "trophies_count": 15
+        }
+    },
+    "Ousmane Dembélé": {
+        "name_th": "อุสมาน เดมเบเล่",
+        "aliases": [
+            "เดมเบเล",
+            "Dembele",
+            "เดมเบเล่"
+        ],
+        "current_league": "N/A",
+        "current_team": "Paris SG",
+        "teams_history": [
+            "Paris SG"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 51,
+            "goals": 6
+        },
+        "stats": {
+            "total_goals": 85,
+            "total_assists": 110,
+            "trophies_count": 12
+        }
+    },
+    "Olivier Giroud": {
+        "name_th": "โอลิวิเยร์ ชิรูด์",
+        "aliases": [
+            "ชิรู",
+            "Giroud",
+            "หล่อเหลา",
+            "ชิรูด์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Lille",
+        "teams_history": [
+            "Lille"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 137,
+            "goals": 57
+        },
+        "stats": {
+            "total_goals": 340,
+            "total_assists": 95,
+            "trophies_count": 15
+        }
+    },
+    "Romelu Lukaku": {
+        "name_th": "โรเมลู ลูกากู",
+        "aliases": [
+            "ลูกากู",
+            "Lukaku",
+            "ตู้เย็น",
+            "บิ๊กรอม"
+        ],
+        "current_league": "N/A",
+        "current_team": "Fenerbahçe",
+        "teams_history": [
+            "Fenerbahçe"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Belgium",
+            "caps": 119,
+            "goals": 85
+        },
+        "stats": {
+            "total_goals": 380,
+            "total_assists": 105,
+            "trophies_count": 7
+        }
+    },
+    "Lautaro Martínez": {
+        "name_th": "เลาตาโร มาร์ติเนซ",
+        "aliases": [
+            "Lautaro",
+            "เลาตาโร",
+            "มาร์ติเนซ",
+            "เอล โทโร่"
+        ],
+        "current_league": "N/A",
+        "current_team": "Inter Milan",
+        "teams_history": [
+            "Inter Milan"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 68,
+            "goals": 32
+        },
+        "stats": {
+            "total_goals": 180,
+            "total_assists": 60,
+            "trophies_count": 12
+        }
+    },
+    "Paulo Dybala": {
+        "name_th": "เปาโล ดีบาลา",
+        "aliases": [
+            "Dybala",
+            "ดีบาล่า",
+            "La Joya",
+            "ดีบาลา"
+        ],
+        "current_league": "N/A",
+        "current_team": "Roma",
+        "teams_history": [
+            "Roma"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 38,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 190,
+            "total_assists": 85,
+            "trophies_count": 14
+        }
+    },
+    "Julián Álvarez": {
+        "name_th": "ฮูเลียน อัลวาเรซ",
+        "aliases": [
+            "อัลบาเรซ",
+            "ไอ้แมงมุม",
+            "Julian Alvarez",
+            "อัลวาเรซ",
+            "Spider"
+        ],
+        "current_league": "N/A",
+        "current_team": "Atlético Madrid",
+        "teams_history": [
+            "Atlético Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 36,
+            "goals": 9
+        },
+        "stats": {
+            "total_goals": 105,
+            "total_assists": 60,
+            "trophies_count": 14
+        }
+    },
+    "Alexis Mac Allister": {
+        "name_th": "อเล็กซิส แม็ค อัลลิสเตอร์",
+        "aliases": [
+            "แม็ค อัลลิสเตอร์",
+            "แม็คก้า",
+            "Mac Allister"
+        ],
+        "current_league": "N/A",
         "current_team": "Liverpool",
-        "teams_history": ["Groningen", "Celtic", "Southampton", "Liverpool"],
-        "national_team": {"played": True, "team_name": "Netherlands", "caps": 75, "goals": 9},
-        "stats": {"total_goals": 55, "total_assists": 25, "trophies_count": 12},
+        "teams_history": [
+            "Liverpool"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 31,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 65,
+            "total_assists": 45,
+            "trophies_count": 8
+        }
     },
-    "Trent Alexander-Arnold": {
-        "name_th": "เทรนต์ อเล็กซานเดอร์-อาร์โนลด์",
-        "aliases": ["เทรนต์", "TAA", "เทรนต์ 66", "Trent"],
-        "current_league": "Premier League",
-        "current_team": "Liverpool",
-        "teams_history": ["Liverpool"],
-        "national_team": {"played": True, "team_name": "England", "caps": 31, "goals": 4},
-        "stats": {"total_goals": 25, "total_assists": 90, "trophies_count": 9},
+    "Enzo Fernández": {
+        "name_th": "เอ็นโซ เฟร์นานเดซ",
+        "aliases": [
+            "เฟร์นานเดซ",
+            "Enzo",
+            "เอ็นโซ",
+            "เอนโซ"
+        ],
+        "current_league": "N/A",
+        "current_team": "Chelsea",
+        "teams_history": [
+            "Chelsea"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 28,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 30,
+            "total_assists": 45,
+            "trophies_count": 6
+        }
     },
-    "Alisson": {
-        "name_th": "อลิสซอน เบ็คเกอร์",
-        "aliases": ["อลิสซอน", "Alisson", "พ่อหมี", "Alisson Becker"],
-        "current_league": "Premier League",
-        "current_team": "Liverpool",
-        "teams_history": ["Internacional", "Roma", "Liverpool"],
-        "national_team": {"played": True, "team_name": "Brazil", "caps": 70, "goals": 1},
-        "stats": {"total_goals": 1, "total_assists": 5, "trophies_count": 10},
+    "Richarlison": {
+        "name_th": "ริชาร์ลิซอน",
+        "aliases": [
+            "Pigeon",
+            "เจ้านกพิราบ",
+            "Richarlison",
+            "ริชาร์ลิซอน"
+        ],
+        "current_league": "N/A",
+        "current_team": "Tottenham Hotspur",
+        "teams_history": [
+            "Tottenham Hotspur"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 48,
+            "goals": 20
+        },
+        "stats": {
+            "total_goals": 115,
+            "total_assists": 40,
+            "trophies_count": 5
+        }
     },
-    "Manuel Neuer": {
-        "name_th": "มานูเอล นอยเออร์",
-        "aliases": ["นอยเออร์", "Neuer", "สวีปเปอร์คีปเปอร์", "กำแพงเบอร์ลิน"],
-        "current_league": "Bundesliga",
+    "Gabriel Martinelli": {
+        "name_th": "กาเบรียล มาร์ติเนลลี",
+        "aliases": [
+            "Martinelli",
+            "มาร์ติเนลลี",
+            "Gabi"
+        ],
+        "current_league": "N/A",
+        "current_team": "Arsenal",
+        "teams_history": [
+            "Arsenal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 14,
+            "goals": 2
+        },
+        "stats": {
+            "total_goals": 80,
+            "total_assists": 55,
+            "trophies_count": 6
+        }
+    },
+    "Leandro Trossard": {
+        "name_th": "เลอันโดร ทรอสซาร์",
+        "aliases": [
+            "ทรอสซาร์",
+            "Trossard",
+            "ทรอสซาร์ด"
+        ],
+        "current_league": "N/A",
+        "current_team": "Beşiktaş",
+        "teams_history": [
+            "Beşiktaş"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Belgium",
+            "caps": 39,
+            "goals": 9
+        },
+        "stats": {
+            "total_goals": 95,
+            "total_assists": 60,
+            "trophies_count": 4
+        }
+    },
+    "Kai Havertz": {
+        "name_th": "ไค ฮาแวร์ตซ์",
+        "aliases": [
+            "King Kai",
+            "ฮาแวร์ตซ",
+            "Havertz",
+            "ฮาแวร์ตซ์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Arsenal",
+        "teams_history": [
+            "Arsenal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Germany",
+            "caps": 51,
+            "goals": 19
+        },
+        "stats": {
+            "total_goals": 105,
+            "total_assists": 60,
+            "trophies_count": 8
+        }
+    },
+    "Thomas Müller": {
+        "name_th": "โธมัส มุลเลอร์",
+        "aliases": [
+            "มุลเล่อร์",
+            "Radio Muller",
+            "มุลเลอร์",
+            "Muller"
+        ],
+        "current_league": "N/A",
+        "current_team": "Vancouver Whitecaps",
+        "teams_history": [
+            "Vancouver Whitecaps"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Germany",
+            "caps": 131,
+            "goals": 45
+        },
+        "stats": {
+            "total_goals": 280,
+            "total_assists": 270,
+            "trophies_count": 33
+        }
+    },
+    "Serge Gnabry": {
+        "name_th": "แซร์จ กนาบรี้",
+        "aliases": [
+            "กนาบรี้",
+            "เชฟกนาบรี้",
+            "Gnabry",
+            "กนาบรี"
+        ],
+        "current_league": "N/A",
         "current_team": "Bayern Munich",
-        "teams_history": ["Schalke 04", "Bayern Munich"],
-        "national_team": {"played": True, "team_name": "Germany", "caps": 124, "goals": 0},
-        "stats": {"total_goals": 0, "total_assists": 12, "trophies_count": 32},
+        "teams_history": [
+            "Bayern Munich"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Germany",
+            "caps": 45,
+            "goals": 22
+        },
+        "stats": {
+            "total_goals": 130,
+            "total_assists": 70,
+            "trophies_count": 16
+        }
+    },
+    "Leroy Sané": {
+        "name_th": "เลรอย ซาเน่",
+        "aliases": [
+            "Sane",
+            "ซาเน",
+            "ซาเน่"
+        ],
+        "current_league": "N/A",
+        "current_team": "Galatasaray",
+        "teams_history": [
+            "Galatasaray"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Germany",
+            "caps": 65,
+            "goals": 13
+        },
+        "stats": {
+            "total_goals": 120,
+            "total_assists": 115,
+            "trophies_count": 18
+        }
+    },
+    "Toni Kroos": {
+        "name_th": "โทนี่ โครส",
+        "aliases": [
+            "Kroos",
+            "สไนเปอร์",
+            "โครส",
+            "คุณชายโครส"
+        ],
+        "current_league": "N/A",
+        "current_team": "_Retired Soccer",
+        "teams_history": [
+            "_Retired Soccer"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Germany",
+            "caps": 114,
+            "goals": 17
+        },
+        "stats": {
+            "total_goals": 75,
+            "total_assists": 160,
+            "trophies_count": 34
+        }
+    },
+    "Federico Valverde": {
+        "name_th": "เฟเดริโก บัลเบร์เด",
+        "aliases": [
+            "Valverde",
+            "บัลเบร์เด",
+            "เอล ปาฮาริโต้"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Uruguay",
+            "caps": 62,
+            "goals": 7
+        },
+        "stats": {
+            "total_goals": 55,
+            "total_assists": 60,
+            "trophies_count": 14
+        }
+    },
+    "Eduardo Camavinga": {
+        "name_th": "เอดูอาร์โด กามาวินก้า",
+        "aliases": [
+            "Camavinga",
+            "กามาวินก้า",
+            "คามาวิงก้า"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 23,
+            "goals": 1
+        },
+        "stats": {
+            "total_goals": 20,
+            "total_assists": 30,
+            "trophies_count": 10
+        }
+    },
+    "Aurélien Tchouaméni": {
+        "name_th": "โอเรเลียง ชูอาเมนี่",
+        "aliases": [
+            "ชูอาเมนี่",
+            "ชูอาเมนิ",
+            "Tchouameni"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 36,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 25,
+            "total_assists": 25,
+            "trophies_count": 8
+        }
+    },
+    "Éder Militão": {
+        "name_th": "เอแดร์ มิลิเตา",
+        "aliases": [
+            "มิลิเตา",
+            "เอแดร์",
+            "Militao"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 35,
+            "goals": 2
+        },
+        "stats": {
+            "total_goals": 20,
+            "total_assists": 15,
+            "trophies_count": 12
+        }
+    },
+    "Ferland Mendy": {
+        "name_th": "แฟร์ล็องด์ เมนดี้",
+        "aliases": [
+            "Mendy",
+            "เมนดี",
+            "เมนดี้"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 10,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 10,
+            "total_assists": 20,
+            "trophies_count": 10
+        }
+    },
+    "Daniel Carvajal": {
+        "name_th": "ดานี่ การ์บาฆาล",
+        "aliases": [
+            "คาร์วาฮาล",
+            "การ์บาฆาล",
+            "Carvajal"
+        ],
+        "current_league": "N/A",
+        "current_team": "_Retired Soccer",
+        "teams_history": [
+            "_Retired Soccer"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 49,
+            "goals": 1
+        },
+        "stats": {
+            "total_goals": 15,
+            "total_assists": 65,
+            "trophies_count": 26
+        }
+    },
+    "Gavin Gunning": {
+        "name_th": "กาบี (ปาโบล ปาเอซ)",
+        "aliases": [
+            "กาบี",
+            "Gavi",
+            "Pablo Gavi",
+            "กาบี้"
+        ],
+        "current_league": "N/A",
+        "current_team": "Gloucester City",
+        "teams_history": [
+            "Gloucester City"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 27,
+            "goals": 5
+        },
+        "stats": {
+            "total_goals": 25,
+            "total_assists": 40,
+            "trophies_count": 6
+        }
+    },
+    "Ferran Torres": {
+        "name_th": "เฟร์ราน ตอร์เรส",
+        "aliases": [
+            "Ferran",
+            "ฉลามตอร์เรส",
+            "ตอร์เรส"
+        ],
+        "current_league": "N/A",
+        "current_team": "Paris Saint-Germain",
+        "teams_history": [
+            "Paris Saint-Germain"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 46,
+            "goals": 20
+        },
+        "stats": {
+            "total_goals": 85,
+            "total_assists": 45,
+            "trophies_count": 8
+        }
+    },
+    "Ansu Fati": {
+        "name_th": "อันซู ฟาติ",
+        "aliases": [
+            "ฟาติ",
+            "Ansu Fati",
+            "ฟาตี้"
+        ],
+        "current_league": "N/A",
+        "current_team": "Monaco",
+        "teams_history": [
+            "Monaco"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 10,
+            "goals": 2
+        },
+        "stats": {
+            "total_goals": 40,
+            "total_assists": 20,
+            "trophies_count": 5
+        }
+    },
+    "İlkay Gündoğan": {
+        "name_th": "อิลคาย กุนโดกัน",
+        "aliases": [
+            "กุนโดกาน",
+            "กุนโดกัน",
+            "Gundogan"
+        ],
+        "current_league": "N/A",
+        "current_team": "Galatasaray",
+        "teams_history": [
+            "Galatasaray"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Germany",
+            "caps": 82,
+            "goals": 19
+        },
+        "stats": {
+            "total_goals": 115,
+            "total_assists": 80,
+            "trophies_count": 18
+        }
+    },
+    "Thiago Silva": {
+        "name_th": "ติอาโก ซิลวา",
+        "aliases": [
+            "กัปตันซิลวา",
+            "ติอาโก ซิลวา",
+            "Thiago Silva"
+        ],
+        "current_league": "N/A",
+        "current_team": "Fluminense",
+        "teams_history": [
+            "Fluminense"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 113,
+            "goals": 7
+        },
+        "stats": {
+            "total_goals": 40,
+            "total_assists": 20,
+            "trophies_count": 32
+        }
+    },
+    "Marquinhos": {
+        "name_th": "มาร์กินญอส",
+        "aliases": [
+            "มาร์กินญอส",
+            "กัปตันมาร์กี้",
+            "Marquinhos"
+        ],
+        "current_league": "N/A",
+        "current_team": "Paris SG",
+        "teams_history": [
+            "Paris SG"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 89,
+            "goals": 7
+        },
+        "stats": {
+            "total_goals": 45,
+            "total_assists": 15,
+            "trophies_count": 30
+        }
+    },
+    "Danilo": {
+        "name_th": "ดานิโล",
+        "aliases": [
+            "ดานิโล่",
+            "Danilo",
+            "ดานิโล"
+        ],
+        "current_league": "N/A",
+        "current_team": "Flamengo",
+        "teams_history": [
+            "Flamengo"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 60,
+            "goals": 1
+        },
+        "stats": {
+            "total_goals": 30,
+            "total_assists": 35,
+            "trophies_count": 25
+        }
+    },
+    "Raphinha": {
+        "name_th": "ราฟินญ่า",
+        "aliases": [
+            "ราฟินญา",
+            "Raphinha",
+            "ราฟินญ่า"
+        ],
+        "current_league": "N/A",
+        "current_team": "Barcelona",
+        "teams_history": [
+            "Barcelona"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 27,
+            "goals": 7
+        },
+        "stats": {
+            "total_goals": 135,
+            "total_assists": 90,
+            "trophies_count": 8
+        }
+    },
+    "Cody Gakpo": {
+        "name_th": "โคดี้ กัคโป",
+        "aliases": [
+            "คักโป",
+            "Gakpo",
+            "กัคโป"
+        ],
+        "current_league": "N/A",
+        "current_team": "Liverpool",
+        "teams_history": [
+            "Liverpool"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Netherlands",
+            "caps": 34,
+            "goals": 13
+        },
+        "stats": {
+            "total_goals": 100,
+            "total_assists": 75,
+            "trophies_count": 6
+        }
+    },
+    "Darwin Núñez": {
+        "name_th": "ดาร์วิน นูนเญซ",
+        "aliases": [
+            "กัปตันหนวด",
+            "นูนเญซ",
+            "Darwin",
+            "หนูน"
+        ],
+        "current_league": "N/A",
+        "current_team": "Al-Hilal",
+        "teams_history": [
+            "Al-Hilal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Uruguay",
+            "caps": 29,
+            "goals": 13
+        },
+        "stats": {
+            "total_goals": 110,
+            "total_assists": 40,
+            "trophies_count": 5
+        }
+    },
+    "Diogo Jota": {
+        "name_th": "ดิโอโก้ โชต้า",
+        "aliases": [
+            "โชต้า",
+            "Jota",
+            "ดิโอโก้"
+        ],
+        "current_league": "N/A",
+        "current_team": "_Deceased Soccer",
+        "teams_history": [
+            "_Deceased Soccer"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Portugal",
+            "caps": 42,
+            "goals": 14
+        },
+        "stats": {
+            "total_goals": 120,
+            "total_assists": 55,
+            "trophies_count": 7
+        }
+    },
+    "Luis Díaz": {
+        "name_th": "หลุยส์ ดิอาซ",
+        "aliases": [
+            "ลูโช่",
+            "ดิอาซ",
+            "Luis Diaz"
+        ],
+        "current_league": "N/A",
+        "current_team": "Bayern Munich",
+        "teams_history": [
+            "Bayern Munich"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Colombia",
+            "caps": 55,
+            "goals": 15
+        },
+        "stats": {
+            "total_goals": 85,
+            "total_assists": 45,
+            "trophies_count": 9
+        }
+    },
+    "Andrew Robertson": {
+        "name_th": "แอนดรูว์ โรเบิร์ตสัน",
+        "aliases": [
+            "Robertson",
+            "ร็อบโบ้",
+            "โรเบิร์ตสัน"
+        ],
+        "current_league": "N/A",
+        "current_team": "Tottenham Hotspur",
+        "teams_history": [
+            "Tottenham Hotspur"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Scotland",
+            "caps": 74,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 15,
+            "total_assists": 85,
+            "trophies_count": 9
+        }
+    },
+    "Martin Ødegaard": {
+        "name_th": "มาร์ติน โอเดการ์ด",
+        "aliases": [
+            "Odegaard",
+            "กัปตันโอเด",
+            "โอเดการ์ด"
+        ],
+        "current_league": "N/A",
+        "current_team": "Arsenal",
+        "teams_history": [
+            "Arsenal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Norway",
+            "caps": 59,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 75,
+            "total_assists": 80,
+            "trophies_count": 7
+        }
+    },
+    "Gabriel Jesus": {
+        "name_th": "กาเบรียล เชซุส",
+        "aliases": [
+            "เชซุส",
+            "กาเบรียล เชซุส",
+            "Jesus"
+        ],
+        "current_league": "N/A",
+        "current_team": "Arsenal",
+        "teams_history": [
+            "Arsenal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 64,
+            "goals": 19
+        },
+        "stats": {
+            "total_goals": 145,
+            "total_assists": 65,
+            "trophies_count": 12
+        }
+    },
+    "Gabriel": {
+        "name_th": "กาเบรียล มากัลเญส",
+        "aliases": [
+            "กาเบรียล",
+            "Big Gabi",
+            "มากัลเญส"
+        ],
+        "current_league": "N/A",
+        "current_team": "Arsenal",
+        "teams_history": [
+            "Arsenal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 9,
+            "goals": 1
+        },
+        "stats": {
+            "total_goals": 20,
+            "total_assists": 5,
+            "trophies_count": 4
+        }
+    },
+    "William Saliba": {
+        "name_th": "วิลเลียม ซาลิบา",
+        "aliases": [
+            "วิลลี่",
+            "Saliba",
+            "ซาลิบา"
+        ],
+        "current_league": "N/A",
+        "current_team": "Arsenal",
+        "teams_history": [
+            "Arsenal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 23,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 10,
+            "total_assists": 10,
+            "trophies_count": 5
+        }
+    },
+    "Granit Xhaka": {
+        "name_th": "กรานิต ชาก้า",
+        "aliases": [
+            "ชาก้า",
+            "กัปตันชาก้า",
+            "Xhaka"
+        ],
+        "current_league": "N/A",
+        "current_team": "Sunderland",
+        "teams_history": [
+            "Sunderland"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Switzerland",
+            "caps": 130,
+            "goals": 14
+        },
+        "stats": {
+            "total_goals": 45,
+            "total_assists": 55,
+            "trophies_count": 10
+        }
+    },
+    "Nicolo Barella": {
+        "name_th": "นิโคโล บาเรลล่า",
+        "aliases": [
+            "บาเรลล่า",
+            "Barella",
+            "บาเรลลา"
+        ],
+        "current_league": "N/A",
+        "current_team": "Inter Milan",
+        "teams_history": [
+            "Inter Milan"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Italy",
+            "caps": 57,
+            "goals": 10
+        },
+        "stats": {
+            "total_goals": 40,
+            "total_assists": 70,
+            "trophies_count": 8
+        }
+    },
+    "Federico Chiesa": {
+        "name_th": "เฟเดริโก เคียซ่า",
+        "aliases": [
+            "Chiesa",
+            "เคียซา",
+            "เคียซ่า"
+        ],
+        "current_league": "N/A",
+        "current_team": "Liverpool",
+        "teams_history": [
+            "Liverpool"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Italy",
+            "caps": 51,
+            "goals": 7
+        },
+        "stats": {
+            "total_goals": 70,
+            "total_assists": 50,
+            "trophies_count": 6
+        }
+    },
+    "Gianluigi Donnarumma": {
+        "name_th": "จานลุยจิ ดอนนารุมมา",
+        "aliases": [
+            "ดอนนารุมมา",
+            "Donnarumma",
+            "จิจิโอ้"
+        ],
+        "current_league": "N/A",
+        "current_team": "Manchester City",
+        "teams_history": [
+            "Manchester City"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Italy",
+            "caps": 66,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 0,
+            "total_assists": 0,
+            "trophies_count": 8
+        }
+    },
+    "Théo Hernandez": {
+        "name_th": "เตโอ แอร์น็องเดซ",
+        "aliases": [
+            "เตโอ้",
+            "เตโอ",
+            "Theo Hernandez"
+        ],
+        "current_league": "N/A",
+        "current_team": "Al-Hilal",
+        "teams_history": [
+            "Al-Hilal"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 33,
+            "goals": 2
+        },
+        "stats": {
+            "total_goals": 60,
+            "total_assists": 70,
+            "trophies_count": 8
+        }
+    },
+    "Mike Maignan": {
+        "name_th": "ไมค์ เมญ็อง",
+        "aliases": [
+            "Maignan",
+            "ไมค์",
+            "เมญ็อง"
+        ],
+        "current_league": "N/A",
+        "current_team": "AC Milan",
+        "teams_history": [
+            "AC Milan"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 22,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 0,
+            "total_assists": 2,
+            "trophies_count": 6
+        }
+    },
+    "Rafael Leão": {
+        "name_th": "ราฟาเอล เลเอา",
+        "aliases": [
+            "Leao",
+            "ราฟาเอล",
+            "เลเอา"
+        ],
+        "current_league": "N/A",
+        "current_team": "AC Milan",
+        "teams_history": [
+            "AC Milan"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Portugal",
+            "caps": 31,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 95,
+            "total_assists": 80,
+            "trophies_count": 8
+        }
+    },
+    "Hakan Çalhanoğlu": {
+        "name_th": "ฮาคาน ชัลฮาโนกลู",
+        "aliases": [
+            "ฮาคาน",
+            "ชัลฮาโนกลู",
+            "Calhanoglu"
+        ],
+        "current_league": "N/A",
+        "current_team": "Inter Milan",
+        "teams_history": [
+            "Inter Milan"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Turkey",
+            "caps": 90,
+            "goals": 19
+        },
+        "stats": {
+            "total_goals": 110,
+            "total_assists": 125,
+            "trophies_count": 9
+        }
+    },
+    "Khvicha Kvaratskhelia": {
+        "name_th": "ควิชา ควารัตสเคเลีย",
+        "aliases": [
+            "ควาราดอนน่า",
+            "ควารัตสเคเลีย",
+            "Kvara"
+        ],
+        "current_league": "N/A",
+        "current_team": "Paris SG",
+        "teams_history": [
+            "Paris SG"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Georgia",
+            "caps": 34,
+            "goals": 16
+        },
+        "stats": {
+            "total_goals": 75,
+            "total_assists": 80,
+            "trophies_count": 6
+        }
+    },
+    "Victor Osimhen": {
+        "name_th": "วิคเตอร์ โอซิมเฮน",
+        "aliases": [
+            "Osimhen",
+            "โอซิมเฮน",
+            "หน้ากากโอซิมเฮน"
+        ],
+        "current_league": "N/A",
+        "current_team": "Galatasaray",
+        "teams_history": [
+            "Galatasaray"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Nigeria",
+            "caps": 35,
+            "goals": 21
+        },
+        "stats": {
+            "total_goals": 125,
+            "total_assists": 40,
+            "trophies_count": 8
+        }
+    },
+    "Min-jae Kim": {
+        "name_th": "คิม มิน-แจ",
+        "aliases": [
+            "เดอะมอนสเตอร์",
+            "Kim Min-jae",
+            "คิม มินแจ"
+        ],
+        "current_league": "N/A",
+        "current_team": "Bayern Munich",
+        "teams_history": [
+            "Bayern Munich"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "South Korea",
+            "caps": 63,
+            "goals": 4
+        },
+        "stats": {
+            "total_goals": 10,
+            "total_assists": 8,
+            "trophies_count": 6
+        }
+    },
+    "Christian Pulisic": {
+        "name_th": "คริสเตียน พูลิซิช",
+        "aliases": [
+            "Pulisic",
+            "พูลิซิช",
+            "กัปตันอเมริกา"
+        ],
+        "current_league": "N/A",
+        "current_team": "AC Milan",
+        "teams_history": [
+            "AC Milan"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "USA",
+            "caps": 71,
+            "goals": 30
+        },
+        "stats": {
+            "total_goals": 85,
+            "total_assists": 70,
+            "trophies_count": 8
+        }
+    },
+    "Tijjani Reijnders": {
+        "name_th": "ทิยานี่ ไรน์เดอร์ส",
+        "aliases": [
+            "Reijnders",
+            "ทิยานี่",
+            "ไรน์เดอร์ส"
+        ],
+        "current_league": "N/A",
+        "current_team": "Al-Qadsiah",
+        "teams_history": [
+            "Al-Qadsiah"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Netherlands",
+            "caps": 17,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 30,
+            "total_assists": 35,
+            "trophies_count": 4
+        }
+    },
+    "Pedro Neto": {
+        "name_th": "เปโดร เนโต้",
+        "aliases": [
+            "Neto",
+            "เนโต้",
+            "เปโดร"
+        ],
+        "current_league": "N/A",
+        "current_team": "Chelsea",
+        "teams_history": [
+            "Chelsea"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Portugal",
+            "caps": 10,
+            "goals": 1
+        },
+        "stats": {
+            "total_goals": 35,
+            "total_assists": 45,
+            "trophies_count": 3
+        }
     },
     "Cole Palmer": {
         "name_th": "โคล พาล์เมอร์",
-        "aliases": ["พาล์เมอร์", "Cold Palmer", "Palmer", "ไอ้หนาว"],
+        "aliases": [
+            "Cold Palmer",
+            "พาล์เมอร์",
+            "Palmer",
+            "ไอ้หนาว"
+        ],
         "current_league": "Premier League",
         "current_team": "Chelsea",
-        "teams_history": ["Manchester City", "Chelsea"],
-        "national_team": {"played": True, "team_name": "England", "caps": 9, "goals": 2},
-        "stats": {"total_goals": 40, "total_assists": 25, "trophies_count": 6},
+        "teams_history": [
+            "Manchester City",
+            "Chelsea"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "England",
+            "caps": 9,
+            "goals": 2
+        },
+        "stats": {
+            "total_goals": 40,
+            "total_assists": 25,
+            "trophies_count": 6
+        }
     },
+    "Moisés Caicedo": {
+        "name_th": "มอยเซส ไคเซโด้",
+        "aliases": [
+            "Caicedo",
+            "ไคเซโด้",
+            "มอยเซส"
+        ],
+        "current_league": "N/A",
+        "current_team": "Chelsea",
+        "teams_history": [
+            "Chelsea"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Ecuador",
+            "caps": 46,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 12,
+            "total_assists": 20,
+            "trophies_count": 4
+        }
+    },
+    "Reece James": {
+        "name_th": "รีซ เจมส์",
+        "aliases": [
+            "Reece James",
+            "รีซ เจมส์",
+            "กัปตันเจมส์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Rotherham United",
+        "teams_history": [
+            "Rotherham United"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "England",
+            "caps": 16,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 15,
+            "total_assists": 30,
+            "trophies_count": 6
+        }
+    },
+    "Marc Cucurella": {
+        "name_th": "มาร์ค กูกูเรย่า",
+        "aliases": [
+            "Cucurella",
+            "คูคูเรย่า",
+            "กูกูเรย่า"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 10,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 10,
+            "total_assists": 25,
+            "trophies_count": 5
+        }
+    },
+    "Alexis Sánchez": {
+        "name_th": "อเล็กซิส ซานเชซ",
+        "aliases": [
+            "Sanchez",
+            "อเล็กซิส",
+            "เอล นินโญ่ มาราวีย่า"
+        ],
+        "current_league": "N/A",
+        "current_team": "Sevilla",
+        "teams_history": [
+            "Sevilla"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Chile",
+            "caps": 166,
+            "goals": 51
+        },
+        "stats": {
+            "total_goals": 250,
+            "total_assists": 160,
+            "trophies_count": 20
+        }
+    },
+    "Edinson Cavani": {
+        "name_th": "เอดินสัน คาวานี่",
+        "aliases": [
+            "คาวานี่",
+            "Cavani",
+            "เอล มาทาดอร์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Boca Juniors",
+        "teams_history": [
+            "Boca Juniors"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Uruguay",
+            "caps": 136,
+            "goals": 58
+        },
+        "stats": {
+            "total_goals": 440,
+            "total_assists": 90,
+            "trophies_count": 25
+        }
+    },
+    "Luis Suárez": {
+        "name_th": "หลุยส์ ซัวเรซ",
+        "aliases": [
+            "Suarez",
+            "ซัวเรซ",
+            "เอล ปิสโตเลโร่",
+            "คิงหลุยส์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Inter Miami",
+        "teams_history": [
+            "Inter Miami"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Uruguay",
+            "caps": 143,
+            "goals": 69
+        },
+        "stats": {
+            "total_goals": 560,
+            "total_assists": 300,
+            "trophies_count": 26
+        }
+    },
+    "Sadio Mané": {
+        "name_th": "ซาดิโอ มาเน่",
+        "aliases": [
+            "Mane",
+            "ณเดชน์",
+            "มาเน่"
+        ],
+        "current_league": "N/A",
+        "current_team": "Al-Nassr",
+        "teams_history": [
+            "Al-Nassr"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Senegal",
+            "caps": 107,
+            "goals": 44
+        },
+        "stats": {
+            "total_goals": 260,
+            "total_assists": 140,
+            "trophies_count": 16
+        }
+    },
+    "Riyad Mahrez": {
+        "name_th": "ริยาด มาห์เรซ",
+        "aliases": [
+            "Mahrez",
+            "พ่อมดแอลจีเรีย",
+            "มาห์เรซ"
+        ],
+        "current_league": "N/A",
+        "current_team": "Al-Ahli",
+        "teams_history": [
+            "Al-Ahli"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Algeria",
+            "caps": 94,
+            "goals": 31
+        },
+        "stats": {
+            "total_goals": 200,
+            "total_assists": 170,
+            "trophies_count": 17
+        }
+    },
+    "N'Golo Kanté": {
+        "name_th": "เอ็นโกโล่ ก็องเต้",
+        "aliases": [
+            "ก็องเต้",
+            "ยอดมิดฟิลด์",
+            "Kante"
+        ],
+        "current_league": "N/A",
+        "current_team": "Fenerbahçe",
+        "teams_history": [
+            "Fenerbahçe"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 61,
+            "goals": 2
+        },
+        "stats": {
+            "total_goals": 35,
+            "total_assists": 40,
+            "trophies_count": 15
+        }
+    },
+    "Paul Pogba": {
+        "name_th": "ปอล ป็อกบา",
+        "aliases": [
+            "ป็อกบา",
+            "ป็อกบรูม",
+            "Pogba"
+        ],
+        "current_league": "N/A",
+        "current_team": "Monaco",
+        "teams_history": [
+            "Monaco"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 91,
+            "goals": 11
+        },
+        "stats": {
+            "total_goals": 95,
+            "total_assists": 110,
+            "trophies_count": 13
+        }
+    },
+    "Ángel Di María": {
+        "name_th": "อังเคล ดิ มาเรีย",
+        "aliases": [
+            "ดิ มาเรีย",
+            "Di Maria",
+            "เอล ฟิเดโอ้"
+        ],
+        "current_league": "N/A",
+        "current_team": "Rosario Central",
+        "teams_history": [
+            "Rosario Central"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 145,
+            "goals": 31
+        },
+        "stats": {
+            "total_goals": 200,
+            "total_assists": 270,
+            "trophies_count": 34
+        }
+    },
+    "David de Gea": {
+        "name_th": "ดาบิด เด เคอา",
+        "aliases": [
+            "หลวงพี่เด",
+            "De Gea",
+            "เด เคอา"
+        ],
+        "current_league": "N/A",
+        "current_team": "Fiorentina",
+        "teams_history": [
+            "Fiorentina"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Spain",
+            "caps": 45,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 0,
+            "total_assists": 1,
+            "trophies_count": 10
+        }
+    },
+    "Thibaut Courtois": {
+        "name_th": "ติโบต์ กูร์กตัวส์",
+        "aliases": [
+            "Courtois",
+            "กูร์ตัว",
+            "กูร์กตัวส์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Belgium",
+            "caps": 102,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 0,
+            "total_assists": 2,
+            "trophies_count": 20
+        }
+    },
+    "Jan Oblak": {
+        "name_th": "ยาน โอบลัค",
+        "aliases": [
+            "Oblak",
+            "โอบลัค",
+            "ยอดนายทวาร"
+        ],
+        "current_league": "N/A",
+        "current_team": "Atletico Madrid",
+        "teams_history": [
+            "Atletico Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Slovenia",
+            "caps": 68,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 0,
+            "total_assists": 3,
+            "trophies_count": 6
+        }
+    },
+    "Emiliano Martinez": {
+        "name_th": "เอมิเลียโน มาร์ติเนซ",
+        "aliases": [
+            "Emi Martinez",
+            "เอมิเลียโน่",
+            "ดิมี่",
+            "ดิมู"
+        ],
+        "current_league": "N/A",
+        "current_team": "Aston Villa",
+        "teams_history": [
+            "Aston Villa"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 45,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 0,
+            "total_assists": 1,
+            "trophies_count": 7
+        }
+    },
+    "Marc-André ter Stegen": {
+        "name_th": "มาร์ค-อันเดร แทร์ ชเตเก้น",
+        "aliases": [
+            "แทร์ ชเตเก้น",
+            "Ter Stegen",
+            "สเตเก้น"
+        ],
+        "current_league": "N/A",
+        "current_team": "Ajax",
+        "teams_history": [
+            "Ajax"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Germany",
+            "caps": 42,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 0,
+            "total_assists": 4,
+            "trophies_count": 17
+        }
+    },
+    "Alphonso Davies": {
+        "name_th": "อัลฟอนโซ เดวีส์",
+        "aliases": [
+            "Phonzie",
+            "เดวีส์"
+        ],
+        "current_league": "N/A",
+        "current_team": "Bayern Munich",
+        "teams_history": [
+            "Bayern Munich"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Canada",
+            "caps": 51,
+            "goals": 15
+        },
+        "stats": {
+            "total_goals": 30,
+            "total_assists": 50,
+            "trophies_count": 15
+        }
+    },
+    "Achraf Hakimi": {
+        "name_th": "อัชราฟ ฮาคิมี่",
+        "aliases": [
+            "ฮาคิมี่",
+            "Hakimi",
+            "ฮาคิมี"
+        ],
+        "current_league": "N/A",
+        "current_team": "Paris SG",
+        "teams_history": [
+            "Paris SG"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Morocco",
+            "caps": 77,
+            "goals": 9
+        },
+        "stats": {
+            "total_goals": 45,
+            "total_assists": 60,
+            "trophies_count": 12
+        }
+    },
+    "Lucas Hernandez": {
+        "name_th": "ลูกัส แอร์น็องเดซ",
+        "aliases": [
+            "Lucas Hernandez",
+            "ลูกัส",
+            "ลูคัส"
+        ],
+        "current_league": "N/A",
+        "current_team": "Paris SG",
+        "teams_history": [
+            "Paris SG"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "France",
+            "caps": 37,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 10,
+            "total_assists": 15,
+            "trophies_count": 14
+        }
+    },
+    "Alejandro Garnacho": {
+        "name_th": "อเลฮานโดร การ์นาโช่",
+        "aliases": [
+            "การ์นาโช",
+            "กานาโช่",
+            "Garnacho"
+        ],
+        "current_league": "N/A",
+        "current_team": "Aston Villa",
+        "teams_history": [
+            "Aston Villa"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Argentina",
+            "caps": 6,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 40,
+            "total_assists": 30,
+            "trophies_count": 4
+        }
+    },
+    "Kobbie Mainoo": {
+        "name_th": "ค็อบบี้ ไมนู",
+        "aliases": [
+            "Mainoo",
+            "น้องไมนู",
+            "ไมนู"
+        ],
+        "current_league": "N/A",
+        "current_team": "Manchester United",
+        "teams_history": [
+            "Manchester United"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "England",
+            "caps": 9,
+            "goals": 0
+        },
+        "stats": {
+            "total_goals": 15,
+            "total_assists": 15,
+            "trophies_count": 3
+        }
+    },
+    "Rasmus Højlund": {
+        "name_th": "ราสมุส ฮอยลุนด์",
+        "aliases": [
+            "ฮอยลุนด",
+            "ฮอยลุนด์",
+            "Hojlund"
+        ],
+        "current_league": "N/A",
+        "current_team": "Napoli",
+        "teams_history": [
+            "Napoli"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Denmark",
+            "caps": 18,
+            "goals": 7
+        },
+        "stats": {
+            "total_goals": 55,
+            "total_assists": 20,
+            "trophies_count": 3
+        }
+    },
+    "Amad Diallo": {
+        "name_th": "อาหมัด ดิยัลโล่",
+        "aliases": [
+            "Amad",
+            "อาหมัด",
+            "ดิยัลโล่"
+        ],
+        "current_league": "N/A",
+        "current_team": "Manchester United",
+        "teams_history": [
+            "Manchester United"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Ivory Coast",
+            "caps": 6,
+            "goals": 1
+        },
+        "stats": {
+            "total_goals": 35,
+            "total_assists": 25,
+            "trophies_count": 3
+        }
+    },
+    "Arda Güler": {
+        "name_th": "อาร์ดา กูแลร์",
+        "aliases": [
+            "เมสซี่ตุรกี",
+            "กูแลร์",
+            "Guler"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Turkey",
+            "caps": 12,
+            "goals": 2
+        },
+        "stats": {
+            "total_goals": 20,
+            "total_assists": 25,
+            "trophies_count": 5
+        }
+    },
+    "Endrick": {
+        "name_th": "เอ็นดริค",
+        "aliases": [
+            "Endrick",
+            "บ๊อบบี้",
+            "เอ็นดริค"
+        ],
+        "current_league": "N/A",
+        "current_team": "Real Madrid",
+        "teams_history": [
+            "Real Madrid"
+        ],
+        "national_team": {
+            "played": true,
+            "team_name": "Brazil",
+            "caps": 11,
+            "goals": 3
+        },
+        "stats": {
+            "total_goals": 35,
+            "total_assists": 15,
+            "trophies_count": 6
+        }
+    }
 }
+
+# แมปตัวอักษรพิเศษและสัญลักษณ์
+SPECIAL_CHAR_MAP = {
+    'ø': 'o', 'Ø': 'o', 'æ': 'ae', 'Æ': 'ae', 'ß': 'ss', 'đ': 'd', 'ð': 'd',
+    'ı': 'i', 'İ': 'i', 'ł': 'l', 'Ł': 'l'
+}
+
+def _clean_key(text: str) -> str:
+    if not text:
+        return ""
+    text_str = str(text)
+    for k, v in SPECIAL_CHAR_MAP.items():
+        text_str = text_str.replace(k, v)
+    import unicodedata
+    normalized = unicodedata.normalize('NFKD', text_str)
+    stripped = "".join(c for c in normalized if not unicodedata.combining(c))
+    return stripped.lower().strip()
+
+_KNOWN_METADATA_CLEANED = {_clean_key(k): v for k, v in KNOWN_METADATA.items()}
+
+def _find_metadata(name: str) -> dict[str, Any]:
+    key = _clean_key(name)
+    if key in _KNOWN_METADATA_CLEANED:
+        return _KNOWN_METADATA_CLEANED[key]
+    for mk, mv in _KNOWN_METADATA_CLEANED.items():
+        if mk in key or key in mk:
+            return mv
+    return {}
 
 # รายชื่อ 120 นักเตะที่จะ query จาก TheSportsDB
 PLAYER_SEARCH_LIST: list[str] = [
@@ -552,7 +2868,7 @@ def _normalize_player(raw: dict[str, Any], player_id: int, session: requests.Ses
     name_en = name_en.strip()
 
     # เช็คว่ามี metadata สำเร็จรูปไหม
-    meta = KNOWN_METADATA.get(name_en, {})
+    meta = _find_metadata(name_en)
 
     # ชื่อไทย
     name_th = meta.get("name_th") or raw.get("name_th") or raw.get("strPlayerAlternate") or name_en

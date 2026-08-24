@@ -3,12 +3,25 @@
     "id": 1,
     "name_en": "Lionel Messi",
     "name_th": "ลิโอเนล เมสซี่",
-    "aliases": ["เมสซี่", "La Pulga", "LM10", "The GOAT", "Messi"],
-    "age": 37,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
+    "aliases": [
+      "เมสซี่",
+      "ต่างดาว",
+      "Messi",
+      "The GOAT",
+      "LM10",
+      "La Pulga"
+    ],
+    "age": 38,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/kpfsvp1725295651.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/m4it3e1602103647.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
     "current_league": "Major League Soccer",
     "current_team": "Inter Miami CF",
-    "teams_history": ["FC Barcelona", "Paris Saint-Germain", "Inter Miami CF"],
+    "teams_history": [
+      "FC Barcelona",
+      "Paris Saint-Germain",
+      "Inter Miami CF"
+    ],
     "national_team": {
       "played": true,
       "team_name": "Argentina",
@@ -25,12 +38,28 @@
     "id": 2,
     "name_en": "Cristiano Ronaldo",
     "name_th": "คริสเตียโน โรนัลโด",
-    "aliases": ["CR7", "โรนัลโด", "The Portuguese", "Siuuu Guy"],
-    "age": 39,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
+    "aliases": [
+      "CR7",
+      "The Portuguese",
+      "พี่โด้",
+      "โรนัลโด",
+      "Siuuu",
+      "Ronaldo"
+    ],
+    "age": 40,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/bkre241600892282.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/84yvqi1748524565.png",
+    "flag_url": "https://flagcdn.com/w80/pt.png",
     "current_league": "Saudi Pro League",
     "current_team": "Al Nassr",
-    "teams_history": ["Sporting CP", "Manchester United", "Real Madrid", "Juventus", "Manchester United", "Al Nassr"],
+    "teams_history": [
+      "Sporting CP",
+      "Manchester United",
+      "Real Madrid",
+      "Juventus",
+      "Manchester United",
+      "Al Nassr"
+    ],
     "national_team": {
       "played": true,
       "team_name": "Portugal",
@@ -45,22 +74,33 @@
   },
   {
     "id": 3,
-    "name_en": "Kylian Mbappe",
-    "name_th": "กิลิอัน เอ็มบัปเป",
-    "aliases": ["เอ็มบัปเป", "KM7", "The French Phenom", "Donatello"],
-    "age": 25,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/2019-07-17_SG_Dynamo_Dresden_vs_Paris_Saint-Germain_by_Sandro_Halank%E2%80%93154_%28cropped%29.jpg",
-    "current_league": "La Liga",
+    "name_en": "Kylian Mbappé",
+    "name_th": "คีเลียน เอ็มบัปเป้",
+    "aliases": [
+      "ประธานเป้",
+      "เอ็มบัปเป้",
+      "Mbappe",
+      "KM7",
+      "เอ็มบัปเป",
+      "Donatello"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/v08cj31778816426.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
     "current_team": "Real Madrid",
-    "teams_history": ["AS Monaco", "Paris Saint-Germain", "Real Madrid"],
+    "teams_history": [
+      "Real Madrid"
+    ],
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 83,
+      "caps": 86,
       "goals": 48
     },
     "stats": {
-      "total_goals": 320,
+      "total_goals": 330,
       "total_assists": 195,
       "trophies_count": 18
     }
@@ -68,35 +108,63 @@
   {
     "id": 4,
     "name_en": "Erling Haaland",
-    "name_th": "เอร์ลิง ฮาลันด์",
-    "aliases": ["ฮาลันด์", "Cyborg", "The Norwegian Monster", "EH9"],
-    "age": 24,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Erling_Haaland_%28cropped%29.jpg",
+    "name_th": "เออร์ลิง ฮาแลนด์",
+    "aliases": [
+      "จอมมารบลู",
+      "Cyborg",
+      "Haaland",
+      "ฮาลันด์",
+      "ฮาแลนด์",
+      "EH9"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/bb1agj1727415216.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+    "flag_url": "https://flagcdn.com/w80/no.png",
     "current_league": "Premier League",
     "current_team": "Manchester City",
-    "teams_history": ["Molde", "Red Bull Salzburg", "Borussia Dortmund", "Manchester City"],
+    "teams_history": [
+      "Bryne",
+      "Molde",
+      "Red Bull Salzburg",
+      "Borussia Dortmund",
+      "Manchester City"
+    ],
     "national_team": {
       "played": true,
       "team_name": "Norway",
-      "caps": 37,
-      "goals": 31
+      "caps": 39,
+      "goals": 38
     },
     "stats": {
-      "total_goals": 280,
-      "total_assists": 62,
+      "total_goals": 290,
+      "total_assists": 65,
       "trophies_count": 12
     }
   },
   {
     "id": 5,
-    "name_en": "Neymar Jr.",
+    "name_en": "Neymar",
     "name_th": "เนย์มาร์",
-    "aliases": ["เนย์มาร์", "Ney", "NJR", "O Ney"],
-    "age": 32,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Brasversus_Croatia_2018_%28cropped%29.jpg",
+    "aliases": [
+      "Ney",
+      "Neymar Jr",
+      "เนย์มาร์",
+      "O Ney",
+      "NJR"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/j60pdx1741319053.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/j8xk9g1679447486.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
     "current_league": "Saudi Pro League",
     "current_team": "Al Hilal",
-    "teams_history": ["Santos", "FC Barcelona", "Paris Saint-Germain", "Al Hilal"],
+    "teams_history": [
+      "Santos",
+      "FC Barcelona",
+      "Paris Saint-Germain",
+      "Al Hilal"
+    ],
     "national_team": {
       "played": true,
       "team_name": "Brazil",
@@ -113,12 +181,27 @@
     "id": 6,
     "name_en": "Mohamed Salah",
     "name_th": "โมฮาเหม็ด ซาลาห์",
-    "aliases": ["ซาลาห์", "The Egyptian King", "MO Salah", "Egyptian Messi"],
-    "age": 32,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Mohamed_Salah_2018.jpg",
+    "aliases": [
+      "The Egyptian King",
+      "บังโม",
+      "ซาล่าห์",
+      "ซาลาห์",
+      "Mo Salah"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/o7y57t1718438615.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/96s34o1776827629.png",
+    "flag_url": "https://flagcdn.com/w80/eg.png",
     "current_league": "Premier League",
     "current_team": "Liverpool",
-    "teams_history": ["Basel", "Chelsea", "Fiorentina", "Roma", "Liverpool"],
+    "teams_history": [
+      "El Mokawloon",
+      "Basel",
+      "Chelsea",
+      "Fiorentina",
+      "Roma",
+      "Liverpool"
+    ],
     "national_team": {
       "played": true,
       "team_name": "Egypt",
@@ -135,21 +218,35 @@
     "id": 7,
     "name_en": "Kevin De Bruyne",
     "name_th": "เควิน เดอ บรอยน์",
-    "aliases": ["เดอ บรอยน์", "KDB", "The Belgian Maestro", "King Kevin"],
-    "age": 33,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/De_Bruyne_%28cropped%29.jpg",
-    "current_league": "Saudi Pro League",
-    "current_team": "Al Qadsiah",
-    "teams_history": ["Genk", "Chelsea", "Werder Bremen", "VfL Wolfsburg", "Manchester City", "Al Qadsiah"],
+    "aliases": [
+      "จอมทัพเบลเยียม",
+      "KDB",
+      "เดอ บรอยน์",
+      "เดอบรอยน์",
+      "King Kevin"
+    ],
+    "age": 34,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/627wh81779038446.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/l8qyxv1742982541.png",
+    "flag_url": "https://flagcdn.com/w80/be.png",
+    "current_league": "Premier League",
+    "current_team": "Manchester City",
+    "teams_history": [
+      "Genk",
+      "Chelsea",
+      "Werder Bremen",
+      "VfL Wolfsburg",
+      "Manchester City"
+    ],
     "national_team": {
       "played": true,
       "team_name": "Belgium",
-      "caps": 106,
-      "goals": 26
+      "caps": 107,
+      "goals": 30
     },
     "stats": {
-      "total_goals": 135,
-      "total_assists": 365,
+      "total_goals": 150,
+      "total_assists": 370,
       "trophies_count": 20
     }
   },
@@ -157,12 +254,24 @@
     "id": 8,
     "name_en": "Jude Bellingham",
     "name_th": "จูด เบลลิงแฮม",
-    "aliases": ["เบลลิงแฮม", "JB22", "Jude", "The English Wonderkid"],
-    "age": 21,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Jude_Bellingham%2C_England_vs_Germany%2C_2022_%28cropped%29.jpg",
+    "aliases": [
+      "JB22",
+      "Bellingham",
+      "น้องจูด",
+      "JB5",
+      "เบลลิงแฮม"
+    ],
+    "age": 22,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/rfg8xd1771263826.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/gb-eng.png",
     "current_league": "La Liga",
     "current_team": "Real Madrid",
-    "teams_history": ["Birmingham City", "Borussia Dortmund", "Real Madrid"],
+    "teams_history": [
+      "Birmingham City",
+      "Borussia Dortmund",
+      "Real Madrid"
+    ],
     "national_team": {
       "played": true,
       "team_name": "England",
@@ -177,14 +286,25 @@
   },
   {
     "id": 9,
-    "name_en": "Vinicius Junior",
+    "name_en": "Vinícius Júnior",
     "name_th": "วินิซิอุส จูเนียร์",
-    "aliases": ["วินิ", "Vini Jr", "VJ7", "The Brazilian Tornado"],
-    "age": 24,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Vinicius_Junior_2022_%28cropped%29.jpg",
+    "aliases": [
+      "วินิซิอุส",
+      "Vini",
+      "VJ7",
+      "Vini Jr",
+      "วินิ"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/lxf1he1771264845.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
     "current_league": "La Liga",
     "current_team": "Real Madrid",
-    "teams_history": ["Flamengo", "Real Madrid"],
+    "teams_history": [
+      "Flamengo",
+      "Real Madrid"
+    ],
     "national_team": {
       "played": true,
       "team_name": "Brazil",
@@ -194,29 +314,2780 @@
     "stats": {
       "total_goals": 130,
       "total_assists": 115,
-      "trophies_count": 10
+      "trophies_count": 12
     }
   },
   {
     "id": 10,
     "name_en": "Son Heung-min",
     "name_th": "ซน ฮึง-มิน",
-    "aliases": ["ซน", "Sonny", "SHM", "The Korean Prince"],
-    "age": 32,
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Son_Heung-min.jpg",
+    "aliases": [
+      "โอปป้าซน",
+      "Sonny",
+      "ซน",
+      "ซน ฮึงมิน",
+      "SHM7",
+      "ตี๋ซน"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/r5abfl1778974278.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+    "flag_url": "https://flagcdn.com/w80/kr.png",
     "current_league": "Premier League",
     "current_team": "Tottenham Hotspur",
-    "teams_history": ["Hamburg", "Bayer Leverkusen", "Tottenham Hotspur"],
+    "teams_history": [
+      "Hamburger SV",
+      "Bayer Leverkusen",
+      "Tottenham Hotspur"
+    ],
     "national_team": {
       "played": true,
       "team_name": "South Korea",
-      "caps": 127,
-      "goals": 49
+      "caps": 129,
+      "goals": 50
+    },
+    "stats": {
+      "total_goals": 210,
+      "total_assists": 120,
+      "trophies_count": 4
+    }
+  },
+  {
+    "id": 11,
+    "name_en": "Harry Kane",
+    "name_th": "แฮร์รี่ เคน",
+    "aliases": [
+      "HurriKane",
+      "พายุเคน",
+      "เคน",
+      "Kane"
+    ],
+    "age": 32,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/0w9up71770542636.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+    "flag_url": "https://flagcdn.com/w80/gb-eng.png",
+    "current_league": "Bundesliga",
+    "current_team": "Bayern Munich",
+    "teams_history": [
+      "Tottenham Hotspur",
+      "Leicester City",
+      "Norwich City",
+      "Millwall",
+      "Bayern Munich"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "England",
+      "caps": 100,
+      "goals": 68
+    },
+    "stats": {
+      "total_goals": 410,
+      "total_assists": 110,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 12,
+    "name_en": "Robert Lewandowski",
+    "name_th": "โรเบิร์ต เลวานดอฟสกี้",
+    "aliases": [
+      "Lewy",
+      "Lewangoalski",
+      "เลวาน",
+      "เลวานดอฟสกี้"
+    ],
+    "age": 37,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/1ogy3i1771254580.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/8xuc781639493166.png",
+    "flag_url": "https://flagcdn.com/w80/pl.png",
+    "current_league": "La Liga",
+    "current_team": "FC Barcelona",
+    "teams_history": [
+      "Lech Poznan",
+      "Borussia Dortmund",
+      "Bayern Munich",
+      "FC Barcelona"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Poland",
+      "caps": 154,
+      "goals": 84
+    },
+    "stats": {
+      "total_goals": 650,
+      "total_assists": 185,
+      "trophies_count": 28
+    }
+  },
+  {
+    "id": 13,
+    "name_en": "Lamine Yamal",
+    "name_th": "ลามีน ยามาล",
+    "aliases": [
+      "ดาวรุ่งบาร์ซ่า",
+      "Yamal",
+      "ยามาล",
+      "LY19"
+    ],
+    "age": 18,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/cdjnqt1786385175.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "La Liga",
+    "current_team": "FC Barcelona",
+    "teams_history": [
+      "FC Barcelona"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 17,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 20,
+      "total_assists": 25,
+      "trophies_count": 4
+    }
+  },
+  {
+    "id": 14,
+    "name_en": "Pedri",
+    "name_th": "เปดรี",
+    "aliases": [
+      "เปดรี",
+      "Pedri",
+      "เปดรี้",
+      "Pedri Gonzalez",
+      "Pedro Gonzalez"
+    ],
+    "age": 22,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m5653g1692226458.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "La Liga",
+    "current_team": "FC Barcelona",
+    "teams_history": [
+      "Las Palmas",
+      "FC Barcelona"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 30,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 30,
+      "total_assists": 45,
+      "trophies_count": 7
+    }
+  },
+  {
+    "id": 15,
+    "name_en": "Phil Foden",
+    "name_th": "ฟิล โฟเดน",
+    "aliases": [
+      "โฟเดน",
+      "Foden",
+      "Stockport Iniesta"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/19o7yc1749157221.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+    "flag_url": "https://flagcdn.com/w80/gb-eng.png",
+    "current_league": "Premier League",
+    "current_team": "Manchester City",
+    "teams_history": [
+      "Manchester City"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "England",
+      "caps": 41,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 95,
+      "total_assists": 65,
+      "trophies_count": 17
+    }
+  },
+  {
+    "id": 16,
+    "name_en": "Bukayo Saka",
+    "name_th": "บูกาโย ซากา",
+    "aliases": [
+      "ซาก้า",
+      "Starboy",
+      "Saka",
+      "ซากา"
+    ],
+    "age": 24,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/axl31b1769332282.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "flag_url": "https://flagcdn.com/w80/gb-eng.png",
+    "current_league": "Premier League",
+    "current_team": "Arsenal",
+    "teams_history": [
+      "Arsenal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "England",
+      "caps": 42,
+      "goals": 12
+    },
+    "stats": {
+      "total_goals": 75,
+      "total_assists": 65,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 17,
+    "name_en": "Rodri",
+    "name_th": "โรดรี",
+    "aliases": [
+      "โรดรี",
+      "Rodri",
+      "บัลลงดอร์ 2024",
+      "Rodrigo",
+      "โรดริโก เอร์นานเดซ"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/e22y9h1778974868.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/l8qyxv1742982541.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "Premier League",
+    "current_team": "Manchester City",
+    "teams_history": [
+      "Villarreal",
+      "Atletico Madrid",
+      "Manchester City"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 56,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 40,
+      "total_assists": 45,
+      "trophies_count": 18
+    }
+  },
+  {
+    "id": 18,
+    "name_en": "Rúben Dias",
+    "name_th": "รูเบน ดิอาส",
+    "aliases": [
+      "Dias",
+      "รูเบน ดิอาส",
+      "ดิอาส"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/9kws2w1684833492.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+    "flag_url": "https://flagcdn.com/w80/pt.png",
+    "current_league": "N/A",
+    "current_team": "Manchester City",
+    "teams_history": [
+      "Manchester City"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Portugal",
+      "caps": 60,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 15,
+      "total_assists": 18,
+      "trophies_count": 15
+    }
+  },
+  {
+    "id": 19,
+    "name_en": "Bernardo Silva",
+    "name_th": "แบร์นาร์โด ซิลวา",
+    "aliases": [
+      "พ่อมดโปรตุกีส",
+      "แบร์นาร์โด",
+      "Bernardo"
+    ],
+    "age": 31,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/kv4bed1786031511.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/pt.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Portugal",
+      "caps": 93,
+      "goals": 12
+    },
+    "stats": {
+      "total_goals": 90,
+      "total_assists": 110,
+      "trophies_count": 20
+    }
+  },
+  {
+    "id": 20,
+    "name_en": "Karim Benzema",
+    "name_th": "คาริม เบนเซม่า",
+    "aliases": [
+      "KB9",
+      "เบนซ์",
+      "คาริม",
+      "Benzema",
+      "เบนเซม่า"
+    ],
+    "age": 38,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/0bzer81704623143.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/w0b80d1661656916.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Al-Hilal",
+    "teams_history": [
+      "Al-Hilal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 97,
+      "goals": 37
+    },
+    "stats": {
+      "total_goals": 470,
+      "total_assists": 210,
+      "trophies_count": 33
+    }
+  },
+  {
+    "id": 21,
+    "name_en": "Antoine Griezmann",
+    "name_th": "อ็องตวน กรีซมันน์",
+    "aliases": [
+      "Griezmann",
+      "กรีซมันน์",
+      "Grizou",
+      "กริซมันน์"
+    ],
+    "age": 34,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/xpmyw01702565423.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/qyppxw1423832326.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Orlando City",
+    "teams_history": [
+      "Orlando City"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 137,
+      "goals": 44
+    },
+    "stats": {
+      "total_goals": 260,
+      "total_assists": 130,
+      "trophies_count": 15
+    }
+  },
+  {
+    "id": 22,
+    "name_en": "Ousmane Dembélé",
+    "name_th": "อุสมาน เดมเบเล่",
+    "aliases": [
+      "เดมเบเล",
+      "Dembele",
+      "เดมเบเล่"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/2w39ps1778803599.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Paris SG",
+    "teams_history": [
+      "Paris SG"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 51,
+      "goals": 6
+    },
+    "stats": {
+      "total_goals": 85,
+      "total_assists": 110,
+      "trophies_count": 12
+    }
+  },
+  {
+    "id": 23,
+    "name_en": "Olivier Giroud",
+    "name_th": "โอลิวิเยร์ ชิรูด์",
+    "aliases": [
+      "ชิรู",
+      "Giroud",
+      "หล่อเหลา",
+      "ชิรูด์"
+    ],
+    "age": 39,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/cz50iy1597700457.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/2giize1534005340.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Lille",
+    "teams_history": [
+      "Lille"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 137,
+      "goals": 57
+    },
+    "stats": {
+      "total_goals": 340,
+      "total_assists": 95,
+      "trophies_count": 15
+    }
+  },
+  {
+    "id": 24,
+    "name_en": "Romelu Lukaku",
+    "name_th": "โรเมลู ลูกากู",
+    "aliases": [
+      "ลูกากู",
+      "Lukaku",
+      "ตู้เย็น",
+      "บิ๊กรอม"
+    ],
+    "age": 32,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/8lrt211779040247.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/twxxvs1448199691.png",
+    "flag_url": "https://flagcdn.com/w80/be.png",
+    "current_league": "N/A",
+    "current_team": "Fenerbahçe",
+    "teams_history": [
+      "Fenerbahçe"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Belgium",
+      "caps": 119,
+      "goals": 85
+    },
+    "stats": {
+      "total_goals": 380,
+      "total_assists": 105,
+      "trophies_count": 7
+    }
+  },
+  {
+    "id": 25,
+    "name_en": "Lautaro Martínez",
+    "name_th": "เลาตาโร มาร์ติเนซ",
+    "aliases": [
+      "Lautaro",
+      "เลาตาโร",
+      "มาร์ติเนซ",
+      "เอล โทโร่"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/y9j7e11719034723.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/7t9v4o1621848524.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Inter Milan",
+    "teams_history": [
+      "Inter Milan"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 68,
+      "goals": 32
+    },
+    "stats": {
+      "total_goals": 180,
+      "total_assists": 60,
+      "trophies_count": 12
+    }
+  },
+  {
+    "id": 26,
+    "name_en": "Paulo Dybala",
+    "name_th": "เปาโล ดีบาลา",
+    "aliases": [
+      "Dybala",
+      "ดีบาล่า",
+      "La Joya",
+      "ดีบาลา"
+    ],
+    "age": 32,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/csf3qy1515954038.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/jwro2s1760820674.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Roma",
+    "teams_history": [
+      "Roma"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 38,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 190,
+      "total_assists": 85,
+      "trophies_count": 14
+    }
+  },
+  {
+    "id": 27,
+    "name_en": "Julián Álvarez",
+    "name_th": "ฮูเลียน อัลวาเรซ",
+    "aliases": [
+      "อัลบาเรซ",
+      "ไอ้แมงมุม",
+      "Julian Alvarez",
+      "อัลวาเรซ",
+      "Spider"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/rm3tj11741979331.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/0ulh3q1719984315.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Atlético Madrid",
+    "teams_history": [
+      "Atlético Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 36,
+      "goals": 9
+    },
+    "stats": {
+      "total_goals": 105,
+      "total_assists": 60,
+      "trophies_count": 14
+    }
+  },
+  {
+    "id": 28,
+    "name_en": "Alexis Mac Allister",
+    "name_th": "อเล็กซิส แม็ค อัลลิสเตอร์",
+    "aliases": [
+      "แม็ค อัลลิสเตอร์",
+      "แม็คก้า",
+      "Mac Allister"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/9n5dnd1751999911.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/kfaher1737969724.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Liverpool",
+    "teams_history": [
+      "Liverpool"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 31,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 65,
+      "total_assists": 45,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 29,
+    "name_en": "Enzo Fernández",
+    "name_th": "เอ็นโซ เฟร์นานเดซ",
+    "aliases": [
+      "เฟร์นานเดซ",
+      "Enzo",
+      "เอ็นโซ",
+      "เอนโซ"
+    ],
+    "age": 24,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/59cm7k1771427301.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/pbf4ul1782638263.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Chelsea",
+    "teams_history": [
+      "Chelsea"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 28,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 30,
+      "total_assists": 45,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 30,
+    "name_en": "Richarlison",
+    "name_th": "ริชาร์ลิซอน",
+    "aliases": [
+      "Pigeon",
+      "เจ้านกพิราบ",
+      "Richarlison",
+      "ริชาร์ลิซอน"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/9c6sim1770894215.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/dfyfhl1604094109.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Tottenham Hotspur",
+    "teams_history": [
+      "Tottenham Hotspur"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 48,
+      "goals": 20
+    },
+    "stats": {
+      "total_goals": 115,
+      "total_assists": 40,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 31,
+    "name_en": "Gabriel Martinelli",
+    "name_th": "กาเบรียล มาร์ติเนลลี",
+    "aliases": [
+      "Martinelli",
+      "มาร์ติเนลลี",
+      "Gabi"
+    ],
+    "age": 24,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/jf2gcn1716705057.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Arsenal",
+    "teams_history": [
+      "Arsenal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 14,
+      "goals": 2
+    },
+    "stats": {
+      "total_goals": 80,
+      "total_assists": 55,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 32,
+    "name_en": "Leandro Trossard",
+    "name_th": "เลอันโดร ทรอสซาร์",
+    "aliases": [
+      "ทรอสซาร์",
+      "Trossard",
+      "ทรอสซาร์ด"
+    ],
+    "age": 31,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/2ledb81705918706.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/svo05k1776827439.png",
+    "flag_url": "https://flagcdn.com/w80/be.png",
+    "current_league": "N/A",
+    "current_team": "Beşiktaş",
+    "teams_history": [
+      "Beşiktaş"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Belgium",
+      "caps": 39,
+      "goals": 9
+    },
+    "stats": {
+      "total_goals": 95,
+      "total_assists": 60,
+      "trophies_count": 4
+    }
+  },
+  {
+    "id": 33,
+    "name_en": "Kai Havertz",
+    "name_th": "ไค ฮาแวร์ตซ์",
+    "aliases": [
+      "King Kai",
+      "ฮาแวร์ตซ",
+      "Havertz",
+      "ฮาแวร์ตซ์"
+    ],
+    "age": 26,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/5c3h061780160105.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "flag_url": "https://flagcdn.com/w80/de.png",
+    "current_league": "N/A",
+    "current_team": "Arsenal",
+    "teams_history": [
+      "Arsenal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Germany",
+      "caps": 51,
+      "goals": 19
+    },
+    "stats": {
+      "total_goals": 105,
+      "total_assists": 60,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 34,
+    "name_en": "Thomas Müller",
+    "name_th": "โธมัส มุลเลอร์",
+    "aliases": [
+      "มุลเล่อร์",
+      "Radio Muller",
+      "มุลเลอร์",
+      "Muller"
+    ],
+    "age": 36,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/rhbgrp1702750958.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/tpwxpy1473536521.png",
+    "flag_url": "https://flagcdn.com/w80/de.png",
+    "current_league": "N/A",
+    "current_team": "Vancouver Whitecaps",
+    "teams_history": [
+      "Vancouver Whitecaps"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Germany",
+      "caps": 131,
+      "goals": 45
+    },
+    "stats": {
+      "total_goals": 280,
+      "total_assists": 270,
+      "trophies_count": 33
+    }
+  },
+  {
+    "id": 35,
+    "name_en": "Serge Gnabry",
+    "name_th": "แซร์จ กนาบรี้",
+    "aliases": [
+      "กนาบรี้",
+      "เชฟกนาบรี้",
+      "Gnabry",
+      "กนาบรี"
+    ],
+    "age": 30,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/u2f5201660764673.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+    "flag_url": "https://flagcdn.com/w80/de.png",
+    "current_league": "N/A",
+    "current_team": "Bayern Munich",
+    "teams_history": [
+      "Bayern Munich"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Germany",
+      "caps": 45,
+      "goals": 22
+    },
+    "stats": {
+      "total_goals": 130,
+      "total_assists": 70,
+      "trophies_count": 16
+    }
+  },
+  {
+    "id": 36,
+    "name_en": "Leroy Sané",
+    "name_th": "เลรอย ซาเน่",
+    "aliases": [
+      "Sane",
+      "ซาเน",
+      "ซาเน่"
+    ],
+    "age": 29,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/kymheu1779385557.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/121rws1608670557.png",
+    "flag_url": "https://flagcdn.com/w80/de.png",
+    "current_league": "N/A",
+    "current_team": "Galatasaray",
+    "teams_history": [
+      "Galatasaray"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Germany",
+      "caps": 65,
+      "goals": 13
+    },
+    "stats": {
+      "total_goals": 120,
+      "total_assists": 115,
+      "trophies_count": 18
+    }
+  },
+  {
+    "id": 37,
+    "name_en": "Toni Kroos",
+    "name_th": "โทนี่ โครส",
+    "aliases": [
+      "Kroos",
+      "สไนเปอร์",
+      "โครส",
+      "คุณชายโครส"
+    ],
+    "age": 35,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/y0mq231615718372.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vkq04g1512947520.png",
+    "flag_url": "https://flagcdn.com/w80/de.png",
+    "current_league": "N/A",
+    "current_team": "_Retired Soccer",
+    "teams_history": [
+      "_Retired Soccer"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Germany",
+      "caps": 114,
+      "goals": 17
+    },
+    "stats": {
+      "total_goals": 75,
+      "total_assists": 160,
+      "trophies_count": 34
+    }
+  },
+  {
+    "id": 38,
+    "name_en": "Federico Valverde",
+    "name_th": "เฟเดริโก บัลเบร์เด",
+    "aliases": [
+      "Valverde",
+      "บัลเบร์เด",
+      "เอล ปาฮาริโต้"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/38ndp21771266409.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/uy.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Uruguay",
+      "caps": 62,
+      "goals": 7
+    },
+    "stats": {
+      "total_goals": 55,
+      "total_assists": 60,
+      "trophies_count": 14
+    }
+  },
+  {
+    "id": 39,
+    "name_en": "Eduardo Camavinga",
+    "name_th": "เอดูอาร์โด กามาวินก้า",
+    "aliases": [
+      "Camavinga",
+      "กามาวินก้า",
+      "คามาวิงก้า"
+    ],
+    "age": 23,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/5w5ge71771264039.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 23,
+      "goals": 1
+    },
+    "stats": {
+      "total_goals": 20,
+      "total_assists": 30,
+      "trophies_count": 10
+    }
+  },
+  {
+    "id": 40,
+    "name_en": "Aurélien Tchouaméni",
+    "name_th": "โอเรเลียง ชูอาเมนี่",
+    "aliases": [
+      "ชูอาเมนี่",
+      "ชูอาเมนิ",
+      "Tchouameni"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/co0ahr1778818162.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 36,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 25,
+      "total_assists": 25,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 41,
+    "name_en": "Éder Militão",
+    "name_th": "เอแดร์ มิลิเตา",
+    "aliases": [
+      "มิลิเตา",
+      "เอแดร์",
+      "Militao"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/evk18a1771266122.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 35,
+      "goals": 2
+    },
+    "stats": {
+      "total_goals": 20,
+      "total_assists": 15,
+      "trophies_count": 12
+    }
+  },
+  {
+    "id": 42,
+    "name_en": "Ferland Mendy",
+    "name_th": "แฟร์ล็องด์ เมนดี้",
+    "aliases": [
+      "Mendy",
+      "เมนดี",
+      "เมนดี้"
+    ],
+    "age": 30,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/r218wb1771266209.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 10,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 10,
+      "total_assists": 20,
+      "trophies_count": 10
+    }
+  },
+  {
+    "id": 43,
+    "name_en": "Daniel Carvajal",
+    "name_th": "ดานี่ การ์บาฆาล",
+    "aliases": [
+      "คาร์วาฮาล",
+      "การ์บาฆาล",
+      "Carvajal"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/gapy0m1771264214.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vkq04g1512947520.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "N/A",
+    "current_team": "_Retired Soccer",
+    "teams_history": [
+      "_Retired Soccer"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 49,
+      "goals": 1
+    },
+    "stats": {
+      "total_goals": 15,
+      "total_assists": 65,
+      "trophies_count": 26
+    }
+  },
+  {
+    "id": 44,
+    "name_en": "Gavi",
+    "name_th": "กาบี",
+    "aliases": [
+      "กาบี",
+      "Gavi",
+      "กาบี้",
+      "ปาโบล กาบี"
+    ],
+    "age": 20,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/b9802d1692226342.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "La Liga",
+    "current_team": "FC Barcelona",
+    "teams_history": [
+      "FC Barcelona"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 27,
+      "goals": 5
+    },
+    "stats": {
+      "total_goals": 25,
+      "total_assists": 40,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 45,
+    "name_en": "Ferran Torres",
+    "name_th": "เฟร์ราน ตอร์เรส",
+    "aliases": [
+      "Ferran",
+      "ฉลามตอร์เรส",
+      "ตอร์เรส"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/ciyw971784511340.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "N/A",
+    "current_team": "Paris Saint-Germain",
+    "teams_history": [
+      "Paris Saint-Germain"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 46,
+      "goals": 20
+    },
+    "stats": {
+      "total_goals": 85,
+      "total_assists": 45,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 46,
+    "name_en": "Ansu Fati",
+    "name_th": "อันซู ฟาติ",
+    "aliases": [
+      "ฟาติ",
+      "Ansu Fati",
+      "ฟาตี้"
+    ],
+    "age": 23,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/gtose41659989447.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/exjf5l1678808044.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "N/A",
+    "current_team": "Monaco",
+    "teams_history": [
+      "Monaco"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 10,
+      "goals": 2
+    },
+    "stats": {
+      "total_goals": 40,
+      "total_assists": 20,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 47,
+    "name_en": "İlkay Gündoğan",
+    "name_th": "อิลคาย กุนโดกัน",
+    "aliases": [
+      "กุนโดกาน",
+      "กุนโดกัน",
+      "Gundogan"
+    ],
+    "age": 35,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/55dcb01690988705.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/121rws1608670557.png",
+    "flag_url": "https://flagcdn.com/w80/de.png",
+    "current_league": "N/A",
+    "current_team": "Galatasaray",
+    "teams_history": [
+      "Galatasaray"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Germany",
+      "caps": 82,
+      "goals": 19
+    },
+    "stats": {
+      "total_goals": 115,
+      "total_assists": 80,
+      "trophies_count": 18
+    }
+  },
+  {
+    "id": 48,
+    "name_en": "Thiago Silva",
+    "name_th": "ติอาโก ซิลวา",
+    "aliases": [
+      "กัปตันซิลวา",
+      "ติอาโก ซิลวา",
+      "Thiago Silva"
+    ],
+    "age": 41,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/tixp6d1658771633.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/stvvwp1473538082.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Fluminense",
+    "teams_history": [
+      "Fluminense"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 113,
+      "goals": 7
+    },
+    "stats": {
+      "total_goals": 40,
+      "total_assists": 20,
+      "trophies_count": 32
+    }
+  },
+  {
+    "id": 49,
+    "name_en": "Marquinhos",
+    "name_th": "มาร์กินญอส",
+    "aliases": [
+      "มาร์กินญอส",
+      "กัปตันมาร์กี้",
+      "Marquinhos"
+    ],
+    "age": 31,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/sejelk1770217582.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Paris SG",
+    "teams_history": [
+      "Paris SG"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 89,
+      "goals": 7
+    },
+    "stats": {
+      "total_goals": 45,
+      "total_assists": 15,
+      "trophies_count": 30
+    }
+  },
+  {
+    "id": 50,
+    "name_en": "Danilo",
+    "name_th": "ดานิโล",
+    "aliases": [
+      "ดานิโล่",
+      "Danilo",
+      "ดานิโล"
+    ],
+    "age": 34,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/9qsyun1598691910.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/syptwx1473538074.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Flamengo",
+    "teams_history": [
+      "Flamengo"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 60,
+      "goals": 1
+    },
+    "stats": {
+      "total_goals": 30,
+      "total_assists": 35,
+      "trophies_count": 25
+    }
+  },
+  {
+    "id": 51,
+    "name_en": "Raphinha",
+    "name_th": "ราฟินญ่า",
+    "aliases": [
+      "ราฟินญา",
+      "Raphinha",
+      "ราฟินญ่า"
+    ],
+    "age": 29,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/14kuzy1771260047.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Barcelona",
+    "teams_history": [
+      "Barcelona"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 27,
+      "goals": 7
+    },
+    "stats": {
+      "total_goals": 135,
+      "total_assists": 90,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 52,
+    "name_en": "Cody Gakpo",
+    "name_th": "โคดี้ กัคโป",
+    "aliases": [
+      "คักโป",
+      "Gakpo",
+      "กัคโป"
+    ],
+    "age": 26,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m9g2ki1669145821.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/kfaher1737969724.png",
+    "flag_url": "https://flagcdn.com/w80/un.png",
+    "current_league": "N/A",
+    "current_team": "Liverpool",
+    "teams_history": [
+      "Liverpool"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Netherlands",
+      "caps": 34,
+      "goals": 13
+    },
+    "stats": {
+      "total_goals": 100,
+      "total_assists": 75,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 53,
+    "name_en": "Darwin Núñez",
+    "name_th": "ดาร์วิน นูนเญซ",
+    "aliases": [
+      "กัปตันหนวด",
+      "นูนเญซ",
+      "Darwin",
+      "หนูน"
+    ],
+    "age": 26,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/6b6yhd1718090345.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/w0b80d1661656916.png",
+    "flag_url": "https://flagcdn.com/w80/uy.png",
+    "current_league": "N/A",
+    "current_team": "Al-Hilal",
+    "teams_history": [
+      "Al-Hilal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Uruguay",
+      "caps": 29,
+      "goals": 13
+    },
+    "stats": {
+      "total_goals": 110,
+      "total_assists": 40,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 54,
+    "name_en": "Diogo Jota",
+    "name_th": "ดิโอโก้ โชต้า",
+    "aliases": [
+      "โชต้า",
+      "Jota",
+      "ดิโอโก้"
+    ],
+    "age": 29,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/30nujq1751541243.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/s3y8961513250917.png",
+    "flag_url": "https://flagcdn.com/w80/pt.png",
+    "current_league": "N/A",
+    "current_team": "_Deceased Soccer",
+    "teams_history": [
+      "_Deceased Soccer"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Portugal",
+      "caps": 42,
+      "goals": 14
+    },
+    "stats": {
+      "total_goals": 120,
+      "total_assists": 55,
+      "trophies_count": 7
+    }
+  },
+  {
+    "id": 55,
+    "name_en": "Luis Díaz",
+    "name_th": "หลุยส์ ดิอาซ",
+    "aliases": [
+      "ลูโช่",
+      "ดิอาซ",
+      "Luis Diaz"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/qkw97r1779753703.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+    "flag_url": "https://flagcdn.com/w80/co.png",
+    "current_league": "N/A",
+    "current_team": "Bayern Munich",
+    "teams_history": [
+      "Bayern Munich"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Colombia",
+      "caps": 55,
+      "goals": 15
+    },
+    "stats": {
+      "total_goals": 85,
+      "total_assists": 45,
+      "trophies_count": 9
+    }
+  },
+  {
+    "id": 56,
+    "name_en": "Andrew Robertson",
+    "name_th": "แอนดรูว์ โรเบิร์ตสัน",
+    "aliases": [
+      "Robertson",
+      "ร็อบโบ้",
+      "โรเบิร์ตสัน"
+    ],
+    "age": 31,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/mvmpbc1710165540.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/dfyfhl1604094109.png",
+    "flag_url": "https://flagcdn.com/w80/gb-sct.png",
+    "current_league": "N/A",
+    "current_team": "Tottenham Hotspur",
+    "teams_history": [
+      "Tottenham Hotspur"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Scotland",
+      "caps": 74,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 15,
+      "total_assists": 85,
+      "trophies_count": 9
+    }
+  },
+  {
+    "id": 57,
+    "name_en": "Martin Ødegaard",
+    "name_th": "มาร์ติน โอเดการ์ด",
+    "aliases": [
+      "Odegaard",
+      "กัปตันโอเด",
+      "โอเดการ์ด"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/ttlff21727415365.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "flag_url": "https://flagcdn.com/w80/no.png",
+    "current_league": "N/A",
+    "current_team": "Arsenal",
+    "teams_history": [
+      "Arsenal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Norway",
+      "caps": 59,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 75,
+      "total_assists": 80,
+      "trophies_count": 7
+    }
+  },
+  {
+    "id": 58,
+    "name_en": "Gabriel Jesus",
+    "name_th": "กาเบรียล เชซุส",
+    "aliases": [
+      "เชซุส",
+      "กาเบรียล เชซุส",
+      "Jesus"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/iwt0021678196502.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Arsenal",
+    "teams_history": [
+      "Arsenal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 64,
+      "goals": 19
+    },
+    "stats": {
+      "total_goals": 145,
+      "total_assists": 65,
+      "trophies_count": 12
+    }
+  },
+  {
+    "id": 59,
+    "name_en": "Gabriel",
+    "name_th": "กาเบรียล มากัลเญส",
+    "aliases": [
+      "กาเบรียล",
+      "Big Gabi",
+      "มากัลเญส"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/livh431779262874.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Arsenal",
+    "teams_history": [
+      "Arsenal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 9,
+      "goals": 1
+    },
+    "stats": {
+      "total_goals": 20,
+      "total_assists": 5,
+      "trophies_count": 4
+    }
+  },
+  {
+    "id": 60,
+    "name_en": "William Saliba",
+    "name_th": "วิลเลียม ซาลิบา",
+    "aliases": [
+      "วิลลี่",
+      "Saliba",
+      "ซาลิบา"
+    ],
+    "age": 24,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/w0sp3q1779262968.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Arsenal",
+    "teams_history": [
+      "Arsenal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 23,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 10,
+      "total_assists": 10,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 61,
+    "name_en": "Granit Xhaka",
+    "name_th": "กรานิต ชาก้า",
+    "aliases": [
+      "ชาก้า",
+      "กัปตันชาก้า",
+      "Xhaka"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/xhgqbw1678275167.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/tprtus1448813498.png",
+    "flag_url": "https://flagcdn.com/w80/ch.png",
+    "current_league": "N/A",
+    "current_team": "Sunderland",
+    "teams_history": [
+      "Sunderland"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Switzerland",
+      "caps": 130,
+      "goals": 14
+    },
+    "stats": {
+      "total_goals": 45,
+      "total_assists": 55,
+      "trophies_count": 10
+    }
+  },
+  {
+    "id": 62,
+    "name_en": "Nicolo Barella",
+    "name_th": "นิโคโล บาเรลล่า",
+    "aliases": [
+      "บาเรลล่า",
+      "Barella",
+      "บาเรลลา"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/mnj6hw1546611238.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/ryhu6d1617113103.png",
+    "flag_url": "https://flagcdn.com/w80/it.png",
+    "current_league": "N/A",
+    "current_team": "Inter Milan",
+    "teams_history": [
+      "Inter Milan"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Italy",
+      "caps": 57,
+      "goals": 10
+    },
+    "stats": {
+      "total_goals": 40,
+      "total_assists": 70,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 63,
+    "name_en": "Federico Chiesa",
+    "name_th": "เฟเดริโก เคียซ่า",
+    "aliases": [
+      "Chiesa",
+      "เคียซา",
+      "เคียซ่า"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/o6cg3u1746376297.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/kfaher1737969724.png",
+    "flag_url": "https://flagcdn.com/w80/it.png",
+    "current_league": "N/A",
+    "current_team": "Liverpool",
+    "teams_history": [
+      "Liverpool"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Italy",
+      "caps": 51,
+      "goals": 7
+    },
+    "stats": {
+      "total_goals": 70,
+      "total_assists": 50,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 64,
+    "name_en": "Gianluigi Donnarumma",
+    "name_th": "จานลุยจิ ดอนนารุมมา",
+    "aliases": [
+      "ดอนนารุมมา",
+      "Donnarumma",
+      "จิจิโอ้"
+    ],
+    "age": 26,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/7kahd81704447713.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+    "flag_url": "https://flagcdn.com/w80/it.png",
+    "current_league": "N/A",
+    "current_team": "Manchester City",
+    "teams_history": [
+      "Manchester City"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Italy",
+      "caps": 66,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 0,
+      "total_assists": 0,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 65,
+    "name_en": "Théo Hernandez",
+    "name_th": "เตโอ แอร์น็องเดซ",
+    "aliases": [
+      "เตโอ้",
+      "เตโอ",
+      "Theo Hernandez"
+    ],
+    "age": 28,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/n0yoi71778804799.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/w0b80d1661656916.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Al-Hilal",
+    "teams_history": [
+      "Al-Hilal"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 33,
+      "goals": 2
+    },
+    "stats": {
+      "total_goals": 60,
+      "total_assists": 70,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 66,
+    "name_en": "Mike Maignan",
+    "name_th": "ไมค์ เมญ็อง",
+    "aliases": [
+      "Maignan",
+      "ไมค์",
+      "เมญ็อง"
+    ],
+    "age": 30,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/8owaul1735364851.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wvspur1448806617.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "AC Milan",
+    "teams_history": [
+      "AC Milan"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 22,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 0,
+      "total_assists": 2,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 67,
+    "name_en": "Rafael Leão",
+    "name_th": "ราฟาเอล เลเอา",
+    "aliases": [
+      "Leao",
+      "ราฟาเอล",
+      "เลเอา"
+    ],
+    "age": 26,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m1sh9x1549742563.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wvspur1448806617.png",
+    "flag_url": "https://flagcdn.com/w80/pt.png",
+    "current_league": "N/A",
+    "current_team": "AC Milan",
+    "teams_history": [
+      "AC Milan"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Portugal",
+      "caps": 31,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 95,
+      "total_assists": 80,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 68,
+    "name_en": "Hakan Çalhanoğlu",
+    "name_th": "ฮาคาน ชัลฮาโนกลู",
+    "aliases": [
+      "ฮาคาน",
+      "ชัลฮาโนกลู",
+      "Calhanoglu"
+    ],
+    "age": 31,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/ays7ot1737352882.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/ryhu6d1617113103.png",
+    "flag_url": "https://flagcdn.com/w80/tr.png",
+    "current_league": "N/A",
+    "current_team": "Inter Milan",
+    "teams_history": [
+      "Inter Milan"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Turkey",
+      "caps": 90,
+      "goals": 19
+    },
+    "stats": {
+      "total_goals": 110,
+      "total_assists": 125,
+      "trophies_count": 9
+    }
+  },
+  {
+    "id": 69,
+    "name_en": "Khvicha Kvaratskhelia",
+    "name_th": "ควิชา ควารัตสเคเลีย",
+    "aliases": [
+      "ควาราดอนน่า",
+      "ควารัตสเคเลีย",
+      "Kvara"
+    ],
+    "age": 24,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/l1gq7e1770217076.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+    "flag_url": "https://flagcdn.com/w80/ge.png",
+    "current_league": "N/A",
+    "current_team": "Paris SG",
+    "teams_history": [
+      "Paris SG"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Georgia",
+      "caps": 34,
+      "goals": 16
+    },
+    "stats": {
+      "total_goals": 75,
+      "total_assists": 80,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 70,
+    "name_en": "Victor Osimhen",
+    "name_th": "วิคเตอร์ โอซิมเฮน",
+    "aliases": [
+      "Osimhen",
+      "โอซิมเฮน",
+      "หน้ากากโอซิมเฮน"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/snhzzq1702566147.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/121rws1608670557.png",
+    "flag_url": "https://flagcdn.com/w80/ng.png",
+    "current_league": "N/A",
+    "current_team": "Galatasaray",
+    "teams_history": [
+      "Galatasaray"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Nigeria",
+      "caps": 35,
+      "goals": 21
+    },
+    "stats": {
+      "total_goals": 125,
+      "total_assists": 40,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 71,
+    "name_en": "Min-jae Kim",
+    "name_th": "คิม มิน-แจ",
+    "aliases": [
+      "เดอะมอนสเตอร์",
+      "Kim Min-jae",
+      "คิม มินแจ"
+    ],
+    "age": 29,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/flx3cd1778971805.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+    "flag_url": "https://flagcdn.com/w80/kr.png",
+    "current_league": "N/A",
+    "current_team": "Bayern Munich",
+    "teams_history": [
+      "Bayern Munich"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "South Korea",
+      "caps": 63,
+      "goals": 4
+    },
+    "stats": {
+      "total_goals": 10,
+      "total_assists": 8,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 72,
+    "name_en": "Christian Pulisic",
+    "name_th": "คริสเตียน พูลิซิช",
+    "aliases": [
+      "Pulisic",
+      "พูลิซิช",
+      "กัปตันอเมริกา"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/40pxda1669799830.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wvspur1448806617.png",
+    "flag_url": "https://flagcdn.com/w80/us.png",
+    "current_league": "N/A",
+    "current_team": "AC Milan",
+    "teams_history": [
+      "AC Milan"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "USA",
+      "caps": 71,
+      "goals": 30
+    },
+    "stats": {
+      "total_goals": 85,
+      "total_assists": 70,
+      "trophies_count": 8
+    }
+  },
+  {
+    "id": 73,
+    "name_en": "Tijjani Reijnders",
+    "name_th": "ทิยานี่ ไรน์เดอร์ส",
+    "aliases": [
+      "Reijnders",
+      "ทิยานี่",
+      "ไรน์เดอร์ส"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/kiacxt1679158182.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/ok63wb1719134839.png",
+    "flag_url": "https://flagcdn.com/w80/un.png",
+    "current_league": "N/A",
+    "current_team": "Al-Qadsiah",
+    "teams_history": [
+      "Al-Qadsiah"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Netherlands",
+      "caps": 17,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 30,
+      "total_assists": 35,
+      "trophies_count": 4
+    }
+  },
+  {
+    "id": 74,
+    "name_en": "Pedro Neto",
+    "name_th": "เปโดร เนโต้",
+    "aliases": [
+      "Neto",
+      "เนโต้",
+      "เปโดร"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/g1325q1771427940.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/pbf4ul1782638263.png",
+    "flag_url": "https://flagcdn.com/w80/pt.png",
+    "current_league": "N/A",
+    "current_team": "Chelsea",
+    "teams_history": [
+      "Chelsea"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Portugal",
+      "caps": 10,
+      "goals": 1
+    },
+    "stats": {
+      "total_goals": 35,
+      "total_assists": 45,
+      "trophies_count": 3
+    }
+  },
+  {
+    "id": 75,
+    "name_en": "Cole Palmer",
+    "name_th": "โคล พาล์เมอร์",
+    "aliases": [
+      "Cold Palmer",
+      "พาล์เมอร์",
+      "Palmer",
+      "ไอ้หนาว"
+    ],
+    "age": 23,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/r7yrsa1770541322.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/pbf4ul1782638263.png",
+    "flag_url": "https://flagcdn.com/w80/gb-eng.png",
+    "current_league": "Premier League",
+    "current_team": "Chelsea",
+    "teams_history": [
+      "Manchester City",
+      "Chelsea"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "England",
+      "caps": 9,
+      "goals": 2
+    },
+    "stats": {
+      "total_goals": 40,
+      "total_assists": 25,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 76,
+    "name_en": "Moisés Caicedo",
+    "name_th": "มอยเซส ไคเซโด้",
+    "aliases": [
+      "Caicedo",
+      "ไคเซโด้",
+      "มอยเซส"
+    ],
+    "age": 24,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/b32gfw1771426837.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/pbf4ul1782638263.png",
+    "flag_url": "https://flagcdn.com/w80/ec.png",
+    "current_league": "N/A",
+    "current_team": "Chelsea",
+    "teams_history": [
+      "Chelsea"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Ecuador",
+      "caps": 46,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 12,
+      "total_assists": 20,
+      "trophies_count": 4
+    }
+  },
+  {
+    "id": 77,
+    "name_en": "Reece James",
+    "name_th": "รีซ เจมส์",
+    "aliases": [
+      "Reece James",
+      "รีซ เจมส์",
+      "กัปตันเจมส์"
+    ],
+    "age": 32,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/uqrxvv1431677357.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/yfoiyf1779788861.png",
+    "flag_url": "https://flagcdn.com/w80/gb-eng.png",
+    "current_league": "N/A",
+    "current_team": "Rotherham United",
+    "teams_history": [
+      "Rotherham United"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "England",
+      "caps": 16,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 15,
+      "total_assists": 30,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 78,
+    "name_en": "Marc Cucurella",
+    "name_th": "มาร์ค กูกูเรย่า",
+    "aliases": [
+      "Cucurella",
+      "คูคูเรย่า",
+      "กูกูเรย่า"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/2hjwcz1785328531.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 10,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 10,
+      "total_assists": 25,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 79,
+    "name_en": "Alexis Sánchez",
+    "name_th": "อเล็กซิส ซานเชซ",
+    "aliases": [
+      "Sanchez",
+      "อเล็กซิส",
+      "เอล นินโญ่ มาราวีย่า"
+    ],
+    "age": 37,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m05tjc1718343405.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vpsqqx1473502977.png",
+    "flag_url": "https://flagcdn.com/w80/cl.png",
+    "current_league": "N/A",
+    "current_team": "Sevilla",
+    "teams_history": [
+      "Sevilla"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Chile",
+      "caps": 166,
+      "goals": 51
+    },
+    "stats": {
+      "total_goals": 250,
+      "total_assists": 160,
+      "trophies_count": 20
+    }
+  },
+  {
+    "id": 80,
+    "name_en": "Edinson Cavani",
+    "name_th": "เอดินสัน คาวานี่",
+    "aliases": [
+      "คาวานี่",
+      "Cavani",
+      "เอล มาทาดอร์"
+    ],
+    "age": 38,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m9oi0g1515931917.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/bm7krb1775741582.png",
+    "flag_url": "https://flagcdn.com/w80/uy.png",
+    "current_league": "N/A",
+    "current_team": "Boca Juniors",
+    "teams_history": [
+      "Boca Juniors"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Uruguay",
+      "caps": 136,
+      "goals": 58
+    },
+    "stats": {
+      "total_goals": 440,
+      "total_assists": 90,
+      "trophies_count": 25
+    }
+  },
+  {
+    "id": 81,
+    "name_en": "Luis Suárez",
+    "name_th": "หลุยส์ ซัวเรซ",
+    "aliases": [
+      "Suarez",
+      "ซัวเรซ",
+      "เอล ปิสโตเลโร่",
+      "คิงหลุยส์"
+    ],
+    "age": 38,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/nd8zl11770024667.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/m4it3e1602103647.png",
+    "flag_url": "https://flagcdn.com/w80/uy.png",
+    "current_league": "N/A",
+    "current_team": "Inter Miami",
+    "teams_history": [
+      "Inter Miami"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Uruguay",
+      "caps": 143,
+      "goals": 69
+    },
+    "stats": {
+      "total_goals": 560,
+      "total_assists": 300,
+      "trophies_count": 26
+    }
+  },
+  {
+    "id": 82,
+    "name_en": "Sadio Mané",
+    "name_th": "ซาดิโอ มาเน่",
+    "aliases": [
+      "Mane",
+      "ณเดชน์",
+      "มาเน่"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/6w592f1704365738.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/84yvqi1748524565.png",
+    "flag_url": "https://flagcdn.com/w80/sn.png",
+    "current_league": "N/A",
+    "current_team": "Al-Nassr",
+    "teams_history": [
+      "Al-Nassr"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Senegal",
+      "caps": 107,
+      "goals": 44
+    },
+    "stats": {
+      "total_goals": 260,
+      "total_assists": 140,
+      "trophies_count": 16
+    }
+  },
+  {
+    "id": 83,
+    "name_en": "Riyad Mahrez",
+    "name_th": "ริยาด มาห์เรซ",
+    "aliases": [
+      "Mahrez",
+      "พ่อมดแอลจีเรีย",
+      "มาห์เรซ"
+    ],
+    "age": 34,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/ntcubf1780252347.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/1bbtgb1755192301.png",
+    "flag_url": "https://flagcdn.com/w80/dz.png",
+    "current_league": "N/A",
+    "current_team": "Al-Ahli",
+    "teams_history": [
+      "Al-Ahli"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Algeria",
+      "caps": 94,
+      "goals": 31
     },
     "stats": {
       "total_goals": 200,
-      "total_assists": 115,
+      "total_assists": 170,
+      "trophies_count": 17
+    }
+  },
+  {
+    "id": 84,
+    "name_en": "N'Golo Kanté",
+    "name_th": "เอ็นโกโล่ ก็องเต้",
+    "aliases": [
+      "ก็องเต้",
+      "ยอดมิดฟิลด์",
+      "Kante"
+    ],
+    "age": 34,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/f0yeej1778804937.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/twxxvs1448199691.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Fenerbahçe",
+    "teams_history": [
+      "Fenerbahçe"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 61,
+      "goals": 2
+    },
+    "stats": {
+      "total_goals": 35,
+      "total_assists": 40,
+      "trophies_count": 15
+    }
+  },
+  {
+    "id": 85,
+    "name_en": "Paul Pogba",
+    "name_th": "ปอล ป็อกบา",
+    "aliases": [
+      "ป็อกบา",
+      "ป็อกบรูม",
+      "Pogba"
+    ],
+    "age": 32,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/c1jiqs1510319219.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/exjf5l1678808044.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Monaco",
+    "teams_history": [
+      "Monaco"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 91,
+      "goals": 11
+    },
+    "stats": {
+      "total_goals": 95,
+      "total_assists": 110,
+      "trophies_count": 13
+    }
+  },
+  {
+    "id": 86,
+    "name_en": "Ángel Di María",
+    "name_th": "อังเคล ดิ มาเรีย",
+    "aliases": [
+      "ดิ มาเรีย",
+      "Di Maria",
+      "เอล ฟิเดโอ้"
+    ],
+    "age": 37,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/q5pu3b1719034409.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/y6q1ds1769660256.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Rosario Central",
+    "teams_history": [
+      "Rosario Central"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 145,
+      "goals": 31
+    },
+    "stats": {
+      "total_goals": 200,
+      "total_assists": 270,
+      "trophies_count": 34
+    }
+  },
+  {
+    "id": 87,
+    "name_en": "David de Gea",
+    "name_th": "ดาบิด เด เคอา",
+    "aliases": [
+      "หลวงพี่เด",
+      "De Gea",
+      "เด เคอา"
+    ],
+    "age": 35,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/xt634x1510319724.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/hc8nhu1656098030.png",
+    "flag_url": "https://flagcdn.com/w80/es.png",
+    "current_league": "N/A",
+    "current_team": "Fiorentina",
+    "teams_history": [
+      "Fiorentina"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Spain",
+      "caps": 45,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 0,
+      "total_assists": 1,
+      "trophies_count": 10
+    }
+  },
+  {
+    "id": 88,
+    "name_en": "Thibaut Courtois",
+    "name_th": "ติโบต์ กูร์กตัวส์",
+    "aliases": [
+      "Courtois",
+      "กูร์ตัว",
+      "กูร์กตัวส์"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/54zonn1779039115.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/be.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Belgium",
+      "caps": 102,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 0,
+      "total_assists": 2,
+      "trophies_count": 20
+    }
+  },
+  {
+    "id": 89,
+    "name_en": "Jan Oblak",
+    "name_th": "ยาน โอบลัค",
+    "aliases": [
+      "Oblak",
+      "โอบลัค",
+      "ยอดนายทวาร"
+    ],
+    "age": 32,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/tyue7b1505763846.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/7z2a0f1568277259.png",
+    "flag_url": "https://flagcdn.com/w80/si.png",
+    "current_league": "N/A",
+    "current_team": "Atletico Madrid",
+    "teams_history": [
+      "Atletico Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Slovenia",
+      "caps": 68,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 0,
+      "total_assists": 3,
+      "trophies_count": 6
+    }
+  },
+  {
+    "id": 90,
+    "name_en": "Emiliano Martinez",
+    "name_th": "เอมิเลียโน มาร์ติเนซ",
+    "aliases": [
+      "Emi Martinez",
+      "เอมิเลียโน่",
+      "ดิมี่",
+      "ดิมู"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/7drp311770201331.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/cgvxt61785930389.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Aston Villa",
+    "teams_history": [
+      "Aston Villa"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 45,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 0,
+      "total_assists": 1,
+      "trophies_count": 7
+    }
+  },
+  {
+    "id": 91,
+    "name_en": "Marc-André ter Stegen",
+    "name_th": "มาร์ค-อันเดร แทร์ ชเตเก้น",
+    "aliases": [
+      "แทร์ ชเตเก้น",
+      "Ter Stegen",
+      "สเตเก้น"
+    ],
+    "age": 33,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/maz3sd1514553586.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/zg9tii1755495289.png",
+    "flag_url": "https://flagcdn.com/w80/de.png",
+    "current_league": "N/A",
+    "current_team": "Ajax",
+    "teams_history": [
+      "Ajax"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Germany",
+      "caps": 42,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 0,
+      "total_assists": 4,
+      "trophies_count": 17
+    }
+  },
+  {
+    "id": 92,
+    "name_en": "Alphonso Davies",
+    "name_th": "อัลฟอนโซ เดวีส์",
+    "aliases": [
+      "Phonzie",
+      "เดวีส์"
+    ],
+    "age": 25,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/0p7ekk1660764614.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+    "flag_url": "https://flagcdn.com/w80/ca.png",
+    "current_league": "N/A",
+    "current_team": "Bayern Munich",
+    "teams_history": [
+      "Bayern Munich"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Canada",
+      "caps": 51,
+      "goals": 15
+    },
+    "stats": {
+      "total_goals": 30,
+      "total_assists": 50,
+      "trophies_count": 15
+    }
+  },
+  {
+    "id": 93,
+    "name_en": "Achraf Hakimi",
+    "name_th": "อัชราฟ ฮาคิมี่",
+    "aliases": [
+      "ฮาคิมี่",
+      "Hakimi",
+      "ฮาคิมี"
+    ],
+    "age": 27,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/lwhwh71770216476.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+    "flag_url": "https://flagcdn.com/w80/ma.png",
+    "current_league": "N/A",
+    "current_team": "Paris SG",
+    "teams_history": [
+      "Paris SG"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Morocco",
+      "caps": 77,
+      "goals": 9
+    },
+    "stats": {
+      "total_goals": 45,
+      "total_assists": 60,
+      "trophies_count": 12
+    }
+  },
+  {
+    "id": 94,
+    "name_en": "Lucas Hernandez",
+    "name_th": "ลูกัส แอร์น็องเดซ",
+    "aliases": [
+      "Lucas Hernandez",
+      "ลูกัส",
+      "ลูคัส"
+    ],
+    "age": 29,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/69o66e1778804633.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+    "flag_url": "https://flagcdn.com/w80/fr.png",
+    "current_league": "N/A",
+    "current_team": "Paris SG",
+    "teams_history": [
+      "Paris SG"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "France",
+      "caps": 37,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 10,
+      "total_assists": 15,
+      "trophies_count": 14
+    }
+  },
+  {
+    "id": 95,
+    "name_en": "Alejandro Garnacho",
+    "name_th": "อเลฮานโดร การ์นาโช่",
+    "aliases": [
+      "การ์นาโช",
+      "กานาโช่",
+      "Garnacho"
+    ],
+    "age": 21,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/pi2i4q1771427479.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/cgvxt61785930389.png",
+    "flag_url": "https://flagcdn.com/w80/ar.png",
+    "current_league": "N/A",
+    "current_team": "Aston Villa",
+    "teams_history": [
+      "Aston Villa"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Argentina",
+      "caps": 6,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 40,
+      "total_assists": 30,
       "trophies_count": 4
+    }
+  },
+  {
+    "id": 96,
+    "name_en": "Kobbie Mainoo",
+    "name_th": "ค็อบบี้ ไมนู",
+    "aliases": [
+      "Mainoo",
+      "น้องไมนู",
+      "ไมนู"
+    ],
+    "age": 20,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/h66a4l1696149845.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png",
+    "flag_url": "https://flagcdn.com/w80/gb-eng.png",
+    "current_league": "N/A",
+    "current_team": "Manchester United",
+    "teams_history": [
+      "Manchester United"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "England",
+      "caps": 9,
+      "goals": 0
+    },
+    "stats": {
+      "total_goals": 15,
+      "total_assists": 15,
+      "trophies_count": 3
+    }
+  },
+  {
+    "id": 97,
+    "name_en": "Rasmus Højlund",
+    "name_th": "ราสมุส ฮอยลุนด์",
+    "aliases": [
+      "ฮอยลุนด",
+      "ฮอยลุนด์",
+      "Hojlund"
+    ],
+    "age": 22,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/hiwj7i1771246544.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/l8qyxv1742982541.png",
+    "flag_url": "https://flagcdn.com/w80/dk.png",
+    "current_league": "N/A",
+    "current_team": "Napoli",
+    "teams_history": [
+      "Napoli"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Denmark",
+      "caps": 18,
+      "goals": 7
+    },
+    "stats": {
+      "total_goals": 55,
+      "total_assists": 20,
+      "trophies_count": 3
+    }
+  },
+  {
+    "id": 98,
+    "name_en": "Amad Diallo",
+    "name_th": "อาหมัด ดิยัลโล่",
+    "aliases": [
+      "Amad",
+      "อาหมัด",
+      "ดิยัลโล่"
+    ],
+    "age": 23,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/f8maua1706525745.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/xzqdr11517660252.png",
+    "flag_url": "https://flagcdn.com/w80/ci.png",
+    "current_league": "N/A",
+    "current_team": "Manchester United",
+    "teams_history": [
+      "Manchester United"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Ivory Coast",
+      "caps": 6,
+      "goals": 1
+    },
+    "stats": {
+      "total_goals": 35,
+      "total_assists": 25,
+      "trophies_count": 3
+    }
+  },
+  {
+    "id": 99,
+    "name_en": "Arda Güler",
+    "name_th": "อาร์ดา กูแลร์",
+    "aliases": [
+      "เมสซี่ตุรกี",
+      "กูแลร์",
+      "Guler"
+    ],
+    "age": 20,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/0saeov1771265107.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/tr.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Turkey",
+      "caps": 12,
+      "goals": 2
+    },
+    "stats": {
+      "total_goals": 20,
+      "total_assists": 25,
+      "trophies_count": 5
+    }
+  },
+  {
+    "id": 100,
+    "name_en": "Endrick",
+    "name_th": "เอ็นดริค",
+    "aliases": [
+      "Endrick",
+      "บ๊อบบี้",
+      "เอ็นดริค"
+    ],
+    "age": 19,
+    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/7tn5xc1724608312.jpg",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwvwrw1473502969.png",
+    "flag_url": "https://flagcdn.com/w80/br.png",
+    "current_league": "N/A",
+    "current_team": "Real Madrid",
+    "teams_history": [
+      "Real Madrid"
+    ],
+    "national_team": {
+      "played": true,
+      "team_name": "Brazil",
+      "caps": 11,
+      "goals": 3
+    },
+    "stats": {
+      "total_goals": 35,
+      "total_assists": 15,
+      "trophies_count": 6
     }
   }
 ]

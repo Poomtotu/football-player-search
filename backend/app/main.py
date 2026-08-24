@@ -10,6 +10,7 @@
 # ===========================================================================
 
 import logging
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Annotated
@@ -36,10 +37,12 @@ except ImportError:
     from search_engine import FootballSearchEngine
 
 # ---------------------------------------------------------------------------
-# 1. การตั้งค่าระบบ Logging (Logging Configuration)
+# 1. การตั้งค่าระบบ Logging และ Path ไฟล์ข้อมูล (Path & Logging Configuration)
 # ---------------------------------------------------------------------------
-# ทำหน้าที่: บันทึกข้อมูลการทำงานและข้อผิดพลาดลงใน Console
-# ทำไปทำไม: เพื่อให้ผู้พัฒนาสามารถติดตามสถานะการโหลดข้อมูลและการเรียกใช้ API ได้แบบ Real-time
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "..", "data", "players.json")
+MOCK_DATA_PATH = os.path.join(BASE_DIR, "..", "data", "mock_players.json")
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)-8s | %(name)s — %(message)s",
@@ -67,17 +70,16 @@ async def lifespan(app: FastAPI):
     """
     logger.info("🚀 กำลังเริ่มต้น Football Player IR API...")
 
-    backend_dir = Path(__file__).parent.parent
-    players_json = backend_dir / "data" / "players.json"
-    mock_json = backend_dir / "data" / "mock_players.json"
-
     # เลือกระหว่างไฟล์จริง players.json หรือ mock data สำรอง
-    if players_json.exists():
-        data_path = players_json
-    elif mock_json.exists():
-        data_path = mock_json
+    if os.path.exists(DATA_PATH) and os.path.getsize(DATA_PATH) > 2:
+        data_path = DATA_PATH
+    elif os.path.exists(MOCK_DATA_PATH):
+        data_path = MOCK_DATA_PATH
     else:
-        raise FileNotFoundError(f"ไม่พบไฟล์: {players_json} หรือ {mock_json}")
+        raise FileNotFoundError(
+            f"ไม่พบไฟล์ข้อมูล: {DATA_PATH} หรือ {MOCK_DATA_PATH}\n"
+            "โปรดรัน 'python scraper.py' เพื่อสร้าง players.json ก่อน"
+        )
 
     logger.info("กำลังโหลดข้อมูลนักเตะจาก: %s", data_path)
     search_engine.load(data_path)
@@ -86,6 +88,7 @@ async def lifespan(app: FastAPI):
     yield  # เซิร์ฟเวอร์เปิดให้บริการจนกว่าจะปิด
 
     logger.info("🛑 ปิดการทำงาน Football Player IR API")
+
 
 
 # ---------------------------------------------------------------------------
@@ -185,6 +188,36 @@ async def get_all_players() -> PlayersListResponse:
     return PlayersListResponse(total=len(players), players=players)
 
 
+# --- Endpoint 7.2.1: /api/reload (รีโหลดข้อมูล JSON และเตรียม Index ใหม่ทันที) ---
+@app.post(
+    "/api/reload",
+    tags=["System"],
+    summary="Reload Players Data",
+    description="รีโหลดไฟล์ข้อมูลนักเตะและสร้างดัชนี BM25 + RapidFuzz ใหม่ทันทีโดยไม่ต้องรีสตาร์ตเซิร์ฟเวอร์",
+)
+@app.get(
+    "/api/reload",
+    tags=["System"],
+    include_in_schema=False,
+)
+async def reload_data():
+    if os.path.exists(DATA_PATH) and os.path.getsize(DATA_PATH) > 2:
+        data_path = DATA_PATH
+    elif os.path.exists(MOCK_DATA_PATH):
+        data_path = MOCK_DATA_PATH
+    else:
+        raise HTTPException(status_code=404, detail="ไม่พบไฟล์ข้อมูลนักเตะ")
+    
+    search_engine.load(data_path)
+    logger.info("♻️ รีโหลดข้อมูลนักเตะสำเร็จ: %d คน", search_engine.player_count)
+    return {
+        "status": "ok",
+        "message": f"รีโหลดข้อมูลนักเตะสำเร็จ {search_engine.player_count} คน",
+        "players_loaded": search_engine.player_count,
+    }
+
+
+
 # --- Endpoint 7.3: /api/players/search (ค้นหาด้วย Hybrid IR) ---
 # ทำหน้าที่: รับคำค้นหา (query) แล้วส่งผ่านไปยัง FootballSearchEngine
 #            ผลลัพธ์จะเรียงตาม relevance_score (BM25 55% + Fuzzy 45%) จากมากไปน้อย
@@ -263,11 +296,12 @@ async def get_player_by_id(player_id: int) -> Player:
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-dist_dir = Path(__file__).parent.parent.parent / "frontend" / "dist"
-if dist_dir.exists():
+dist_dir = os.path.join(BASE_DIR, "..", "..", "frontend", "dist")
+if os.path.exists(dist_dir):
     # Mount folder assets (CSS, JS, รูปภาพ) ให้เข้าถึงได้ที่ /assets/...
-    if (dist_dir / "assets").exists():
-        app.mount("/assets", StaticFiles(directory=dist_dir / "assets"), name="assets")
+    assets_dir = os.path.join(dist_dir, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
 
     @app.get("/{full_path:path}", include_in_schema=False)
     async def serve_spa(full_path: str):
@@ -275,8 +309,9 @@ if dist_dir.exists():
         if full_path.startswith("api/") or full_path in ["health", "docs", "openapi.json", "redoc"]:
             raise HTTPException(status_code=404)
         # ถ้ามีไฟล์จริง (เช่น favicon.ico) ให้ส่งไฟล์นั้นตรงๆ
-        file_path = dist_dir / full_path
-        if file_path.exists() and file_path.is_file():
+        file_path = os.path.join(dist_dir, full_path)
+        if os.path.isfile(file_path):
             return FileResponse(file_path)
         # ถ้าไม่มีไฟล์ ให้ส่ง index.html (SPA routing จัดการเอง)
-        return FileResponse(dist_dir / "index.html")
+        return FileResponse(os.path.join(dist_dir, "index.html"))
+
