@@ -1,4 +1,8 @@
-﻿import React, { useState } from 'react';
+﻿// ===========================================================================
+// PlayerCard.jsx — คอมโพเนนต์การ์ดแสดงข้อมูลนักเตะ (Player Card Component)
+// ===========================================================================
+
+import React, { useState } from 'react';
 import { 
   Trophy, 
   Target, 
@@ -10,20 +14,30 @@ import {
   Layers
 } from 'lucide-react';
 
+/**
+ * คอมโพเนนต์ PlayerCard แสดงรูปถ่าย, ชื่อไทย/อังกฤษ, โลโก้สโมสร, รูปธงชาติ, คะแนน Relevance Match %,
+ * สถิติประตู/แอสซิสต์/ถ้วยรางวัล 3 ช่อง และประวัติสโมสร
+ * 
+ * @param {object} player - ข้อมูลนักเตะ 1 คน
+ * @param {function} onOpenModal - ฟังก์ชันเมื่อคลิกเปิดป๊อปอัป Modal ดูรายละเอียดเต็ม
+ */
 export function PlayerCard({ player, onOpenModal }) {
+  // State จัดการกรณีรูปภาพโหลดไม่ผ่าน (Image Load Error Fallback)
   const [imgError, setImgError] = useState(false);
 
+  // ดึงสถิติและข้อมูลย่อยพร้อมตั้งค่า default ป้องกัน crash
   const stats = player.stats || { total_goals: 0, total_assists: 0, trophies_count: 0 };
   const national = player.national_team || { played: false, team_name: 'N/A', caps: 0, goals: 0 };
   const teamsHistory = player.teams_history || [];
   const aliases = player.aliases || [];
   const score = player.relevance_score;
 
-  // Relevance Score Color & Text
+  // ฟังก์ชันคำนวณและแสดง Badge คะแนนความเกี่ยวข้อง (Relevance Match Score Badge)
   const getScoreBadge = () => {
     if (score === undefined || score === null) return null;
     const percentage = Math.round(score * 100);
 
+    // กำหนดโทนสีตามระดับความเกี่ยวข้อง
     let colorClasses = 'bg-emerald-50 text-emerald-700 border-emerald-200';
     if (score < 0.5) {
       colorClasses = 'bg-amber-50 text-amber-700 border-amber-200';
@@ -45,10 +59,11 @@ export function PlayerCard({ player, onOpenModal }) {
       className="group relative bg-white rounded-2xl p-5 cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-blue-300 transition-all duration-200 flex flex-col justify-between overflow-hidden"
     >
       <div>
-        {/* Card Top: Photo, Names, Relevance */}
+        {/* --- ส่วนบนของการ์ด: รูปถ่าย, ชื่อไทย/อังกฤษ, โลโก้สโมสร, Match Badge --- */}
         <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex items-center space-x-3.5">
-            {/* Player Avatar */}
+            
+            {/* รูปถ่ายนักเตะ (Avatar Photo) */}
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gray-100 border border-gray-200 overflow-hidden flex-shrink-0 shadow-sm group-hover:border-blue-300 transition-colors">
               {player.photo_url && player.photo_url !== 'N/A' && !imgError ? (
                 <img
@@ -59,6 +74,7 @@ export function PlayerCard({ player, onOpenModal }) {
                   loading="lazy"
                 />
               ) : (
+                /* Fallback กรณีไม่มีรูปถ่าย */
                 <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100 text-gray-400">
                   <Shield className="w-7 h-7 text-blue-400/60 mb-0.5" />
                   <span className="text-[10px] font-bold tracking-wider uppercase text-gray-500">
@@ -66,7 +82,7 @@ export function PlayerCard({ player, onOpenModal }) {
                   </span>
                 </div>
               )}
-              {/* Age pill on avatar */}
+              {/* ป้ายอายุบนรูปถ่าย */}
               {player.age > 0 && (
                 <span className="absolute bottom-1 right-1 bg-white/95 text-gray-800 text-[10px] font-bold px-1.5 py-0.5 rounded-md border border-gray-200 shadow-sm">
                   {player.age} ปี
@@ -74,7 +90,7 @@ export function PlayerCard({ player, onOpenModal }) {
               )}
             </div>
 
-            {/* Names & Club */}
+            {/* ชื่อนักเตะและสโมสรปัจจุบัน */}
             <div className="min-w-0">
               <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors truncate">
                 {player.name_th && player.name_th !== player.name_en ? player.name_th : player.name_en}
@@ -83,6 +99,7 @@ export function PlayerCard({ player, onOpenModal }) {
                 {player.name_en}
               </p>
               
+              {/* Badge สโมสรและลีก */}
               <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
                 <span className="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-lg bg-gray-100 border border-gray-200 text-gray-700 font-medium truncate max-w-[150px]">
                   {player.club_logo_url && player.club_logo_url !== 'N/A' ? (
@@ -106,11 +123,11 @@ export function PlayerCard({ player, onOpenModal }) {
             </div>
           </div>
 
-          {/* Relevance Match Badge */}
+          {/* แสดง Relevance Match Score Badge */}
           {getScoreBadge()}
         </div>
 
-        {/* Aliases Tags */}
+        {/* --- ส่วนแสดงฉายา/ชื่อย่อ (Aliases Tags) --- */}
         {aliases.length > 0 && (
           <div className="flex flex-wrap items-center gap-1 mb-3.5">
             <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mr-1">ฉายา:</span>
@@ -128,8 +145,9 @@ export function PlayerCard({ player, onOpenModal }) {
           </div>
         )}
 
-        {/* Stats Dashboard 3-Column Box */}
+        {/* --- กล่องสถิติ 3 ช่อง (Stats Dashboard 3-Column Box) --- */}
         <div className="grid grid-cols-3 gap-2 mb-4">
+          {/* ช่องประตู */}
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-2.5 text-center group-hover:border-gray-200 transition-colors">
             <div className="flex items-center justify-center space-x-1 text-gray-500 mb-1">
               <Target className="w-3.5 h-3.5 text-blue-600" />
@@ -140,6 +158,7 @@ export function PlayerCard({ player, onOpenModal }) {
             </span>
           </div>
 
+          {/* ช่องแอสซิสต์ */}
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-2.5 text-center group-hover:border-gray-200 transition-colors">
             <div className="flex items-center justify-center space-x-1 text-gray-500 mb-1">
               <Flame className="w-3.5 h-3.5 text-orange-500" />
@@ -150,6 +169,7 @@ export function PlayerCard({ player, onOpenModal }) {
             </span>
           </div>
 
+          {/* ช่องถ้วยรางวัล */}
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-2.5 text-center group-hover:border-gray-200 transition-colors">
             <div className="flex items-center justify-center space-x-1 text-gray-500 mb-1">
               <Trophy className="w-3.5 h-3.5 text-amber-500" />
@@ -161,7 +181,7 @@ export function PlayerCard({ player, onOpenModal }) {
           </div>
         </div>
 
-        {/* National Team Badge */}
+        {/* --- ส่วนข้อมูลทีมชาติและรูปธงชาติ (National Team Badge) --- */}
         {national.played && national.team_name !== 'N/A' && (
           <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-gray-50 border border-gray-100 text-xs mb-3">
             <div className="flex items-center space-x-2 text-gray-700 min-w-0">
@@ -183,7 +203,7 @@ export function PlayerCard({ player, onOpenModal }) {
           </div>
         )}
 
-        {/* Career Timeline / Clubs Badges */}
+        {/* --- ประวัติสโมสรย่อ (Career Clubs Timeline Badges) --- */}
         {teamsHistory.length > 0 && (
           <div className="mb-2">
             <div className="flex items-center space-x-1 text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
@@ -204,7 +224,7 @@ export function PlayerCard({ player, onOpenModal }) {
         )}
       </div>
 
-      {/* Card Footer: Click CTA */}
+      {/* --- ท้ายการ์ด: ปุ่มกดดูรายละเอียด (CTA Footer) --- */}
       <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400 group-hover:text-blue-600 transition-colors mt-2">
         <span className="text-[11px] font-medium">ดูรายละเอียดฉบับเต็ม</span>
         <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />

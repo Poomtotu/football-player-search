@@ -1,12 +1,26 @@
-﻿import React from 'react';
+﻿// ===========================================================================
+// ErrorNotification.jsx — คอมโพเนนต์ Toast แจ้งเตือนเมื่อระบบหลังบ้านขัดข้อง
+// ===========================================================================
+
+import React from 'react';
 import { RefreshCw, ServerOff, X } from 'lucide-react';
 
+/**
+ * คอมโพเนนต์ ErrorNotification แสดงการ์ด Toast ลอยมุมขวาล่างเมื่อเกิดข้อผิดพลาดในการเชื่อมต่อกับ Backend API
+ * 
+ * @param {object} error - Object ข้อผิดพลาดที่เกิดขึ้น
+ * @param {function} onRetry - ฟังก์ชันพยายามเชื่อมต่อใหม่ (Retry)
+ * @param {function} onDismiss - ฟังก์ชันปิดการแจ้งเตือน
+ * @param {boolean} isRetrying - สถานะกำลังลองเชื่อมต่อใหม่หรือไม่
+ */
 export function ErrorNotification({ error, onRetry, onDismiss, isRetrying }) {
   if (!error) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 max-w-md w-full animate-slide-up">
       <div className="bg-white border-2 border-rose-200 shadow-2xl rounded-2xl p-4 flex items-start space-x-3.5 text-gray-800">
+        
+        {/* ไอคอนแจ้งเตือนเซิร์ฟเวอร์หลุด */}
         <div className="p-2 bg-rose-50 text-rose-600 rounded-xl flex-shrink-0 mt-0.5">
           <ServerOff className="w-5 h-5" />
         </div>
@@ -16,6 +30,8 @@ export function ErrorNotification({ error, onRetry, onDismiss, isRetrying }) {
             <h4 className="text-sm font-bold text-gray-900 flex items-center space-x-1.5">
               <span>ระบบหลังบ้านขัดข้อง</span>
             </h4>
+            
+            {/* ปุ่มกดปิดการแจ้งเตือน */}
             <button
               onClick={onDismiss}
               className="text-gray-400 hover:text-gray-700 p-1 rounded-lg hover:bg-gray-100 transition-colors"
@@ -25,10 +41,12 @@ export function ErrorNotification({ error, onRetry, onDismiss, isRetrying }) {
             </button>
           </div>
 
+          {/* รายละเอียดข้อผิดพลาด */}
           <p className="text-xs text-gray-600 mb-3 leading-relaxed">
             {error.message || 'ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ Backend ได้ กรุณาตรวจสอบว่าเซิร์ฟเวอร์เปิดใช้งานอยู่'}
           </p>
 
+          {/* ปุ่มกดลองเชื่อมต่อใหม่ (Retry Button) */}
           <div className="flex items-center space-x-2">
             <button
               onClick={onRetry}

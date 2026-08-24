@@ -1,6 +1,21 @@
-﻿import React from 'react';
+﻿// ===========================================================================
+// HeroSearch.jsx — ส่วนช่องค้นหาหลัก (Hero Section & Search Input Bar)
+// ===========================================================================
+
+import React from 'react';
 import { Search, X, Loader2, Sparkles } from 'lucide-react';
 
+/**
+ * คอมโพเนนต์ HeroSearch สำหรับแสดงช่องค้นหาขนาดใหญ่, ชิปคำแนะนำด่วน, และแท็บฟิลเตอร์เลือกลีก
+ * 
+ * @param {string} query - ข้อความค้นหาปัจจุบัน
+ * @param {function} setQuery - ฟังก์ชันอัปเดตข้อความค้นหา
+ * @param {boolean} loading - สถานะกำลังโหลดข้อมูลจาก API
+ * @param {string} selectedLeague - ชื่อลีกที่เลือกฟิลเตอร์
+ * @param {function} setSelectedLeague - ฟังก์ชันอัปเดตฟิลเตอร์ลีก
+ * @param {number} totalResults - จำนวนผลลัพธ์ที่พบ
+ * @param {function} onSelectChip - ฟังก์ชันเมื่อคลิกเลือกชิปคำแนะนำด่วน
+ */
 export function HeroSearch({
   query,
   setQuery,
@@ -10,6 +25,7 @@ export function HeroSearch({
   totalResults,
   onSelectChip
 }) {
+  // รายการคำค้นหาด่วนสำหรับทดสอบ (Quick Suggestion Tags)
   const quickTags = [
     { label: 'เมสซี่', icon: '🔥', desc: 'ชื่อไทย' },
     { label: 'CR7', icon: '⚡', desc: 'ฉายา' },
@@ -22,6 +38,7 @@ export function HeroSearch({
     { label: 'roanaldo', icon: '⌨️', desc: 'ทดสอบพิมพ์ผิด' },
   ];
 
+  // รายการลีกทั้งหมดสำหรับใช้เป็นแท็บฟิลเตอร์
   const leagues = [
     'ทั้งหมด',
     'Premier League',
@@ -35,13 +52,14 @@ export function HeroSearch({
 
   return (
     <div className="relative pt-10 pb-6 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
-      {/* IR Pipeline Badge */}
+      
+      {/* --- Badge อธิบายระบบ IR Pipeline --- */}
       <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-4 animate-fade-in shadow-clean-sm">
         <Sparkles className="w-3.5 h-3.5 text-blue-600" />
         <span>Information Retrieval System (BM25 + RapidFuzz Typo-Tolerant)</span>
       </div>
 
-      {/* Main Headline */}
+      {/* --- หัวข้อหลัก (Headline & Description) --- */}
       <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-gray-900 mb-3">
         ค้นหาประวัติ<span className="text-blue-600">นักฟุตบอล</span>ระดับโลก
       </h1>
@@ -49,9 +67,11 @@ export function HeroSearch({
         ค้นหาได้ทั้งชื่อภาษาไทย ภาษาอังกฤษ และฉายา แม้จะพิมพ์ผิด ระบบ IR จะคำนวณ <span className="text-blue-600 font-semibold">relevance_score</span> จัดอันดับความเกี่ยวข้องทันที
       </p>
 
-      {/* Large Search Bar */}
+      {/* --- ช่องค้นหาขนาดใหญ่ (Large Search Input Bar) --- */}
       <div className="relative max-w-3xl mx-auto mb-5">
         <div className="flex items-center bg-white border-2 border-gray-200 rounded-2xl shadow-clean p-2 sm:p-2.5 transition-all focus-within:border-blue-600 focus-within:ring-4 focus-within:ring-blue-100">
+          
+          {/* ไอคอนค้นหาหรือไอคอนโหลดหมุน (Spinner) */}
           <div className="pl-3 pr-2 flex items-center">
             {loading ? (
               <Loader2 className="w-6 h-6 text-blue-600 animate-spin" />
@@ -60,6 +80,7 @@ export function HeroSearch({
             )}
           </div>
 
+          {/* Input Text Box */}
           <input
             type="text"
             value={query}
@@ -69,6 +90,7 @@ export function HeroSearch({
             autoFocus
           />
 
+          {/* ปุ่มล้างข้อความค้นหา (Clear Button) */}
           {query && (
             <button
               onClick={() => setQuery('')}
@@ -79,6 +101,7 @@ export function HeroSearch({
             </button>
           )}
 
+          {/* Badge บอกเวลา Debounce 300ms */}
           <div className="hidden sm:flex items-center pr-2">
             <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 border border-gray-200 px-2 py-1 rounded-lg">
               Debounce 300ms
@@ -87,7 +110,7 @@ export function HeroSearch({
         </div>
       </div>
 
-      {/* Quick Search Suggestions Chips */}
+      {/* --- ชิปคำแนะนำด่วน (Quick Search Suggestion Chips) --- */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-xs">
         <span className="text-gray-500 text-[11px] font-medium mr-1">ลองค้นหา:</span>
         {quickTags.map((tag) => (
@@ -102,7 +125,7 @@ export function HeroSearch({
         ))}
       </div>
 
-      {/* League Filter Tabs */}
+      {/* --- แท็บเลือกฟิลเตอร์ลีก (League Filter Tabs) --- */}
       <div className="flex items-center justify-center space-x-1.5 overflow-x-auto pb-2 max-w-full">
         {leagues.map((league) => {
           const isActive = selectedLeague === league;

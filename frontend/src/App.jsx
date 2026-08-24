@@ -1,92 +1,91 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+// ===========================================================================
+// App.jsx — คอมโพเนนต์หลักของแอปพลิเคชัน (Main Container & State Management)
+// ===========================================================================
+
+import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSearch } from './components/HeroSearch';
+import { StatsSummary } from './components/StatsSummary';
 import { PlayerCard } from './components/PlayerCard';
 import { PlayerModal } from './components/PlayerModal';
 import { SkeletonCard } from './components/SkeletonCard';
 import { EmptyState } from './components/EmptyState';
-import { StatsSummary } from './components/StatsSummary';
 import { ErrorNotification } from './components/ErrorNotification';
 import { useDebounce } from './hooks/useDebounce';
-import { API_ENDPOINTS, API_BASE_URL } from './config';
-import { Trophy, AlertTriangle, RefreshCw, ServerOff } from 'lucide-react';
+import { API_ENDPOINTS } from './config';
+import { ServerOff, RefreshCw } from 'lucide-react';
 
 export default function App() {
-  const [query, setQuery] = useState('');
-  const debouncedQuery = useDebounce(query, 300);
+  // --- States หลักของแอปพลิเคชัน ---
+  const [query, setQuery] = useState('');                                   // ข้อความที่พิมพ์ในช่องค้นหา
+  const debouncedQuery = useDebounce(query, 300);                           // ข้อความที่ผ่านการหน่วงเวลา 300ms
+  const [selectedLeague, setSelectedLeague] = useState('ทั้งหมด');           // ลีกที่เลือกในแท็บฟิลเตอร์
+  const [allPlayers, setAllPlayers] = useState([]);                         // รายชื่อนักเตะทั้งหมด
+  const [filteredPlayers, setFilteredPlayers] = useState([]);               // รายชื่อนักเตะที่ผ่านการค้นหาและฟิลเตอร์
+  const [loading, setLoading] = useState(true);                             // สถานะกำลังดึงข้อมูลจาก API
+  const [selectedPlayer, setSelectedPlayer] = useState(null);               // ข้อมูลนักเตะที่เลือกเปิดใน Modal
+  const [backendReady, setBackendReady] = useState(false);                   // สถานะความพร้อมของ Backend API
+  const [backendError, setBackendError] = useState(null);                   // ข้อความข้อผิดพลาดเมื่อติดต่อ Backend ไม่ได้
+  const [isRetrying, setIsRetrying] = useState(false);                       // สถานะกำลังลองเชื่อมต่อใหม่ (Retry)
+  const [searchTime, setSearchTime] = useState(null);                       // เวลาที่ใช้ในการค้นหา (ms)
 
-  const [players, setPlayers] = useState([]);
-  const [allPlayers, setAllPlayers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedPlayer, setSelectedPlayer] = useState(null);
-  const [selectedLeague, setSelectedLeague] = useState('ทั้งหมด');
-  const [backendReady, setBackendReady] = useState(false);
-  const [searchTime, setSearchTime] = useState(null);
-  const [backendError, setBackendError] = useState(null);
-  const [isRetrying, setIsRetrying] = useState(false);
-
-  // 1. Check Backend Health & Fetch initial data
+  // --- 1. ฟังก์ชันเช็กสถานะ Backend & ดึงรายชื่อนักเตะทั้งหมดเมื่อเริ่มต้น ---
   const checkHealthAndLoad = useCallback(async () => {
     setIsRetrying(true);
+    const startTime = performance.now();
     try {
-      const healthRes = await fetch(API_ENDPOINTS.health, { signal: AbortSignal.timeout(4000) });
-      if (!healthRes.ok) throw new Error(`Health check returned status ${healthRes.status}`);
-      
+      // 1.1 ยิง /health เช็กความพร้อมของ Backend
+      const healthRes = await fetch(API_ENDPOINTS.health);
+      if (!healthRes.ok) throw new Error(`Backend Health Check Failed (${healthRes.status})`);
       const healthData = await healthRes.json();
-      setBackendReady(healthData.index_ready);
-
-      const playersRes = await fetch(API_ENDPOINTS.players, { signal: AbortSignal.timeout(6000) });
-      if (!playersRes.ok) throw new Error(`Fetch players returned status ${playersRes.status}`);
-
-      const playersData = await playersRes.json();
-      const list = playersData.players || [];
-      setAllPlayers(list);
-      if (!query.trim()) {
-        setPlayers(list);
+      
+      if (healthData.status === 'ok') {
+        setBackendReady(true);
+        setBackendError(null);
       }
-      setBackendError(null);
-    } catch (err) {
-      console.error('Backend connection error:', err);
-      setBackendReady(false);
-      setBackendError({
-        message: `ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ Backend (${API_BASE_URL || 'http://localhost:8000'}) ได้ กรุณาตรวจสอบว่ารัน backend อยู่หรือไม่`,
-      });
-    } finally {
-      setIsRetrying(false);
-      setLoading(false);
-    }
-  }, [query]);
 
-  // Initial load
+      // 1.2 ดึงข้อมูลนักเตะเริ่มต้นทั้งหมด
+      const playersRes = await fetch(API_ENDPOINTS.players);
+      if (!playersRes.ok) throw new Error(`Failed to fetch players list (${playersRes.status})`);
+      const playersData = await playersRes.json();
+
+      const playersList = playersData.players || playersData || [];
+      setAllPlayers(playersList);
+
+      // ถ้ายังไม่ได้พิมพ์คำค้นหา ให้แสดงนักเตะยอดนิยมทั้งหมด
+      if (!debouncedQuery) {
+        setFilteredPlayers(playersList);
+      }
+
+      const endTime = performance.now();
+      setSearchTime(Math.round(endTime - startTime));
+    } catch (err) {
+      console.error('API Error:', err);
+      setBackendReady(false);
+      setBackendError(err);
+    } finally {
+      setLoading(false);
+      setIsRetrying(false);
+    }
+  }, [debouncedQuery]);
+
+  // รันเช็ก Health และโหลดข้อมูลครั้งแรกเมื่อเปิดหน้าเว็บ
   useEffect(() => {
     checkHealthAndLoad();
   }, [checkHealthAndLoad]);
 
-  // Periodic Health check poll (every 20s)
+  // --- 2. ฟังก์ชันยิง API ค้นหานักเตะเมื่อคำค้นหา (debouncedQuery) เปลี่ยนแปลง ---
   useEffect(() => {
-    const timer = setInterval(() => {
-      fetch(API_ENDPOINTS.health, { signal: AbortSignal.timeout(3000) })
-        .then((res) => {
-          if (res.ok) {
-            setBackendReady(true);
-            setBackendError(null);
-          } else {
-            setBackendReady(false);
-          }
-        })
-        .catch(() => {
-          setBackendReady(false);
-        });
-    }, 20000);
+    let isMounted = true;
 
-    return () => clearInterval(timer);
-  }, []);
-
-  // 2. Perform Search on debounced query
-  useEffect(() => {
-    async function performSearch() {
+    const performSearch = async () => {
+      // กรณีช่องค้นหาเป็นค่าว่าง ให้แสดงรายการทั้งหมด
       if (!debouncedQuery.trim()) {
-        setPlayers(allPlayers);
+        let list = [...allPlayers];
+        if (selectedLeague !== 'ทั้งหมด') {
+          list = list.filter((p) => p.current_league === selectedLeague);
+        }
+        setFilteredPlayers(list);
         setSearchTime(null);
         setLoading(false);
         return;
@@ -96,47 +95,61 @@ export default function App() {
       const startTime = performance.now();
 
       try {
-        const url = API_ENDPOINTS.search(debouncedQuery.trim(), 50);
-        const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
-        
-        if (!res.ok) {
-          throw new Error(`ค้นหาล้มเหลว (HTTP ${res.status})`);
-        }
-
+        // ยิงคำค้นหาไปยัง /api/players/search?q=...
+        const res = await fetch(API_ENDPOINTS.search(debouncedQuery));
+        if (!res.ok) throw new Error(`Search request failed (${res.status})`);
         const data = await res.json();
-        setPlayers(data.results || []);
-        setBackendError(null);
-        setBackendReady(true);
+
+        if (isMounted) {
+          let results = data.results || [];
+
+          // กรองต่อตามฟิลเตอร์ลีกที่เลือก
+          if (selectedLeague !== 'ทั้งหมด') {
+            results = results.filter((p) => p.current_league === selectedLeague);
+          }
+
+          setFilteredPlayers(results);
+          setBackendError(null);
+          setBackendReady(true);
+
+          const endTime = performance.now();
+          setSearchTime(Math.round(endTime - startTime));
+        }
       } catch (err) {
-        console.error('Search request failed:', err);
-        setPlayers([]);
-        setBackendError({
-          message: `ไม่สามารถดำเนินการค้นหาได้: ${err.message || 'การเชื่อมต่อขัดข้อง'}`,
-        });
+        console.error('Search error:', err);
+        if (isMounted) {
+          setBackendReady(false);
+          setBackendError(err);
+        }
       } finally {
-        const endTime = performance.now();
-        setSearchTime(Math.round(endTime - startTime));
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
-    }
+    };
 
     performSearch();
-  }, [debouncedQuery, allPlayers]);
 
-  // 3. Filter players by selected league
-  const filteredPlayers = useMemo(() => {
-    if (selectedLeague === 'ทั้งหมด') {
-      return players;
+    return () => {
+      isMounted = false;
+    };
+  }, [debouncedQuery, selectedLeague, allPlayers]);
+
+  // --- 3. ฟังก์ชันกรองนักเตะตามแท็บลีกเมื่อกดเลือกเปลี่ยนลีก ---
+  useEffect(() => {
+    if (!debouncedQuery.trim() && allPlayers.length > 0) {
+      if (selectedLeague === 'ทั้งหมด') {
+        setFilteredPlayers(allPlayers);
+      } else {
+        setFilteredPlayers(allPlayers.filter((p) => p.current_league === selectedLeague));
+      }
     }
-    return players.filter(
-      (p) => p.current_league && p.current_league.toLowerCase().includes(selectedLeague.toLowerCase())
-    );
-  }, [players, selectedLeague]);
+  }, [selectedLeague, allPlayers, debouncedQuery]);
 
-  const handleSelectChip = (tag) => {
-    setQuery(tag);
+  // --- 4. ฟังก์ชันจัดการเมื่อผู้ใช้คลิกเลือกชิปคำแนะนำด่วน ---
+  const handleSelectChip = (chipLabel) => {
+    setQuery(chipLabel);
   };
 
+  // --- 5. ฟังก์ชันรีเซ็ตคำค้นหาและฟิลเตอร์ทั้งหมด ---
   const handleReset = () => {
     setQuery('');
     setSelectedLeague('ทั้งหมด');
@@ -145,13 +158,13 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col justify-between text-gray-900 selection:bg-blue-600 selection:text-white bg-slate-50">
       <div>
-        {/* Navbar */}
+        {/* แถบ Header ข้างบน */}
         <Navbar 
           backendReady={backendReady} 
           totalPlayers={allPlayers.length} 
         />
 
-        {/* Hero & Search Bar Section */}
+        {/* ส่วน Hero และช่องค้นหาหลัก */}
         <HeroSearch
           query={query}
           setQuery={setQuery}
@@ -162,7 +175,7 @@ export default function App() {
           onSelectChip={handleSelectChip}
         />
 
-        {/* In-page Error Banner if Backend is offline */}
+        {/* แบนเนอร์แจ้งเตือนแบบ In-page กรณีติดต่อเซิร์ฟเวอร์ไม่ได้ */}
         {backendError && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 animate-fade-in">
             <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-rose-700 text-xs sm:text-sm shadow-sm">
@@ -184,7 +197,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Stats Summary Bar */}
+        {/* แถบสรุปผลลัพธ์การค้นหาและความเร็ว (ms) */}
         {!loading && !backendError && (
           <StatsSummary
             totalShown={filteredPlayers.length}
@@ -194,17 +207,17 @@ export default function App() {
           />
         )}
 
-        {/* Main Content: Player Cards Grid */}
+        {/* ตารางแสดงผลการ์ดนักเตะ (Player Cards Grid) */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           {loading ? (
-            /* Skeleton Loading Grid */
+            /* แสดง Skeleton Loading ระหว่างรอข้อมูล */
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {[...Array(8)].map((_, i) => (
                 <SkeletonCard key={i} />
               ))}
             </div>
           ) : filteredPlayers.length > 0 ? (
-            /* Player Cards Grid */
+            /* แสดงการ์ดนักเตะจริง */
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 animate-fade-in">
               {filteredPlayers.map((player) => (
                 <PlayerCard
@@ -215,7 +228,7 @@ export default function App() {
               ))}
             </div>
           ) : (
-            /* Empty State */
+            /* แสดง Empty State เมื่อค้นหาไม่พบข้อมูล */
             <EmptyState
               query={debouncedQuery}
               onReset={handleReset}
@@ -225,7 +238,7 @@ export default function App() {
         </main>
       </div>
 
-      {/* Floating Error Notification Toast */}
+      {/* Toast แจ้งเตือนข้อผิดพลาดลอยมุมขวาล่าง */}
       <ErrorNotification
         error={backendError}
         onRetry={checkHealthAndLoad}
@@ -233,7 +246,7 @@ export default function App() {
         isRetrying={isRetrying}
       />
 
-      {/* Full Details Modal */}
+      {/* หน้าต่างป๊อปอัป Modal แสดงรายละเอียดนักเตะฉบับเต็ม */}
       {selectedPlayer && (
         <PlayerModal
           player={selectedPlayer}
@@ -241,11 +254,10 @@ export default function App() {
         />
       )}
 
-      {/* Footer */}
+      {/* ส่วนท้ายเว็บไซต์ (Footer) */}
       <footer className="border-t border-gray-200 bg-white py-8 px-4 text-center text-xs text-gray-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
-            <Trophy className="w-4 h-4 text-blue-600" />
             <span className="font-bold text-gray-800">Football Player Information Retrieval System</span>
           </div>
           <div>

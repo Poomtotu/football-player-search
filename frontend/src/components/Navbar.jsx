@@ -1,13 +1,25 @@
-﻿import React from 'react';
+﻿// ===========================================================================
+// Navbar.jsx — แถบ Header นำทางด้านบนของเว็บไซต์ (Clean White Theme)
+// ===========================================================================
+
+import React from 'react';
 import { BookOpen, Database, Sparkles, Trophy } from 'lucide-react';
 import { API_ENDPOINTS } from '../config';
 
+/**
+ * คอมโพเนนต์ Navbar สำหรับแสดงโลโก้, ชื่อโปรเจกต์, จำนวนนักเตะในฐานข้อมูล, สถานะ API, และลิงก์ไปยัง Swagger Docs
+ * 
+ * @param {boolean} backendReady - สถานะว่า Backend เซิร์ฟเวอร์พร้อมใช้งานหรือไม่
+ * @param {number} totalPlayers - จำนวนนักเตะทั้งหมดในฐานข้อมูล
+ */
 export function Navbar({ backendReady, totalPlayers }) {
   return (
     <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo & Brand */}
+        
+        {/* --- ส่วนโลโก้และชื่อแบรนด์ (Logo & Brand) --- */}
         <div className="flex items-center space-x-3">
+          {/* ถ้วยรางวัลไอคอนโลโก้ */}
           <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-md shadow-blue-500/20">
             <Trophy className="w-5 h-5 text-white" />
           </div>
@@ -16,6 +28,7 @@ export function Navbar({ backendReady, totalPlayers }) {
               <span className="font-black text-lg tracking-tight text-gray-900">
                 FOOTBALL<span className="text-blue-600">.IR</span>
               </span>
+              {/* Badge แสดงอัลกอริทึมหลัก */}
               <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 text-[10px] font-bold tracking-wide bg-blue-50 text-blue-700 border border-blue-200 rounded-full">
                 <Sparkles className="w-2.5 h-2.5 mr-1 text-blue-600" />
                 BM25 + Fuzzy
@@ -27,16 +40,17 @@ export function Navbar({ backendReady, totalPlayers }) {
           </div>
         </div>
 
-        {/* Right Info & Status */}
+        {/* --- ส่วนขวา: ข้อมูลฐานข้อมูล, สถานะเซิร์ฟเวอร์, และลิงก์ Swagger API --- */}
         <div className="flex items-center space-x-3 sm:space-x-4">
-          {/* Database count */}
+          
+          {/* 1. จำนวนข้อมูลในฐานข้อมูล */}
           <div className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200 text-xs text-gray-600 font-medium">
             <Database className="w-3.5 h-3.5 text-blue-600" />
             <span>ฐานข้อมูล:</span>
             <span className="font-bold text-gray-900">{totalPlayers || 100} คน</span>
           </div>
 
-          {/* Backend Status */}
+          {/* 2. ไฟแสดงสถานะการเชื่อมต่อ Backend (Online / Offline Indicator) */}
           <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200 text-xs font-medium">
             <span className="relative flex h-2 w-2">
               {backendReady && (
@@ -49,7 +63,7 @@ export function Navbar({ backendReady, totalPlayers }) {
             </span>
           </div>
 
-          {/* API Docs Button */}
+          {/* 3. ปุ่มเปิดหน้า Swagger API Documentation */}
           <a
             href={API_ENDPOINTS.docs}
             target="_blank"
