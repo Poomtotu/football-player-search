@@ -1,4 +1,4 @@
-﻿# ===========================================================================
+# ===========================================================================
 # .gitignore — Football Player IR System (Clean Architecture)
 # ===========================================================================
 
@@ -13,7 +13,8 @@ backend/venv/
 env/
 .venv/
 build/
-dist/
+# dist/ ← ลบออกเพื่อให้ frontend/dist/ Push ขึ้น GitHub ได้
+
 .pytest_cache/
 .coverage
 htmlcov/
@@ -21,9 +22,10 @@ htmlcov/
 # --- Frontend & Node.js Build Output ---
 node_modules/
 frontend/node_modules/
-frontend/dist/
+# frontend/dist/ ← อนุญาตให้ Push ขึ้น GitHub เพื่อ Deploy บน Render.com
 .vite/
 frontend/.vite/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
