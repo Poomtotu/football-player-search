@@ -1,40 +1,31 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        dark: {
-          900: '#070A12',
-          800: '#0B0F19',
-          700: '#111827',
-          600: '#1E293B',
-          500: '#334155',
-        },
-        sports: {
-          emerald: '#10B981',
-          cyan: '#06B6D4',
-          lime: '#84CC16',
-          gold: '#F59E0B',
-          flame: '#EF4444',
-          purple: '#8B5CF6',
+        brand: {
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
         }
       },
       fontFamily: {
         sans: ['Inter', 'Noto Sans Thai', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'neon-emerald': '0 0 20px -3px rgba(16, 185, 129, 0.35)',
-        'neon-cyan': '0 0 20px -3px rgba(6, 182, 212, 0.35)',
-        'neon-gold': '0 0 20px -3px rgba(245, 158, 11, 0.35)',
-        'glow-card': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        'clean-sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'clean': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)',
+        'clean-md': '0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
+        'clean-lg': '0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04)',
       },
       animation: {
-        'pulse-glow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'fade-in': 'fadeIn 0.3s ease-out forwards',
         'slide-up': 'slideUp 0.3s ease-out forwards',
       },
@@ -44,7 +35,7 @@ export default {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '0%': { opacity: '0', transform: 'translateY(8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         }
       }

@@ -143,7 +143,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between text-slate-100 selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen flex flex-col justify-between text-gray-900 selection:bg-blue-600 selection:text-white bg-slate-50">
       <div>
         {/* Navbar */}
         <Navbar 
@@ -165,17 +165,17 @@ export default function App() {
         {/* In-page Error Banner if Backend is offline */}
         {backendError && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 animate-fade-in">
-            <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-rose-300 text-xs sm:text-sm">
+            <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-rose-700 text-xs sm:text-sm shadow-sm">
               <div className="flex items-center space-x-3 text-center sm:text-left">
-                <ServerOff className="w-5 h-5 text-rose-400 flex-shrink-0" />
+                <ServerOff className="w-5 h-5 text-rose-600 flex-shrink-0" />
                 <span>
-                  <strong className="text-white">ระบบหลังบ้านขัดข้อง:</strong> {backendError.message}
+                  <strong className="text-gray-900">ระบบหลังบ้านขัดข้อง:</strong> {backendError.message}
                 </span>
               </div>
               <button
                 onClick={checkHealthAndLoad}
                 disabled={isRetrying}
-                className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-md transition-all flex-shrink-0"
+                className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition-all flex-shrink-0"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isRetrying ? 'animate-spin' : ''}`} />
                 <span>{isRetrying ? 'กำลังลองใหม่...' : 'ลองใหม่ (Retry)'}</span>
@@ -242,14 +242,14 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-dark-900/90 py-8 px-4 text-center text-xs text-slate-500">
+      <footer className="border-t border-gray-200 bg-white py-8 px-4 text-center text-xs text-gray-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
-            <Trophy className="w-4 h-4 text-emerald-400" />
-            <span className="font-bold text-slate-300">Football Player Information Retrieval System</span>
+            <Trophy className="w-4 h-4 text-blue-600" />
+            <span className="font-bold text-gray-800">Football Player Information Retrieval System</span>
           </div>
           <div>
-            Powered by <strong className="text-emerald-400">FastAPI</strong> + <strong className="text-cyan-400">BM25Okapi</strong> + <strong className="text-purple-400">RapidFuzz</strong>
+            Powered by <strong className="text-blue-600">FastAPI</strong> + <strong className="text-indigo-600">BM25Okapi</strong> + <strong className="text-cyan-600">RapidFuzz</strong>
           </div>
         </div>
       </footer>

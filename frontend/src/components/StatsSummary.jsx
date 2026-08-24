@@ -1,36 +1,36 @@
-import React from 'react';
-import { Database, Zap, Cpu, Award } from 'lucide-react';
+﻿import React from 'react';
+import { Zap, Cpu } from 'lucide-react';
 
 export function StatsSummary({ totalShown, totalAll, query, searchTime }) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-dark-800/60 border border-slate-800 text-xs">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs">
         {/* Results count */}
         <div className="flex items-center space-x-2">
-          <span className="font-semibold text-slate-400">
+          <span className="font-semibold text-gray-600">
             {query ? (
               <>
-                ผลการค้นหา: <strong className="text-emerald-400 font-extrabold text-sm">{totalShown}</strong> รายการ
-                <span className="text-slate-500 ml-1.5 hidden sm:inline">(สำหรับ "{query}")</span>
+                ผลการค้นหา: <strong className="text-blue-600 font-black text-sm">{totalShown}</strong> รายการ
+                <span className="text-gray-400 ml-1.5 hidden sm:inline">(สำหรับ "{query}")</span>
               </>
             ) : (
               <>
-                แสดงนักเตะยอดนิยม: <strong className="text-emerald-400 font-extrabold text-sm">{totalShown}</strong> จาก {totalAll} คน
+                แสดงนักเตะยอดนิยม: <strong className="text-blue-600 font-black text-sm">{totalShown}</strong> จาก {totalAll} คน
               </>
             )}
           </span>
         </div>
 
         {/* IR Pipeline Info Badges */}
-        <div className="flex items-center space-x-3 text-[11px] text-slate-400">
+        <div className="flex items-center space-x-3 text-[11px] text-gray-500 font-medium">
           {searchTime !== null && (
-            <span className="hidden md:inline-flex items-center text-slate-400">
-              <Zap className="w-3 h-3 text-amber-400 mr-1" />
-              ความเร็ว: <strong className="text-slate-200 ml-1">{searchTime} ms</strong>
+            <span className="hidden md:inline-flex items-center text-gray-500">
+              <Zap className="w-3.5 h-3.5 text-amber-500 mr-1" />
+              ความเร็ว: <strong className="text-gray-800 ml-1">{searchTime} ms</strong>
             </span>
           )}
-          <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md bg-dark-900 border border-slate-700 text-slate-300">
-            <Cpu className="w-3 h-3 text-cyan-400 mr-1" />
+          <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-lg bg-gray-100 border border-gray-200 text-gray-700">
+            <Cpu className="w-3.5 h-3.5 text-blue-600 mr-1" />
             Okapi BM25 + RapidFuzz WRatio
           </span>
         </div>
