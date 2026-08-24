@@ -1,7 +1,13 @@
-"""
-main.py — FastAPI Application Entry Point for Football Player IR API
-ระบบค้นหาประวัตินักฟุตบอลด้วย Hybrid IR (BM25 + RapidFuzz)
-"""
+# ===========================================================================
+# main.py — FastAPI Application Entry Point & REST API Endpoints
+# ===========================================================================
+# ไฟล์นี้ทำหน้าที่เป็นหัวใจหลักของฝั่งเซิร์ฟเวอร์ (Backend Server)
+# ประกอบด้วย:
+# 1. การตั้งค่าแอปพลิเคชัน FastAPI พร้อมสร้าง Swagger API Documentation อัตโนมัติ
+# 2. ติดตั้ง CORSMiddleware เพื่อให้ React Frontend สามารถเรียกใช้งานข้าม Cross-Origin
+# 3. การจัดการวงจรชีวิต (Lifespan) เพื่อโหลดข้อมูลนักเตะและเตรียม IR Index ก่อนรับ Request แรก
+# 4. ให้บริการ REST API Endpoints (/health, /api/players, /api/players/search, /api/players/{id})
+# ===========================================================================
 
 import logging
 from contextlib import asynccontextmanager
@@ -11,6 +17,7 @@ from typing import Annotated
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
+# รองรับการ import ทั้งการรันจากภายใน package และรันตรงจากภายนอก
 try:
     from app.models import (
         HealthResponse,
@@ -29,8 +36,10 @@ except ImportError:
     from search_engine import FootballSearchEngine
 
 # ---------------------------------------------------------------------------
-# Logging setup
+# 1. การตั้งค่าระบบ Logging (Logging Configuration)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: บันทึกข้อมูลการทำงานและข้อผิดพลาดลงใน Console
+# ทำไปทำไม: เพื่อให้ผู้พัฒนาสามารถติดตามสถานะการโหลดข้อมูลและการเรียกใช้ API ได้แบบ Real-time
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)-8s | %(name)s — %(message)s",
@@ -39,19 +48,22 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Global Search Engine Instance
+# 2. อินสแตนซ์ของ Search Engine (Global IR Search Engine Instance)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: สร้าง Object สำหรับประมวลผลการค้นหาด้วยอัลกอริทึม BM25 + RapidFuzz
+# ทำไปทำไม: เพื่อใช้อินสแตนซ์ร่วมกันทั้งแอปพลิเคชัน ไม่ต้องสร้างดัชนีค้นหาใหม่ทุกครั้งที่มี Request เข้ามา
 search_engine = FootballSearchEngine()
 
 
 # ---------------------------------------------------------------------------
-# Lifespan Management
+# 3. การจัดการวงจรชีวิตแอปพลิเคชัน (Lifespan Management)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: โหลดไฟล์ข้อมูลนักเตะ players.json และเตรียม Index ของระบบ IR ทันทีที่สตาร์ตเซิร์ฟเวอร์
+# ทำไปทำไม: เพื่อให้ระบบค้นหาพร้อมทำงานทันที เมื่อผู้ใช้ส่ง Request มาค้นหา จะไม่ต้องเสียเวลาอ่านไฟล์ซ้ำ
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """
-    Startup: โหลด backend/data/players.json (หรือ fallback ไปที่ backend/data/mock_players.json)
-    และสร้าง Hybrid IR Index (BM25 + RapidFuzz)
+    Startup Task: โหลดข้อมูลนักเตะและสร้างดัชนีค้นหา (BM25 + RapidFuzz Index)
     """
     logger.info("🚀 กำลังเริ่มต้น Football Player IR API...")
 
@@ -59,6 +71,7 @@ async def lifespan(app: FastAPI):
     players_json = backend_dir / "data" / "players.json"
     mock_json = backend_dir / "data" / "mock_players.json"
 
+    # เลือกระหว่างไฟล์จริง players.json หรือ mock data สำรอง
     if players_json.exists():
         data_path = players_json
     elif mock_json.exists():
@@ -70,14 +83,15 @@ async def lifespan(app: FastAPI):
     search_engine.load(data_path)
     logger.info("✅ ระบบ IR พร้อมทำงาน — ข้อมูลนักเตะ %d คน", search_engine.player_count)
 
-    yield
+    yield  # เซิร์ฟเวอร์เปิดให้บริการจนกว่าจะปิด
 
     logger.info("🛑 ปิดการทำงาน Football Player IR API")
 
 
 # ---------------------------------------------------------------------------
-# FastAPI App Initialization
+# 4. การสร้างแอปพลิเคชัน FastAPI (FastAPI App Initialization)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: กำหนดค่าแอปพลิเคชันหลัก ชื่อบริการ คำอธิบาย และเปิดใช้งาน Swagger UI (/docs)
 app = FastAPI(
     title="Football Player IR API",
     description=(
@@ -93,20 +107,24 @@ app = FastAPI(
 )
 
 # ---------------------------------------------------------------------------
-# CORS Configuration (สำหรับเชื่อมต่อ Frontend)
+# 5. การตั้งค่า CORS (Cross-Origin Resource Sharing Middleware)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: อนุญาตให้ Frontend (เช่น React พอร์ต 3000 หรือจากโดเมนอื่น) สามารถยิง API มายัง Backend
+# ทำไปทำไม: ป้องกันปัญหาเบราว์เซอร์บล็อกการรับส่งข้อมูลข้าม Domain/Port (CORS Block Error)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],        # อนุญาตทุก Origin ให้เข้าถึงได้
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],        # อนุญาตทุก HTTP Method (GET, POST ฯลฯ)
+    allow_headers=["*"],        # อนุญาตทุก HTTP Header
 )
 
 
 # ---------------------------------------------------------------------------
-# Global Exception Handlers
+# 6. ระบบจัดการข้อผิดพลาดระดับส่วนกลาง (Global Exception Handler)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: ดักจับ Error ที่ไม่ได้คาดคิดทั้งหมดในระบบ แล้วส่งคืนเป็น JSON พร้อม HTTP status 500
+# ทำไปทำไม: ป้องกันไม่ให้เซิร์ฟเวอร์ล่ม (Crash) และช่วยให้ฝั่งหน้าบ้านได้รับข้อความแจ้งเตือนที่เข้าใจได้
 from fastapi.responses import JSONResponse
 from fastapi import Request
 
@@ -124,11 +142,13 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 
-
 # ---------------------------------------------------------------------------
-# Endpoints
+# 7. REST API Endpoints
 # ---------------------------------------------------------------------------
 
+# --- Endpoint 7.1: /health (Health Check API) ---
+# ทำหน้าที่: ส่งคืนสถานะความพร้อมของบริการและจำนวนนักเตะที่อยู่ในดัชนี
+# ทำไปทำไม: ให้ฝั่ง Frontend ใช้เช็กว่า Backend สตาร์ตเสร็จหรือยังก่อนจะยิงคำสั่งค้นหา
 @app.get(
     "/health",
     response_model=HealthResponse,
@@ -150,6 +170,9 @@ async def health_check() -> HealthResponse:
     )
 
 
+# --- Endpoint 7.2: /api/players (ดึงข้อมูลนักเตะทั้งหมด) ---
+# ทำหน้าที่: ส่งคืนรายชื่อนักเตะทั้งหมดในระบบโดยไม่กรองใดๆ
+# ทำไปทำไม: ใช้ตอนโหลดหน้าครั้งแรก เพื่อแสดงผลนักเตะทั้งหมดก่อนที่ผู้ใช้จะเริ่มพิมพ์ค้นหา
 @app.get(
     "/api/players",
     response_model=PlayersListResponse,
@@ -162,6 +185,10 @@ async def get_all_players() -> PlayersListResponse:
     return PlayersListResponse(total=len(players), players=players)
 
 
+# --- Endpoint 7.3: /api/players/search (ค้นหาด้วย Hybrid IR) ---
+# ทำหน้าที่: รับคำค้นหา (query) แล้วส่งผ่านไปยัง FootballSearchEngine
+#            ผลลัพธ์จะเรียงตาม relevance_score (BM25 55% + Fuzzy 45%) จากมากไปน้อย
+# ทำไปทำไม: เป็น API หลักที่ Frontend เรียกใช้เมื่อผู้ใช้พิมพ์คำค้นหา
 @app.get(
     "/api/players/search",
     response_model=SearchResponse,
@@ -178,7 +205,7 @@ async def search_players(
         Query(
             min_length=1,
             max_length=200,
-            description="คำค้นหา เช่น 'เมสซี่', 'messi', 'CR7', 'LM10', 'ฮาลันด์', 'messy' (พิมพ์ผิดได้)",
+            description="คำค้นหา เช่น 'เมสซี่', 'messi', 'CR7', 'LM10', 'ฮาลันด์', 'messy' (พิมพ์ผิดก็ค้นหาได้)",
             example="เมสซี่",
         ),
     ],
@@ -191,6 +218,7 @@ async def search_players(
         Query(ge=0.0, le=1.0, description="คะแนน relevance_score ขั้นต่ำ (0.0-1.0)"),
     ] = 0.0,
 ) -> SearchResponse:
+    # ตรวจสอบว่า IR Index พร้อมใช้งานก่อนเริ่มค้นหา
     if not search_engine.is_ready:
         raise HTTPException(
             status_code=503,
@@ -206,6 +234,9 @@ async def search_players(
     )
 
 
+# --- Endpoint 7.4: /api/players/{player_id} (ดึงข้อมูลนักเตะตาม ID) ---
+# ทำหน้าที่: ค้นหาและส่งคืนข้อมูลนักเตะรายบุคคลจาก ID ที่ระบุ
+# ทำไปทำไม: ใช้เมื่อต้องการดูรายละเอียดนักเตะคนใดคนหนึ่งโดยตรง
 @app.get(
     "/api/players/{player_id}",
     response_model=Player,
@@ -225,23 +256,27 @@ async def get_player_by_id(player_id: int) -> Player:
 
 
 # ---------------------------------------------------------------------------
-# Static SPA Frontend Serving
+# 8. การเสิร์ฟ Frontend SPA (Static Single-Page Application Serving)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: เสิร์ฟไฟล์ HTML/CSS/JS ของ React ที่ build แล้ว (dist/) จาก Backend โดยตรง
+# ทำไปทำไม: ให้ deploy ครั้งเดียวได้เลย ไม่ต้องแยก Web Server สำหรับ Frontend
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 dist_dir = Path(__file__).parent.parent.parent / "frontend" / "dist"
 if dist_dir.exists():
+    # Mount folder assets (CSS, JS, รูปภาพ) ให้เข้าถึงได้ที่ /assets/...
     if (dist_dir / "assets").exists():
         app.mount("/assets", StaticFiles(directory=dist_dir / "assets"), name="assets")
 
     @app.get("/{full_path:path}", include_in_schema=False)
     async def serve_spa(full_path: str):
-        # ข้ามถ้าเป็น path ของ api หรือ health หรือ docs
+        # ข้ามถ้าเป็น path ของ api, health, หรือ docs เพื่อไม่ให้ทับ API routes
         if full_path.startswith("api/") or full_path in ["health", "docs", "openapi.json", "redoc"]:
             raise HTTPException(status_code=404)
+        # ถ้ามีไฟล์จริง (เช่น favicon.ico) ให้ส่งไฟล์นั้นตรงๆ
         file_path = dist_dir / full_path
         if file_path.exists() and file_path.is_file():
             return FileResponse(file_path)
+        # ถ้าไม่มีไฟล์ ให้ส่ง index.html (SPA routing จัดการเอง)
         return FileResponse(dist_dir / "index.html")
-

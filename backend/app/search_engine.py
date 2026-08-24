@@ -30,19 +30,18 @@ from rapidfuzz import fuzz
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Config — ปรับ weights ได้ที่นี่
+# Config — กำหนดค่าน้ำหนักและ Threshold ของระบบ Search Engine
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: กำหนดค่าน้ำหนักระหว่าง BM25 และ Fuzzy Search รวมทั้งเกณฑ์ตัดคะแนน
+# ทำไปทำไม: เพื่อให้สามารถปรับจูนความแม่นยำ (Precision) และความครอบคลุม (Recall) ของผลการค้นหาได้จากจุดเดียว
 
-# ---------------------------------------------------------------------------
-# Config — ปรับ weights และ thresholds
-# ---------------------------------------------------------------------------
+BM25_WEIGHT: float = 0.55         # น้ำหนักคะแนน BM25 (55% เน้นความแม่นยำของคำค้นหาแบบตรงตัว)
+FUZZY_WEIGHT: float = 0.45        # น้ำหนักคะแนน Fuzzy (45% ช่วยดักจับคำที่พิมพ์ผิดหรือใกล้เคียง)
+MIN_FUZZY_SCORE: float = 70.0     # RapidFuzz ขั้นต่ำ 70 (ถ้าต่ำกว่า 70 ให้ตัดทิ้งเป็น 0 ทันที เพื่อกันผลลัพธ์มั่ว)
+SHORT_QUERY_LIMIT: int = 3        # คำค้นหา <= 3 ตัวอักษร ให้ใช้เฉพาะ Exact/Substring Match เท่านั้น ห้ามใช้ Fuzzy
 
-BM25_WEIGHT: float = 0.55         # น้ำหนัก BM25 (ดีกับ exact / term match)
-FUZZY_WEIGHT: float = 0.45        # น้ำหนัก Fuzzy (ดีกับ typo / partial match)
-MIN_FUZZY_SCORE: float = 70.0     # RapidFuzz ขั้นต่ำ 70 (ถ้าต่ำกว่า 70 ให้ตัดทิ้งเป็น 0 ทันที)
-SHORT_QUERY_LIMIT: int = 3        # คำค้นหา <= 3 ตัวอักษร ใช้เฉพาะ Exact / Substring match ห้ามใช้ Fuzzy
-
-# Field weights สำหรับ fuzzy scoring
+# ค่าน้ำหนักความสำคัญของแต่ละ Field ในการทำ Fuzzy Matching
+# ทำไปทำไม: ชื่อนักเตะ (name_en, name_th, aliases) มีความสำคัญสูงสุด รองลงมาคือสโมสร ลีก และทีมชาติ
 _FUZZY_FIELD_WEIGHTS: dict[str, float] = {
     "name_en":        1.0,
     "name_th":        1.0,
@@ -54,29 +53,37 @@ _FUZZY_FIELD_WEIGHTS: dict[str, float] = {
 
 
 # ---------------------------------------------------------------------------
-# Text Utilities
+# Text Utilities — ฟังก์ชันแปลงและจัดการข้อความ
 # ---------------------------------------------------------------------------
 
 def _normalize(text: str) -> str:
-    """NFKC unicode normalize + lowercase + strip"""
+    """
+    ทำหน้าที่: ทำความสะอาดข้อความด้วย Unicode NFKC, ปรับเป็นตัวพิมพ์เล็ก (lowercase) และตัดช่องว่าง
+    ทำไปทำไม: เพื่อให้การเปรียบเทียบข้อความ (เช่น 'Messi', 'messi', 'MESSI') มองเป็นคำเดียวกัน
+    """
     if not text:
         return ""
     return unicodedata.normalize("NFKC", str(text)).lower().strip()
 
 
 def _tokenize(text: str) -> list[str]:
-    """แยก text เป็น tokens โดย whitespace, กรอง empty"""
+    """
+    ทำหน้าที่: ตัดประโยคออกเป็น Tokens (คำย่อย) โดยใช้ whitespace
+    ทำไปทำไม: เพื่อเตรียม Corpus Document สำหรับนำไปป้อนให้อัลกอริทึม BM25 คำนวณความถี่คำ (Term Frequency)
+    """
     return [t for t in _normalize(text).split() if t]
 
 
 # ---------------------------------------------------------------------------
-# Internal Data Structure
+# Internal Data Structure — โครงสร้างข้อมูลสำหรับ Index
 # ---------------------------------------------------------------------------
 
 @dataclass
 class _IndexEntry:
-    """ข้อมูลที่ preprocess แล้วสำหรับแต่ละนักเตะใน BM25 + Fuzzy index"""
-
+    """
+    ทำหน้าที่: โครงสร้างข้อมูลที่เก็บข้อมูลที่ Preprocess ไว้ล่วงหน้าของนักเตะแต่ละคน
+    ทำไปทำไม: ช่วยให้การค้นหาทั้ง BM25 และ Fuzzy Match ทำงานได้เร็วระดับมิลลิวินาที โดยไม่ต้องคำนวณซ้ำทุกรอบ
+    """
     raw: dict[str, Any]                  # original dict จาก players.json
     tokens: list[str]                    # tokenized document สำหรับ BM25
     fuzzy_targets: dict[str, list[str]]  # field → list[str] สำหรับ fuzzy
@@ -90,9 +97,10 @@ class _IndexEntry:
 
 def _build_entry(player: dict[str, Any]) -> _IndexEntry:
     """
-    แปลง player dict เป็น _IndexEntry
-    - สร้าง BM25 document: ต่อ field สำคัญ + boost ด้วยการซ้ำ
-    - สร้าง fuzzy targets และ normalized strings เพื่อการค้นหาที่รวดเร็ว
+    ทำหน้าที่: แปลง Dict ข้อมูลนักเตะ 1 คนให้อยู่ในรูป _IndexEntry
+    - สร้าง BM25 Document พร้อมเทคนิค Implicit Boosting (เพิ่มคำซ้ำ 2 เท่าในชื่อไทย, อังกฤษ, และฉายา)
+    - เตรียม Normalized Strings สำหรับทำ Exact/Substring Match ทันที
+    ทำไปทำไม: ให้ความสำคัญกับชื่อและฉายาของนักเตะมากกว่าสโมสรหรือลีกเมื่อค้นหาด้วย BM25
     """
     name_en = player.get("name_en", "")
     name_th = player.get("name_th", "")
@@ -101,7 +109,7 @@ def _build_entry(player: dict[str, Any]) -> _IndexEntry:
     league = player.get("current_league", "")
     nation = player.get("national_team", {}).get("team_name", "")
 
-    # BM25 corpus document: ซ้ำ field สำคัญ = implicit boosting
+    # BM25 corpus document: ทำ Implicit Boosting โดยการใส่ชื่อและฉายาซ้ำ 2 รอบ
     bm25_doc = " ".join([
         name_en, name_en,        # boost ×2
         name_th, name_th,        # boost ×2

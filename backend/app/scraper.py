@@ -26,8 +26,10 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 # ---------------------------------------------------------------------------
-# Logging
+# Logging — ตั้งค่าระบบบันทึก Log
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: แสดงข้อความสถานะการดึงข้อมูลแต่ละขั้นตอนใน Console
+# ทำไปทำไม: ช่วยให้รู้ว่าตอนนี้โปรแกรม scrape ถึงนักเตะคนไหนแล้ว หรือมี Error เกิดขึ้นที่จุดไหน
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)-8s | %(message)s",
@@ -36,12 +38,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Constants & Paths
+# Constants & Paths — ค่าคงที่และเส้นทางไฟล์
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: กำหนดค่าที่ใช้ร่วมกันทั้ง script เช่น path บันทึกผล, จำนวนเป้าหมาย, User-Agent list
+# ทำไปทำไม: รวมค่าสำคัญไว้ที่เดียว แก้ไขง่าย ไม่ต้องไปแก้ในทุกฟังก์ชัน
 
 OUTPUT_FILE = Path(__file__).parent.parent / "data" / "players.json"
 TARGET_COUNT = 100
 
+# รายการ User-Agent เพื่อสลับ Header ทุก Request (ป้องกันถูกบล็อก)
 USER_AGENTS: list[str] = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
@@ -290,6 +295,8 @@ PLAYER_SEARCH_LIST: list[str] = [
 # ---------------------------------------------------------------------------
 # Country → ISO 3166-1 alpha-2 Code Mapping  (สำหรับ FlagCDN)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: แปลงชื่อประเทศ (ภาษาอังกฤษ) ให้เป็น รหัส ISO 2 ตัวอักษร
+# ทำไปทำไม: ใช้สร้าง URL รูปธงชาติจาก FlagCDN เช่น "argentina" → "ar" → https://flagcdn.com/w80/ar.png
 
 COUNTRY_TO_CODE: dict[str, str] = {
     # ทวีปอเมริกาใต้
@@ -384,6 +391,8 @@ DEFAULT_FLAG_URL = "https://flagcdn.com/w80/un.png"            # UN flag (สำ
 DEFAULT_LOGO_URL = "https://placehold.co/80x80?text=Club"      # Placeholder โลโก้สโมสร
 
 # Cache โลโก้สโมสร (team_name → badge_url) เพื่อลด API calls
+# ทำหน้าที่: เก็บ URL โลโก้สโมสรระดับโลกที่รู้จักไว้ล่วงหน้า (pre-seeded)
+# ทำไปทำไม: ลดจำนวน HTTP request ที่ต้องยิงไป TheSportsDB และเพิ่มความเร็วในการ scrape
 _logo_cache: dict[str, str] = {
     "inter miami": "https://r2.thesportsdb.com/images/media/team/badge/m4it3e1602103647.png",
     "inter miami cf": "https://r2.thesportsdb.com/images/media/team/badge/m4it3e1602103647.png",
@@ -472,8 +481,10 @@ def _get_club_logo_url(session: "requests.Session", team_name: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# HTTP Session with Retry
+# HTTP Session with Retry — ตั้งค่า HTTP Session ป้องกันเน็ตหลุด
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: สร้าง Session ที่ retry อัตโนมัติสูงสุด 3 ครั้งเมื่อเจอ error 429/5xx
+# ทำไปทำไม: ลดความเสี่ยงที่การ scrape จะล้มเหลวจากเน็ตหลุดชั่วคราวหรือ API rate limit
 
 def _build_session() -> requests.Session:
     """สร้าง requests Session พร้อม retry strategy ป้องกันเน็ตหลุด"""
@@ -524,8 +535,10 @@ def _safe_int(value: Any, default: int = 0) -> int:
 
 
 # ---------------------------------------------------------------------------
-# Data Normalization
+# Data Normalization — แปลงข้อมูล raw API ให้อยู่ในรูปแบบมาตรฐาน
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: รวม logic การแปลง raw data จาก TheSportsDB/ESPN ให้มี field ครบตามโมเดล
+# ทำไปทำไม: ข้อมูลจาก API แต่ละแหล่งมีโครงสร้างต่างกัน ฟังก์ชันนี้ทำให้ได้ผลลัพธ์ที่สม่ำเสมอ
 
 def _normalize_player(raw: dict[str, Any], player_id: int, session: requests.Session | None = None) -> dict[str, Any]:
     """
@@ -640,8 +653,10 @@ def _normalize_player(raw: dict[str, Any], player_id: int, session: requests.Ses
 
 
 # ---------------------------------------------------------------------------
-# Phase 1: TheSportsDB API
+# Phase 1: TheSportsDB API — แหล่งข้อมูลหลัก
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: วนค้นหานักเตะทีละคนจาก PLAYER_SEARCH_LIST ผ่าน TheSportsDB free API
+# ทำไปทำไม: เป็น API ฟรีที่ให้ข้อมูลนักเตะละเอียดที่สุด รวมถึงรูปภาพ สโมสร และสถิติ
 
 SPORTSDB_SEARCH_URL = "https://www.thesportsdb.com/api/v1/json/3/searchplayers.php"
 
@@ -689,8 +704,10 @@ def scrape_thesportsdb(session: requests.Session, target: int = TARGET_COUNT) ->
 
 
 # ---------------------------------------------------------------------------
-# Phase 2: ESPN Soccer API (Fallback)
+# Phase 2: ESPN Soccer API (Fallback) — แหล่งข้อมูลสำรอง
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: ดึงข้อมูลนักเตะจาก ESPN API เมื่อ Phase 1 ได้ข้อมูลไม่ครบ 100 คน
+# ทำไปทำไม: ช่วยเพิ่มความครอบคลุม ถ้า TheSportsDB ไม่มีข้อมูลนักเตะบางคน
 
 ESPN_API_URL = "https://site.api.espn.com/apis/site/v2/sports/soccer/all/athletes"
 
@@ -743,6 +760,8 @@ def scrape_espn(session: requests.Session, existing_count: int, target: int = TA
 # ---------------------------------------------------------------------------
 # Phase 3: Mock Data Generator (Auto-Fallback เติมจนครบ 100 คนทันที)
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: สร้างข้อมูลนักเตะจำลองจาก pool ที่เตรียมไว้ เมื่อ Phase 1 + 2 ยังได้ไม่ครบ 100 คน
+# ทำไปทำไม: รับประกันว่าระบบจะมีข้อมูลนักเตะครบ 100 คนเสมอ แม้ API ภายนอกจะล่มหรือถูกบล็อก
 
 _MOCK_PLAYERS_POOL = [
     ("Jamal Musiala", "จามาล มูเซียลา", ["มูเซียลา", "Musiala", "แบมบี้"], "Bayern Munich", "Bundesliga", "Germany", 21, 60, 50, 10),
@@ -828,8 +847,10 @@ def generate_mock_players(start_id: int, count: int) -> list[dict[str, Any]]:
 
 
 # ---------------------------------------------------------------------------
-# Main Orchestrator
+# Main Orchestrator — ฟังก์ชันหลักที่ควบคุมกระบวนการ Scraping ทั้งหมด
 # ---------------------------------------------------------------------------
+# ทำหน้าที่: เรียกใช้ Phase 1 → 2 → 3 ตามลำดับ เก็บผลรวม และบันทึกเป็น players.json
+# ทำไปทำไม: รวมทุก Phase ไว้ในฟังก์ชันเดียว ง่ายต่อการเรียกใช้และทดสอบ
 
 def run_scraper() -> None:
     """รันกระบวนการดึงข้อมูล 100 คน และบันทึก players.json"""
