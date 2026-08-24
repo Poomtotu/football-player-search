@@ -34,37 +34,38 @@
 ## 📁 โครงสร้างโปรเจกต์ (Project Structure)
 
 ```
-web IR นักฟุตบอล/
-├── app/
-│   ├── __init__.py           # Package Init
-│   ├── main.py               # FastAPI Endpoints, CORS, Error Handlers & SPA Server
-│   └── models.py             # Pydantic v2 Models & OpenAPI Validation
-├── frontend/                 # React 18 + Vite + Tailwind CSS
+football-player-search/
+├── backend/                  # โฟลเดอร์รวมระบบหลังบ้าน
+│   ├── app/
+│   │   ├── main.py           # FastAPI Entry point & REST API endpoints
+│   │   ├── search_engine.py  # ระบบค้นหา IR (RapidFuzz + BM25)
+│   │   ├── scraper.py        # สคริปต์สแครปปิ้งข้อมูลนักเตะ
+│   │   ├── models.py         # Pydantic v2 Models
+│   │   ├── data_loader.py    # Data loader helpers
+│   │   └── ir_engine.py      # Core IR algorithms
+│   ├── data/
+│   │   ├── players.json      # ฐานข้อมูล JSON (100 นักเตะ)
+│   │   └── mock_players.json # Fallback mock data
+│   ├── main.py               # Backend entry point
+│   ├── requirements.txt      # รายการ Python libraries (fastapi, uvicorn, rapidfuzz, ฯลฯ)
+│   └── venv/                 # Virtual Environment
+│
+├── frontend/                 # โฟลเดอร์รวมหน้าเว็บหน้าบ้าน
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.jsx            # แถบนำทาง, สถานะ Server, ลิงก์ Swagger
-│   │   │   ├── HeroSearch.jsx        # ช่องค้นหาใหญ่, ชิปคำค้นหา, ฟิลเตอร์ลีก
-│   │   │   ├── PlayerCard.jsx        # การ์ดนักเตะ, สถิติ 3 ช่อง, Relevance Match
-│   │   │   ├── PlayerModal.jsx       # ป๊อปอัปรายละเอียด, Timeline ค้าแข้ง, ปุ่มแชร์
-│   │   │   ├── SkeletonCard.jsx      # Skeleton Loader ระหว่างรอผลลัพธ์
-│   │   │   ├── EmptyState.jsx        # หน้าจอเมื่อไม่พบข้อมูลพร้อมคำแนะนำ
-│   │   │   ├── StatsSummary.jsx      # แถบสรุปผลและ Latency การค้นหา
-│   │   │   └── ErrorNotification.jsx # Toast แจ้งเตือนเมื่อ Backend ขัดข้อง
-│   │   ├── hooks/
-│   │   │   └── useDebounce.js        # Custom Hook หน่วงเวลาพิมพ์ 300ms
-│   │   ├── App.jsx                   # Main State & Logic
-│   │   ├── index.css                 # Tailwind CSS & Glassmorphism Theme
-│   │   └── main.jsx                  # React DOM Entry
+│   │   ├── components/       # คอมโพเนนต์แยกย่อย (PlayerCard, HeroSearch, PlayerModal ฯลฯ)
+│   │   ├── hooks/            # Custom React Hooks (useDebounce)
+│   │   ├── config.js         # API Endpoint Configuration
+│   │   ├── App.jsx           # หน้าหลัก
+│   │   ├── index.css         # Tailwind CSS & Styles
+│   │   └── main.jsx          # Entry point
+│   ├── dist/                 # Production SPA Bundle
 │   ├── index.html
-│   ├── package.json
-│   ├── tailwind.config.js
-│   └── vite.config.js
-├── scraper.py                # Data Scraper (TheSportsDB API + ESPN + Auto-fallback)
-├── search_engine.py          # Standalone Hybrid IR Engine (BM25 + RapidFuzz)
-├── players.json              # ฐานข้อมูลนักเตะ 100 คน
-├── main.py                   # Root Entry Point
-├── requirements.txt          # Python Dependencies
-└── README.md
+│   ├── package.json          # รายการ Node dependencies (React, Tailwind, ฯลฯ)
+│   └── tailwind.config.js    # ตั้งค่าธีมและสีของ Tailwind CSS
+│
+├── .gitignore                # ละเว้นไฟล์ backend/venv/, frontend/node_modules/, frontend/dist/, .env
+├── main.py                   # Root Forwarding Entry Point
+└── README.md                 # เอกสารอธิบายวิธีติดตั้งและรันโปรเจกต์
 ```
 
 ---
@@ -181,10 +182,10 @@ $$\text{relevance\_score} = 0.55 \cdot \text{BM25}_{\text{norm}} + 0.45 \cdot \t
 ### 4.1 รัน Backend API (FastAPI)
 
 ```bash
-# 1. เข้าสู่โฟลเดอร์โปรเจกต์
-cd "web IR นักฟุตบอล"
+# 1. เข้าสู่โฟลเดอร์ backend
+cd backend
 
-# 2. สร้างและเปิดใช้งาน Virtual Environment
+# 2. สร้างและเปิดใช้งาน Virtual Environment (ถ้ายังไม่มี)
 python -m venv venv
 venv\Scripts\activate          # สำหรับ Windows
 # source venv/bin/activate     # สำหรับ macOS/Linux
@@ -192,8 +193,8 @@ venv\Scripts\activate          # สำหรับ Windows
 # 3. ติดตั้ง Dependencies
 pip install -r requirements.txt
 
-# 4. รันเซิร์ฟเวอร์ FastAPI บนโฮสต์ 0.0.0.0 พอร์ต 8000 (เปิดให้เครื่องอื่นเข้าถึงได้)
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+# 4. รันเซิร์ฟเวอร์ FastAPI บนโฮสต์ 0.0.0.0 พอร์ต 8000
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 # หรือรันผ่าน python main.py
 ```
 

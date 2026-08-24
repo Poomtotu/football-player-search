@@ -1,13 +1,15 @@
 ﻿"""
-main.py — Root Entry Point for FastAPI application
-Forwards execution to backend/app/main.py
+main.py — Backend Entry Point for FastAPI application
+Run from backend/ directory:
+    uvicorn app.main:app --host 0.0.0.0 --port 8000
+    python main.py
 """
 
 import sys
 from pathlib import Path
 
 # Add backend directory to sys.path
-backend_dir = Path(__file__).parent / "backend"
+backend_dir = Path(__file__).parent
 if str(backend_dir) not in sys.path:
     sys.path.insert(0, str(backend_dir))
 

@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 # Constants & Paths
 # ---------------------------------------------------------------------------
 
-OUTPUT_FILE = Path(__file__).parent / "players.json"
+OUTPUT_FILE = Path(__file__).parent.parent / "data" / "players.json"
 TARGET_COUNT = 100
 
 USER_AGENTS: list[str] = [

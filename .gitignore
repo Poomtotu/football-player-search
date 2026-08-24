@@ -1,37 +1,24 @@
 ﻿# ===========================================================================
-# .gitignore — Football Player IR System
+# .gitignore — Football Player IR System (Clean Architecture)
 # ===========================================================================
 
-# --- Python & Virtual Environments ---
+# --- Python & Backend Virtual Environments ---
 __pycache__/
+backend/__pycache__/
+backend/app/__pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
 venv/
+backend/venv/
 env/
-ENV/
 .venv/
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 .pytest_cache/
 .coverage
 htmlcov/
 
-# --- Node.js & React / Vite ---
+# --- Frontend & Node.js Build Output ---
 node_modules/
 frontend/node_modules/
 frontend/dist/
@@ -45,38 +32,29 @@ pnpm-debug.log*
 # --- Environment Variables & Secrets ---
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
+backend/.env
+backend/.env.local
 frontend/.env
 frontend/.env.local
-frontend/.env.development.local
-frontend/.env.test.local
-frontend/.env.production.local
+frontend/.env.*.local
 
 # อนุญาตให้ push ไฟล์ตัวอย่าง config ได้
 !.env.example
 !frontend/.env.example
+!backend/.env.example
 
 # --- IDEs & Editors ---
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
-*.sublime-workspace
-*.sublime-project
 
 # --- Operating System Files ---
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 desktop.ini
 
-# --- Logs & Local Scratch ---
+# --- Local Tools & Logs ---
 *.log
 tools/

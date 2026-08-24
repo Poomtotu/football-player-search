@@ -11,13 +11,22 @@ from typing import Annotated
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.models import (
-    HealthResponse,
-    Player,
-    PlayersListResponse,
-    SearchResponse,
-)
-from search_engine import FootballSearchEngine
+try:
+    from app.models import (
+        HealthResponse,
+        Player,
+        PlayersListResponse,
+        SearchResponse,
+    )
+    from app.search_engine import FootballSearchEngine
+except ImportError:
+    from models import (
+        HealthResponse,
+        Player,
+        PlayersListResponse,
+        SearchResponse,
+    )
+    from search_engine import FootballSearchEngine
 
 # ---------------------------------------------------------------------------
 # Logging setup
@@ -41,21 +50,21 @@ search_engine = FootballSearchEngine()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """
-    Startup: โหลด players.json (หรือ fallback ไปที่ data/mock_players.json)
+    Startup: โหลด backend/data/players.json (หรือ fallback ไปที่ backend/data/mock_players.json)
     และสร้าง Hybrid IR Index (BM25 + RapidFuzz)
     """
     logger.info("🚀 กำลังเริ่มต้น Football Player IR API...")
 
-    root_dir = Path(__file__).parent.parent
-    players_json = root_dir / "players.json"
-    mock_json = root_dir / "data" / "mock_players.json"
+    backend_dir = Path(__file__).parent.parent
+    players_json = backend_dir / "data" / "players.json"
+    mock_json = backend_dir / "data" / "mock_players.json"
 
     if players_json.exists():
         data_path = players_json
     elif mock_json.exists():
         data_path = mock_json
     else:
-        raise FileNotFoundError("ไม่พบไฟล์ players.json หรือ data/mock_players.json")
+        raise FileNotFoundError(f"ไม่พบไฟล์: {players_json} หรือ {mock_json}")
 
     logger.info("กำลังโหลดข้อมูลนักเตะจาก: %s", data_path)
     search_engine.load(data_path)
@@ -221,7 +230,7 @@ async def get_player_by_id(player_id: int) -> Player:
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-dist_dir = Path(__file__).parent.parent / "frontend" / "dist"
+dist_dir = Path(__file__).parent.parent.parent / "frontend" / "dist"
 if dist_dir.exists():
     if (dist_dir / "assets").exists():
         app.mount("/assets", StaticFiles(directory=dist_dir / "assets"), name="assets")
