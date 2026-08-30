@@ -67,149 +67,104 @@ export function PlayerModal({ player, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fade-in">
-      
-      {/* --- ฉากหลังสีดำมัว (Backdrop Overlay) --- */}
-      <div 
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto animate-fade-in">
+      <div
         onClick={onClose}
-        className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-slate-950/50 backdrop-blur-[3px] transition-opacity"
       ></div>
 
-      {/* --- กล่องคอนเทนเนอร์หลักของ Modal --- */}
-      <div className="relative w-full max-w-2xl bg-white border border-gray-200 rounded-3xl shadow-2xl overflow-hidden z-10 animate-slide-up my-8">
-        
-        {/* --- แบนเนอร์ส่วนบนของ Modal (Gradient Header Banner) --- */}
-        <div className="relative h-32 sm:h-40 bg-gradient-to-r from-blue-600 to-indigo-600 p-6 flex items-start justify-between">
-          <div className="relative z-10">
-            {/* แสดงคะแนน Relevance Score (%) ถ้ามีการค้นหา */}
-            {score !== undefined && score !== null && (
-              <span className="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-xs font-bold bg-white text-blue-700 shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-                <span>IR Relevance Score: {(score * 100).toFixed(1)}%</span>
-              </span>
-            )}
-          </div>
-
-          {/* ปุ่มแชร์ลิงก์และปุ่มปิด Modal */}
-          <div className="relative z-10 flex items-center space-x-2">
-            <button
-              onClick={handleCopy}
-              className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white border border-white/30 transition-all text-xs flex items-center space-x-1"
-              title="คัดลอกลิงก์นักเตะ"
-            >
-              {copied ? <Check className="w-4 h-4 text-emerald-300" /> : <Share2 className="w-4 h-4" />}
-            </button>
-            <button
-              onClick={onClose}
-              className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white border border-white/30 transition-all"
-              title="ปิดหน้าต่าง (Esc)"
-            >
-              <X className="w-5 h-5" />
-            </button>
+      <div className="relative w-full max-w-3xl bg-white border border-slate-200 rounded-[28px] shadow-2xl overflow-hidden z-10 animate-slide-up my-3 sm:my-6 max-h-[calc(100vh-24px)] sm:max-h-[calc(100vh-48px)] overflow-y-auto">
+        <div className="relative h-28 sm:h-36 bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 px-5 sm:px-7 pt-5">
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,white,transparent_45%)]"></div>
+          <div className="relative z-10 flex items-start justify-between">
+            <div>
+              {score !== undefined && score !== null && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-white/95 text-blue-700 shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                  <span>IR Relevance Score: {(score * 100).toFixed(1)}%</span>
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <button onClick={handleCopy} className="p-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/25 transition-all" title="คัดลอกลิงก์นักเตะ">
+                {copied ? <Check className="w-4 h-4 text-emerald-200" /> : <Share2 className="w-4 h-4" />}
+              </button>
+              <button onClick={onClose} className="p-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/25 transition-all" title="ปิดหน้าต่าง (Esc)">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* --- ข้อมูลส่วนหัวนักเตะ (Avatar & Header Info) --- */}
-        <div className="relative px-6 sm:px-8 pb-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-end -mt-16 sm:-mt-20 mb-6 gap-4 sm:gap-6">
-            
-            {/* รูปถ่ายนักเตะขนาดใหญ่ */}
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl sm:rounded-3xl bg-white border-4 border-white shadow-xl overflow-hidden flex-shrink-0 relative">
+        <div className="relative px-5 sm:px-7 pb-7">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end -mt-12 sm:-mt-16 mb-5 gap-4 sm:gap-5">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-white border-4 border-white shadow-xl overflow-hidden flex-shrink-0 relative">
               {player.photo_url && player.photo_url !== 'N/A' ? (
-                <img
-                  src={player.photo_url}
-                  alt={player.name_en}
-                  className="w-full h-full object-cover object-top"
-                />
+                <img src={player.photo_url} alt={player.name_en} className="w-full h-full object-cover object-top" />
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center bg-gray-100 text-gray-400">
-                  <Shield className="w-12 h-12 text-blue-400/60 mb-1" />
+                <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-400">
+                  <Shield className="w-10 h-10 text-blue-400/60 mb-1" />
                   <span className="text-xs font-bold uppercase">{player.name_en?.slice(0, 2)}</span>
                 </div>
               )}
             </div>
 
-            {/* ชื่อภาษาไทย, ชื่ออังกฤษ, อายุ, และสโมสรปัจจุบัน */}
-            <div className="flex-1 min-w-0">
-              <h2 className="text-2xl sm:text-3xl font-black text-gray-900">
+            <div className="flex-1 min-w-0 pb-0.5">
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 leading-tight">
                 {player.name_th && player.name_th !== player.name_en ? player.name_th : player.name_en}
               </h2>
-              <p className="text-sm font-semibold text-gray-500 mb-2">
-                {player.name_en} {player.age > 0 && <span className="text-gray-400 font-normal">• อายุ {player.age} ปี</span>}
+              <p className="text-sm font-semibold text-slate-500 mt-1 mb-2.5">
+                {player.name_en} {player.age > 0 && <span className="text-slate-400 font-normal">• อายุ {player.age} ปี</span>}
               </p>
-
-              {/* Badge สโมสรและลีกปัจจุบัน */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center space-x-2 px-3 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
-                  {player.club_logo_url && player.club_logo_url !== 'N/A' ? (
-                    <img
-                      src={player.club_logo_url}
-                      alt={player.current_team}
-                      className="w-4 h-4 object-contain"
-                      onError={(e) => { e.target.style.display = 'none'; }}
-                    />
-                  ) : (
-                    <span>⚽</span>
-                  )}
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
+                  {player.club_logo_url && player.club_logo_url !== 'N/A' ? <img src={player.club_logo_url} alt={player.current_team} className="w-4 h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} /> : <span>⚽</span>}
                   <span>{player.current_team}</span>
                 </span>
-                {player.current_league && player.current_league !== 'N/A' && (
-                  <span className="px-3 py-1 rounded-xl bg-gray-100 border border-gray-200 text-gray-700 text-xs font-medium">
-                    🏆 {player.current_league}
-                  </span>
-                )}
+                {player.current_league && player.current_league !== 'N/A' && <span className="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">🏆 {player.current_league}</span>}
               </div>
             </div>
           </div>
 
-          {/* --- รายการฉายาและชื่อเรียกอื่น (Aliases List) --- */}
           {aliases.length > 0 && (
-            <div className="mb-6 bg-gray-50 border border-gray-200 rounded-2xl p-4">
-              <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 flex items-center space-x-1.5">
+            <div className="mb-5 bg-slate-50 border border-slate-200 rounded-2xl p-4">
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-blue-600" />
                 <span>ฉายาและชื่อเรียกอื่นๆ ({aliases.length})</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
-                {aliases.map((alias, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 rounded-lg bg-white text-blue-700 border border-blue-200 text-xs font-medium shadow-sm"
-                  >
-                    {alias}
-                  </span>
-                ))}
+                {aliases.map((alias, idx) => <span key={idx} className="px-3 py-1 rounded-lg bg-white text-blue-700 border border-blue-200 text-xs font-medium shadow-sm">{alias}</span>)}
               </div>
             </div>
           )}
 
-          {/* --- ตารางสถิติ 4 ช่อง (Career Stats Grid 4 Columns) --- */}
           {bio && (
-            <section className="mb-6 bg-blue-50/70 border border-blue-100 rounded-2xl p-4 sm:p-5">
-              <div className="flex items-center gap-2 mb-2">
+            <section className="mb-5 bg-blue-50/70 border border-blue-100 rounded-2xl p-4 sm:p-5">
+              <div className="flex items-center gap-2 mb-2.5">
                 <div className="w-8 h-8 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-blue-600 font-black">i</div>
-                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider">ประวัติย่อนักเตะ</h4>
+                <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">ประวัติย่อนักเตะ</h4>
               </div>
-              <p className="text-sm leading-6 text-gray-700 whitespace-pre-line">{bio}</p>
+              <p className="text-sm leading-6 text-slate-700 whitespace-pre-line">{bio}</p>
             </section>
           )}
 
-          <section className="mb-6">
-            <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">ช่องทางติดตามนักเตะ</h4>
-            <div className="flex flex-wrap gap-2">
-              {Object.entries(socialLinks).map(([platform, url]) => (
-                url ? (
-                  <a key={platform} href={url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-gray-200 text-gray-700 hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 transition-all text-xs font-bold shadow-sm">
+          {Object.keys(socialLinks).length > 0 && (
+            <section className="mb-5">
+              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">ช่องทางติดตามนักเตะ</h4>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(socialLinks).map(([platform, url]) => url ? (
+                  <a key={platform} href={url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 transition-all text-xs font-bold shadow-sm">
                     {platform === 'instagram' ? <Instagram className="w-4 h-4" /> : platform === 'youtube' ? <Youtube className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
                     <span className="capitalize">{platform === 'x' ? 'X' : platform.replace(/_/g, ' ')}</span>
                     <ExternalLink className="w-3 h-3 opacity-50" />
                   </a>
-                ) : null
-              ))}
-            </div>
-          </section>
+                ) : null)}
+              </div>
+            </section>
+          )}
 
-          <div className="mb-6">
-            <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+          <div className="mb-5">
+            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
               สถิติการเล่นตลอดอาชีพ
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
