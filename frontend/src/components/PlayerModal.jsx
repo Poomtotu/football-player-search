@@ -30,6 +30,33 @@ import {
 export function PlayerModal({ player, onClose }) {
   // State ป้ายสถานะเมื่อกดคัดลอกลิงก์แชร์สำเร็จ (Copied State)
   const [copied, setCopied] = React.useState(false);
+  const [detailPlayer, setDetailPlayer] = React.useState(null);
+
+  // ดึงข้อมูลเต็มจาก /api/players/{id} อีกครั้งเมื่อเปิด Modal
+  // เพื่อให้ bio และ social_links ไม่หาย แม้ผลค้นหาจะส่งข้อมูลมาไม่ครบ
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPlayerDetail = async () => {
+      if (!player?.id) {
+        setDetailPlayer(null);
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/players/${player.id}`);
+        if (!res.ok) throw new Error(`Player detail request failed (${res.status})`);
+        const data = await res.json();
+        if (!cancelled) setDetailPlayer(data);
+      } catch (err) {
+        console.warn('Player detail API error:', err);
+        if (!cancelled) setDetailPlayer(null);
+      }
+    };
+
+    loadPlayerDetail();
+    return () => { cancelled = true; };
+  }, [player?.id]);
 
   // ดักจับเหตุการณ์กดปุ่ม Escape บนคีย์บอร์ดเพื่อปิด Modal
   useEffect(() => {
@@ -47,21 +74,24 @@ export function PlayerModal({ player, onClose }) {
 
   if (!player) return null;
 
+  // ใช้ข้อมูลรายละเอียดเต็มเมื่อ API ส่งกลับมาแล้ว
+  const displayPlayer = detailPlayer || player;
+
   // ดึงข้อมูลย่อยพร้อมค่า default ป้องกัน crash
-  const stats = player.stats || { total_goals: 0, total_assists: 0, trophies_count: 0 };
-  const national = player.national_team || { played: false, team_name: 'N/A', caps: 0, goals: 0 };
-  const teamsHistory = player.teams_history || [];
-  const aliases = player.aliases || [];
-  const bio = player.bio || '';
-  const socialLinks = player.social_links || {};
-  const score = player.relevance_score;
+  const stats = displayPlayer.stats || { total_goals: 0, total_assists: 0, trophies_count: 0 };
+  const national = displayPlayer.national_team || { played: false, team_name: 'N/A', caps: 0, goals: 0 };
+  const teamsHistory = displayPlayer.teams_history || [];
+  const aliases = displayPlayer.aliases || [];
+  const bio = displayPlayer.bio || '';
+  const socialLinks = displayPlayer.social_links || {};
+  const score = displayPlayer.relevance_score;
 
   // คำนวณจำนวนประตู + แอสซิสต์รวม (Goal Contributions)
   const totalContributions = (stats.total_goals || 0) + (stats.total_assists || 0);
 
   // ฟังก์ชันคัดลอกลิงก์แชร์ไปยัง Clipboard
   const handleCopy = () => {
-    navigator.clipboard.writeText(`${window.location.origin}/?q=${encodeURIComponent(player.name_en)}`);
+    navigator.clipboard.writeText(`${window.location.origin}/?q=${encodeURIComponent(displayPlayer.name_en)}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -99,29 +129,29 @@ export function PlayerModal({ player, onClose }) {
         <div className="relative px-5 sm:px-7 pb-7">
           <div className="flex flex-col sm:flex-row items-start sm:items-end -mt-12 sm:-mt-16 mb-5 gap-4 sm:gap-5">
             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-white border-4 border-white shadow-xl overflow-hidden flex-shrink-0 relative">
-              {player.photo_url && player.photo_url !== 'N/A' ? (
-                <img src={player.photo_url} alt={player.name_en} className="w-full h-full object-cover object-top" />
+              {displayPlayer.photo_url && displayPlayer.photo_url !== 'N/A' ? (
+                <img src={displayPlayer.photo_url} alt={displayPlayer.name_en} className="w-full h-full object-cover object-top" />
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-400">
                   <Shield className="w-10 h-10 text-blue-400/60 mb-1" />
-                  <span className="text-xs font-bold uppercase">{player.name_en?.slice(0, 2)}</span>
+                  <span className="text-xs font-bold uppercase">{displayPlayer.name_en?.slice(0, 2)}</span>
                 </div>
               )}
             </div>
 
             <div className="flex-1 min-w-0 pb-0.5">
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 leading-tight">
-                {player.name_th && player.name_th !== player.name_en ? player.name_th : player.name_en}
+                {displayPlayer.name_th && displayPlayer.name_th !== displayPlayer.name_en ? displayPlayer.name_th : displayPlayer.name_en}
               </h2>
               <p className="text-sm font-semibold text-slate-500 mt-1 mb-2.5">
-                {player.name_en} {player.age > 0 && <span className="text-slate-400 font-normal">• อายุ {player.age} ปี</span>}
+                {displayPlayer.name_en} {displayPlayer.age > 0 && <span className="text-slate-400 font-normal">• อายุ {displayPlayer.age} ปี</span>}
               </p>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
-                  {player.club_logo_url && player.club_logo_url !== 'N/A' ? <img src={player.club_logo_url} alt={player.current_team} className="w-4 h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} /> : <span>⚽</span>}
-                  <span>{player.current_team}</span>
+                  {displayPlayer.club_logo_url && displayPlayer.club_logo_url !== 'N/A' ? <img src={displayPlayer.club_logo_url} alt={displayPlayer.current_team} className="w-4 h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} /> : <span>⚽</span>}
+                  <span>{displayPlayer.current_team}</span>
                 </span>
-                {player.current_league && player.current_league !== 'N/A' && <span className="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">🏆 {player.current_league}</span>}
+                {displayPlayer.current_league && displayPlayer.current_league !== 'N/A' && <span className="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">🏆 {displayPlayer.current_league}</span>}
               </div>
             </div>
           </div>
@@ -224,9 +254,9 @@ export function PlayerModal({ player, onClose }) {
               <div className="flex items-center space-x-3">
                 {/* รูปธงชาติ */}
                 <div className="w-12 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center overflow-hidden shadow-sm">
-                  {player.flag_url && player.flag_url !== 'N/A' ? (
+                  {displayPlayer.flag_url && displayPlayer.flag_url !== 'N/A' ? (
                     <img
-                      src={player.flag_url}
+                      src={displayPlayer.flag_url}
                       alt={national.team_name}
                       className="w-full h-full object-cover rounded-lg"
                       onError={(e) => {
@@ -235,7 +265,7 @@ export function PlayerModal({ player, onClose }) {
                       }}
                     />
                   ) : null}
-                  <Flag className={`w-5 h-5 text-blue-600 ${player.flag_url && player.flag_url !== 'N/A' ? 'hidden' : ''}`} />
+                  <Flag className={`w-5 h-5 text-blue-600 ${displayPlayer.flag_url && displayPlayer.flag_url !== 'N/A' ? 'hidden' : ''}`} />
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-gray-500 block">ทีมชาติ</span>
