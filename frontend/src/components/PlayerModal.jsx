@@ -14,7 +14,10 @@ import {
   Layers, 
   Award,
   Share2,
-  Check
+  Check,
+  Instagram,
+  Youtube,
+  ExternalLink
 } from 'lucide-react';
 
 /**
@@ -49,6 +52,8 @@ export function PlayerModal({ player, onClose }) {
   const national = player.national_team || { played: false, team_name: 'N/A', caps: 0, goals: 0 };
   const teamsHistory = player.teams_history || [];
   const aliases = player.aliases || [];
+  const bio = player.bio || '';
+  const socialLinks = player.social_links || {};
   const score = player.relevance_score;
 
   // คำนวณจำนวนประตู + แอสซิสต์รวม (Goal Contributions)
@@ -178,6 +183,31 @@ export function PlayerModal({ player, onClose }) {
           )}
 
           {/* --- ตารางสถิติ 4 ช่อง (Career Stats Grid 4 Columns) --- */}
+          {bio && (
+            <section className="mb-6 bg-blue-50/70 border border-blue-100 rounded-2xl p-4 sm:p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-blue-600 font-black">i</div>
+                <h4 className="text-xs font-bold text-gray-600 uppercase tracking-wider">ประวัติย่อนักเตะ</h4>
+              </div>
+              <p className="text-sm leading-6 text-gray-700 whitespace-pre-line">{bio}</p>
+            </section>
+          )}
+
+          <section className="mb-6">
+            <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">ช่องทางติดตามนักเตะ</h4>
+            <div className="flex flex-wrap gap-2">
+              {Object.entries(socialLinks).map(([platform, url]) => (
+                url ? (
+                  <a key={platform} href={url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-gray-200 text-gray-700 hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 transition-all text-xs font-bold shadow-sm">
+                    {platform === 'instagram' ? <Instagram className="w-4 h-4" /> : platform === 'youtube' ? <Youtube className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
+                    <span className="capitalize">{platform === 'x' ? 'X' : platform.replace(/_/g, ' ')}</span>
+                    <ExternalLink className="w-3 h-3 opacity-50" />
+                  </a>
+                ) : null
+              ))}
+            </div>
+          </section>
+
           <div className="mb-6">
             <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
               สถิติการเล่นตลอดอาชีพ

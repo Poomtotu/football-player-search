@@ -1,25 +1,21 @@
-﻿// ===========================================================================
+// ===========================================================================
 // Navbar.jsx — แถบ Header นำทางด้านบนของเว็บไซต์ (Clean White Theme)
 // ===========================================================================
 
 import React from 'react';
-import { BookOpen, Database, Sparkles, Trophy } from 'lucide-react';
+import { BookOpen, Database, Sparkles, Trophy, UserCheck, Search } from 'lucide-react';
 import { API_ENDPOINTS } from '../config';
 
 /**
- * คอมโพเนนต์ Navbar สำหรับแสดงโลโก้, ชื่อโปรเจกต์, จำนวนนักเตะในฐานข้อมูล, สถานะ API, และลิงก์ไปยัง Swagger Docs
- * 
- * @param {boolean} backendReady - สถานะว่า Backend เซิร์ฟเวอร์พร้อมใช้งานหรือไม่
- * @param {number} totalPlayers - จำนวนนักเตะทั้งหมดในฐานข้อมูล
+ * คอมโพเนนต์ Navbar สำหรับแสดงโลโก้, เมนูเปลี่ยนหน้า (Search / User Profile), สถานะ API, และลิงก์ไปยัง Swagger Docs
  */
-export function Navbar({ backendReady, totalPlayers }) {
+export function Navbar({ backendReady, totalPlayers, activeTab = 'search', setActiveTab }) {
   return (
     <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* --- ส่วนโลโก้และชื่อแบรนด์ (Logo & Brand) --- */}
         <div className="flex items-center space-x-3">
-          {/* ถ้วยรางวัลไอคอนโลโก้ */}
           <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-md shadow-blue-500/20">
             <Trophy className="w-5 h-5 text-white" />
           </div>
@@ -28,17 +24,44 @@ export function Navbar({ backendReady, totalPlayers }) {
               <span className="font-black text-lg tracking-tight text-gray-900">
                 FOOTBALL<span className="text-blue-600">.IR</span>
               </span>
-              {/* Badge แสดงอัลกอริทึมหลัก */}
               <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 text-[10px] font-bold tracking-wide bg-blue-50 text-blue-700 border border-blue-200 rounded-full">
                 <Sparkles className="w-2.5 h-2.5 mr-1 text-blue-600" />
                 BM25 + Fuzzy
               </span>
             </div>
             <p className="text-[11px] text-gray-500 hidden sm:block font-medium">
-              ระบบค้นหาและจัดอันดับประวัตินักเตะระดับโลก
+              ระบบค้นหาและจัดการประวัตินักเตะ
             </p>
           </div>
         </div>
+
+        {/* --- ปุ่มเปลี่ยนแท็บ (Navigation Tabs) --- */}
+        {setActiveTab && (
+          <div className="flex items-center bg-gray-100 p-1 rounded-xl border border-gray-200 text-xs font-semibold">
+            <button
+              onClick={() => setActiveTab('search')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+                activeTab === 'search' 
+                  ? 'bg-white text-blue-600 shadow-xs' 
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <Search className="w-3.5 h-3.5" />
+              <span>ค้นหานักเตะ</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('profile')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
+                activeTab === 'profile' 
+                  ? 'bg-white text-blue-600 shadow-xs' 
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <UserCheck className="w-3.5 h-3.5" />
+              <span>จัดการโปรไฟล์</span>
+            </button>
+          </div>
+        )}
 
         {/* --- ส่วนขวา: ข้อมูลฐานข้อมูล, สถานะเซิร์ฟเวอร์, และลิงก์ Swagger API --- */}
         <div className="flex items-center space-x-3 sm:space-x-4">

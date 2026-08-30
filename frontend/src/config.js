@@ -1,4 +1,4 @@
-﻿// ===========================================================================
+// ===========================================================================
 // config.js — การตั้งค่า API Base URL สำหรับฝั่ง Frontend (Cross-Origin Support)
 // ===========================================================================
 
@@ -21,6 +21,10 @@ export const API_ENDPOINTS = {
   // 4. Endpoint ดึงข้อมูลนักเตะรายบุคคลตาม ID
   playerById: (id) => `${API_BASE_URL}/api/players/${id}`,
 
-  // 5. ลิงก์หน้าต่างเอกสาร Swagger API Documentation
+  // 5. User Profiles API CRUD
+  profiles: `${API_BASE_URL}/api/profiles`,
+  profileById: (id) => `${API_BASE_URL}/api/profiles/${id}`,
+
+  // 6. ลิงก์หน้าต่างเอกสาร Swagger API Documentation
   docs: `${API_BASE_URL}/docs`,
 };

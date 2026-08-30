@@ -38,6 +38,8 @@ class Player(BaseModel):
     name_en: str = Field(..., description="ชื่อภาษาอังกฤษ")
     name_th: str = Field(..., description="ชื่อภาษาไทย")
     aliases: list[str] = Field(default_factory=list, description="ฉายา / ชื่อเล่น เช่น เมสซี่, LM10")
+    bio: str = Field(default="", description="ประวัติย่อนักเตะ")
+    social_links: dict[str, str] = Field(default_factory=dict, description="ช่องทางติดตามทาง Social Media")
     age: int = Field(..., ge=0, le=60, description="อายุ")
     photo_url: str = Field(..., description="URL รูปภาพนักเตะ")
     club_logo_url: str = Field(default="https://placehold.co/80x80?text=Club", description="URL โลโก้สโมสร")
@@ -91,3 +93,65 @@ class HealthResponse(BaseModel):
     status: str = Field(..., description="สถานะของ service")
     players_loaded: int = Field(..., description="จำนวนนักเตะที่โหลดเข้าระบบ")
     index_ready: bool = Field(..., description="IR index พร้อมใช้งานหรือไม่")
+
+
+# ---------------------------------------------------------------------------
+# User Profile Models (CRUD)
+# ---------------------------------------------------------------------------
+
+class CareerHistoryItem(BaseModel):
+    clubName: str = Field(..., description="ชื่อสโมสร")
+    years: str = Field(..., description="ปีที่สังกัด เช่น 2019-2022")
+    level: str = Field(..., description="ระดับลีก / เยาวชน / อาชีพ")
+
+
+class HonourItem(BaseModel):
+    title: str = Field(..., description="ชื่อรางวัล / แชมป์")
+    year: int = Field(..., description="ปีที่ได้รับ")
+
+
+class PersonalInfo(BaseModel):
+    fullName: str = Field(..., description="ชื่อ-นามสกุล")
+    dob: str = Field(..., description="วันเกิด (YYYY-MM-DD)")
+    height: float = Field(..., ge=0, description="ส่วนสูง (cm)")
+    weight: float = Field(..., ge=0, description="น้ำหนัก (kg)")
+    nationality: str = Field(..., description="สัญชาติ")
+
+
+class ContactInfo(BaseModel):
+    phone: str = Field(..., description="เบอร์โทรศัพท์")
+    email: str = Field(..., description="อีเมล")
+    socialLinks: list[str] = Field(default_factory=list, description="ลิงก์ Social Media")
+    highlightVideoUrl: str | None = Field(default=None, description="ลิงก์วิดีโอไฮไลท์การเล่น")
+
+
+class PlayerInfo(BaseModel):
+    mainPosition: str = Field(..., description="ตำแหน่งหลัก")
+    secondaryPositions: list[str] = Field(default_factory=list, description="ตำแหน่งรอง")
+
+
+class UserProfileBase(BaseModel):
+    personal: PersonalInfo
+    contact: ContactInfo
+    playerInfo: PlayerInfo
+    careerHistory: list[CareerHistoryItem] = Field(default_factory=list)
+    honours: list[HonourItem] = Field(default_factory=list)
+    skills: list[str] = Field(default_factory=list)
+
+
+class UserProfileCreate(UserProfileBase):
+    pass
+
+
+class UserProfileUpdate(BaseModel):
+    personal: PersonalInfo | None = None
+    contact: ContactInfo | None = None
+    playerInfo: PlayerInfo | None = None
+    careerHistory: list[CareerHistoryItem] | None = None
+    honours: list[HonourItem] | None = None
+    skills: list[str] | None = None
+
+
+class UserProfileResponse(UserProfileBase):
+    id: str = Field(..., description="รหัสโปรไฟล์")
+
