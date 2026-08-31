@@ -83,9 +83,7 @@ export function PlayerModal({ player, onClose }) {
 
   const aliases = displayPlayer.aliases || [];
   const bio = displayPlayer.bio || '';
-  // Keep the career timeline separate from the short biography to avoid duplicated club history.
   const careerTerms = Array.isArray(displayPlayer.teams_history) ? displayPlayer.teams_history : [];
-  const bioWithoutCareer = bio.replace(/เส้นทางสโมสร\s*:?.*$/i, '').replace(/เส้นทางการค้าแข้ง\s*:?.*$/i, '').replace(/เส้นทางสโมสร[^.]*\.?/gi, '').replace(/สโมสร\s*:?.*Sporting CP.*$/i, '').trim();
   const socialLinks = displayPlayer.social_links || {};
   const score = displayPlayer.relevance_score;
   const formatDate = (v) => { if (!v) return "ไม่มีข้อมูล"; const d=new Date(v); return Number.isNaN(d.getTime()) ? v : new Intl.DateTimeFormat("th-TH",{day:"numeric",month:"long",year:"numeric"}).format(d); };
@@ -175,15 +173,42 @@ export function PlayerModal({ player, onClose }) {
             </div>
           )}
 
-          {bio && (
-            <section className="mb-5 bg-blue-50/70 border border-blue-100 rounded-2xl p-4 sm:p-5">
-              <div className="flex items-center gap-2 mb-2.5">
-                <div className="w-8 h-8 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-blue-600 font-black">i</div>
-                <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">ประวัติย่อนักเตะ</h4>
+          <section className="mb-5 bg-blue-50/70 border border-blue-100 rounded-2xl p-4 sm:p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-8 h-8 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-blue-600 font-black">i</div>
+              <div>
+                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">ประวัตินักเตะ</h4>
+                <p className="text-[11px] text-slate-400 mt-0.5">สรุปข้อมูลสำคัญของนักเตะแบบกระชับ</p>
               </div>
-              <p className="text-sm leading-6 text-slate-700 whitespace-pre-line">{bioWithoutCareer}</p>
-            </section>
-          )}
+            </div>
+            <div className="space-y-3">
+              <p className="text-sm leading-6 text-slate-700">
+                <span className="font-bold text-slate-900">{displayPlayer.name_en}</span>
+                {displayPlayer.nickname ? ` (${displayPlayer.nickname})` : ''}
+                {national.team_name && national.team_name !== 'N/A' ? ` เป็นนักฟุตบอลทีมชาติ${national.team_name}` : ' เป็นนักฟุตบอลอาชีพ'}
+                {displayPlayer.primary_position ? ` เล่นในตำแหน่ง ${displayPlayer.primary_position}` : ''}
+                {displayPlayer.current_team ? ` ปัจจุบันค้าแข้งกับ ${displayPlayer.current_team}` : ''}
+                {displayPlayer.current_league ? ` ใน ${displayPlayer.current_league}` : ''}
+                {displayPlayer.preferred_foot ? ` และถนัด${displayPlayer.preferred_foot}` : ''}
+                {displayPlayer.shirt_number ? ` โดยสวมเสื้อหมายเลข ${displayPlayer.shirt_number}` : ''}
+              </p>
+
+              {bio && <p className="text-sm leading-6 text-slate-600">{bio}</p>}
+
+              {(profileSummary || strengths.length > 0) && (
+                <div className="pt-3 border-t border-blue-100">
+                  {profileSummary && <p className="text-sm leading-6 text-slate-700">{profileSummary}</p>}
+                  {strengths.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {strengths.map((item, i) => (
+                        <span key={`${item}-${i}`} className="px-2.5 py-1 rounded-lg bg-white border border-blue-100 text-xs font-semibold text-slate-700">{item}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </section>
 
           {Object.keys(socialLinks).length > 0 && (
             <section className="mb-5">
