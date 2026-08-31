@@ -172,7 +172,9 @@ export default function App() {
         <Navbar 
           backendReady={backendReady} 
           totalPlayers={allPlayers.length} 
-        />\n\n        {/* ส่วนค้นหานักเตะและผลลัพธ์ IR */}
+        />
+
+        {/* ส่วนค้นหานักเตะและผลลัพธ์ IR */}
             {/* ส่วน Hero และช่องค้นหาหลัก */}
             <HeroSearch
               query={query}
