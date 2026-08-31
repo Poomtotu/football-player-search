@@ -1,4 +1,4 @@
-﻿// ===========================================================================
+// ===========================================================================
 // PlayerModal.jsx — คอมโพเนนต์หน้าต่างป๊อปอัปรายละเอียดเต็มของนักเตะ (Player Details Modal)
 // ===========================================================================
 
@@ -181,21 +181,7 @@ export function PlayerModal({ player, onClose }) {
                 <p className="text-[11px] text-slate-400 mt-0.5">สรุปข้อมูลสำคัญของนักเตะแบบกระชับ</p>
               </div>
             </div>
-            <div className="space-y-3">
-              <p className="text-sm leading-6 text-slate-700">
-                <span className="font-bold text-slate-900">{displayPlayer.name_en}</span>
-                {displayPlayer.nickname ? ` (${displayPlayer.nickname})` : ''}
-                {national.team_name && national.team_name !== 'N/A' ? ` เป็นนักฟุตบอลทีมชาติ${national.team_name}` : ' เป็นนักฟุตบอลอาชีพ'}
-                {displayPlayer.primary_position ? ` เล่นในตำแหน่ง ${displayPlayer.primary_position}` : ''}
-                {displayPlayer.current_team ? ` ปัจจุบันค้าแข้งกับ ${displayPlayer.current_team}` : ''}
-                {displayPlayer.current_league ? ` ใน ${displayPlayer.current_league}` : ''}
-                {displayPlayer.preferred_foot ? ` และถนัด${displayPlayer.preferred_foot}` : ''}
-                {displayPlayer.shirt_number ? ` โดยสวมเสื้อหมายเลข ${displayPlayer.shirt_number}` : ''}
-              </p>
-
-              {bio && <p className="text-sm leading-6 text-slate-600">{bio}</p>}
-
-              {(profileSummary || strengths.length > 0) && (
+            <div className="space-y-3">`r`n              {(profileSummary || strengths.length > 0) && (
                 <div className="pt-3 border-t border-blue-100">
                   {profileSummary && <p className="text-sm leading-6 text-slate-700">{profileSummary}</p>}
                   {strengths.length > 0 && (
