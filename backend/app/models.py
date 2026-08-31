@@ -46,6 +46,17 @@ class Player(BaseModel):
     flag_url: str = Field(default="https://flagcdn.com/w80/un.png", description="URL รูปธงชาติ")
     current_league: str = Field(..., description="ลีกที่เล่นอยู่ปัจจุบัน")
     current_team: str = Field(..., description="ทีมที่เล่นอยู่ปัจจุบัน")
+    nickname: str | None = Field(default=None)
+    birth_date: str | None = Field(default=None)
+    height_cm: int | None = Field(default=None, ge=100, le=230)
+    weight_kg: float | None = Field(default=None, ge=35, le=160)
+    residence: str | None = Field(default=None)
+    primary_position: str | None = Field(default=None)
+    secondary_positions: list[str] = Field(default_factory=list)
+    preferred_foot: str | None = Field(default=None)
+    shirt_number: int | None = Field(default=None, ge=1, le=99)
+    profile_summary: str | None = Field(default=None)
+    strengths: list[str] = Field(default_factory=list)
     teams_history: list[str] = Field(
         default_factory=list,
         description="ประวัติสโมสรที่เคยเล่น (เรียงตามลำดับเวลา)"

@@ -11,7 +11,7 @@ import {
   Flag, 
   Shield, 
   Sparkles, 
-  Layers, 
+
   Award,
   Share2,
   Check,
@@ -22,7 +22,7 @@ import {
 
 /**
  * คอมโพเนนต์ PlayerModal สำหรับแสดงป๊อปอัปรายละเอียดฉบับเต็มของนักเตะที่เลือก
- * ประกอบด้วย: รูปใหญ่, ชื่อไทย/อังกฤษ, สถิติ 4 ช่อง, ทีมชาติพร้อมรูปธง, Timeline ประวัติการค้าแข้ง และปุ่มคัดลอกลิงก์แชร์
+ * ประกอบด้วย: รูปใหญ่, ชื่อไทย/อังกฤษ, ข้อมูลปัจจุบัน, สถิติ 4 ช่อง, ทีมชาติ และปุ่มคัดลอกลิงก์แชร์
  * 
  * @param {object} player - ข้อมูลนักเตะรายบุคคลที่ถูกเลือก
  * @param {function} onClose - ฟังก์ชันเมื่อคลิกปิดป๊อปอัป (หรือกดปุ่ม Escape)
@@ -80,11 +80,18 @@ export function PlayerModal({ player, onClose }) {
   // ดึงข้อมูลย่อยพร้อมค่า default ป้องกัน crash
   const stats = displayPlayer.stats || { total_goals: 0, total_assists: 0, trophies_count: 0 };
   const national = displayPlayer.national_team || { played: false, team_name: 'N/A', caps: 0, goals: 0 };
-  const teamsHistory = displayPlayer.teams_history || [];
+
   const aliases = displayPlayer.aliases || [];
   const bio = displayPlayer.bio || '';
+  // Keep the career timeline separate from the short biography to avoid duplicated club history.
+  const careerTerms = Array.isArray(displayPlayer.teams_history) ? displayPlayer.teams_history : [];
+  const bioWithoutCareer = bio.replace(/เส้นทางสโมสร\s*:?.*$/i, '').replace(/เส้นทางการค้าแข้ง\s*:?.*$/i, '').replace(/เส้นทางสโมสร[^.]*\.?/gi, '').replace(/สโมสร\s*:?.*Sporting CP.*$/i, '').trim();
   const socialLinks = displayPlayer.social_links || {};
   const score = displayPlayer.relevance_score;
+  const formatDate = (v) => { if (!v) return "ไม่มีข้อมูล"; const d=new Date(v); return Number.isNaN(d.getTime()) ? v : new Intl.DateTimeFormat("th-TH",{day:"numeric",month:"long",year:"numeric"}).format(d); };
+  const personalFields = [["ชื่อเล่น",displayPlayer.nickname],["วันเดือนปีเกิด",displayPlayer.birth_date ? `${formatDate(displayPlayer.birth_date)}${displayPlayer.age ? ` · อายุ ${displayPlayer.age} ปี` : ""}` : (displayPlayer.age ? `ไม่ระบุวันเกิด · อายุ ${displayPlayer.age} ปี` : null)],["ส่วนสูง",displayPlayer.height_cm ? `${displayPlayer.height_cm} ซม.` : null],["น้ำหนัก",displayPlayer.weight_kg ? `${displayPlayer.weight_kg} กก.` : null],["สัญชาติ",national.played && national.team_name !== "N/A" ? national.team_name : null],["สถานที่อยู่ปัจจุบัน",displayPlayer.residence]];
+  const footballFields = [["ตำแหน่งหลัก",displayPlayer.primary_position],["ตำแหน่งรอง",Array.isArray(displayPlayer.secondary_positions)&&displayPlayer.secondary_positions.length ? displayPlayer.secondary_positions.join(" · ") : null],["เท้าที่ถนัด",displayPlayer.preferred_foot],["เบอร์เสื้อ",displayPlayer.shirt_number ? `#${displayPlayer.shirt_number}` : null]];
+  const contactEntries=Object.entries(displayPlayer.contact||{}).filter(([,v])=>v); const strengths=Array.isArray(displayPlayer.strengths)?displayPlayer.strengths.filter(Boolean):[]; const profileSummary=displayPlayer.profile_summary||"";
 
   // คำนวณจำนวนประตู + แอสซิสต์รวม (Goal Contributions)
   const totalContributions = (stats.total_goals || 0) + (stats.total_assists || 0);
@@ -174,7 +181,7 @@ export function PlayerModal({ player, onClose }) {
                 <div className="w-8 h-8 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-blue-600 font-black">i</div>
                 <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">ประวัติย่อนักเตะ</h4>
               </div>
-              <p className="text-sm leading-6 text-slate-700 whitespace-pre-line">{bio}</p>
+              <p className="text-sm leading-6 text-slate-700 whitespace-pre-line">{bioWithoutCareer}</p>
             </section>
           )}
 
@@ -279,39 +286,38 @@ export function PlayerModal({ player, onClose }) {
             </div>
           )}
 
-          {/* --- เส้นทางอาชีพและสโมสรที่เคยค้าแข้ง (Career Clubs Timeline) --- */}
-          {teamsHistory.length > 0 && (
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4">
-              <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 flex items-center space-x-1.5">
-                <Layers className="w-3.5 h-3.5 text-blue-600" />
+          {/* --- เส้นทางอาชีพและสโมสรที่เคยค้าแข้ง --- */}
+          {careerTerms.length > 0 && (
+            <section className="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5">
+              <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                <span className="text-blue-600">⚽</span>
                 <span>เส้นทางอาชีพและสโมสรที่เคยค้าแข้ง</span>
               </div>
-              
-              {/* Timeline List */}
               <div className="relative pl-6 space-y-3 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-200">
-                {teamsHistory.map((team, idx) => {
-                  const isCurrent = idx === teamsHistory.length - 1;
+                {careerTerms.map((team, idx) => {
+                  const isCurrent = idx === careerTerms.length - 1;
                   return (
-                    <div key={idx} className="relative flex items-center justify-between text-xs">
-                      {/* จุดวงกลมบนเส้น Timeline */}
-                      <span className={`absolute -left-6 w-4 h-4 rounded-full border-2 border-white shadow-sm ${
-                        isCurrent ? 'bg-blue-600 ring-4 ring-blue-100' : 'bg-gray-300'
-                      }`}></span>
-
-                      <span className={`font-semibold ${isCurrent ? 'text-blue-600 text-sm font-bold' : 'text-gray-700'}`}>
-                        {team}
-                      </span>
-                      {isCurrent && (
-                        <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold">
-                          ปัจจุบัน
-                        </span>
-                      )}
+                    <div key={`${team}-${idx}`} className="relative flex items-center justify-between gap-3 text-xs">
+                      <span className={`absolute -left-6 w-4 h-4 rounded-full border-2 border-white shadow-sm ${isCurrent ? 'bg-blue-600 ring-4 ring-blue-100' : 'bg-gray-300'}`} />
+                      <span className={`font-semibold ${isCurrent ? 'text-blue-600 text-sm font-bold' : 'text-gray-700'}`}>{team}</span>
+                      {isCurrent && <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold">ปัจจุบัน</span>}
                     </div>
                   );
                 })}
               </div>
-            </div>
+            </section>
           )}
+
+          {/* --- ข้อมูลเพิ่มเติมของนักเตะ --- */}
+          <section className="mb-5 bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm">
+            <div className="flex items-center gap-3 mb-5"><div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-black">i</div><div><h4 className="text-sm font-extrabold text-slate-900">ข้อมูลเพิ่มเติม</h4><p className="text-[11px] text-slate-400 mt-0.5">ข้อมูลส่วนตัวและข้อมูลฟุตบอลที่มีการบันทึกไว้</p></div></div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+              <div><h5 className="text-xs font-bold text-slate-500 mb-3">ข้อมูลส่วนตัวเบื้องต้น</h5><div className="divide-y divide-slate-100 rounded-xl border border-slate-100 overflow-hidden"><div className="px-3.5 py-3 bg-slate-50/70"><span className="text-[11px] text-slate-400 block">ชื่อ-นามสกุล</span><span className="text-sm font-bold text-slate-900">{displayPlayer.name_en}</span></div>{personalFields.map(([label,value])=><div key={label} className="px-3.5 py-3"><span className="text-[11px] text-slate-400 block">{label}</span><span className={`text-sm font-semibold ${value?'text-slate-800':'text-slate-400'}`}>{value||'ไม่มีข้อมูล'}</span></div>)}</div></div>
+              <div><h5 className="text-xs font-bold text-slate-500 mb-3">ข้อมูลด้านฟุตบอล</h5><div className="divide-y divide-slate-100 rounded-xl border border-slate-100 overflow-hidden">{footballFields.map(([label,value])=><div key={label} className="px-3.5 py-3"><span className="text-[11px] text-slate-400 block">{label}</span><span className={`text-sm font-semibold ${value?'text-slate-800':'text-slate-400'}`}>{value||'ไม่มีข้อมูล'}</span></div>)}<div className="px-3.5 py-3 bg-slate-50/70"><span className="text-[11px] text-slate-400 block">สโมสรปัจจุบัน</span><span className="text-sm font-bold text-slate-900">{displayPlayer.current_team||'ไม่มีข้อมูล'}</span></div><div className="px-3.5 py-3"><span className="text-[11px] text-slate-400 block">ลีกปัจจุบัน</span><span className="text-sm font-semibold text-slate-800">{displayPlayer.current_league||'ไม่มีข้อมูล'}</span></div></div></div>
+            </div>
+            {contactEntries.length>0&&<div className="mt-5"><h5 className="text-xs font-bold text-slate-500 mb-3">ช่องทางติดต่อสาธารณะ</h5><div className="grid grid-cols-1 sm:grid-cols-2 gap-3">{contactEntries.map(([label,value])=><div key={label} className="rounded-xl border border-slate-100 bg-slate-50 px-3.5 py-3"><span className="text-[11px] text-slate-400 block">{label}</span><span className="text-sm font-semibold text-slate-800 break-all">{value}</span></div>)}</div></div>}
+            {(profileSummary||strengths.length>0)&&<div className="mt-5 rounded-xl bg-blue-50/70 border border-blue-100 p-4"><h5 className="text-xs font-bold text-blue-700 mb-2">สไตล์การเล่นและจุดเด่น</h5>{profileSummary&&<p className="text-sm leading-6 text-slate-700">{profileSummary}</p>}{strengths.length>0&&<div className="flex flex-wrap gap-2 mt-3">{strengths.map((item,i)=><span key={`${item}-${i}`} className="px-2.5 py-1 rounded-lg bg-white border border-blue-100 text-xs font-semibold text-slate-700">{item}</span>)}</div>}</div>}
+          </section>
         </div>
       </div>
     </div>

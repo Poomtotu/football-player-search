@@ -39,7 +39,18 @@
       "total_goals": 850,
       "total_assists": 380,
       "trophies_count": 44
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 10,
+    "nickname": "Leo",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 2,
@@ -84,7 +95,18 @@
       "total_goals": 905,
       "total_assists": 240,
       "trophies_count": 34
-    }
+    },
+    "primary_position": "CF",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": "CR7",
+    "profile_summary": "กองหน้าที่มีบทบาททั้งการจบสกอร์และการเชื่อมเกม",
+    "strengths": [
+      "จบสกอร์",
+      "พักบอล",
+      "เชื่อมเกม"
+    ]
   },
   {
     "id": 3,
@@ -124,7 +146,18 @@
       "total_goals": 330,
       "total_assists": 195,
       "trophies_count": 18
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Kylian",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 4,
@@ -168,7 +201,18 @@
       "total_goals": 290,
       "total_assists": 65,
       "trophies_count": 12
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": "Erling",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 5,
@@ -210,7 +254,18 @@
       "total_goals": 440,
       "total_assists": 310,
       "trophies_count": 22
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Ney",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 6,
@@ -254,7 +309,18 @@
       "total_goals": 360,
       "total_assists": 155,
       "trophies_count": 15
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 11,
+    "nickname": "Mo",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 7,
@@ -297,7 +363,18 @@
       "total_goals": 150,
       "total_assists": 370,
       "trophies_count": 20
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 17,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 8,
@@ -338,7 +415,18 @@
       "total_goals": 95,
       "total_assists": 55,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "AM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 5,
+    "nickname": null,
+    "profile_summary": "ตัวรุกที่เน้นการสร้างสรรค์เกม จ่ายบอลทะลุช่อง และหาพื้นที่ระหว่างแนวรับ",
+    "strengths": [
+      "สร้างสรรค์เกม",
+      "จ่ายบอล",
+      "หาพื้นที่"
+    ]
   },
   {
     "id": 9,
@@ -378,7 +466,18 @@
       "total_goals": 130,
       "total_assists": 115,
       "trophies_count": 12
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 10,
@@ -420,7 +519,18 @@
       "total_goals": 210,
       "total_assists": 120,
       "trophies_count": 4
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 11,
@@ -462,7 +572,18 @@
       "total_goals": 410,
       "total_assists": 110,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": "Harry",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 12,
@@ -503,7 +624,18 @@
       "total_goals": 650,
       "total_assists": 185,
       "trophies_count": 28
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": "Lewy",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 13,
@@ -541,7 +673,18 @@
       "total_goals": 20,
       "total_assists": 25,
       "trophies_count": 4
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 10,
+    "nickname": "Lamine",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 14,
@@ -581,7 +724,18 @@
       "total_goals": 30,
       "total_assists": 45,
       "trophies_count": 7
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 8,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 15,
@@ -618,7 +772,18 @@
       "total_goals": 95,
       "total_assists": 65,
       "trophies_count": 17
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 47,
+    "nickname": "Phil",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 16,
@@ -656,7 +821,18 @@
       "total_goals": 75,
       "total_assists": 65,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 7,
+    "nickname": "Bukayo",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 17,
@@ -697,7 +873,18 @@
       "total_goals": 40,
       "total_assists": 45,
       "trophies_count": 18
-    }
+    },
+    "primary_position": "DM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 16,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ตัวรับที่ช่วยตัดเกม คุมจังหวะ และเชื่อมบอล",
+    "strengths": [
+      "อ่านเกม",
+      "ตัดบอล",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 18,
@@ -734,7 +921,18 @@
       "total_goals": 15,
       "total_assists": 18,
       "trophies_count": 15
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 3,
+    "nickname": null,
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 19,
@@ -771,7 +969,18 @@
       "total_goals": 90,
       "total_assists": 110,
       "trophies_count": 20
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 10,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 20,
@@ -810,7 +1019,18 @@
       "total_goals": 470,
       "total_assists": 210,
       "trophies_count": 33
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 21,
@@ -848,7 +1068,18 @@
       "total_goals": 260,
       "total_assists": 130,
       "trophies_count": 15
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 8,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 22,
@@ -885,7 +1116,18 @@
       "total_goals": 85,
       "total_assists": 110,
       "trophies_count": 12
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Ousmane",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 23,
@@ -923,7 +1165,18 @@
       "total_goals": 340,
       "total_assists": 95,
       "trophies_count": 15
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 24,
@@ -961,7 +1214,18 @@
       "total_goals": 380,
       "total_assists": 105,
       "trophies_count": 7
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 25,
@@ -999,7 +1263,18 @@
       "total_goals": 180,
       "total_assists": 60,
       "trophies_count": 12
-    }
+    },
+    "primary_position": "CF",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Lautaro",
+    "profile_summary": "กองหน้าที่มีบทบาททั้งการจบสกอร์และการเชื่อมเกม",
+    "strengths": [
+      "จบสกอร์",
+      "พักบอล",
+      "เชื่อมเกม"
+    ]
   },
   {
     "id": 26,
@@ -1037,7 +1312,18 @@
       "total_goals": 190,
       "total_assists": 85,
       "trophies_count": 14
-    }
+    },
+    "primary_position": "AM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 21,
+    "nickname": "Paulo",
+    "profile_summary": "ตัวรุกที่เน้นการสร้างสรรค์เกม จ่ายบอลทะลุช่อง และหาพื้นที่ระหว่างแนวรับ",
+    "strengths": [
+      "สร้างสรรค์เกม",
+      "จ่ายบอล",
+      "หาพื้นที่"
+    ]
   },
   {
     "id": 27,
@@ -1076,7 +1362,18 @@
       "total_goals": 105,
       "total_assists": 60,
       "trophies_count": 14
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 19,
+    "nickname": "Julián",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 28,
@@ -1113,7 +1410,18 @@
       "total_goals": 65,
       "total_assists": 45,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 29,
@@ -1151,7 +1459,18 @@
       "total_goals": 30,
       "total_assists": 45,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 8,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 30,
@@ -1189,7 +1508,18 @@
       "total_goals": 115,
       "total_assists": 40,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 31,
@@ -1226,7 +1556,18 @@
       "total_goals": 80,
       "total_assists": 55,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 11,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 32,
@@ -1263,7 +1604,18 @@
       "total_goals": 95,
       "total_assists": 60,
       "trophies_count": 4
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 17,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 33,
@@ -1301,7 +1653,18 @@
       "total_goals": 105,
       "total_assists": 60,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 29,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 34,
@@ -1339,7 +1702,18 @@
       "total_goals": 280,
       "total_assists": 270,
       "trophies_count": 33
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 25,
+    "nickname": "Thomas",
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 35,
@@ -1377,7 +1751,18 @@
       "total_goals": 130,
       "total_assists": 70,
       "trophies_count": 16
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 7,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 36,
@@ -1414,7 +1799,18 @@
       "total_goals": 120,
       "total_assists": 115,
       "trophies_count": 18
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 37,
@@ -1452,7 +1848,18 @@
       "total_goals": 75,
       "total_assists": 160,
       "trophies_count": 34
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 8,
+    "nickname": "Toni",
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 38,
@@ -1489,7 +1896,18 @@
       "total_goals": 55,
       "total_assists": 60,
       "trophies_count": 14
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 15,
+    "nickname": "Fede",
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 39,
@@ -1526,7 +1944,18 @@
       "total_goals": 20,
       "total_assists": 30,
       "trophies_count": 10
-    }
+    },
+    "primary_position": "LB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 6,
+    "nickname": null,
+    "profile_summary": "ฟูลแบ็กที่ช่วยเกมรับและเพิ่มทางเลือกในการขึ้นเกมริมเส้น",
+    "strengths": [
+      "เกมรับริมเส้น",
+      "ความเร็ว",
+      "การเติมเกม"
+    ]
   },
   {
     "id": 40,
@@ -1563,7 +1992,18 @@
       "total_goals": 25,
       "total_assists": 25,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "RB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 14,
+    "nickname": null,
+    "profile_summary": "ฟูลแบ็กที่มีบทบาททั้งเกมรับและการเติมเกมทางริมเส้น",
+    "strengths": [
+      "ความเร็ว",
+      "ประกบตัว",
+      "เติมเกม"
+    ]
   },
   {
     "id": 41,
@@ -1600,7 +2040,18 @@
       "total_goals": 20,
       "total_assists": 15,
       "trophies_count": 12
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 3,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 42,
@@ -1637,7 +2088,18 @@
       "total_goals": 10,
       "total_assists": 20,
       "trophies_count": 10
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 23,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 43,
@@ -1674,7 +2136,18 @@
       "total_goals": 15,
       "total_assists": 65,
       "trophies_count": 26
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 2,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 44,
@@ -1712,7 +2185,18 @@
       "total_goals": 25,
       "total_assists": 40,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 6,
+    "nickname": "Gavi",
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 45,
@@ -1749,7 +2233,18 @@
       "total_goals": 85,
       "total_assists": 45,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 11,
+    "nickname": null,
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 46,
@@ -1786,7 +2281,18 @@
       "total_goals": 40,
       "total_assists": 20,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "RB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 17,
+    "nickname": null,
+    "profile_summary": "ฟูลแบ็กที่มีบทบาททั้งเกมรับและการเติมเกมทางริมเส้น",
+    "strengths": [
+      "ความเร็ว",
+      "ประกบตัว",
+      "เติมเกม"
+    ]
   },
   {
     "id": 47,
@@ -1823,7 +2329,18 @@
       "total_goals": 115,
       "total_assists": 80,
       "trophies_count": 18
-    }
+    },
+    "primary_position": "RB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 8,
+    "nickname": "İlkay",
+    "profile_summary": "ฟูลแบ็กที่มีบทบาททั้งเกมรับและการเติมเกมทางริมเส้น",
+    "strengths": [
+      "ความเร็ว",
+      "ประกบตัว",
+      "เติมเกม"
+    ]
   },
   {
     "id": 48,
@@ -1860,7 +2377,18 @@
       "total_goals": 40,
       "total_assists": 20,
       "trophies_count": 32
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 3,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 49,
@@ -1897,7 +2425,18 @@
       "total_goals": 45,
       "total_assists": 15,
       "trophies_count": 30
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 5,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 50,
@@ -1934,7 +2473,18 @@
       "total_goals": 30,
       "total_assists": 35,
       "trophies_count": 25
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 15,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 51,
@@ -1971,7 +2521,18 @@
       "total_goals": 135,
       "total_assists": 90,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Raphinha",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 52,
@@ -2008,7 +2569,18 @@
       "total_goals": 100,
       "total_assists": 75,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "AM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 18,
+    "nickname": "Cody",
+    "profile_summary": "ตัวรุกที่เน้นการสร้างสรรค์เกม จ่ายบอลทะลุช่อง และหาพื้นที่ระหว่างแนวรับ",
+    "strengths": [
+      "สร้างสรรค์เกม",
+      "จ่ายบอล",
+      "หาพื้นที่"
+    ]
   },
   {
     "id": 53,
@@ -2046,7 +2618,18 @@
       "total_goals": 110,
       "total_assists": 40,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 54,
@@ -2083,7 +2666,18 @@
       "total_goals": 120,
       "total_assists": 55,
       "trophies_count": 7
-    }
+    },
+    "primary_position": "DM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 20,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ตัวรับที่ช่วยตัดเกม คุมจังหวะ และเชื่อมบอล",
+    "strengths": [
+      "อ่านเกม",
+      "ตัดบอล",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 55,
@@ -2120,7 +2714,18 @@
       "total_goals": 85,
       "total_assists": 45,
       "trophies_count": 9
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 14,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 56,
@@ -2157,7 +2762,18 @@
       "total_goals": 15,
       "total_assists": 85,
       "trophies_count": 9
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 3,
+    "nickname": null,
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 57,
@@ -2194,7 +2810,18 @@
       "total_goals": 75,
       "total_assists": 80,
       "trophies_count": 7
-    }
+    },
+    "primary_position": "GK",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 8,
+    "nickname": "Martin",
+    "profile_summary": "ผู้รักษาประตูที่เน้นการยืนตำแหน่ง ปฏิกิริยาตอบสนอง และการเริ่มเกมจากแดนหลัง",
+    "strengths": [
+      "การยืนตำแหน่ง",
+      "ปฏิกิริยาตอบสนอง",
+      "การเล่นบอลด้วยเท้า"
+    ]
   },
   {
     "id": 58,
@@ -2231,7 +2858,18 @@
       "total_goals": 145,
       "total_assists": 65,
       "trophies_count": 12
-    }
+    },
+    "primary_position": "LB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": null,
+    "profile_summary": "ฟูลแบ็กที่ช่วยเกมรับและเพิ่มทางเลือกในการขึ้นเกมริมเส้น",
+    "strengths": [
+      "เกมรับริมเส้น",
+      "ความเร็ว",
+      "การเติมเกม"
+    ]
   },
   {
     "id": 59,
@@ -2268,7 +2906,18 @@
       "total_goals": 20,
       "total_assists": 5,
       "trophies_count": 4
-    }
+    },
+    "primary_position": "GK",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 4,
+    "nickname": null,
+    "profile_summary": "ผู้รักษาประตูที่เน้นการยืนตำแหน่ง ปฏิกิริยาตอบสนอง และการเริ่มเกมจากแดนหลัง",
+    "strengths": [
+      "การยืนตำแหน่ง",
+      "ปฏิกิริยาตอบสนอง",
+      "การเล่นบอลด้วยเท้า"
+    ]
   },
   {
     "id": 60,
@@ -2305,7 +2954,18 @@
       "total_goals": 10,
       "total_assists": 10,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 2,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 61,
@@ -2342,7 +3002,18 @@
       "total_goals": 45,
       "total_assists": 55,
       "trophies_count": 10
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 34,
+    "nickname": null,
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 62,
@@ -2379,7 +3050,18 @@
       "total_goals": 40,
       "total_assists": 70,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 23,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 63,
@@ -2416,7 +3098,18 @@
       "total_goals": 70,
       "total_assists": 50,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 14,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 64,
@@ -2453,7 +3146,18 @@
       "total_goals": 0,
       "total_assists": 0,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 25,
+    "nickname": "Gigio",
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 65,
@@ -2490,7 +3194,18 @@
       "total_goals": 60,
       "total_assists": 70,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 19,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 66,
@@ -2527,7 +3242,18 @@
       "total_goals": 0,
       "total_assists": 2,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "AM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 16,
+    "nickname": null,
+    "profile_summary": "ตัวรุกที่เน้นการสร้างสรรค์เกม จ่ายบอลทะลุช่อง และหาพื้นที่ระหว่างแนวรับ",
+    "strengths": [
+      "สร้างสรรค์เกม",
+      "จ่ายบอล",
+      "หาพื้นที่"
+    ]
   },
   {
     "id": 67,
@@ -2564,7 +3290,18 @@
       "total_goals": 95,
       "total_assists": 80,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "DM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 10,
+    "nickname": "Rafa",
+    "profile_summary": "มิดฟิลด์ตัวรับที่ช่วยตัดเกม คุมจังหวะ และเชื่อมบอล",
+    "strengths": [
+      "อ่านเกม",
+      "ตัดบอล",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 68,
@@ -2601,7 +3338,18 @@
       "total_goals": 110,
       "total_assists": 125,
       "trophies_count": 9
-    }
+    },
+    "primary_position": "LB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 20,
+    "nickname": "Hakan",
+    "profile_summary": "ฟูลแบ็กที่ช่วยเกมรับและเพิ่มทางเลือกในการขึ้นเกมริมเส้น",
+    "strengths": [
+      "เกมรับริมเส้น",
+      "ความเร็ว",
+      "การเติมเกม"
+    ]
   },
   {
     "id": 69,
@@ -2638,7 +3386,18 @@
       "total_goals": 75,
       "total_assists": 80,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": "Kvara",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 70,
@@ -2675,7 +3434,18 @@
       "total_goals": 125,
       "total_assists": 40,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 45,
+    "nickname": "Victor",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 71,
@@ -2712,7 +3482,18 @@
       "total_goals": 10,
       "total_assists": 8,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 3,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 72,
@@ -2749,7 +3530,18 @@
       "total_goals": 85,
       "total_assists": 70,
       "trophies_count": 8
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Pulisic",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 73,
@@ -2786,7 +3578,18 @@
       "total_goals": 30,
       "total_assists": 35,
       "trophies_count": 4
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 24,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 74,
@@ -2823,7 +3626,18 @@
       "total_goals": 35,
       "total_assists": 45,
       "trophies_count": 3
-    }
+    },
+    "primary_position": "LB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": null,
+    "profile_summary": "ฟูลแบ็กที่ช่วยเกมรับและเพิ่มทางเลือกในการขึ้นเกมริมเส้น",
+    "strengths": [
+      "เกมรับริมเส้น",
+      "ความเร็ว",
+      "การเติมเกม"
+    ]
   },
   {
     "id": 75,
@@ -2862,7 +3676,18 @@
       "total_goals": 40,
       "total_assists": 25,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "AM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Cole",
+    "profile_summary": "ตัวรุกที่เน้นการสร้างสรรค์เกม จ่ายบอลทะลุช่อง และหาพื้นที่ระหว่างแนวรับ",
+    "strengths": [
+      "สร้างสรรค์เกม",
+      "จ่ายบอล",
+      "หาพื้นที่"
+    ]
   },
   {
     "id": 76,
@@ -2899,7 +3724,18 @@
       "total_goals": 12,
       "total_assists": 20,
       "trophies_count": 4
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 25,
+    "nickname": null,
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 77,
@@ -2936,7 +3772,18 @@
       "total_goals": 15,
       "total_assists": 30,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 2,
+    "nickname": null,
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 78,
@@ -2973,7 +3820,18 @@
       "total_goals": 10,
       "total_assists": 25,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 3,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 79,
@@ -3010,7 +3868,18 @@
       "total_goals": 250,
       "total_assists": 160,
       "trophies_count": 20
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 80,
@@ -3047,7 +3916,18 @@
       "total_goals": 440,
       "total_assists": 90,
       "trophies_count": 25
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": null,
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 81,
@@ -3085,7 +3965,18 @@
       "total_goals": 560,
       "total_assists": 300,
       "trophies_count": 26
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": "Luis",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 82,
@@ -3122,7 +4013,18 @@
       "total_goals": 260,
       "total_assists": 140,
       "trophies_count": 16
-    }
+    },
+    "primary_position": "GK",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 10,
+    "nickname": "Sadio",
+    "profile_summary": "ผู้รักษาประตูที่เน้นการยืนตำแหน่ง ปฏิกิริยาตอบสนอง และการเริ่มเกมจากแดนหลัง",
+    "strengths": [
+      "การยืนตำแหน่ง",
+      "ปฏิกิริยาตอบสนอง",
+      "การเล่นบอลด้วยเท้า"
+    ]
   },
   {
     "id": 83,
@@ -3159,7 +4061,18 @@
       "total_goals": 200,
       "total_assists": 170,
       "trophies_count": 17
-    }
+    },
+    "primary_position": "LB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 7,
+    "nickname": "Riyad",
+    "profile_summary": "ฟูลแบ็กที่ช่วยเกมรับและเพิ่มทางเลือกในการขึ้นเกมริมเส้น",
+    "strengths": [
+      "เกมรับริมเส้น",
+      "ความเร็ว",
+      "การเติมเกม"
+    ]
   },
   {
     "id": 84,
@@ -3196,7 +4109,18 @@
       "total_goals": 35,
       "total_assists": 40,
       "trophies_count": 15
-    }
+    },
+    "primary_position": "RB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 6,
+    "nickname": "NG",
+    "profile_summary": "ฟูลแบ็กที่มีบทบาททั้งเกมรับและการเติมเกมทางริมเส้น",
+    "strengths": [
+      "ความเร็ว",
+      "ประกบตัว",
+      "เติมเกม"
+    ]
   },
   {
     "id": 85,
@@ -3233,7 +4157,18 @@
       "total_goals": 95,
       "total_assists": 110,
       "trophies_count": 13
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 8,
+    "nickname": "Paul",
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 86,
@@ -3270,7 +4205,18 @@
       "total_goals": 200,
       "total_assists": 270,
       "trophies_count": 34
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 11,
+    "nickname": "Ángel",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 87,
@@ -3307,7 +4253,18 @@
       "total_goals": 0,
       "total_assists": 1,
       "trophies_count": 10
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 1,
+    "nickname": "David",
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 88,
@@ -3344,7 +4301,18 @@
       "total_goals": 0,
       "total_assists": 2,
       "trophies_count": 20
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 1,
+    "nickname": "Thibaut",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 89,
@@ -3381,7 +4349,18 @@
       "total_goals": 0,
       "total_assists": 3,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 13,
+    "nickname": "Jan",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 90,
@@ -3419,7 +4398,18 @@
       "total_goals": 0,
       "total_assists": 1,
       "trophies_count": 7
-    }
+    },
+    "primary_position": "AM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 23,
+    "nickname": "Emi",
+    "profile_summary": "ตัวรุกที่เน้นการสร้างสรรค์เกม จ่ายบอลทะลุช่อง และหาพื้นที่ระหว่างแนวรับ",
+    "strengths": [
+      "สร้างสรรค์เกม",
+      "จ่ายบอล",
+      "หาพื้นที่"
+    ]
   },
   {
     "id": 91,
@@ -3456,7 +4446,18 @@
       "total_goals": 0,
       "total_assists": 4,
       "trophies_count": 17
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 22,
+    "nickname": "Marc-André",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 92,
@@ -3492,7 +4493,18 @@
       "total_goals": 30,
       "total_assists": 50,
       "trophies_count": 15
-    }
+    },
+    "primary_position": "LB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 19,
+    "nickname": "Alphonso",
+    "profile_summary": "ฟูลแบ็กที่ช่วยเกมรับและเพิ่มทางเลือกในการขึ้นเกมริมเส้น",
+    "strengths": [
+      "เกมรับริมเส้น",
+      "ความเร็ว",
+      "การเติมเกม"
+    ]
   },
   {
     "id": 93,
@@ -3529,7 +4541,18 @@
       "total_goals": 45,
       "total_assists": 60,
       "trophies_count": 12
-    }
+    },
+    "primary_position": "RB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 2,
+    "nickname": "Achraf",
+    "profile_summary": "ฟูลแบ็กที่มีบทบาททั้งเกมรับและการเติมเกมทางริมเส้น",
+    "strengths": [
+      "ความเร็ว",
+      "ประกบตัว",
+      "เติมเกม"
+    ]
   },
   {
     "id": 94,
@@ -3566,7 +4589,18 @@
       "total_goals": 10,
       "total_assists": 15,
       "trophies_count": 14
-    }
+    },
+    "primary_position": "CB",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 21,
+    "nickname": null,
+    "profile_summary": "กองหลังตัวกลางที่เน้นการอ่านเกม การดวลตัวต่อตัว และการป้องกันพื้นที่",
+    "strengths": [
+      "อ่านเกม",
+      "ดวลตัวต่อตัว",
+      "ลูกกลางอากาศ"
+    ]
   },
   {
     "id": 95,
@@ -3603,7 +4637,18 @@
       "total_goals": 40,
       "total_assists": 30,
       "trophies_count": 4
-    }
+    },
+    "primary_position": "LW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 49,
+    "nickname": "Garna",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "สร้างโอกาส",
+      "จบสกอร์"
+    ]
   },
   {
     "id": 96,
@@ -3640,7 +4685,18 @@
       "total_goals": 15,
       "total_assists": 15,
       "trophies_count": 3
-    }
+    },
+    "primary_position": "CM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 37,
+    "nickname": "Kobbie",
+    "profile_summary": "มิดฟิลด์ที่เน้นการเชื่อมเกม คุมจังหวะ และสนับสนุนทั้งสองฝั่งของสนาม",
+    "strengths": [
+      "จ่ายบอล",
+      "วิสัยทัศน์",
+      "คุมจังหวะ"
+    ]
   },
   {
     "id": 97,
@@ -3677,7 +4733,18 @@
       "total_goals": 55,
       "total_assists": 20,
       "trophies_count": 3
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าซ้าย",
+    "shirt_number": 9,
+    "nickname": "Rasmus",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   },
   {
     "id": 98,
@@ -3714,7 +4781,18 @@
       "total_goals": 35,
       "total_assists": 25,
       "trophies_count": 3
-    }
+    },
+    "primary_position": "RW",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 16,
+    "nickname": "Amad",
+    "profile_summary": "ตัวริมเส้นที่เน้นการพาบอลเข้าสู่พื้นที่สุดท้าย สร้างโอกาส และจบสกอร์",
+    "strengths": [
+      "เลี้ยงบอล",
+      "ความเร็ว",
+      "สร้างโอกาส"
+    ]
   },
   {
     "id": 99,
@@ -3751,7 +4829,18 @@
       "total_goals": 20,
       "total_assists": 25,
       "trophies_count": 5
-    }
+    },
+    "primary_position": "AM",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 15,
+    "nickname": "Arda",
+    "profile_summary": "ตัวรุกที่เน้นการสร้างสรรค์เกม จ่ายบอลทะลุช่อง และหาพื้นที่ระหว่างแนวรับ",
+    "strengths": [
+      "สร้างสรรค์เกม",
+      "จ่ายบอล",
+      "หาพื้นที่"
+    ]
   },
   {
     "id": 100,
@@ -3788,6 +4877,17 @@
       "total_goals": 35,
       "total_assists": 15,
       "trophies_count": 6
-    }
+    },
+    "primary_position": "ST",
+    "secondary_positions": [],
+    "preferred_foot": "ถนัดเท้าขวา",
+    "shirt_number": 9,
+    "nickname": "Endrick",
+    "profile_summary": "กองหน้าที่เน้นการเคลื่อนที่หาพื้นที่ การจบสกอร์ และการกดดันแนวรับ",
+    "strengths": [
+      "จบสกอร์",
+      "การเคลื่อนที่",
+      "เพรสซิ่ง"
+    ]
   }
 ]
