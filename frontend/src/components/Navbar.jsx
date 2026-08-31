@@ -3,13 +3,13 @@
 // ===========================================================================
 
 import React from 'react';
-import { BookOpen, Database, Sparkles, Trophy, UserCheck, Search } from 'lucide-react';
+import { BookOpen, Database, Sparkles, Trophy, Search } from 'lucide-react';
 import { API_ENDPOINTS } from '../config';
 
 /**
  * คอมโพเนนต์ Navbar สำหรับแสดงโลโก้, เมนูเปลี่ยนหน้า (Search / User Profile), สถานะ API, และลิงก์ไปยัง Swagger Docs
  */
-export function Navbar({ backendReady, totalPlayers, activeTab = 'search', setActiveTab }) {
+export function Navbar({ backendReady, totalPlayers }) {
   return (
     <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -35,33 +35,6 @@ export function Navbar({ backendReady, totalPlayers, activeTab = 'search', setAc
           </div>
         </div>
 
-        {/* --- ปุ่มเปลี่ยนแท็บ (Navigation Tabs) --- */}
-        {setActiveTab && (
-          <div className="flex items-center bg-gray-100 p-1 rounded-xl border border-gray-200 text-xs font-semibold">
-            <button
-              onClick={() => setActiveTab('search')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
-                activeTab === 'search' 
-                  ? 'bg-white text-blue-600 shadow-xs' 
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              <Search className="w-3.5 h-3.5" />
-              <span>ค้นหานักเตะ</span>
-            </button>
-            <button
-              onClick={() => setActiveTab('profile')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition ${
-                activeTab === 'profile' 
-                  ? 'bg-white text-blue-600 shadow-xs' 
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              <UserCheck className="w-3.5 h-3.5" />
-              <span>จัดการโปรไฟล์</span>
-            </button>
-          </div>
-        )}
 
         {/* --- ส่วนขวา: ข้อมูลฐานข้อมูล, สถานะเซิร์ฟเวอร์, และลิงก์ Swagger API --- */}
         <div className="flex items-center space-x-3 sm:space-x-4">

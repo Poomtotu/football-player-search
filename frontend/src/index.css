@@ -104,3 +104,18 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* Responsive layout safeguards */
+html { scroll-behavior: smooth; }
+body { min-width: 320px; overflow-x: hidden; }
+#root { width: 100%; min-height: 100vh; }
+.responsive-title { font-size: clamp(1.5rem, 4vw, 3rem); line-height: 1.1; }
+.responsive-container { width: min(100% - 2rem, 80rem); margin-inline: auto; }
+@media (max-width: 640px) {
+  .responsive-container { width: min(100% - 1rem, 80rem); }
+  button, a { touch-action: manipulation; }
+}
+@media (min-width: 1536px) {
+  .responsive-container { width: min(100% - 3rem, 90rem); }
+}

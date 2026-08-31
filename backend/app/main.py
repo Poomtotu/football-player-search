@@ -11,8 +11,6 @@
 
 import logging
 import os
-import json
-import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Annotated
@@ -27,9 +25,6 @@ try:
         Player,
         PlayersListResponse,
         SearchResponse,
-        UserProfileCreate,
-        UserProfileUpdate,
-        UserProfileResponse,
     )
     from app.search_engine import FootballSearchEngine
 except ImportError:
@@ -38,9 +33,6 @@ except ImportError:
         Player,
         PlayersListResponse,
         SearchResponse,
-        UserProfileCreate,
-        UserProfileUpdate,
-        UserProfileResponse,
     )
     from search_engine import FootballSearchEngine
 
@@ -206,11 +198,6 @@ async def get_all_players() -> PlayersListResponse:
     summary="Reload Players Data",
     description="รีโหลดไฟล์ข้อมูลนักเตะและสร้างดัชนี BM25 + RapidFuzz ใหม่ทันทีโดยไม่ต้องรีสตาร์ตเซิร์ฟเวอร์",
 )
-@app.get(
-    "/api/reload",
-    tags=["System"],
-    include_in_schema=False,
-)
 async def reload_data():
     if os.path.exists(DATA_PATH) and os.path.getsize(DATA_PATH) > 2:
         data_path = DATA_PATH
@@ -300,146 +287,6 @@ async def get_player_by_id(player_id: int) -> Player:
 
 
 # ---------------------------------------------------------------------------
-# 7. User Profile Management API (CRUD)
-# ---------------------------------------------------------------------------
-
-# Persistent JSON storage for user profiles.
-PROFILES_PATH = os.path.join(BASE_DIR, "..", "data", "profiles.json")
-
-_DEFAULT_PROFILES: dict[str, dict] = {
-    "1": {
-        "id": "1",
-        "personal": {
-            "fullName": "Alexander Wright", "dob": "1998-05-14", "height": 185.0,
-            "weight": 78.0, "nationality": "England",
-        },
-        "contact": {
-            "phone": "+44 7700 900077", "email": "alex.wright@example.com",
-            "socialLinks": ["https://instagram.com/alexwright", "https://twitter.com/alexwright_9"],
-            "highlightVideoUrl": "https://youtube.com/watch?v=sample-highlight",
-        },
-        "playerInfo": {
-            "mainPosition": "Striker (ST)",
-            "secondaryPositions": ["Left Winger (LW)", "Attacking Midfielder (CAM)"],
-        },
-        "careerHistory": [
-            {"clubName": "Leeds United Academy", "years": "2016 - 2019", "level": "Youth / U23"},
-            {"clubName": "Sheffield Wednesday", "years": "2019 - 2023", "level": "Championship"},
-        ],
-        "honours": [
-            {"title": "Top Scorer Championship U23", "year": 2019},
-            {"title": "EFL Trophy Runner-Up", "year": 2021},
-        ],
-        "skills": ["Finishing", "Pace & Acceleration", "Off-the-ball Movement", "Heading", "Composure"],
-    }
-}
-
-
-def _load_profiles() -> dict[str, dict]:
-    try:
-        if os.path.exists(PROFILES_PATH):
-            with open(PROFILES_PATH, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            if isinstance(data, dict):
-                return data
-    except (OSError, json.JSONDecodeError) as exc:
-        logger.warning("โหลด profiles.json ไม่สำเร็จ ใช้ข้อมูลเริ่มต้น: %s", exc)
-    return json.loads(json.dumps(_DEFAULT_PROFILES, ensure_ascii=False))
-
-
-def _save_profiles() -> None:
-    os.makedirs(os.path.dirname(PROFILES_PATH), exist_ok=True)
-    temp_path = PROFILES_PATH + ".tmp"
-    with open(temp_path, "w", encoding="utf-8") as f:
-        json.dump(db_profiles, f, ensure_ascii=False, indent=2)
-    os.replace(temp_path, PROFILES_PATH)
-
-
-db_profiles: dict[str, dict] = _load_profiles()
-
-
-@app.get(
-    "/api/profiles",
-    response_model=list[UserProfileResponse],
-    tags=["User Profiles"],
-    summary="List all User Profiles",
-    description="ดึงรายการโปรไฟล์ผู้ใช้งาน / นักเตะทั้งหมด",
-)
-async def list_profiles():
-    return list(db_profiles.values())
-
-
-@app.post(
-    "/api/profiles",
-    response_model=UserProfileResponse,
-    status_code=201,
-    tags=["User Profiles"],
-    summary="Create User Profile",
-    description="สร้างข้อมูลโปรไฟล์ใหม่",
-)
-async def create_profile(payload: UserProfileCreate):
-    profile_id = uuid.uuid4().hex
-    profile_dict = payload.model_dump(mode="json")
-    profile_dict["id"] = profile_id
-    db_profiles[profile_id] = profile_dict
-    _save_profiles()
-    return profile_dict
-
-
-@app.get(
-    "/api/profiles/{profile_id}",
-    response_model=UserProfileResponse,
-    tags=["User Profiles"],
-    summary="Get User Profile by ID",
-    description="ดึงข้อมูลโปรไฟล์ตาม ID",
-)
-async def get_profile(profile_id: str):
-    if profile_id not in db_profiles:
-        raise HTTPException(status_code=404, detail=f"ไม่พบข้อมูลโปรไฟล์ ID={profile_id}")
-    return db_profiles[profile_id]
-
-
-@app.put(
-    "/api/profiles/{profile_id}",
-    response_model=UserProfileResponse,
-    tags=["User Profiles"],
-    summary="Update User Profile",
-    description="แก้ไขข้อมูลโปรไฟล์ตาม ID",
-)
-async def update_profile(profile_id: str, payload: UserProfileUpdate):
-    if profile_id not in db_profiles:
-        raise HTTPException(status_code=404, detail=f"ไม่พบข้อมูลโปรไฟล์ ID={profile_id}")
-
-    current_data = db_profiles[profile_id]
-    update_data = payload.model_dump(exclude_unset=True, mode="json")
-    
-    # อัปเดตฟิลด์ย่อย
-    for key, value in update_data.items():
-        if value is not None:
-            current_data[key] = value
-
-    db_profiles[profile_id] = current_data
-    _save_profiles()
-    return current_data
-
-
-@app.delete(
-    "/api/profiles/{profile_id}",
-    status_code=204,
-    tags=["User Profiles"],
-    summary="Delete User Profile",
-    description="ลบข้อมูลโปรไฟล์ตาม ID",
-)
-async def delete_profile(profile_id: str):
-    if profile_id not in db_profiles:
-        raise HTTPException(status_code=404, detail=f"ไม่พบข้อมูลโปรไฟล์ ID={profile_id}")
-    del db_profiles[profile_id]
-    _save_profiles()
-    return None
-
-
-
-# ---------------------------------------------------------------------------
 # 8. การเสิร์ฟ Frontend SPA (Static Single-Page Application Serving)
 # ---------------------------------------------------------------------------
 # ทำหน้าที่: เสิร์ฟไฟล์ HTML/CSS/JS ของ React ที่ build แล้ว (dist/) จาก Backend โดยตรง
@@ -457,8 +304,13 @@ if os.path.exists(dist_dir):
     @app.get("/{full_path:path}", include_in_schema=False)
     async def serve_spa(full_path: str):
         # ข้ามถ้าเป็น path ของ api, health, หรือ docs เพื่อไม่ให้ทับ API routes
-        if full_path.startswith("api/") or full_path in ["health", "docs", "openapi.json", "redoc"]:
-            raise HTTPException(status_code=404)
+        # Never let the SPA fallback swallow unknown API/documentation routes.
+        if (
+            full_path.startswith("api/")
+            or full_path in {"health", "docs", "openapi.json", "redoc"}
+            or full_path.startswith("docs/")
+        ):
+            raise HTTPException(status_code=404, detail="Not Found")
         # ถ้ามีไฟล์จริง (เช่น favicon.ico) ให้ส่งไฟล์นั้นตรงๆ
         file_path = os.path.join(dist_dir, full_path)
         if os.path.isfile(file_path):

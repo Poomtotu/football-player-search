@@ -311,7 +311,9 @@ class FootballSearchEngine:
         if not q_norm:
             return []
 
-        is_short = len(q_clean) <= SHORT_QUERY_LIMIT
+        # Base short-query protection on normalized Unicode text.
+        normalized_query_length = len(q_norm)
+        is_short = normalized_query_length <= SHORT_QUERY_LIMIT
 
         # คำนวณ BM25
         bm25_raw = self._bm25_scores(q_clean)

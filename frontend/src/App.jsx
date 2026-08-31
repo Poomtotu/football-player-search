@@ -11,14 +11,14 @@ import { PlayerModal } from './components/PlayerModal';
 import { SkeletonCard } from './components/SkeletonCard';
 import { EmptyState } from './components/EmptyState';
 import { ErrorNotification } from './components/ErrorNotification';
-import { UserProfileManager } from './components/UserProfileManager';
+
 import { useDebounce } from './hooks/useDebounce';
 import { API_ENDPOINTS } from './config';
 import { ServerOff, RefreshCw } from 'lucide-react';
 
 export default function App() {
   // --- States หลักของแอปพลิเคชัน ---
-  const [activeTab, setActiveTab] = useState('search');                     // แท็บปัจจุบัน ('search' หรือ 'profile')
+
   const [query, setQuery] = useState('');                                   // ข้อความที่พิมพ์ในช่องค้นหา
   const debouncedQuery = useDebounce(query, 300);                           // ข้อความที่ผ่านการหน่วงเวลา 300ms
   const [selectedLeague, setSelectedLeague] = useState('ทั้งหมด');           // ลีกที่เลือกในแท็บฟิลเตอร์
@@ -172,18 +172,7 @@ export default function App() {
         <Navbar 
           backendReady={backendReady} 
           totalPlayers={allPlayers.length} 
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-
-        {activeTab === 'profile' ? (
-          /* ส่วนจัดการโปรไฟล์นักเตะ (User Profile Manager) */
-          <div className="animate-fade-in">
-            <UserProfileManager />
-          </div>
-        ) : (
-          /* ส่วนค้นหานักเตะและผลลัพธ์ IR */
-          <>
+        />\n\n        {/* ส่วนค้นหานักเตะและผลลัพธ์ IR */}
             {/* ส่วน Hero และช่องค้นหาหลัก */}
             <HeroSearch
               query={query}
@@ -256,8 +245,7 @@ export default function App() {
                 />
               )}
             </main>
-          </>
-        )}
+
       </div>
 
       {/* Toast แจ้งเตือนข้อผิดพลาดลอยมุมขวาล่าง */}
