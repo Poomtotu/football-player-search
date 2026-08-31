@@ -177,23 +177,14 @@ export function PlayerModal({ player, onClose }) {
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-blue-600 font-black">i</div>
               <div>
-                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">ประวัตินักเตะ</h4>
-                <p className="text-[11px] text-slate-400 mt-0.5">สรุปข้อมูลสำคัญของนักเตะแบบกระชับ</p>
+                <h4 className="text-sm font-extrabold text-slate-900">ประวัตินักเตะ</h4>
+                <p className="text-[11px] text-slate-400 mt-0.5">ภูมิหลังของนักเตะแบบกระชับ โดยไม่ซ้ำกับข้อมูลด้านล่าง</p>
               </div>
             </div>
-            <div className="space-y-3">
-              {(profileSummary || strengths.length > 0) && (
-                <div className="pt-3 border-t border-blue-100">
-                  {profileSummary && <p className="text-sm leading-6 text-slate-700">{profileSummary}</p>}
-                  {strengths.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {strengths.map((item, i) => (
-                        <span key={`${item}-${i}`} className="px-2.5 py-1 rounded-lg bg-white border border-blue-100 text-xs font-semibold text-slate-700">{item}</span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
+            <div className="pt-3 border-t border-blue-100">
+              <p className="text-sm leading-7 text-slate-700">
+                {bio.split('เส้นทางสโมสร:')[0].trim() || `${displayPlayer.name_en} เป็นนักฟุตบอลอาชีพที่มีข้อมูลประวัติในระบบ IR`}
+              </p>
             </div>
           </section>
 
