@@ -27,8 +27,8 @@ export function HeroSearch({
 }) {
   // รายการคำค้นหาด่วนสำหรับทดสอบ (Quick Suggestion Tags)
   const quickTags = [
-    { label: 'วินิซิอุส จูเนียร์', icon: '⚡', desc: 'Vinicius Jr.' },
-    { label: 'โคล พาล์มเมอร์', icon: '✨', desc: 'Cole Palmer' },
+    { label: 'เมสซี่', icon: '🔥', desc: 'Lionel Messi' },
+    { label: 'โรนัลโด้', icon: '⚡', desc: 'Cristiano Ronaldo' },
     { label: 'จอมมารบลู', icon: '🤖', desc: 'ฉายาไทย' },
     { label: 'บังโม', icon: '👑', desc: 'ฉายาไทย' },
     { label: 'ยามาล', icon: '🇪🇸', desc: 'ดาวรุ่ง' },
