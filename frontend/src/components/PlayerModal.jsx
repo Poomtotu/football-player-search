@@ -181,7 +181,7 @@ export function PlayerModal({ player, onClose }) {
                 <p className="text-[11px] text-slate-400 mt-0.5">สรุปข้อมูลสำคัญของนักเตะแบบกระชับ</p>
               </div>
             </div>
-            <div className="space-y-3">`r`n              {(profileSummary || strengths.length > 0) && (
+            <div className="space-y-3">\n              {(profileSummary || strengths.length > 0) && (
                 <div className="pt-3 border-t border-blue-100">
                   {profileSummary && <p className="text-sm leading-6 text-slate-700">{profileSummary}</p>}
                   {strengths.length > 0 && (
