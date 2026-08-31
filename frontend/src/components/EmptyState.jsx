@@ -14,7 +14,7 @@ import { SearchX, Sparkles, RefreshCw } from 'lucide-react';
  */
 export function EmptyState({ query, onReset, onSelectChip }) {
   // รายการคำค้นหาทางเลือกที่แนะนำ
-  const suggestions = ['เมสซี่', 'CR7', 'ฮาลันด์', 'ซาลาห์', 'เอ็มบัปเป', 'Real Madrid'];
+  const suggestions = ['เมสซี่', 'CR7', 'ฮาลันด์', 'ซาลาห์', 'เอ็มบัปเป', 'เบลลิงแฮม'];
 
   return (
     <div className="max-w-md mx-auto my-12 text-center p-8 rounded-3xl bg-white border border-gray-200 shadow-sm animate-fade-in">

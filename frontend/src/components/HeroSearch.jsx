@@ -85,7 +85,7 @@ export function HeroSearch({
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="ค้นหาชื่อนักเตะ, ฉายา เช่น เมสซี่, CR7, จอมมารบลู, messy (พิมพ์ผิด)..."
+            placeholder="ค้นหาชื่อนักเตะ, ฉายา เช่น เมสซี่, CR7, จอมมารบลู, เอ็มบัปเป้, ฮาแลนด์..."
             className="w-full bg-transparent text-gray-900 text-base sm:text-lg placeholder-gray-400 focus:outline-none px-2 py-1.5 font-medium"
             autoFocus
           />
