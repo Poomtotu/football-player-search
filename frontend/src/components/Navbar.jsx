@@ -3,7 +3,7 @@
 // ===========================================================================
 
 import React from 'react';
-import { BookOpen, Database, Sparkles, Trophy, Search } from 'lucide-react';
+import { Database, Sparkles, Trophy } from 'lucide-react';
 import { API_ENDPOINTS } from '../config';
 
 /**
@@ -59,16 +59,6 @@ export function Navbar({ backendReady, totalPlayers }) {
             </span>
           </div>
 
-          {/* 3. ปุ่มเปิดหน้า Swagger API Documentation */}
-          <a
-            href={API_ENDPOINTS.docs}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-xs font-semibold text-white transition-all shadow-sm hover:shadow"
-          >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Swagger</span> API Docs
-          </a>
         </div>
       </div>
     </header>
