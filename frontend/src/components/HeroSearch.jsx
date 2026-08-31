@@ -32,10 +32,10 @@ export function HeroSearch({
     { label: 'จอมมารบลู', icon: '🤖', desc: 'ฉายาไทย' },
     { label: 'บังโม', icon: '👑', desc: 'ฉายาไทย' },
     { label: 'ยามาล', icon: '🇪🇸', desc: 'ดาวรุ่ง' },
-    { label: 'LM10', icon: '🐐', desc: 'ฉายา' },
-    { label: 'Real Madrid', icon: '⚽', desc: 'สโมสร' },
-    { label: 'messy', icon: '⌨️', desc: 'ทดสอบพิมพ์ผิด' },
-    { label: 'roanaldo', icon: '⌨️', desc: 'ทดสอบพิมพ์ผิด' },
+    { label: 'เอ็มบัปเป้', icon: '👑', desc: 'Kylian Mbappe' },
+    { label: 'ฮาแลนด์', icon: '🎯', desc: 'Erling Haaland' },
+    { label: 'เดอ บรอยน์', icon: '🎯', desc: 'Kevin De Bruyne' },
+    { label: 'เบลลิงแฮม', icon: '⭐', desc: 'Jude Bellingham' },
   ];
 
   // รายการลีกทั้งหมดสำหรับใช้เป็นแท็บฟิลเตอร์
