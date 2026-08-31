@@ -11,6 +11,8 @@
 
 import logging
 import os
+import json
+import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Annotated
@@ -122,7 +124,10 @@ app = FastAPI(
 # ทำไปทำไม: ป้องกันปัญหาเบราว์เซอร์บล็อกการรับส่งข้อมูลข้าม Domain/Port (CORS Block Error)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],        # อนุญาตทุก Origin ให้เข้าถึงได้
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
     allow_credentials=True,
     allow_methods=["*"],        # อนุญาตทุก HTTP Method (GET, POST ฯลฯ)
     allow_headers=["*"],        # อนุญาตทุก HTTP Header
@@ -298,24 +303,19 @@ async def get_player_by_id(player_id: int) -> Player:
 # 7. User Profile Management API (CRUD)
 # ---------------------------------------------------------------------------
 
-# In-memory storage for user profiles
-db_profiles: dict[str, dict] = {
+# Persistent JSON storage for user profiles.
+PROFILES_PATH = os.path.join(BASE_DIR, "..", "data", "profiles.json")
+
+_DEFAULT_PROFILES: dict[str, dict] = {
     "1": {
         "id": "1",
         "personal": {
-            "fullName": "Alexander Wright",
-            "dob": "1998-05-14",
-            "height": 185.0,
-            "weight": 78.0,
-            "nationality": "England",
+            "fullName": "Alexander Wright", "dob": "1998-05-14", "height": 185.0,
+            "weight": 78.0, "nationality": "England",
         },
         "contact": {
-            "phone": "+44 7700 900077",
-            "email": "alex.wright@example.com",
-            "socialLinks": [
-                "https://instagram.com/alexwright",
-                "https://twitter.com/alexwright_9",
-            ],
+            "phone": "+44 7700 900077", "email": "alex.wright@example.com",
+            "socialLinks": ["https://instagram.com/alexwright", "https://twitter.com/alexwright_9"],
             "highlightVideoUrl": "https://youtube.com/watch?v=sample-highlight",
         },
         "playerInfo": {
@@ -333,6 +333,29 @@ db_profiles: dict[str, dict] = {
         "skills": ["Finishing", "Pace & Acceleration", "Off-the-ball Movement", "Heading", "Composure"],
     }
 }
+
+
+def _load_profiles() -> dict[str, dict]:
+    try:
+        if os.path.exists(PROFILES_PATH):
+            with open(PROFILES_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                return data
+    except (OSError, json.JSONDecodeError) as exc:
+        logger.warning("โหลด profiles.json ไม่สำเร็จ ใช้ข้อมูลเริ่มต้น: %s", exc)
+    return json.loads(json.dumps(_DEFAULT_PROFILES, ensure_ascii=False))
+
+
+def _save_profiles() -> None:
+    os.makedirs(os.path.dirname(PROFILES_PATH), exist_ok=True)
+    temp_path = PROFILES_PATH + ".tmp"
+    with open(temp_path, "w", encoding="utf-8") as f:
+        json.dump(db_profiles, f, ensure_ascii=False, indent=2)
+    os.replace(temp_path, PROFILES_PATH)
+
+
+db_profiles: dict[str, dict] = _load_profiles()
 
 
 @app.get(
@@ -355,10 +378,11 @@ async def list_profiles():
     description="สร้างข้อมูลโปรไฟล์ใหม่",
 )
 async def create_profile(payload: UserProfileCreate):
-    profile_id = str(len(db_profiles) + 1)
+    profile_id = uuid.uuid4().hex
     profile_dict = payload.model_dump(mode="json")
     profile_dict["id"] = profile_id
     db_profiles[profile_id] = profile_dict
+    _save_profiles()
     return profile_dict
 
 
@@ -395,6 +419,7 @@ async def update_profile(profile_id: str, payload: UserProfileUpdate):
             current_data[key] = value
 
     db_profiles[profile_id] = current_data
+    _save_profiles()
     return current_data
 
 
@@ -409,6 +434,7 @@ async def delete_profile(profile_id: str):
     if profile_id not in db_profiles:
         raise HTTPException(status_code=404, detail=f"ไม่พบข้อมูลโปรไฟล์ ID={profile_id}")
     del db_profiles[profile_id]
+    _save_profiles()
     return None
 
 

@@ -325,15 +325,19 @@ class FootballSearchEngine:
             # -----------------------------------------------------------
             # 1. Exact & Substring Match First:
             # -----------------------------------------------------------
-            # เช็คว่า query ตรงกับหรืออยู่ใน name_th, name_en หรือ aliases
+            # ชื่อ/alias แบบตรงตัวต้องมาก่อน substring และ field อื่น
             if (
                 q_norm == entry.name_th_norm
                 or q_norm == entry.name_en_norm
-                or (len(q_norm) >= 2 and (q_norm in entry.name_th_norm or q_norm in entry.name_en_norm))
-                or any(q_norm == a or (len(q_norm) >= 2 and q_norm in a) for a in entry.aliases_norm)
+                or any(q_norm == a for a in entry.aliases_norm)
             ):
                 score = 1.0
-            # เช็คว่า query ตรงกับทีม, ลีก หรือประเทศ
+            elif (
+                (len(q_norm) >= 2 and (q_norm in entry.name_th_norm or q_norm in entry.name_en_norm))
+                or any(len(q_norm) >= 2 and q_norm in a for a in entry.aliases_norm)
+            ):
+                # Substring match สูง แต่ไม่เท่ากับ exact match
+                score = 0.95
             elif (
                 q_norm == entry.team_norm
                 or (len(q_norm) >= 3 and q_norm in entry.team_norm)
@@ -342,7 +346,7 @@ class FootballSearchEngine:
                 or q_norm == entry.nation_norm
                 or (len(q_norm) >= 3 and q_norm in entry.nation_norm)
             ):
-                score = 1.0
+                score = 0.85
             elif is_short:
                 # -------------------------------------------------------
                 # 3. Short Query Protection (len <= 3):

@@ -79,7 +79,10 @@ export default function App() {
     }
   }, [selectedLeague]);
 
-  // รันเช็ก Health และโหลดข้อมูลครั้งแรกเมื่อเปิดหน้าเว็บเท่านั้น\n  useEffect(() => {\n    checkHealthAndLoad();\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, []);
+  // รันเช็ก Health และโหลดข้อมูลครั้งแรกเมื่อเปิดหน้าเว็บเท่านั้น
+  useEffect(() => {
+    checkHealthAndLoad();
+  }, [checkHealthAndLoad]);
 
   // --- 2. ฟังก์ชันยิง API ค้นหานักเตะเมื่อคำค้นหา (debouncedQuery) เปลี่ยนแปลง ---
   useEffect(() => {

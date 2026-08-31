@@ -7,5 +7,5 @@ export const API_ENDPOINTS = {
   playerById: (id) => `/api/players/${id}`,
   profiles: '/api/profiles',
   profileById: (id) => `/api/profiles/${id}`,
-  docs: '/api/docs',
+  docs: '/docs',
 };
