@@ -1,4 +1,4 @@
-﻿// ===========================================================================
+// ===========================================================================
 // PlayerCard.jsx — คอมโพเนนต์การ์ดแสดงข้อมูลนักเตะ (Player Card Component)
 // ===========================================================================
 
@@ -21,9 +21,14 @@ import {
  * @param {object} player - ข้อมูลนักเตะ 1 คน
  * @param {function} onOpenModal - ฟังก์ชันเมื่อคลิกเปิดป๊อปอัป Modal ดูรายละเอียดเต็ม
  */
-export function PlayerCard({ player, onOpenModal }) {
+export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }) {
   // State จัดการกรณีรูปภาพโหลดไม่ผ่าน (Image Load Error Fallback)
   const [imgError, setImgError] = useState(false);
+
+  // รีเซ็ต imgError เมื่อรูปภาพนักเตะเปลี่ยน
+  React.useEffect(() => {
+    setImgError(false);
+  }, [player?.photo_url]);
 
   // ดึงสถิติและข้อมูลย่อยพร้อมตั้งค่า default ป้องกัน crash
   const stats = player.stats || { total_goals: 0, total_assists: 0, trophies_count: 0 };
@@ -231,4 +236,4 @@ export function PlayerCard({ player, onOpenModal }) {
       </div>
     </div>
   );
-}
+});

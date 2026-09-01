@@ -19,7 +19,7 @@ import { ServerOff, RefreshCw } from 'lucide-react';
 export default function App() {
   // --- States หลักของแอปพลิเคชัน ---
 
-  const [query, setQuery] = useState('');                                   // ข้อความที่พิมพ์ในช่องค้นหา
+  const [query, setQuery] = useState(() => new URLSearchParams(window.location.search).get('q') || ''); // ข้อความที่พิมพ์ในช่องค้นหา (อ่านจาก ?q= ถ้ามี)
   const debouncedQuery = useDebounce(query, 300);                           // ข้อความที่ผ่านการหน่วงเวลา 300ms
   const [selectedLeague, setSelectedLeague] = useState('ทั้งหมด');           // ลีกที่เลือกในแท็บฟิลเตอร์
   const [allPlayers, setAllPlayers] = useState([]);                         // รายชื่อนักเตะทั้งหมด
@@ -62,12 +62,6 @@ export default function App() {
       const playersList = playersData.players || playersData || [];
       setAllPlayers(playersList);
 
-      // แสดงรายการเริ่มต้นตามลีกที่เลือก
-      const initialList = selectedLeague === 'ทั้งหมด'
-        ? playersList
-        : playersList.filter((p) => p.current_league === selectedLeague);
-      setFilteredPlayers(initialList);
-
       setSearchTime(Math.round(performance.now() - startTime));
     } catch (err) {
       console.error('API Error:', err);
@@ -77,7 +71,7 @@ export default function App() {
       setLoading(false);
       setIsRetrying(false);
     }
-  }, [selectedLeague]);
+  }, []);
 
   // รันเช็ก Health และโหลดข้อมูลครั้งแรกเมื่อเปิดหน้าเว็บเท่านั้น
   useEffect(() => {

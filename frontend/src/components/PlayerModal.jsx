@@ -3,6 +3,7 @@
 // ===========================================================================
 
 import React, { useEffect } from 'react';
+import { API_ENDPOINTS } from '../config';
 import { 
   X, 
   Trophy, 
@@ -44,7 +45,7 @@ export function PlayerModal({ player, onClose }) {
       }
 
       try {
-        const res = await fetch(`/api/players/${player.id}`);
+        const res = await fetch(API_ENDPOINTS.playerById(player.id));
         if (!res.ok) throw new Error(`Player detail request failed (${res.status})`);
         const data = await res.json();
         if (!cancelled) setDetailPlayer(data);

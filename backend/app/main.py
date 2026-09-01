@@ -114,12 +114,16 @@ app = FastAPI(
 # ---------------------------------------------------------------------------
 # ทำหน้าที่: อนุญาตให้ Frontend (เช่น React พอร์ต 3000 หรือจากโดเมนอื่น) สามารถยิง API มายัง Backend
 # ทำไปทำไม: ป้องกันปัญหาเบราว์เซอร์บล็อกการรับส่งข้อมูลข้าม Domain/Port (CORS Block Error)
+_default_origins = "http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,http://127.0.0.1:5173"
+_cors_origins = [
+    o.strip()
+    for o in os.getenv("CORS_ORIGINS", _default_origins).split(",")
+    if o.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],        # อนุญาตทุก HTTP Method (GET, POST ฯลฯ)
     allow_headers=["*"],        # อนุญาตทุก HTTP Header
@@ -192,13 +196,20 @@ async def get_all_players() -> PlayersListResponse:
 
 
 # --- Endpoint 7.2.1: /api/reload (รีโหลดข้อมูล JSON และเตรียม Index ใหม่ทันที) ---
+RELOAD_API_KEY = os.getenv("RELOAD_API_KEY", "")
+
 @app.post(
     "/api/reload",
     tags=["System"],
     summary="Reload Players Data",
     description="รีโหลดไฟล์ข้อมูลนักเตะและสร้างดัชนี BM25 + RapidFuzz ใหม่ทันทีโดยไม่ต้องรีสตาร์ตเซิร์ฟเวอร์",
 )
-async def reload_data():
+async def reload_data(request: Request):
+    if RELOAD_API_KEY:
+        provided_key = request.headers.get("X-API-Key", "")
+        if provided_key != RELOAD_API_KEY:
+            raise HTTPException(status_code=403, detail="Forbidden: Invalid or missing API Key")
+
     if os.path.exists(DATA_PATH) and os.path.getsize(DATA_PATH) > 2:
         data_path = DATA_PATH
     elif os.path.exists(MOCK_DATA_PATH):
@@ -311,10 +322,21 @@ if os.path.exists(dist_dir):
             or full_path.startswith("docs/")
         ):
             raise HTTPException(status_code=404, detail="Not Found")
+        # ตรวจสอบความปลอดภัยป้องกัน Path Traversal
+        resolved_dist = Path(dist_dir).resolve()
+        try:
+            safe_path = resolved_dist.joinpath(full_path).resolve()
+            if not safe_path.is_relative_to(resolved_dist):
+                raise HTTPException(status_code=403, detail="Forbidden")
+        except (ValueError, RuntimeError):
+            raise HTTPException(status_code=403, detail="Forbidden")
+
         # ถ้ามีไฟล์จริง (เช่น favicon.ico) ให้ส่งไฟล์นั้นตรงๆ
-        file_path = os.path.join(dist_dir, full_path)
-        if os.path.isfile(file_path):
-            return FileResponse(file_path)
+        if safe_path.is_file():
+            return FileResponse(str(safe_path))
         # ถ้าไม่มีไฟล์ ให้ส่ง index.html (SPA routing จัดการเอง)
-        return FileResponse(os.path.join(dist_dir, "index.html"))
+        index_file = resolved_dist / "index.html"
+        if index_file.is_file():
+            return FileResponse(str(index_file))
+        raise HTTPException(status_code=404, detail="Frontend build index.html not found")
 

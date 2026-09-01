@@ -40,7 +40,7 @@ class Player(BaseModel):
     aliases: list[str] = Field(default_factory=list, description="ฉายา / ชื่อเล่น เช่น เมสซี่, LM10")
     bio: str = Field(default="", description="ประวัติย่อนักเตะ")
     social_links: dict[str, str] = Field(default_factory=dict, description="ช่องทางติดตามทาง Social Media")
-    age: int = Field(..., ge=0, le=60, description="อายุ")
+    age: int = Field(..., ge=0, le=100, description="อายุ")
     photo_url: str = Field(..., description="URL รูปภาพนักเตะ")
     club_logo_url: str = Field(default="https://placehold.co/80x80?text=Club", description="URL โลโก้สโมสร")
     flag_url: str = Field(default="https://flagcdn.com/w80/un.png", description="URL รูปธงชาติ")

@@ -1,0 +1,100 @@
+1|Lionel Messi|Inter Miami CF|38
+2|Cristiano Ronaldo|Al Nassr|40
+3|Kylian Mbappé|Real Madrid|27
+4|Erling Haaland|Manchester City|25
+5|Neymar|Al Hilal|33
+6|Mohamed Salah|Liverpool|33
+7|Kevin De Bruyne|Manchester City|34
+8|Jude Bellingham|Real Madrid|22
+9|Vinícius Júnior|Real Madrid|25
+10|Son Heung-min|Tottenham Hotspur|33
+11|Harry Kane|Bayern Munich|32
+12|Robert Lewandowski|FC Barcelona|37
+13|Lamine Yamal|FC Barcelona|18
+14|Pedri|FC Barcelona|22
+15|Phil Foden|Manchester City|25
+16|Bukayo Saka|Arsenal|24
+17|Rodri|Manchester City|28
+18|Rúben Dias|Manchester City|28
+19|Bernardo Silva|Real Madrid|31
+20|Karim Benzema|Al-Hilal|38
+21|Antoine Griezmann|Orlando City|34
+22|Ousmane Dembélé|Paris SG|28
+23|Olivier Giroud|Lille|39
+24|Romelu Lukaku|Fenerbahçe|32
+25|Lautaro Martínez|Inter Milan|28
+26|Paulo Dybala|Roma|32
+27|Julián Álvarez|Atlético Madrid|25
+28|Alexis Mac Allister|Liverpool|27
+29|Enzo Fernández|Chelsea|24
+30|Richarlison|Tottenham Hotspur|28
+31|Gabriel Martinelli|Arsenal|24
+32|Leandro Trossard|Beşiktaş|31
+33|Kai Havertz|Arsenal|26
+34|Thomas Müller|Vancouver Whitecaps|36
+35|Serge Gnabry|Bayern Munich|30
+36|Leroy Sané|Galatasaray|29
+37|Toni Kroos|_Retired Soccer|35
+38|Federico Valverde|Real Madrid|27
+39|Eduardo Camavinga|Real Madrid|23
+40|Aurélien Tchouaméni|Real Madrid|25
+41|Éder Militão|Real Madrid|27
+42|Ferland Mendy|Real Madrid|30
+43|Daniel Carvajal|_Retired Soccer|33
+44|Gavi|FC Barcelona|20
+45|Ferran Torres|Paris Saint-Germain|25
+46|Ansu Fati|Monaco|23
+47|İlkay Gündoğan|Galatasaray|35
+48|Thiago Silva|Fluminense|41
+49|Marquinhos|Paris SG|31
+50|Danilo|Flamengo|34
+51|Raphinha|Barcelona|29
+52|Cody Gakpo|Liverpool|26
+53|Darwin Núñez|Al-Hilal|26
+54|Diogo Jota|_Deceased Soccer|29
+55|Luis Díaz|Bayern Munich|28
+56|Andrew Robertson|Tottenham Hotspur|31
+57|Martin Ødegaard|Arsenal|27
+58|Gabriel Jesus|Arsenal|28
+59|Gabriel|Arsenal|28
+60|William Saliba|Arsenal|24
+61|Granit Xhaka|Sunderland|33
+62|Nicolo Barella|Inter Milan|28
+63|Federico Chiesa|Liverpool|28
+64|Gianluigi Donnarumma|Manchester City|26
+65|Théo Hernandez|Al-Hilal|28
+66|Mike Maignan|AC Milan|30
+67|Rafael Leão|AC Milan|26
+68|Hakan Çalhanoğlu|Inter Milan|31
+69|Khvicha Kvaratskhelia|Paris SG|24
+70|Victor Osimhen|Galatasaray|27
+71|Min-jae Kim|Bayern Munich|29
+72|Christian Pulisic|AC Milan|27
+73|Tijjani Reijnders|Al-Qadsiah|27
+74|Pedro Neto|Chelsea|25
+75|Cole Palmer|Chelsea|23
+76|Moisés Caicedo|Chelsea|24
+77|Reece James|Rotherham United|32
+78|Marc Cucurella|Real Madrid|27
+79|Alexis Sánchez|Sevilla|37
+80|Edinson Cavani|Boca Juniors|38
+81|Luis Suárez|Inter Miami|38
+82|Sadio Mané|Al-Nassr|33
+83|Riyad Mahrez|Al-Ahli|34
+84|N'Golo Kanté|Fenerbahçe|34
+85|Paul Pogba|Monaco|32
+86|Ángel Di María|Rosario Central|37
+87|David de Gea|Fiorentina|35
+88|Thibaut Courtois|Real Madrid|33
+89|Jan Oblak|Atletico Madrid|32
+90|Emiliano Martinez|Aston Villa|33
+91|Marc-André ter Stegen|Ajax|33
+92|Alphonso Davies|Bayern Munich|25
+93|Achraf Hakimi|Paris SG|27
+94|Lucas Hernandez|Paris SG|29
+95|Alejandro Garnacho|Aston Villa|21
+96|Kobbie Mainoo|Manchester United|20
+97|Rasmus Højlund|Napoli|22
+98|Amad Diallo|Manchester United|23
+99|Arda Güler|Real Madrid|20
+100|Endrick|Real Madrid|19

@@ -126,25 +126,32 @@ def _build_entry(player: dict[str, Any]) -> _IndexEntry:
         team, league, nation,
     ])
 
+    name_en_norm = _normalize(name_en)
+    name_th_norm = _normalize(name_th)
+    aliases_norm = [_normalize(a) for a in aliases if a]
+    team_norm = _normalize(team)
+    league_norm = _normalize(league)
+    nation_norm = _normalize(nation)
+
     fuzzy_targets: dict[str, list[str]] = {
-        "name_en":        [name_en] if name_en else [],
-        "name_th":        [name_th] if name_th else [],
-        "aliases":        [a for a in aliases if a],
-        "current_team":   [team] if team and team != "N/A" else [],
-        "current_league": [league] if league and league != "N/A" else [],
-        "nation":         [nation] if nation and nation != "N/A" else [],
+        "name_en":        [name_en_norm] if name_en_norm else [],
+        "name_th":        [name_th_norm] if name_th_norm else [],
+        "aliases":        [a for a in aliases_norm if a],
+        "current_team":   [team_norm] if team_norm and team_norm != "n/a" else [],
+        "current_league": [league_norm] if league_norm and league_norm != "n/a" else [],
+        "nation":         [nation_norm] if nation_norm and nation_norm != "n/a" else [],
     }
 
     return _IndexEntry(
         raw=player,
         tokens=_tokenize(bm25_doc),
         fuzzy_targets=fuzzy_targets,
-        name_en_norm=_normalize(name_en),
-        name_th_norm=_normalize(name_th),
-        aliases_norm=[_normalize(a) for a in aliases if a],
-        team_norm=_normalize(team),
-        league_norm=_normalize(league),
-        nation_norm=_normalize(nation),
+        name_en_norm=name_en_norm,
+        name_th_norm=name_th_norm,
+        aliases_norm=aliases_norm,
+        team_norm=team_norm,
+        league_norm=league_norm,
+        nation_norm=nation_norm,
     )
 
 
@@ -241,7 +248,10 @@ class FootballSearchEngine:
         corpus = [e.tokens for e in self._entries]
 
         # BM25Okapi: k1=1.5 (term saturation), b=0.75 (length normalization)
-        self._bm25 = BM25Okapi(corpus, k1=1.5, b=0.75)
+        if corpus and any(corpus):
+            self._bm25 = BM25Okapi(corpus, k1=1.5, b=0.75)
+        else:
+            self._bm25 = None
         self._ready = True
 
     # ------------------------------------------------------------------
@@ -250,24 +260,25 @@ class FootballSearchEngine:
 
     def _bm25_scores(self, query: str) -> list[float]:
         """คำนวณ BM25 raw scores สำหรับ query"""
-        assert self._bm25 is not None
+        if self._bm25 is None or not self._entries:
+            return [0.0] * len(self._entries)
         tokens = _tokenize(query)
         if not tokens:
             return [0.0] * len(self._entries)
         return list(self._bm25.get_scores(tokens))
 
-    def _fuzzy_score_one(self, query: str, entry: _IndexEntry) -> float:
+    def _fuzzy_score_one(self, query_norm: str, entry: _IndexEntry) -> float:
         """
         คำนวณ fuzzy score สำหรับนักเตะ 1 คน
-        ใช้ WRatio (Weighted Ratio) กับแต่ละ field
+        ใช้ WRatio (Weighted Ratio) กับแต่ละ field ที่ normalized ไว้แล้ว
         """
         best = 0.0
         for field_name, targets in entry.fuzzy_targets.items():
             w = _FUZZY_FIELD_WEIGHTS.get(field_name, 0.5)
             for target in targets:
-                if not target or target == "N/A":
+                if not target or target == "n/a":
                     continue
-                score = fuzz.WRatio(query, target, processor=_normalize)
+                score = fuzz.WRatio(query_norm, target, processor=None)
                 weighted = score * w
                 if weighted > best:
                     best = weighted
@@ -359,7 +370,7 @@ class FootballSearchEngine:
                 # -------------------------------------------------------
                 # 2. Adjust Fuzzy Search Threshold (>= 70):
                 # -------------------------------------------------------
-                raw_fuzzy = self._fuzzy_score_one(q_clean, entry)
+                raw_fuzzy = self._fuzzy_score_one(q_norm, entry)
                 if raw_fuzzy >= MIN_FUZZY_SCORE:
                     fuzzy_norm = raw_fuzzy / 100.0
                     b_norm = (bm25_raw[i] / bm25_max) if bm25_max > 0.0 and bm25_raw[i] > 0.0 else 0.0
