@@ -51,7 +51,7 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
     }
 
     return (
-      <div className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${colorClasses} shadow-sm whitespace-nowrap flex-shrink-0`}>
+      <div className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-bold border ${colorClasses} shadow-sm whitespace-nowrap flex-shrink-0`}>
         <Sparkles className="w-3 h-3 flex-shrink-0" />
         <span>Match: {percentage}%</span>
       </div>
@@ -63,16 +63,20 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
       onClick={() => onOpenModal(player)}
       className="group relative bg-white rounded-2xl p-5 cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-blue-300 transition-all duration-200 flex flex-col justify-between overflow-hidden"
     >
-      {/* Relevance Match Score Badge at Top-Right */}
-      {score !== undefined && score !== null && (
-        <div className="absolute top-3.5 right-3.5 z-10">
-          {getScoreBadge()}
-        </div>
-      )}
-
       <div>
-        {/* --- ส่วนบนของการ์ด: รูปถ่าย, ชื่อไทย/อังกฤษ, โลโก้สโมสร --- */}
-        <div className={`flex items-start space-x-3.5 mb-4 ${score !== undefined && score !== null ? 'pr-20 sm:pr-22' : ''}`}>
+        {/* --- แถบแจ้งคะแนนความเกี่ยวข้อง (แสดงเฉพาะเมื่อค้นหา) --- */}
+        {score !== undefined && score !== null && (
+          <div className="flex items-center justify-between gap-2 mb-3.5 pb-2.5 border-b border-gray-100">
+            <span className="text-[11px] font-semibold text-gray-400 flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+              <span>ความเกี่ยวข้อง</span>
+            </span>
+            {getScoreBadge()}
+          </div>
+        )}
+
+        {/* --- ส่วนข้อมูลนักเตะ: รูปถ่าย, ชื่อไทย/อังกฤษ (เต็มบรรทัด ไม่โดนทับ), โลโก้สโมสร --- */}
+        <div className="flex items-start space-x-3.5 mb-4">
           
           {/* รูปถ่ายนักเตะ (Avatar Photo) */}
           <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gray-100 border border-gray-200 overflow-hidden flex-shrink-0 shadow-sm group-hover:border-blue-300 transition-colors">
@@ -101,18 +105,18 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
             )}
           </div>
 
-          {/* ชื่อนักเตะและสโมสรปัจจุบัน */}
+          {/* ชื่อนักเตะและสโมสรปัจจุบัน (แสดงชื่อเต็ม 100% ไม่ถูกตัดหรือทับซ้อน) */}
           <div className="min-w-0 flex-1">
-            <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors truncate">
+            <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-snug mb-0.5">
               {player.name_th && player.name_th !== player.name_en ? player.name_th : player.name_en}
             </h3>
-            <p className="text-xs font-semibold text-gray-500 truncate mb-1.5">
+            <p className="text-xs font-semibold text-gray-500 leading-normal mb-2">
               {player.name_en}
             </p>
             
             {/* Badge สโมสรและลีก */}
             <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
-              <span className="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-lg bg-gray-100 border border-gray-200 text-gray-700 font-medium truncate max-w-[150px]">
+              <span className="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-lg bg-gray-100 border border-gray-200 text-gray-700 font-medium">
                 {player.club_logo_url && player.club_logo_url !== 'N/A' ? (
                   <img
                     src={player.club_logo_url}
@@ -123,7 +127,7 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
                 ) : (
                   <span className="text-xs">⚽</span>
                 )}
-                <span className="truncate">{player.current_team}</span>
+                <span>{player.current_team}</span>
               </span>
               {player.current_league && player.current_league !== 'N/A' && (
                 <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-medium">
