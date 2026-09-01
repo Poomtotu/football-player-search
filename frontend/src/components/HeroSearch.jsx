@@ -1,4 +1,4 @@
-﻿// ===========================================================================
+// ===========================================================================
 // HeroSearch.jsx — ส่วนช่องค้นหาหลัก (Hero Section & Search Input Bar)
 // ===========================================================================
 
@@ -64,7 +64,7 @@ export function HeroSearch({
         ค้นหาประวัติ<span className="text-blue-600">นักฟุตบอล</span>ระดับโลก
       </h1>
       <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mb-8 font-normal">
-        ค้นหาได้ทั้งชื่อภาษาไทย ภาษาอังกฤษ และฉายา แม้จะพิมพ์ผิด ระบบ IR จะคำนวณ <span className="text-blue-600 font-semibold">relevance_score</span> จัดอันดับความเกี่ยวข้องทันที
+        ค้นหาได้ทั้งชื่อภาษาไทย ภาษาอังกฤษ และฉายา แม้จะพิมพ์ผิด ระบบ IR จะ<span className="text-blue-600 font-semibold">จัดอันดับความเกี่ยวข้อง</span>ให้ทันที
       </p>
 
       {/* --- ช่องค้นหาขนาดใหญ่ (Large Search Input Bar) --- */}
