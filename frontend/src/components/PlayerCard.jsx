@@ -51,8 +51,8 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
     }
 
     return (
-      <div className={`inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-bold border ${colorClasses} shadow-sm`}>
-        <Sparkles className="w-3 h-3" />
+      <div className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${colorClasses} shadow-sm whitespace-nowrap flex-shrink-0`}>
+        <Sparkles className="w-3 h-3 flex-shrink-0" />
         <span>Match: {percentage}%</span>
       </div>
     );
@@ -63,73 +63,75 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
       onClick={() => onOpenModal(player)}
       className="group relative bg-white rounded-2xl p-5 cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-blue-300 transition-all duration-200 flex flex-col justify-between overflow-hidden"
     >
-      <div>
-        {/* --- ส่วนบนของการ์ด: รูปถ่าย, ชื่อไทย/อังกฤษ, โลโก้สโมสร, Match Badge --- */}
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <div className="flex items-center space-x-3.5">
-            
-            {/* รูปถ่ายนักเตะ (Avatar Photo) */}
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gray-100 border border-gray-200 overflow-hidden flex-shrink-0 shadow-sm group-hover:border-blue-300 transition-colors">
-              {player.photo_url && player.photo_url !== 'N/A' && !imgError ? (
-                <img
-                  src={player.photo_url}
-                  alt={player.name_en}
-                  onError={() => setImgError(true)}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              ) : (
-                /* Fallback กรณีไม่มีรูปถ่าย */
-                <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100 text-gray-400">
-                  <Shield className="w-7 h-7 text-blue-400/60 mb-0.5" />
-                  <span className="text-[10px] font-bold tracking-wider uppercase text-gray-500">
-                    {player.name_en?.slice(0, 2) || 'FB'}
-                  </span>
-                </div>
-              )}
-              {/* ป้ายอายุบนรูปถ่าย */}
-              {player.age > 0 && (
-                <span className="absolute bottom-1 right-1 bg-white/95 text-gray-800 text-[10px] font-bold px-1.5 py-0.5 rounded-md border border-gray-200 shadow-sm">
-                  {player.age} ปี
-                </span>
-              )}
-            </div>
+      {/* Relevance Match Score Badge at Top-Right */}
+      {score !== undefined && score !== null && (
+        <div className="absolute top-3.5 right-3.5 z-10">
+          {getScoreBadge()}
+        </div>
+      )}
 
-            {/* ชื่อนักเตะและสโมสรปัจจุบัน */}
-            <div className="min-w-0">
-              <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors truncate">
-                {player.name_th && player.name_th !== player.name_en ? player.name_th : player.name_en}
-              </h3>
-              <p className="text-xs font-semibold text-gray-500 truncate mb-1.5">
-                {player.name_en}
-              </p>
-              
-              {/* Badge สโมสรและลีก */}
-              <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
-                <span className="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-lg bg-gray-100 border border-gray-200 text-gray-700 font-medium truncate max-w-[150px]">
-                  {player.club_logo_url && player.club_logo_url !== 'N/A' ? (
-                    <img
-                      src={player.club_logo_url}
-                      alt={player.current_team}
-                      className="w-3.5 h-3.5 object-contain flex-shrink-0"
-                      onError={(e) => { e.target.style.display = 'none'; }}
-                    />
-                  ) : (
-                    <span className="text-xs">⚽</span>
-                  )}
-                  <span className="truncate">{player.current_team}</span>
+      <div>
+        {/* --- ส่วนบนของการ์ด: รูปถ่าย, ชื่อไทย/อังกฤษ, โลโก้สโมสร --- */}
+        <div className={`flex items-start space-x-3.5 mb-4 ${score !== undefined && score !== null ? 'pr-20 sm:pr-22' : ''}`}>
+          
+          {/* รูปถ่ายนักเตะ (Avatar Photo) */}
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gray-100 border border-gray-200 overflow-hidden flex-shrink-0 shadow-sm group-hover:border-blue-300 transition-colors">
+            {player.photo_url && player.photo_url !== 'N/A' && !imgError ? (
+              <img
+                src={player.photo_url}
+                alt={player.name_en}
+                onError={() => setImgError(true)}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            ) : (
+              /* Fallback กรณีไม่มีรูปถ่าย */
+              <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100 text-gray-400">
+                <Shield className="w-7 h-7 text-blue-400/60 mb-0.5" />
+                <span className="text-[10px] font-bold tracking-wider uppercase text-gray-500">
+                  {player.name_en?.slice(0, 2) || 'FB'}
                 </span>
-                {player.current_league && player.current_league !== 'N/A' && (
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-medium">
-                    {player.current_league}
-                  </span>
-                )}
               </div>
-            </div>
+            )}
+            {/* ป้ายอายุบนรูปถ่าย */}
+            {player.age > 0 && (
+              <span className="absolute bottom-1 right-1 bg-white/95 text-gray-800 text-[10px] font-bold px-1.5 py-0.5 rounded-md border border-gray-200 shadow-sm">
+                {player.age} ปี
+              </span>
+            )}
           </div>
 
-          {/* แสดง Relevance Match Score Badge */}
-          {getScoreBadge()}
+          {/* ชื่อนักเตะและสโมสรปัจจุบัน */}
+          <div className="min-w-0 flex-1">
+            <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors truncate">
+              {player.name_th && player.name_th !== player.name_en ? player.name_th : player.name_en}
+            </h3>
+            <p className="text-xs font-semibold text-gray-500 truncate mb-1.5">
+              {player.name_en}
+            </p>
+            
+            {/* Badge สโมสรและลีก */}
+            <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
+              <span className="inline-flex items-center space-x-1.5 px-2 py-0.5 rounded-lg bg-gray-100 border border-gray-200 text-gray-700 font-medium truncate max-w-[150px]">
+                {player.club_logo_url && player.club_logo_url !== 'N/A' ? (
+                  <img
+                    src={player.club_logo_url}
+                    alt={player.current_team}
+                    className="w-3.5 h-3.5 object-contain flex-shrink-0"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                ) : (
+                  <span className="text-xs">⚽</span>
+                )}
+                <span className="truncate">{player.current_team}</span>
+              </span>
+              {player.current_league && player.current_league !== 'N/A' && (
+                <span className="inline-flex items-center px-2 py-0.5 rounded-lg bg-blue-50 border border-blue-100 text-blue-700 text-[10px] font-medium">
+                  {player.current_league}
+                </span>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* --- ส่วนแสดงฉายา/ชื่อย่อ (Aliases Tags) --- */}
