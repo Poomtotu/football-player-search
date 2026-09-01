@@ -148,12 +148,21 @@ export default function App() {
     }
   }, [selectedLeague, allPlayers, debouncedQuery]);
 
-  // --- 4. ฟังก์ชันจัดการเมื่อผู้ใช้คลิกเลือกชิปคำแนะนำด่วน ---
+  // --- 4. ฟังก์ชันจัดการเมื่อคลิกเลือกเปลี่ยนแท็บลีก (เคลียร์คำค้นหาอัตโนมัติ) ---
+  const handleSelectLeague = (league) => {
+    setSelectedLeague(league);
+    if (query) {
+      setQuery('');
+    }
+  };
+
+  // --- 5. ฟังก์ชันจัดการเมื่อผู้ใช้คลิกเลือกชิปคำแนะนำด่วน ---
   const handleSelectChip = (chipLabel) => {
+    setSelectedLeague('ทั้งหมด');
     setQuery(chipLabel);
   };
 
-  // --- 5. ฟังก์ชันรีเซ็ตคำค้นหาและฟิลเตอร์ทั้งหมด ---
+  // --- 6. ฟังก์ชันรีเซ็ตคำค้นหาและฟิลเตอร์ทั้งหมด ---
   const handleReset = () => {
     setQuery('');
     setSelectedLeague('ทั้งหมด');
@@ -175,7 +184,7 @@ export default function App() {
               setQuery={setQuery}
               loading={loading}
               selectedLeague={selectedLeague}
-              setSelectedLeague={setSelectedLeague}
+              setSelectedLeague={handleSelectLeague}
               totalResults={filteredPlayers.length}
               onSelectChip={handleSelectChip}
             />
