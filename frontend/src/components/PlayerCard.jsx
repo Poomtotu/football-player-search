@@ -84,16 +84,18 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
               <img
                 src={player.photo_url}
                 alt={player.name_en}
+                referrerPolicy="no-referrer"
+                crossOrigin="anonymous"
                 onError={() => setImgError(true)}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
             ) : (
               /* Fallback กรณีไม่มีรูปถ่าย */
-              <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100 text-gray-400">
-                <Shield className="w-7 h-7 text-blue-400/60 mb-0.5" />
-                <span className="text-[10px] font-bold tracking-wider uppercase text-gray-500">
-                  {player.name_en?.slice(0, 2) || 'FB'}
+              <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-50 to-slate-100 text-gray-500">
+                <Shield className="w-6 h-6 text-blue-500/70 mb-0.5" />
+                <span className="text-[11px] font-extrabold tracking-wider uppercase text-blue-700">
+                  {player.name_en?.split(' ').map(w => w[0]).join('').slice(0, 2) || 'FB'}
                 </span>
               </div>
             )}
@@ -121,6 +123,7 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
                   <img
                     src={player.club_logo_url}
                     alt={player.current_team}
+                    referrerPolicy="no-referrer"
                     className="w-3.5 h-3.5 object-contain flex-shrink-0"
                     onError={(e) => { e.target.style.display = 'none'; }}
                   />
@@ -200,6 +203,7 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
                 <img
                   src={player.flag_url}
                   alt={national.team_name}
+                  referrerPolicy="no-referrer"
                   className="w-4 h-3 object-cover rounded-sm shadow-sm flex-shrink-0"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />

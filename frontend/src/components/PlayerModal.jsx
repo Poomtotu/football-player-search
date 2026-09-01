@@ -136,13 +136,24 @@ export function PlayerModal({ player, onClose }) {
           <div className="flex flex-col sm:flex-row items-start sm:items-end -mt-12 sm:-mt-16 mb-5 gap-4 sm:gap-5">
             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-white border-4 border-white shadow-xl overflow-hidden flex-shrink-0 relative">
               {displayPlayer.photo_url && displayPlayer.photo_url !== 'N/A' ? (
-                <img src={displayPlayer.photo_url} alt={displayPlayer.name_en} className="w-full h-full object-cover object-top" />
-              ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-400">
-                  <Shield className="w-10 h-10 text-blue-400/60 mb-1" />
-                  <span className="text-xs font-bold uppercase">{displayPlayer.name_en?.slice(0, 2)}</span>
-                </div>
-              )}
+                <img 
+                  src={displayPlayer.photo_url} 
+                  alt={displayPlayer.name_en} 
+                  referrerPolicy="no-referrer"
+                  crossOrigin="anonymous"
+                  className="w-full h-full object-cover object-top" 
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+              ) : null}
+              <div className={`w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-50 to-slate-100 text-gray-500 ${displayPlayer.photo_url && displayPlayer.photo_url !== 'N/A' ? 'hidden' : ''}`}>
+                <Shield className="w-10 h-10 text-blue-500/70 mb-1" />
+                <span className="text-sm font-extrabold uppercase text-blue-700">
+                  {displayPlayer.name_en?.split(' ').map(w => w[0]).join('').slice(0, 2) || 'FB'}
+                </span>
+              </div>
             </div>
 
             <div className="flex-1 min-w-0 pb-0.5">
@@ -154,7 +165,7 @@ export function PlayerModal({ player, onClose }) {
               </p>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
-                  {displayPlayer.club_logo_url && displayPlayer.club_logo_url !== 'N/A' ? <img src={displayPlayer.club_logo_url} alt={displayPlayer.current_team} className="w-4 h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} /> : <span>⚽</span>}
+                  {displayPlayer.club_logo_url && displayPlayer.club_logo_url !== 'N/A' ? <img src={displayPlayer.club_logo_url} alt={displayPlayer.current_team} referrerPolicy="no-referrer" className="w-4 h-4 object-contain" onError={(e) => { e.target.style.display = 'none'; }} /> : <span>⚽</span>}
                   <span>{displayPlayer.current_team}</span>
                 </span>
                 {displayPlayer.current_league && displayPlayer.current_league !== 'N/A' && <span className="px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">🏆 {displayPlayer.current_league}</span>}
@@ -269,6 +280,7 @@ export function PlayerModal({ player, onClose }) {
                     <img
                       src={displayPlayer.flag_url}
                       alt={national.team_name}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover rounded-lg"
                       onError={(e) => {
                         e.target.style.display = 'none';
