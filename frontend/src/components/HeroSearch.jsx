@@ -53,10 +53,10 @@ export function HeroSearch({
   return (
     <div className="relative pt-10 pb-6 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
       
-      {/* --- Badge อธิบายระบบ IR Pipeline --- */}
+      {/* --- Badge แนะนำระบบค้นหาอัจฉริยะ --- */}
       <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700 mb-4 animate-fade-in shadow-clean-sm">
         <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-        <span>Information Retrieval System (BM25 + RapidFuzz Typo-Tolerant)</span>
+        <span>Smart Football Player Search Engine</span>
       </div>
 
       {/* --- หัวข้อหลัก (Headline & Description) --- */}
@@ -64,7 +64,7 @@ export function HeroSearch({
         ค้นหาประวัติ<span className="text-blue-600">นักฟุตบอล</span>ระดับโลก
       </h1>
       <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mb-8 font-normal">
-        ค้นหาได้ทั้งชื่อภาษาไทย ภาษาอังกฤษ และฉายา แม้จะพิมพ์ผิด ระบบ IR จะ<span className="text-blue-600 font-semibold">จัดอันดับความเกี่ยวข้อง</span>ให้ทันที
+        ค้นหาได้ทั้งชื่อภาษาไทย ภาษาอังกฤษ และฉายา แม้จะพิมพ์ผิด ระบบจะ<span className="text-blue-600 font-semibold">จัดอันดับความเกี่ยวข้อง</span>ให้ทันที
       </p>
 
       {/* --- ช่องค้นหาขนาดใหญ่ (Large Search Input Bar) --- */}
@@ -101,10 +101,10 @@ export function HeroSearch({
             </button>
           )}
 
-          {/* Badge บอกเวลา Debounce 300ms */}
+          {/* Badge แจ้งระบบค้นหาแบบทันที */}
           <div className="hidden sm:flex items-center pr-2">
             <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 border border-gray-200 px-2 py-1 rounded-lg">
-              Debounce 300ms
+              Instant Search
             </span>
           </div>
         </div>
