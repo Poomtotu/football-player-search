@@ -338,28 +338,36 @@ class FootballSearchEngine:
             # -----------------------------------------------------------
             # 1. Exact & Substring Match First:
             # -----------------------------------------------------------
-            # ชื่อ/alias แบบตรงตัวต้องมาก่อน substring และ field อื่น
+            # 1.1 ตรงตัวแบบสมบูรณ์กับชื่อหรือฉายาหลัก (Exact Match = 100%)
             if (
                 q_norm == entry.name_th_norm
                 or q_norm == entry.name_en_norm
                 or any(q_norm == a for a in entry.aliases_norm)
             ):
                 score = 1.0
+            # 1.2 เป็นส่วนหนึ่งของชื่อจริง (Name Substring Match = 90% เช่น ค้น 'Lionel' เจอ 'Lionel Messi')
             elif (
-                (len(q_norm) >= 2 and (q_norm in entry.name_th_norm or q_norm in entry.name_en_norm))
-                or any(len(q_norm) >= 2 and q_norm in a for a in entry.aliases_norm)
+                len(q_norm) >= 2
+                and (q_norm in entry.name_th_norm or q_norm in entry.name_en_norm)
             ):
-                # Substring match สูง แต่ไม่เท่ากับ exact match
-                score = 0.95
+                score = 0.90
+            # 1.3 เป็นส่วนหนึ่งของฉายา (Alias Substring Match = 70% เช่น ค้น 'เมสซี่' เจอ 'เมสซี่ตุรกี')
+            elif any(len(q_norm) >= 2 and q_norm in a for a in entry.aliases_norm):
+                score = 0.70
+            # 1.4 ตรงตัวกับสโมสร, ลีก หรือทีมชาติ (Team/League/Nation Exact Match = 85%)
             elif (
                 q_norm == entry.team_norm
-                or (len(q_norm) >= 3 and q_norm in entry.team_norm)
                 or q_norm == entry.league_norm
-                or (len(q_norm) >= 4 and q_norm in entry.league_norm)
                 or q_norm == entry.nation_norm
-                or (len(q_norm) >= 3 and q_norm in entry.nation_norm)
             ):
                 score = 0.85
+            # 1.5 เป็นส่วนหนึ่งของสโมสร, ลีก หรือทีมชาติ (Team/League Substring = 75%)
+            elif (
+                (len(q_norm) >= 3 and q_norm in entry.team_norm)
+                or (len(q_norm) >= 4 and q_norm in entry.league_norm)
+                or (len(q_norm) >= 3 and q_norm in entry.nation_norm)
+            ):
+                score = 0.75
             elif is_short:
                 # -------------------------------------------------------
                 # 3. Short Query Protection (len <= 3):
