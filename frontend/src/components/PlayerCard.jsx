@@ -85,7 +85,6 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal }
                 src={player.photo_url}
                 alt={player.name_en}
                 referrerPolicy="no-referrer"
-                crossOrigin="anonymous"
                 onError={() => setImgError(true)}
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"

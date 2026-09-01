@@ -140,7 +140,6 @@ export function PlayerModal({ player, onClose }) {
                   src={displayPlayer.photo_url} 
                   alt={displayPlayer.name_en} 
                   referrerPolicy="no-referrer"
-                  crossOrigin="anonymous"
                   className="w-full h-full object-cover object-top" 
                   onError={(e) => {
                     e.target.style.display = 'none';
