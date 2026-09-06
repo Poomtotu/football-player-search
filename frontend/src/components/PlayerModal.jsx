@@ -156,7 +156,7 @@ export function PlayerModal({ player, onClose }) {
             </div>
 
             <div className="flex-1 min-w-0 pb-0.5">
-              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight">
                 {displayPlayer.name_th && displayPlayer.name_th !== displayPlayer.name_en ? displayPlayer.name_th : displayPlayer.name_en}
               </h2>
               <p className="text-sm font-semibold text-slate-500 mt-1 mb-2.5">
