@@ -225,14 +225,14 @@ export default function App() {
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
               {loading ? (
                 /* แสดง Skeleton Loading ระหว่างรอข้อมูล */
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {[...Array(8)].map((_, i) => (
                     <SkeletonCard key={i} />
                   ))}
                 </div>
               ) : filteredPlayers.length > 0 ? (
                 /* แสดงการ์ดนักเตะจริง */
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 animate-fade-in">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 animate-fade-in">
                   {filteredPlayers.map((player) => (
                     <PlayerCard
                       key={player.id}
@@ -273,10 +273,10 @@ export default function App() {
       <footer className="border-t border-gray-200 bg-white py-8 px-4 text-center text-xs text-gray-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
-            <span className="font-bold text-gray-800">Football Player Information Retrieval System</span>
+            <span className="font-bold text-gray-800">FOOTBALL.IR · ค้นพบเรื่องราวของนักฟุตบอล</span>
           </div>
           <div>
-            Powered by <strong className="text-blue-600">FastAPI</strong> + <strong className="text-indigo-600">BM25Okapi</strong> + <strong className="text-cyan-600">RapidFuzz</strong>
+            ชื่อ สถิติ และเส้นทางลูกหนัง ในที่เดียว
           </div>
         </div>
       </footer>
