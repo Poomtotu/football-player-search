@@ -17,10 +17,9 @@ export function EmptyState({ query, onReset, onSelectChip }) {
   const suggestions = ['เมสซี่', 'CR7', 'ฮาลันด์', 'ซาลาห์', 'เอ็มบัปเป', 'เบลลิงแฮม'];
 
   return (
-    <div className="max-w-md mx-auto my-12 text-center p-8 rounded-3xl bg-white border border-gray-200 shadow-sm animate-fade-in">
-      {/* ไอคอนไม่พบข้อมูล */}
-      <div className="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center mx-auto mb-4 text-amber-500 shadow-sm">
-        <SearchX className="w-8 h-8" />
+    <div className="max-w-lg mx-auto my-16 text-center px-6 py-12 animate-fade-in">
+      <div className="w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center mx-auto mb-5 text-zinc-400">
+        <SearchX className="w-5 h-5" />
       </div>
 
       {/* ข้อความแจ้งเตือน */}
@@ -28,23 +27,23 @@ export function EmptyState({ query, onReset, onSelectChip }) {
         ไม่พบผลการค้นหา
       </h3>
 
-      <p className="text-xs sm:text-sm text-gray-500 mb-6">
-        ไม่พบนักเตะที่ตรงกับคำว่า <span className="text-blue-600 font-semibold">"{query}"</span><br />
-        ลองค้นหาด้วยชื่อย่อ, ฉายา หรือชื่อสโมสรแทน
+      <p className="text-sm text-zinc-500 mb-7 leading-6">
+        ไม่พบนักเตะที่ตรงกับคำว่า <span className="text-zinc-900 font-semibold">“{query}”</span><br />
+        ลองค้นหาด้วยชื่อ ฉายา สโมสร หรือลีกแทน
       </p>
 
       {/* คำแนะนำคำค้นหาทางเลือก */}
       <div className="mb-6">
-        <div className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center justify-center space-x-1">
-          <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-          <span>ลองค้นหาคำเหล่านี้:</span>
+        <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.16em] mb-3 flex items-center justify-center gap-1.5">
+          <Sparkles className="w-3 h-3" />
+          <span>Suggested searches</span>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-1.5">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
           {suggestions.map((item) => (
             <button
               key={item}
               onClick={() => onSelectChip(item)}
-              className="px-3 py-1.5 rounded-full bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors shadow-clean-sm"
+              className="text-xs font-semibold text-zinc-600 hover:text-zinc-950 border-b border-transparent hover:border-zinc-950"
             >
               {item}
             </button>
@@ -55,7 +54,7 @@ export function EmptyState({ query, onReset, onSelectChip }) {
       {/* ปุ่มกดดูนักเตะทั้งหมด (Reset) */}
       <button
         onClick={onReset}
-        className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-all"
+        className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-lg bg-zinc-950 hover:bg-zinc-800 text-white text-xs font-semibold transition-all"
       >
         <RefreshCw className="w-3.5 h-3.5" />
         <span>ดูนักเตะทั้งหมด</span>

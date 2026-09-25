@@ -41,7 +41,8 @@ class Player(BaseModel):
     bio: str = Field(default="", description="ประวัติย่อนักเตะ")
     social_links: dict[str, str] = Field(default_factory=dict, description="ช่องทางติดตามทาง Social Media")
     age: int = Field(..., ge=0, le=100, description="อายุ")
-    photo_url: str = Field(..., description="URL รูปภาพนักเตะ")
+    photo_url: str = Field(..., description="URL รูปภาพนักเตะสำหรับการ์ด/รายการ")
+    hero_photo_url: str | None = Field(default=None, description="URL รูปภาพนักเตะแบบ cutout สำหรับ Hero/Profile")
     club_logo_url: str = Field(default="https://placehold.co/80x80?text=Club", description="URL โลโก้สโมสร")
     flag_url: str = Field(default="https://flagcdn.com/w80/un.png", description="URL รูปธงชาติ")
     current_league: str = Field(..., description="ลีกที่เล่นอยู่ปัจจุบัน")
@@ -79,7 +80,13 @@ class PlayerSearchResult(Player):
         ...,
         ge=0.0,
         le=1.0,
-        description="คะแนนความเกี่ยวข้อง (0.0–1.0) จาก BM25 + Fuzzy Search"
+        description="คะแนนความเกี่ยวข้อง (0.0–1.0) สำหรับใช้จัดอันดับผลลัพธ์"
+    )
+    match_percentage: float = Field(
+        ...,
+        ge=0.0,
+        le=100.0,
+        description="เปอร์เซ็นต์ relevance ของผลค้นหา (relevance_score × 100) สำหรับแสดงบน UI"
     )
 
 

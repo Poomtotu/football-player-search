@@ -18,7 +18,9 @@ import json
 import logging
 import os
 import random
+import re
 import time
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -2835,16 +2837,22 @@ def _polite_delay(min_sec: float = 1.0, max_sec: float = 3.0) -> None:
 
 
 def _safe_int(value: Any, default: int = 0) -> int:
-    """แปลง value เป็น int อย่างปลอดภัย"""
+    """แปลง value เป็น int อย่างปลอดภัย และคำนวณอายุจากวันเกิดด้วยปีปัจจุบัน"""
     if value is None:
         return default
     try:
         val_str = str(value).strip()
-        if "-" in val_str:  # e.g. "1987-06-24"
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", val_str):
+            born = date.fromisoformat(val_str)
+            today = date.today()
+            return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+        if "-" in val_str:
             val_str = val_str.split("-")[0]
+
         v = int(val_str)
-        if 1950 <= v <= 2015:  # แปลงปีเกิดเป็นอายุ (ค.ศ. 2025)
-            return 2025 - v
+        if 1950 <= v <= date.today().year:
+            return date.today().year - v
         return v if v >= 0 else default
     except (ValueError, TypeError):
         return default
@@ -2885,12 +2893,24 @@ def _normalize_player(raw: dict[str, Any], player_id: int, session: requests.Ses
     # รูปถ่าย
     photo_url = raw.get("strThumb") or raw.get("strCutout") or raw.get("photo_url") or "N/A"
 
-    # สโมสรและลีก
-    team = meta.get("current_team") or raw.get("strTeam") or raw.get("current_team") or "N/A"
-    league = meta.get("current_league") or raw.get("strLeague") or raw.get("current_league") or "N/A"
+    # สโมสรและลีก: ให้ข้อมูลสดจาก API มาก่อน metadata ที่อาจเก่า
+    live_team = raw.get("strTeam") or raw.get("current_team")
+    team = live_team or meta.get("current_team") or "N/A"
 
-    # ประวัติทีม
-    teams_history = meta.get("teams_history") or raw.get("teams_history") or ([team] if team != "N/A" else [])
+    live_league = raw.get("strLeague") or raw.get("current_league")
+    meta_team = meta.get("current_team")
+    if live_league:
+        league = live_league
+    elif live_team and meta_team and live_team != meta_team:
+        # ทีมย้ายแล้ว แต่ API ผู้เล่นไม่มี league: อย่าเอา league เก่ามาใช้
+        league = "N/A"
+    else:
+        league = meta.get("current_league") or "N/A"
+
+    # ประวัติทีม — คง metadata เดิมและเติมทีมปัจจุบันเสมอ
+    teams_history = list(meta.get("teams_history") or raw.get("teams_history") or [])
+    if team != "N/A" and team not in teams_history:
+        teams_history.append(team)
 
     # ทีมชาติ
     nation_meta = meta.get("national_team", {})
@@ -2908,7 +2928,10 @@ def _normalize_player(raw: dict[str, Any], player_id: int, session: requests.Ses
         flag_url = _get_flag_url(nation_name)
 
     # โลโก้สโมสร (TheSportsDB API lookup พร้อมแคช / Fallback)
-    club_logo = meta.get("club_logo_url") or raw.get("club_logo_url") or raw.get("strBadge") or raw.get("strTeamBadge")
+    # โลโก้สดมาก่อน metadata เพื่อไม่ค้างโลโก้สโมสรเก่าหลังย้ายทีม
+    club_logo = raw.get("club_logo_url") or raw.get("strBadge") or raw.get("strTeamBadge")
+    if not club_logo and (not live_team or live_team == meta.get("current_team")):
+        club_logo = meta.get("club_logo_url")
     if not club_logo and session:
         # ลอง lookup จาก idTeam ก่อนถ้ามี
         team_id = raw.get("idTeam")

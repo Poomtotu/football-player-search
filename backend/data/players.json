@@ -11,7 +11,7 @@
       "LM10",
       "La Pulga"
     ],
-    "bio": "Lionel Messi เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Miami CF ใน Major League Soccer และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: FC Barcelona → Paris Saint-Germain → Inter Miami CF.",
+    "bio": "Lionel Messi เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Miami CF ใน Major League Soccer และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: FC Barcelona → Paris Saint-Germain → Inter Miami CF.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Lionel+Messi+Instagram",
       "facebook": "https://www.google.com/search?q=Lionel+Messi+Facebook",
@@ -32,11 +32,11 @@
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 189,
-      "goals": 109
+      "caps": 207,
+      "goals": 125
     },
     "stats": {
-      "total_goals": 850,
+      "total_goals": 930,
       "total_assists": 380,
       "trophies_count": 44
     },
@@ -53,7 +53,8 @@
     ],
     "height_cm": 170.0,
     "weight_kg": 72.0,
-    "birth_date": "1987-06-24"
+    "birth_date": "1987-06-24",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/e0i2051750317027.png"
   },
   {
     "id": 2,
@@ -67,7 +68,7 @@
       "Siuuu",
       "Ronaldo"
     ],
-    "bio": "Cristiano Ronaldo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al Nassr ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Portugal เส้นทางสโมสร: Sporting CP → Manchester United → Real Madrid → Juventus → Manchester United → Al Nassr.",
+    "bio": "Cristiano Ronaldo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al Nassr ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Portugal. เส้นทางสโมสร: Sporting CP → Manchester United → Real Madrid → Juventus → Manchester United → Al Nassr.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Cristiano+Ronaldo+Instagram",
       "facebook": "https://www.google.com/search?q=Cristiano+Ronaldo+Facebook",
@@ -91,13 +92,13 @@
     "national_team": {
       "played": true,
       "team_name": "Portugal",
-      "caps": 212,
-      "goals": 135
+      "caps": 233,
+      "goals": 146
     },
     "stats": {
-      "total_goals": 905,
-      "total_assists": 240,
-      "trophies_count": 34
+      "total_goals": 979,
+      "total_assists": 291,
+      "trophies_count": 35
     },
     "primary_position": "CF",
     "secondary_positions": [],
@@ -112,7 +113,8 @@
     ],
     "height_cm": 187.0,
     "weight_kg": 84.0,
-    "birth_date": "1985-02-05"
+    "birth_date": "1985-02-05",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/a19jje1761592498.png"
   },
   {
     "id": 3,
@@ -126,7 +128,7 @@
       "เอ็มบัปเป",
       "Donatello"
     ],
-    "bio": "Kylian Mbappé เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Real Madrid.",
+    "bio": "Kylian Mbappé เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Kylian+Mbapp%C3%A9+Instagram",
       "facebook": "https://www.google.com/search?q=Kylian+Mbapp%C3%A9+Facebook",
@@ -145,13 +147,13 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 86,
-      "goals": 48
+      "caps": 106,
+      "goals": 66
     },
     "stats": {
-      "total_goals": 330,
+      "total_goals": 443,
       "total_assists": 195,
-      "trophies_count": 18
+      "trophies_count": 20
     },
     "primary_position": "LW",
     "secondary_positions": [],
@@ -166,7 +168,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 67.0,
-    "birth_date": "1998-12-20"
+    "birth_date": "1998-12-20",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/cxrmkm1788114306.png"
   },
   {
     "id": 4,
@@ -180,7 +183,7 @@
       "ฮาแลนด์",
       "EH9"
     ],
-    "bio": "Erling Haaland เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ Norway เส้นทางสโมสร: Bryne → Molde → Red Bull Salzburg → Borussia Dortmund → Manchester City.",
+    "bio": "Erling Haaland เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ Norway. เส้นทางสโมสร: Bryne → Molde → Red Bull Salzburg → Borussia Dortmund → Manchester City.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Erling+Haaland+Instagram",
       "facebook": "https://www.google.com/search?q=Erling+Haaland+Facebook",
@@ -203,13 +206,13 @@
     "national_team": {
       "played": true,
       "team_name": "Norway",
-      "caps": 39,
-      "goals": 38
+      "caps": 56,
+      "goals": 63
     },
     "stats": {
-      "total_goals": 290,
+      "total_goals": 366,
       "total_assists": 65,
-      "trophies_count": 12
+      "trophies_count": 13
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -224,7 +227,8 @@
     ],
     "height_cm": 195.0,
     "weight_kg": 87.0,
-    "birth_date": "2000-07-21"
+    "birth_date": "2000-07-21",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/e8cart1789115621.png"
   },
   {
     "id": 5,
@@ -237,7 +241,7 @@
       "O Ney",
       "NJR"
     ],
-    "bio": "Neymar เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al Hilal ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Santos → FC Barcelona → Paris Saint-Germain → Al Hilal.",
+    "bio": "Neymar เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Santos ใน Brazilian Serie A และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Santos → FC Barcelona → Paris Saint-Germain → Al Hilal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Neymar+Instagram",
       "facebook": "https://www.google.com/search?q=Neymar+Facebook",
@@ -246,10 +250,10 @@
     },
     "age": 34,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/j60pdx1741319053.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/j8xk9g1679447486.png",
+    "club_logo_url": "N/A",
     "flag_url": "https://flagcdn.com/w80/br.png",
-    "current_league": "Saudi Pro League",
-    "current_team": "Al Hilal",
+    "current_league": "Brazilian Serie A",
+    "current_team": "Santos",
     "teams_history": [
       "Santos",
       "FC Barcelona",
@@ -259,13 +263,13 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 128,
-      "goals": 79
+      "caps": 130,
+      "goals": 80
     },
     "stats": {
-      "total_goals": 440,
+      "total_goals": 459,
       "total_assists": 310,
-      "trophies_count": 22
+      "trophies_count": 26
     },
     "primary_position": "LW",
     "secondary_positions": [],
@@ -280,7 +284,8 @@
     ],
     "height_cm": 174.0,
     "weight_kg": 64.0,
-    "birth_date": "1992-02-05"
+    "birth_date": "1992-02-05",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/av4ar01767782947.png"
   },
   {
     "id": 6,
@@ -293,7 +298,7 @@
       "ซาลาห์",
       "Mo Salah"
     ],
-    "bio": "Mohamed Salah เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Liverpool ใน Premier League และเป็นตัวแทนทีมชาติ Egypt เส้นทางสโมสร: El Mokawloon → Basel → Chelsea → Fiorentina → Roma → Liverpool.",
+    "bio": "Mohamed Salah เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Trabzonspor ใน Super Lig และเป็นตัวแทนทีมชาติ Egypt. เส้นทางสโมสร: El Mokawloon → Basel → Chelsea → Fiorentina → Roma → Liverpool → Trabzonspor.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Mohamed+Salah+Instagram",
       "facebook": "https://www.google.com/search?q=Mohamed+Salah+Facebook",
@@ -302,28 +307,29 @@
     },
     "age": 34,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/o7y57t1718438615.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/96s34o1776827629.png",
+    "club_logo_url": "N/A",
     "flag_url": "https://flagcdn.com/w80/eg.png",
-    "current_league": "Premier League",
-    "current_team": "Liverpool",
+    "current_league": "Super Lig",
+    "current_team": "Trabzonspor",
     "teams_history": [
       "El Mokawloon",
       "Basel",
       "Chelsea",
       "Fiorentina",
       "Roma",
-      "Liverpool"
+      "Liverpool",
+      "Trabzonspor"
     ],
     "national_team": {
       "played": true,
       "team_name": "Egypt",
-      "caps": 103,
-      "goals": 58
+      "caps": 119,
+      "goals": 66
     },
     "stats": {
-      "total_goals": 360,
+      "total_goals": 407,
       "total_assists": 155,
-      "trophies_count": 15
+      "trophies_count": 12
     },
     "primary_position": "RW",
     "secondary_positions": [],
@@ -338,7 +344,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 69.0,
-    "birth_date": "1992-06-15"
+    "birth_date": "1992-06-15",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/3blc581757088735.png"
   },
   {
     "id": 7,
@@ -351,7 +358,7 @@
       "เดอบรอยน์",
       "King Kevin"
     ],
-    "bio": "Kevin De Bruyne เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ Belgium เส้นทางสโมสร: Genk → Chelsea → Werder Bremen → VfL Wolfsburg → Manchester City.",
+    "bio": "Kevin De Bruyne เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Napoli ใน Serie A และเป็นตัวแทนทีมชาติ Belgium. เส้นทางสโมสร: Genk → Chelsea → Werder Bremen → VfL Wolfsburg → Manchester City → Napoli.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Kevin+De+Bruyne+Instagram",
       "facebook": "https://www.google.com/search?q=Kevin+De+Bruyne+Facebook",
@@ -362,25 +369,26 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/627wh81779038446.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/l8qyxv1742982541.png",
     "flag_url": "https://flagcdn.com/w80/be.png",
-    "current_league": "Premier League",
-    "current_team": "Manchester City",
+    "current_league": "Serie A",
+    "current_team": "Napoli",
     "teams_history": [
       "Genk",
       "Chelsea",
       "Werder Bremen",
       "VfL Wolfsburg",
-      "Manchester City"
+      "Manchester City",
+      "Napoli"
     ],
     "national_team": {
       "played": true,
       "team_name": "Belgium",
-      "caps": 107,
-      "goals": 30
+      "caps": 124,
+      "goals": 38
     },
     "stats": {
-      "total_goals": 150,
+      "total_goals": 199,
       "total_assists": 370,
-      "trophies_count": 20
+      "trophies_count": 21
     },
     "primary_position": "CM",
     "secondary_positions": [],
@@ -395,7 +403,8 @@
     ],
     "height_cm": 181.0,
     "weight_kg": 79.0,
-    "birth_date": "1991-06-28"
+    "birth_date": "1991-06-28",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/o4flia1764089447.png"
   },
   {
     "id": 8,
@@ -408,7 +417,7 @@
       "JB5",
       "เบลลิงแฮม"
     ],
-    "bio": "Jude Bellingham เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ England เส้นทางสโมสร: Birmingham City → Borussia Dortmund → Real Madrid.",
+    "bio": "Jude Bellingham เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ England. เส้นทางสโมสร: Birmingham City → Borussia Dortmund → Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Jude+Bellingham+Instagram",
       "facebook": "https://www.google.com/search?q=Jude+Bellingham+Facebook",
@@ -429,11 +438,11 @@
     "national_team": {
       "played": true,
       "team_name": "England",
-      "caps": 40,
+      "caps": 56,
       "goals": 13
     },
     "stats": {
-      "total_goals": 95,
+      "total_goals": 90,
       "total_assists": 55,
       "trophies_count": 6
     },
@@ -450,7 +459,8 @@
     ],
     "height_cm": 180.0,
     "weight_kg": 70.0,
-    "birth_date": "2003-06-29"
+    "birth_date": "2003-06-29",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/7idg7x1788113677.png"
   },
   {
     "id": 9,
@@ -463,7 +473,7 @@
       "Vini Jr",
       "วินิ"
     ],
-    "bio": "Vinícius Júnior เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Flamengo → Real Madrid.",
+    "bio": "Vinícius Júnior เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Flamengo → Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Vin%C3%ADcius+J%C3%BAnior+Instagram",
       "facebook": "https://www.google.com/search?q=Vin%C3%ADcius+J%C3%BAnior+Facebook",
@@ -483,13 +493,13 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 38,
-      "goals": 12
+      "caps": 54,
+      "goals": 13
     },
     "stats": {
-      "total_goals": 130,
+      "total_goals": 160,
       "total_assists": 115,
-      "trophies_count": 12
+      "trophies_count": 14
     },
     "primary_position": "LW",
     "secondary_positions": [],
@@ -504,7 +514,8 @@
     ],
     "height_cm": 177.0,
     "weight_kg": 62.0,
-    "birth_date": "2000-07-12"
+    "birth_date": "2000-07-12",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/z5o9zt1788114155.png"
   },
   {
     "id": 10,
@@ -518,7 +529,7 @@
       "SHM7",
       "ตี๋ซน"
     ],
-    "bio": "Son Heung-min เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Tottenham Hotspur ใน Premier League และเป็นตัวแทนทีมชาติ South Korea เส้นทางสโมสร: Hamburger SV → Bayer Leverkusen → Tottenham Hotspur.",
+    "bio": "Son Heung-min เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Los Angeles FC ใน Major League Soccer และเป็นตัวแทนทีมชาติ South Korea. เส้นทางสโมสร: Hamburger SV → Bayer Leverkusen → Tottenham Hotspur → Los Angeles FC.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Son+Heung-min+Instagram",
       "facebook": "https://www.google.com/search?q=Son+Heung-min+Facebook",
@@ -527,25 +538,26 @@
     },
     "age": 34,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/r5abfl1778974278.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+    "club_logo_url": "N/A",
     "flag_url": "https://flagcdn.com/w80/kr.png",
-    "current_league": "Premier League",
-    "current_team": "Tottenham Hotspur",
+    "current_league": "Major League Soccer",
+    "current_team": "Los Angeles FC",
     "teams_history": [
       "Hamburger SV",
       "Bayer Leverkusen",
-      "Tottenham Hotspur"
+      "Tottenham Hotspur",
+      "Los Angeles FC"
     ],
     "national_team": {
       "played": true,
       "team_name": "South Korea",
-      "caps": 129,
-      "goals": 50
+      "caps": 149,
+      "goals": 57
     },
     "stats": {
-      "total_goals": 210,
+      "total_goals": 299,
       "total_assists": 120,
-      "trophies_count": 4
+      "trophies_count": 2
     },
     "primary_position": "LW",
     "secondary_positions": [],
@@ -560,7 +572,8 @@
     ],
     "height_cm": 183.0,
     "weight_kg": 77.0,
-    "birth_date": "1992-07-08"
+    "birth_date": "1992-07-08",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/a5cqf81766425262.png"
   },
   {
     "id": 11,
@@ -572,7 +585,7 @@
       "เคน",
       "Kane"
     ],
-    "bio": "Harry Kane เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน Bundesliga และเป็นตัวแทนทีมชาติ England เส้นทางสโมสร: Tottenham Hotspur → Leicester City → Norwich City → Millwall → Bayern Munich.",
+    "bio": "Harry Kane เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน Bundesliga และเป็นตัวแทนทีมชาติ England. เส้นทางสโมสร: Tottenham Hotspur → Leicester City → Norwich City → Millwall → Bayern Munich.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Harry+Kane+Instagram",
       "facebook": "https://www.google.com/search?q=Harry+Kane+Facebook",
@@ -595,11 +608,11 @@
     "national_team": {
       "played": true,
       "team_name": "England",
-      "caps": 100,
-      "goals": 68
+      "caps": 121,
+      "goals": 85
     },
     "stats": {
-      "total_goals": 410,
+      "total_goals": 533,
       "total_assists": 110,
       "trophies_count": 5
     },
@@ -616,7 +629,8 @@
     ],
     "height_cm": 188.0,
     "weight_kg": 86.0,
-    "birth_date": "1993-07-28"
+    "birth_date": "1993-07-28",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/j4ouvd1756408895.png"
   },
   {
     "id": 12,
@@ -628,7 +642,7 @@
       "เลวาน",
       "เลวานดอฟสกี้"
     ],
-    "bio": "Robert Lewandowski เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Poland เส้นทางสโมสร: Lech Poznan → Borussia Dortmund → Bayern Munich → FC Barcelona.",
+    "bio": "Robert Lewandowski เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chicago Fire FC ใน Major League Soccer และเป็นตัวแทนทีมชาติ Poland. เส้นทางสโมสร: Lech Poznan → Borussia Dortmund → Bayern Munich → FC Barcelona → Chicago Fire FC.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Robert+Lewandowski+Instagram",
       "facebook": "https://www.google.com/search?q=Robert+Lewandowski+Facebook",
@@ -637,26 +651,27 @@
     },
     "age": 38,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/1ogy3i1771254580.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/8xuc781639493166.png",
+    "club_logo_url": "N/A",
     "flag_url": "https://flagcdn.com/w80/pl.png",
-    "current_league": "La Liga",
-    "current_team": "FC Barcelona",
+    "current_league": "Major League Soccer",
+    "current_team": "Chicago Fire FC",
     "teams_history": [
       "Lech Poznan",
       "Borussia Dortmund",
       "Bayern Munich",
-      "FC Barcelona"
+      "FC Barcelona",
+      "Chicago Fire FC"
     ],
     "national_team": {
       "played": true,
       "team_name": "Poland",
-      "caps": 154,
-      "goals": 84
+      "caps": 167,
+      "goals": 89
     },
     "stats": {
-      "total_goals": 650,
+      "total_goals": 754,
       "total_assists": 185,
-      "trophies_count": 28
+      "trophies_count": 33
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -671,7 +686,8 @@
     ],
     "height_cm": 181.0,
     "weight_kg": 79.0,
-    "birth_date": "1988-08-21"
+    "birth_date": "1988-08-21",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/vtrddu1785612817.png"
   },
   {
     "id": 13,
@@ -683,7 +699,7 @@
       "ยามาล",
       "LY19"
     ],
-    "bio": "Lamine Yamal เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: FC Barcelona.",
+    "bio": "Lamine Yamal เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: FC Barcelona.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Lamine+Yamal+Instagram",
       "facebook": "https://www.google.com/search?q=Lamine+Yamal+Facebook",
@@ -702,13 +718,13 @@
     "national_team": {
       "played": true,
       "team_name": "Spain",
-      "caps": 17,
-      "goals": 4
+      "caps": 33,
+      "goals": 7
     },
     "stats": {
-      "total_goals": 20,
+      "total_goals": 64,
       "total_assists": 25,
-      "trophies_count": 4
+      "trophies_count": 8
     },
     "primary_position": "RW",
     "secondary_positions": [],
@@ -723,7 +739,8 @@
     ],
     "height_cm": 180.0,
     "weight_kg": 70.0,
-    "birth_date": "2007-07-13"
+    "birth_date": "2007-07-13",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/m9n4ja1761512633.png"
   },
   {
     "id": 14,
@@ -736,7 +753,7 @@
       "Pedri Gonzalez",
       "Pedro Gonzalez"
     ],
-    "bio": "Pedri เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: Las Palmas → FC Barcelona.",
+    "bio": "Pedri เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: Las Palmas → FC Barcelona.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Pedri+Instagram",
       "facebook": "https://www.google.com/search?q=Pedri+Facebook",
@@ -744,7 +761,7 @@
       "youtube": "https://www.youtube.com/results?search_query=Pedri"
     },
     "age": 23,
-    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m5653g1692226458.jpg",
+    "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Pedri_France_v_Spain_7.24.26-245.jpg/1280px-Pedri_France_v_Spain_7.24.26-245.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
     "flag_url": "https://flagcdn.com/w80/es.png",
     "current_league": "La Liga",
@@ -756,13 +773,13 @@
     "national_team": {
       "played": true,
       "team_name": "Spain",
-      "caps": 30,
-      "goals": 4
+      "caps": 49,
+      "goals": 6
     },
     "stats": {
-      "total_goals": 30,
+      "total_goals": 39,
       "total_assists": 45,
-      "trophies_count": 7
+      "trophies_count": 11
     },
     "primary_position": "CM",
     "secondary_positions": [],
@@ -777,7 +794,8 @@
     ],
     "height_cm": 177.0,
     "weight_kg": 68.0,
-    "birth_date": "2002-11-25"
+    "birth_date": "2002-11-25",
+    "hero_photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Pedri_France_v_Spain_7.24.26-245.jpg/1280px-Pedri_France_v_Spain_7.24.26-245.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": 15,
@@ -788,7 +806,7 @@
       "Foden",
       "Stockport Iniesta"
     ],
-    "bio": "Phil Foden เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ England เส้นทางสโมสร: Manchester City.",
+    "bio": "Phil Foden เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ England. เส้นทางสโมสร: Manchester City.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Phil+Foden+Instagram",
       "facebook": "https://www.google.com/search?q=Phil+Foden+Facebook",
@@ -807,13 +825,13 @@
     "national_team": {
       "played": true,
       "team_name": "England",
-      "caps": 41,
+      "caps": 49,
       "goals": 4
     },
     "stats": {
-      "total_goals": 95,
+      "total_goals": 114,
       "total_assists": 65,
-      "trophies_count": 17
+      "trophies_count": 19
     },
     "primary_position": "RW",
     "secondary_positions": [],
@@ -828,7 +846,8 @@
     ],
     "height_cm": 171.0,
     "weight_kg": 70.0,
-    "birth_date": "2000-05-28"
+    "birth_date": "2000-05-28",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/acp1s31789117935.png"
   },
   {
     "id": 16,
@@ -840,14 +859,14 @@
       "Saka",
       "ซากา"
     ],
-    "bio": "Bukayo Saka เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน Premier League และเป็นตัวแทนทีมชาติ England เส้นทางสโมสร: Arsenal.",
+    "bio": "Bukayo Saka เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน Premier League และเป็นตัวแทนทีมชาติ England. เส้นทางสโมสร: Arsenal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Bukayo+Saka+Instagram",
       "facebook": "https://www.google.com/search?q=Bukayo+Saka+Facebook",
       "x": "https://www.google.com/search?q=Bukayo+Saka+X+Twitter",
       "youtube": "https://www.youtube.com/results?search_query=Bukayo+Saka"
     },
-    "age": 24,
+    "age": 25,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/axl31b1769332282.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
     "flag_url": "https://flagcdn.com/w80/gb-eng.png",
@@ -859,11 +878,11 @@
     "national_team": {
       "played": true,
       "team_name": "England",
-      "caps": 42,
-      "goals": 12
+      "caps": 56,
+      "goals": 17
     },
     "stats": {
-      "total_goals": 75,
+      "total_goals": 101,
       "total_assists": 65,
       "trophies_count": 5
     },
@@ -880,7 +899,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 65.0,
-    "birth_date": "2001-09-05"
+    "birth_date": "2001-09-05",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/7np7651788606735.png"
   },
   {
     "id": 17,
@@ -893,7 +913,7 @@
       "Rodrigo",
       "โรดริโก เอร์นานเดซ"
     ],
-    "bio": "Rodri เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: Villarreal → Atletico Madrid → Manchester City.",
+    "bio": "Rodri เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: Villarreal → Atletico Madrid → Manchester City → FC Barcelona.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Rodri+Instagram",
       "facebook": "https://www.google.com/search?q=Rodri+Facebook",
@@ -901,26 +921,27 @@
       "youtube": "https://www.youtube.com/results?search_query=Rodri"
     },
     "age": 30,
-    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/e22y9h1778974868.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/l8qyxv1742982541.png",
+    "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Rodri_Argentina_v_Spain_19_July_2026-187_%28cropped%29.jpg/1280px-Rodri_Argentina_v_Spain_19_July_2026-187_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/8xuc781639493166.png",
     "flag_url": "https://flagcdn.com/w80/es.png",
-    "current_league": "Premier League",
-    "current_team": "Manchester City",
+    "current_league": "La Liga",
+    "current_team": "FC Barcelona",
     "teams_history": [
       "Villarreal",
       "Atletico Madrid",
-      "Manchester City"
+      "Manchester City",
+      "FC Barcelona"
     ],
     "national_team": {
       "played": true,
       "team_name": "Spain",
-      "caps": 56,
+      "caps": 70,
       "goals": 4
     },
     "stats": {
-      "total_goals": 40,
+      "total_goals": 37,
       "total_assists": 45,
-      "trophies_count": 18
+      "trophies_count": 17
     },
     "primary_position": "DM",
     "secondary_positions": [],
@@ -935,7 +956,8 @@
     ],
     "height_cm": 168.0,
     "weight_kg": 62.0,
-    "birth_date": "1996-06-22"
+    "birth_date": "1996-06-22",
+    "hero_photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Rodri_Argentina_v_Spain_19_July_2026-187_%28cropped%29.jpg/1280px-Rodri_Argentina_v_Spain_19_July_2026-187_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": 18,
@@ -946,7 +968,7 @@
       "รูเบน ดิอาส",
       "ดิอาส"
     ],
-    "bio": "Rúben Dias เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน N/A และเป็นตัวแทนทีมชาติ Portugal เส้นทางสโมสร: Manchester City.",
+    "bio": "Rúben Dias เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ Portugal. เส้นทางสโมสร: Manchester City.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=R%C3%BAben+Dias+Instagram",
       "facebook": "https://www.google.com/search?q=R%C3%BAben+Dias+Facebook",
@@ -965,13 +987,13 @@
     "national_team": {
       "played": true,
       "team_name": "Portugal",
-      "caps": 60,
+      "caps": 81,
       "goals": 3
     },
     "stats": {
-      "total_goals": 15,
+      "total_goals": 21,
       "total_assists": 18,
-      "trophies_count": 15
+      "trophies_count": 16
     },
     "primary_position": "CB",
     "secondary_positions": [],
@@ -986,7 +1008,8 @@
     ],
     "height_cm": 187.0,
     "weight_kg": 82.0,
-    "birth_date": "1997-05-14"
+    "birth_date": "1997-05-14",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/tmtas31789117560.png"
   },
   {
     "id": 19,
@@ -997,7 +1020,7 @@
       "แบร์นาร์โด",
       "Bernardo"
     ],
-    "bio": "Bernardo Silva เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ Portugal เส้นทางสโมสร: Real Madrid.",
+    "bio": "Bernardo Silva เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Portugal. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Bernardo+Silva+Instagram",
       "facebook": "https://www.google.com/search?q=Bernardo+Silva+Facebook",
@@ -1016,13 +1039,13 @@
     "national_team": {
       "played": true,
       "team_name": "Portugal",
-      "caps": 93,
-      "goals": 12
+      "caps": 113,
+      "goals": 14
     },
     "stats": {
-      "total_goals": 90,
+      "total_goals": 118,
       "total_assists": 110,
-      "trophies_count": 20
+      "trophies_count": 23
     },
     "primary_position": "CM",
     "secondary_positions": [],
@@ -1037,7 +1060,8 @@
     ],
     "height_cm": 190.0,
     "weight_kg": 64.0,
-    "birth_date": "1994-08-10"
+    "birth_date": "1994-08-10",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/zfv07e1788114024.png"
   },
   {
     "id": 20,
@@ -1050,7 +1074,7 @@
       "Benzema",
       "เบนเซม่า"
     ],
-    "bio": "Karim Benzema เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Hilal ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Al-Hilal.",
+    "bio": "Karim Benzema เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Hilal ใน Saudi Pro League และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Al-Hilal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Karim+Benzema+Instagram",
       "facebook": "https://www.google.com/search?q=Karim+Benzema+Facebook",
@@ -1073,9 +1097,9 @@
       "goals": 37
     },
     "stats": {
-      "total_goals": 470,
+      "total_goals": 524,
       "total_assists": 210,
-      "trophies_count": 33
+      "trophies_count": 37
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -1090,7 +1114,8 @@
     ],
     "height_cm": 185.0,
     "weight_kg": 81.0,
-    "birth_date": "1987-12-19"
+    "birth_date": "1987-12-19",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/7jdxvc1771665502.png"
   },
   {
     "id": 21,
@@ -1102,7 +1127,7 @@
       "Grizou",
       "กริซมันน์"
     ],
-    "bio": "Antoine Griezmann เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Orlando City ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Orlando City.",
+    "bio": "Antoine Griezmann เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Orlando City ใน Major League Soccer และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Orlando City.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Antoine+Griezmann+Instagram",
       "facebook": "https://www.google.com/search?q=Antoine+Griezmann+Facebook",
@@ -1125,9 +1150,9 @@
       "goals": 44
     },
     "stats": {
-      "total_goals": 260,
+      "total_goals": 352,
       "total_assists": 130,
-      "trophies_count": 15
+      "trophies_count": 7
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -1142,7 +1167,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 71.0,
-    "birth_date": "1991-03-21"
+    "birth_date": "1991-03-21",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/tiqhh41762288400.png"
   },
   {
     "id": 22,
@@ -1153,7 +1179,7 @@
       "Dembele",
       "เดมเบเล่"
     ],
-    "bio": "Ousmane Dembélé เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Paris SG.",
+    "bio": "Ousmane Dembélé เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน Ligue 1 และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Paris SG.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Ousmane+Demb%C3%A9l%C3%A9+Instagram",
       "facebook": "https://www.google.com/search?q=Ousmane+Demb%C3%A9l%C3%A9+Facebook",
@@ -1172,13 +1198,13 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 51,
-      "goals": 6
+      "caps": 67,
+      "goals": 13
     },
     "stats": {
-      "total_goals": 85,
+      "total_goals": 138,
       "total_assists": 110,
-      "trophies_count": 12
+      "trophies_count": 22
     },
     "primary_position": "RW",
     "secondary_positions": [],
@@ -1193,7 +1219,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 67.0,
-    "birth_date": "1997-05-15"
+    "birth_date": "1997-05-15",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/pstgy21766335175.png"
   },
   {
     "id": 23,
@@ -1205,7 +1232,7 @@
       "หล่อเหลา",
       "ชิรูด์"
     ],
-    "bio": "Olivier Giroud เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Lille ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Lille.",
+    "bio": "Olivier Giroud เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Lille ใน Ligue 1 และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Lille.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Olivier+Giroud+Instagram",
       "facebook": "https://www.google.com/search?q=Olivier+Giroud+Facebook",
@@ -1228,9 +1255,9 @@
       "goals": 57
     },
     "stats": {
-      "total_goals": 340,
+      "total_goals": 360,
       "total_assists": 95,
-      "trophies_count": 15
+      "trophies_count": 13
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -1245,7 +1272,8 @@
     ],
     "height_cm": 192.0,
     "weight_kg": 93.0,
-    "birth_date": "1986-09-30"
+    "birth_date": "1986-09-30",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/d8iadf1766077487.png"
   },
   {
     "id": 24,
@@ -1257,7 +1285,7 @@
       "ตู้เย็น",
       "บิ๊กรอม"
     ],
-    "bio": "Romelu Lukaku เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fenerbahçe ใน N/A และเป็นตัวแทนทีมชาติ Belgium เส้นทางสโมสร: Fenerbahçe.",
+    "bio": "Romelu Lukaku เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fenerbahçe ใน Super Lig และเป็นตัวแทนทีมชาติ Belgium. เส้นทางสโมสร: Fenerbahçe.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Romelu+Lukaku+Instagram",
       "facebook": "https://www.google.com/search?q=Romelu+Lukaku+Facebook",
@@ -1268,7 +1296,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/8lrt211779040247.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/twxxvs1448199691.png",
     "flag_url": "https://flagcdn.com/w80/be.png",
-    "current_league": "N/A",
+    "current_league": "Super Lig",
     "current_team": "Fenerbahçe",
     "teams_history": [
       "Fenerbahçe"
@@ -1276,13 +1304,13 @@
     "national_team": {
       "played": true,
       "team_name": "Belgium",
-      "caps": 119,
-      "goals": 85
+      "caps": 132,
+      "goals": 93
     },
     "stats": {
-      "total_goals": 380,
+      "total_goals": 409,
       "total_assists": 105,
-      "trophies_count": 7
+      "trophies_count": 10
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -1297,7 +1325,8 @@
     ],
     "height_cm": 190.0,
     "weight_kg": 94.0,
-    "birth_date": "1993-05-13"
+    "birth_date": "1993-05-13",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/qi2z1d1764089572.png"
   },
   {
     "id": 25,
@@ -1309,7 +1338,7 @@
       "มาร์ติเนซ",
       "เอล โทโร่"
     ],
-    "bio": "Lautaro Martínez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Milan ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Inter Milan.",
+    "bio": "Lautaro Martínez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Milan ใน Serie A และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Inter Milan.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Lautaro+Mart%C3%ADnez+Instagram",
       "facebook": "https://www.google.com/search?q=Lautaro+Mart%C3%ADnez+Facebook",
@@ -1328,13 +1357,13 @@
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 68,
-      "goals": 32
+      "caps": 84,
+      "goals": 40
     },
     "stats": {
-      "total_goals": 180,
+      "total_goals": 246,
       "total_assists": 60,
-      "trophies_count": 12
+      "trophies_count": 13
     },
     "primary_position": "CF",
     "secondary_positions": [],
@@ -1349,7 +1378,8 @@
     ],
     "height_cm": 174.0,
     "weight_kg": 72.0,
-    "birth_date": "1997-08-22"
+    "birth_date": "1997-08-22",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/vwxq811759408924.png"
   },
   {
     "id": 26,
@@ -1361,7 +1391,7 @@
       "La Joya",
       "ดีบาลา"
     ],
-    "bio": "Paulo Dybala เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Roma ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Roma.",
+    "bio": "Paulo Dybala เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Roma ใน Serie A และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Roma.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Paulo+Dybala+Instagram",
       "facebook": "https://www.google.com/search?q=Paulo+Dybala+Facebook",
@@ -1380,11 +1410,11 @@
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 38,
+      "caps": 40,
       "goals": 4
     },
     "stats": {
-      "total_goals": 190,
+      "total_goals": 202,
       "total_assists": 85,
       "trophies_count": 14
     },
@@ -1401,7 +1431,8 @@
     ],
     "height_cm": 177.0,
     "weight_kg": 75.0,
-    "birth_date": "1993-11-15"
+    "birth_date": "1993-11-15",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/pjupvq1758815223.png"
   },
   {
     "id": 27,
@@ -1414,7 +1445,7 @@
       "อัลวาเรซ",
       "Spider"
     ],
-    "bio": "Julián Álvarez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Atlético Madrid ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Atlético Madrid.",
+    "bio": "Julián Álvarez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Atlético Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Atlético Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Juli%C3%A1n+%C3%81lvarez+Instagram",
       "facebook": "https://www.google.com/search?q=Juli%C3%A1n+%C3%81lvarez+Facebook",
@@ -1433,13 +1464,13 @@
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 36,
-      "goals": 9
+      "caps": 59,
+      "goals": 15
     },
     "stats": {
-      "total_goals": 105,
+      "total_goals": 158,
       "total_assists": 60,
-      "trophies_count": 14
+      "trophies_count": 15
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -1454,7 +1485,8 @@
     ],
     "height_cm": 170.0,
     "weight_kg": 70.0,
-    "birth_date": "2000-01-31"
+    "birth_date": "2000-01-31",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/91pla41762288186.png"
   },
   {
     "id": 28,
@@ -1465,7 +1497,7 @@
       "แม็คก้า",
       "Mac Allister"
     ],
-    "bio": "Alexis Mac Allister เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Liverpool ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Liverpool.",
+    "bio": "Alexis Mac Allister เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Liverpool ใน Premier League และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Liverpool.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Alexis+Mac+Allister+Instagram",
       "facebook": "https://www.google.com/search?q=Alexis+Mac+Allister+Facebook",
@@ -1484,13 +1516,13 @@
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 31,
-      "goals": 3
+      "caps": 54,
+      "goals": 7
     },
     "stats": {
-      "total_goals": 65,
+      "total_goals": 59,
       "total_assists": 45,
-      "trophies_count": 8
+      "trophies_count": 7
     },
     "primary_position": "CM",
     "secondary_positions": [],
@@ -1505,7 +1537,8 @@
     ],
     "height_cm": 174.0,
     "weight_kg": 72.0,
-    "birth_date": "1998-12-24"
+    "birth_date": "1998-12-24",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/t0d3bt1788551187.png"
   },
   {
     "id": 29,
@@ -1517,7 +1550,7 @@
       "เอ็นโซ",
       "เอนโซ"
     ],
-    "bio": "Enzo Fernández เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Chelsea.",
+    "bio": "Enzo Fernández เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Chelsea → Manchester City.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Enzo+Fern%C3%A1ndez+Instagram",
       "facebook": "https://www.google.com/search?q=Enzo+Fern%C3%A1ndez+Facebook",
@@ -1526,23 +1559,24 @@
     },
     "age": 25,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/59cm7k1771427301.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/pbf4ul1782638263.png",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
     "flag_url": "https://flagcdn.com/w80/ar.png",
     "current_league": "Premier League",
-    "current_team": "Chelsea",
+    "current_team": "Manchester City",
     "teams_history": [
-      "Chelsea"
+      "Chelsea",
+      "Manchester City"
     ],
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 28,
-      "goals": 4
+      "caps": 49,
+      "goals": 8
     },
     "stats": {
-      "total_goals": 30,
+      "total_goals": 57,
       "total_assists": 45,
-      "trophies_count": 6
+      "trophies_count": 9
     },
     "primary_position": "CM",
     "secondary_positions": [],
@@ -1557,7 +1591,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 78.0,
-    "birth_date": "2001-01-17"
+    "birth_date": "2001-01-17",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/d49y2d1789054180.png"
   },
   {
     "id": 30,
@@ -1569,7 +1604,7 @@
       "Richarlison",
       "ริชาร์ลิซอน"
     ],
-    "bio": "Richarlison เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Tottenham Hotspur ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Tottenham Hotspur.",
+    "bio": "Richarlison เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Tottenham Hotspur ใน Premier League และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Tottenham Hotspur.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Richarlison+Instagram",
       "facebook": "https://www.google.com/search?q=Richarlison+Facebook",
@@ -1588,13 +1623,13 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 48,
+      "caps": 54,
       "goals": 20
     },
     "stats": {
-      "total_goals": 115,
+      "total_goals": 138,
       "total_assists": 40,
-      "trophies_count": 5
+      "trophies_count": 2
     },
     "primary_position": "ST",
     "secondary_positions": [],
@@ -1609,7 +1644,8 @@
     ],
     "height_cm": 179.0,
     "weight_kg": 71.0,
-    "birth_date": "1997-05-10"
+    "birth_date": "1997-05-10",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/0y1dmn1789397584.png"
   },
   {
     "id": 31,
@@ -1620,7 +1656,7 @@
       "มาร์ติเนลลี",
       "Gabi"
     ],
-    "bio": "Gabriel Martinelli เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Arsenal.",
+    "bio": "Gabriel Martinelli เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Hilal ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Arsenal → Al-Hilal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Gabriel+Martinelli+Instagram",
       "facebook": "https://www.google.com/search?q=Gabriel+Martinelli+Facebook",
@@ -1629,18 +1665,19 @@
     },
     "age": 25,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/jf2gcn1716705057.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/w0b80d1661656916.png",
     "flag_url": "https://flagcdn.com/w80/br.png",
-    "current_league": "Premier League",
-    "current_team": "Arsenal",
+    "current_league": "Saudi Pro League",
+    "current_team": "Al-Hilal",
     "teams_history": [
-      "Arsenal"
+      "Arsenal",
+      "Al-Hilal"
     ],
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 14,
-      "goals": 2
+      "caps": 27,
+      "goals": 5
     },
     "stats": {
       "total_goals": 80,
@@ -1660,7 +1697,8 @@
     ],
     "height_cm": 180.0,
     "weight_kg": 78.0,
-    "birth_date": "2001-06-18"
+    "birth_date": "2001-06-18",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/pnwfls1769331152.png"
   },
   {
     "id": 32,
@@ -1671,7 +1709,7 @@
       "Trossard",
       "ทรอสซาร์ด"
     ],
-    "bio": "Leandro Trossard เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Beşiktaş ใน N/A และเป็นตัวแทนทีมชาติ Belgium เส้นทางสโมสร: Beşiktaş.",
+    "bio": "Leandro Trossard เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Beşiktaş ใน Super Lig และเป็นตัวแทนทีมชาติ Belgium. เส้นทางสโมสร: Beşiktaş.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Leandro+Trossard+Instagram",
       "facebook": "https://www.google.com/search?q=Leandro+Trossard+Facebook",
@@ -1682,7 +1720,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/2ledb81705918706.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/svo05k1776827439.png",
     "flag_url": "https://flagcdn.com/w80/be.png",
-    "current_league": "N/A",
+    "current_league": "Super Lig",
     "current_team": "Beşiktaş",
     "teams_history": [
       "Beşiktaş"
@@ -1690,11 +1728,11 @@
     "national_team": {
       "played": true,
       "team_name": "Belgium",
-      "caps": 39,
-      "goals": 9
+      "caps": 57,
+      "goals": 14
     },
     "stats": {
-      "total_goals": 95,
+      "total_goals": 152,
       "total_assists": 60,
       "trophies_count": 4
     },
@@ -1711,7 +1749,8 @@
     ],
     "height_cm": 172.0,
     "weight_kg": 61.0,
-    "birth_date": "1994-12-04"
+    "birth_date": "1994-12-04",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/07fzpg1769331977.png"
   },
   {
     "id": 33,
@@ -1723,7 +1762,7 @@
       "Havertz",
       "ฮาแวร์ตซ์"
     ],
-    "bio": "Kai Havertz เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน N/A และเป็นตัวแทนทีมชาติ Germany เส้นทางสโมสร: Arsenal.",
+    "bio": "Kai Havertz เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน Premier League และเป็นตัวแทนทีมชาติ Germany. เส้นทางสโมสร: Arsenal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Kai+Havertz+Instagram",
       "facebook": "https://www.google.com/search?q=Kai+Havertz+Facebook",
@@ -1742,11 +1781,11 @@
     "national_team": {
       "played": true,
       "team_name": "Germany",
-      "caps": 51,
-      "goals": 19
+      "caps": 63,
+      "goals": 25
     },
     "stats": {
-      "total_goals": 105,
+      "total_goals": 142,
       "total_assists": 60,
       "trophies_count": 8
     },
@@ -1763,7 +1802,8 @@
     ],
     "height_cm": 187.0,
     "weight_kg": 75.0,
-    "birth_date": "1999-06-11"
+    "birth_date": "1999-06-11",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/irkeiw1788606984.png"
   },
   {
     "id": 34,
@@ -1775,14 +1815,14 @@
       "มุลเลอร์",
       "Muller"
     ],
-    "bio": "Thomas Müller เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Vancouver Whitecaps ใน N/A และเป็นตัวแทนทีมชาติ Germany เส้นทางสโมสร: Vancouver Whitecaps.",
+    "bio": "Thomas Müller เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Vancouver Whitecaps ใน Major League Soccer และเป็นตัวแทนทีมชาติ Germany. เส้นทางสโมสร: Vancouver Whitecaps.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Thomas+M%C3%BCller+Instagram",
       "facebook": "https://www.google.com/search?q=Thomas+M%C3%BCller+Facebook",
       "x": "https://www.google.com/search?q=Thomas+M%C3%BCller+X+Twitter",
       "youtube": "https://www.youtube.com/results?search_query=Thomas+M%C3%BCller"
     },
-    "age": 36,
+    "age": 37,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/rhbgrp1702750958.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/tpwxpy1473536521.png",
     "flag_url": "https://flagcdn.com/w80/de.png",
@@ -1798,7 +1838,7 @@
       "goals": 45
     },
     "stats": {
-      "total_goals": 280,
+      "total_goals": 313,
       "total_assists": 270,
       "trophies_count": 33
     },
@@ -1815,7 +1855,8 @@
     ],
     "height_cm": 186.0,
     "weight_kg": 74.0,
-    "birth_date": "1989-09-13"
+    "birth_date": "1989-09-13",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/6iqfos1770542275.png"
   },
   {
     "id": 35,
@@ -1827,7 +1868,7 @@
       "Gnabry",
       "กนาบรี"
     ],
-    "bio": "Serge Gnabry เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน N/A และเป็นตัวแทนทีมชาติ Germany เส้นทางสโมสร: Bayern Munich.",
+    "bio": "Serge Gnabry เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน Bundesliga และเป็นตัวแทนทีมชาติ Germany. เส้นทางสโมสร: Bayern Munich.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Serge+Gnabry+Instagram",
       "facebook": "https://www.google.com/search?q=Serge+Gnabry+Facebook",
@@ -1846,11 +1887,11 @@
     "national_team": {
       "played": true,
       "team_name": "Germany",
-      "caps": 45,
-      "goals": 22
+      "caps": 59,
+      "goals": 26
     },
     "stats": {
-      "total_goals": 130,
+      "total_goals": 151,
       "total_assists": 70,
       "trophies_count": 16
     },
@@ -1867,7 +1908,8 @@
     ],
     "height_cm": 173.0,
     "weight_kg": 73.0,
-    "birth_date": "1995-07-14"
+    "birth_date": "1995-07-14",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/unnt3z1756409086.png"
   },
   {
     "id": 36,
@@ -1878,7 +1920,7 @@
       "ซาเน",
       "ซาเน่"
     ],
-    "bio": "Leroy Sané เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Galatasaray ใน N/A และเป็นตัวแทนทีมชาติ Germany เส้นทางสโมสร: Galatasaray.",
+    "bio": "Leroy Sané เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Galatasaray ใน Super Lig และเป็นตัวแทนทีมชาติ Germany. เส้นทางสโมสร: Galatasaray.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Leroy+San%C3%A9+Instagram",
       "facebook": "https://www.google.com/search?q=Leroy+San%C3%A9+Facebook",
@@ -1889,7 +1931,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/kymheu1779385557.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/121rws1608670557.png",
     "flag_url": "https://flagcdn.com/w80/de.png",
-    "current_league": "N/A",
+    "current_league": "Super Lig",
     "current_team": "Galatasaray",
     "teams_history": [
       "Galatasaray"
@@ -1897,11 +1939,11 @@
     "national_team": {
       "played": true,
       "team_name": "Germany",
-      "caps": 65,
-      "goals": 13
+      "caps": 80,
+      "goals": 18
     },
     "stats": {
-      "total_goals": 120,
+      "total_goals": 138,
       "total_assists": 115,
       "trophies_count": 18
     },
@@ -1918,7 +1960,8 @@
     ],
     "height_cm": 183.0,
     "weight_kg": 75.0,
-    "birth_date": "1996-01-11"
+    "birth_date": "1996-01-11",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/bqdwlt1769178212.png"
   },
   {
     "id": 37,
@@ -1930,7 +1973,7 @@
       "โครส",
       "คุณชายโครส"
     ],
-    "bio": "Toni Kroos เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ _Retired Soccer ใน N/A และเป็นตัวแทนทีมชาติ Germany เส้นทางสโมสร: _Retired Soccer.",
+    "bio": "Toni Kroos เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ _Retired Soccer และเป็นตัวแทนทีมชาติ Germany. เส้นทางสโมสร: _Retired Soccer.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Toni+Kroos+Instagram",
       "facebook": "https://www.google.com/search?q=Toni+Kroos+Facebook",
@@ -1953,7 +1996,7 @@
       "goals": 17
     },
     "stats": {
-      "total_goals": 75,
+      "total_goals": 80,
       "total_assists": 160,
       "trophies_count": 34
     },
@@ -1970,7 +2013,8 @@
     ],
     "height_cm": 183.0,
     "weight_kg": 76.0,
-    "birth_date": "1990-01-04"
+    "birth_date": "1990-01-04",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/15aner1662548423.png"
   },
   {
     "id": 38,
@@ -1981,7 +2025,7 @@
       "บัลเบร์เด",
       "เอล ปาฮาริโต้"
     ],
-    "bio": "Federico Valverde เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ Uruguay เส้นทางสโมสร: Real Madrid.",
+    "bio": "Federico Valverde เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Uruguay. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Federico+Valverde+Instagram",
       "facebook": "https://www.google.com/search?q=Federico+Valverde+Facebook",
@@ -2000,11 +2044,11 @@
     "national_team": {
       "played": true,
       "team_name": "Uruguay",
-      "caps": 62,
-      "goals": 7
+      "caps": 76,
+      "goals": 9
     },
     "stats": {
-      "total_goals": 55,
+      "total_goals": 54,
       "total_assists": 60,
       "trophies_count": 14
     },
@@ -2021,7 +2065,8 @@
     ],
     "height_cm": 181.0,
     "weight_kg": 76.0,
-    "birth_date": "1998-07-22"
+    "birth_date": "1998-07-22",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/6rcajb1788113814.png"
   },
   {
     "id": 39,
@@ -2032,7 +2077,7 @@
       "กามาวินก้า",
       "คามาวิงก้า"
     ],
-    "bio": "Eduardo Camavinga เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Real Madrid.",
+    "bio": "Eduardo Camavinga เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Eduardo+Camavinga+Instagram",
       "facebook": "https://www.google.com/search?q=Eduardo+Camavinga+Facebook",
@@ -2051,11 +2096,11 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 23,
-      "goals": 1
+      "caps": 29,
+      "goals": 2
     },
     "stats": {
-      "total_goals": 20,
+      "total_goals": 10,
       "total_assists": 30,
       "trophies_count": 10
     },
@@ -2072,7 +2117,8 @@
     ],
     "height_cm": 182.0,
     "weight_kg": 68.0,
-    "birth_date": "2002-11-10"
+    "birth_date": "2002-11-10",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/vt1f141788113742.png"
   },
   {
     "id": 40,
@@ -2083,7 +2129,7 @@
       "ชูอาเมนิ",
       "Tchouameni"
     ],
-    "bio": "Aurélien Tchouaméni เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Real Madrid.",
+    "bio": "Aurélien Tchouaméni เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Aur%C3%A9lien+Tchouam%C3%A9ni+Instagram",
       "facebook": "https://www.google.com/search?q=Aur%C3%A9lien+Tchouam%C3%A9ni+Facebook",
@@ -2102,11 +2148,11 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 36,
+      "caps": 50,
       "goals": 3
     },
     "stats": {
-      "total_goals": 25,
+      "total_goals": 19,
       "total_assists": 25,
       "trophies_count": 8
     },
@@ -2123,7 +2169,8 @@
     ],
     "height_cm": 185.0,
     "weight_kg": 75.0,
-    "birth_date": "2000-01-27"
+    "birth_date": "2000-01-27",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/8ov2ro1788113887.png"
   },
   {
     "id": 41,
@@ -2134,7 +2181,7 @@
       "เอแดร์",
       "Militao"
     ],
-    "bio": "Éder Militão เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Real Madrid.",
+    "bio": "Éder Militão เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=%C3%89der+Milit%C3%A3o+Instagram",
       "facebook": "https://www.google.com/search?q=%C3%89der+Milit%C3%A3o+Facebook",
@@ -2153,11 +2200,11 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 35,
+      "caps": 38,
       "goals": 2
     },
     "stats": {
-      "total_goals": 20,
+      "total_goals": 25,
       "total_assists": 15,
       "trophies_count": 12
     },
@@ -2174,7 +2221,8 @@
     ],
     "height_cm": 186.0,
     "weight_kg": 79.0,
-    "birth_date": "1998-01-18"
+    "birth_date": "1998-01-18",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/xo4fdb1788112164.png"
   },
   {
     "id": 42,
@@ -2185,7 +2233,7 @@
       "เมนดี",
       "เมนดี้"
     ],
-    "bio": "Ferland Mendy เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Real Madrid.",
+    "bio": "Ferland Mendy เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Ferland+Mendy+Instagram",
       "facebook": "https://www.google.com/search?q=Ferland+Mendy+Facebook",
@@ -2208,7 +2256,7 @@
       "goals": 0
     },
     "stats": {
-      "total_goals": 10,
+      "total_goals": 11,
       "total_assists": 20,
       "trophies_count": 10
     },
@@ -2225,7 +2273,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 73.0,
-    "birth_date": "1995-06-08"
+    "birth_date": "1995-06-08",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/1pewgz1788113536.png"
   },
   {
     "id": 43,
@@ -2236,7 +2285,7 @@
       "การ์บาฆาล",
       "Carvajal"
     ],
-    "bio": "Daniel Carvajal เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ _Retired Soccer ใน N/A และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: _Retired Soccer.",
+    "bio": "Daniel Carvajal เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ _Retired Soccer และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: _Retired Soccer.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Daniel+Carvajal+Instagram",
       "facebook": "https://www.google.com/search?q=Daniel+Carvajal+Facebook",
@@ -2255,11 +2304,11 @@
     "national_team": {
       "played": true,
       "team_name": "Spain",
-      "caps": 49,
+      "caps": 52,
       "goals": 1
     },
     "stats": {
-      "total_goals": 15,
+      "total_goals": 19,
       "total_assists": 65,
       "trophies_count": 26
     },
@@ -2276,7 +2325,8 @@
     ],
     "height_cm": 173.0,
     "weight_kg": 74.0,
-    "birth_date": "1992-01-11"
+    "birth_date": "1992-01-11",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/k510z81733653425.png"
   },
   {
     "id": 44,
@@ -2288,7 +2338,7 @@
       "กาบี้",
       "ปาโบล กาบี"
     ],
-    "bio": "Gavi เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: FC Barcelona.",
+    "bio": "Gavi เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: FC Barcelona.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Gavi+Instagram",
       "facebook": "https://www.google.com/search?q=Gavi+Facebook",
@@ -2296,7 +2346,7 @@
       "youtube": "https://www.youtube.com/results?search_query=Gavi"
     },
     "age": 22,
-    "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/b9802d1692226342.jpg",
+    "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Gavi_Argentina_v_Spain_19_July_2026-013.jpg/1280px-Gavi_Argentina_v_Spain_19_July_2026-013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wq9sir1639406443.png",
     "flag_url": "https://flagcdn.com/w80/es.png",
     "current_league": "La Liga",
@@ -2307,11 +2357,11 @@
     "national_team": {
       "played": true,
       "team_name": "Spain",
-      "caps": 27,
+      "caps": 32,
       "goals": 5
     },
     "stats": {
-      "total_goals": 25,
+      "total_goals": 15,
       "total_assists": 40,
       "trophies_count": 6
     },
@@ -2328,7 +2378,8 @@
     ],
     "height_cm": 173.0,
     "weight_kg": 68.0,
-    "birth_date": "2004-08-05"
+    "birth_date": "2004-08-05",
+    "hero_photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Gavi_Argentina_v_Spain_19_July_2026-013.jpg/1280px-Gavi_Argentina_v_Spain_19_July_2026-013.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": 45,
@@ -2339,7 +2390,7 @@
       "ฉลามตอร์เรส",
       "ตอร์เรส"
     ],
-    "bio": "Ferran Torres เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris Saint-Germain ใน N/A และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: Paris Saint-Germain.",
+    "bio": "Ferran Torres เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris Saint-Germain ใน Ligue 1 และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: Paris Saint-Germain.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Ferran+Torres+Instagram",
       "facebook": "https://www.google.com/search?q=Ferran+Torres+Facebook",
@@ -2358,11 +2409,11 @@
     "national_team": {
       "played": true,
       "team_name": "Spain",
-      "caps": 46,
-      "goals": 20
+      "caps": 65,
+      "goals": 25
     },
     "stats": {
-      "total_goals": 85,
+      "total_goals": 123,
       "total_assists": 45,
       "trophies_count": 8
     },
@@ -2379,7 +2430,8 @@
     ],
     "height_cm": 184.0,
     "weight_kg": 77.0,
-    "birth_date": "2000-02-29"
+    "birth_date": "2000-02-29",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/feey201726510461.png"
   },
   {
     "id": 46,
@@ -2390,7 +2442,7 @@
       "Ansu Fati",
       "ฟาตี้"
     ],
-    "bio": "Ansu Fati เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Monaco ใน N/A และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: Monaco.",
+    "bio": "Ansu Fati เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Monaco ใน Ligue 1 และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: Monaco.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Ansu+Fati+Instagram",
       "facebook": "https://www.google.com/search?q=Ansu+Fati+Facebook",
@@ -2413,7 +2465,7 @@
       "goals": 2
     },
     "stats": {
-      "total_goals": 40,
+      "total_goals": 47,
       "total_assists": 20,
       "trophies_count": 5
     },
@@ -2430,7 +2482,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 55.0,
-    "birth_date": "2002-10-31"
+    "birth_date": "2002-10-31",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/54v6h91766238031.png"
   },
   {
     "id": 47,
@@ -2441,7 +2494,7 @@
       "กุนโดกัน",
       "Gundogan"
     ],
-    "bio": "İlkay Gündoğan เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Galatasaray ใน N/A และเป็นตัวแทนทีมชาติ Germany เส้นทางสโมสร: Galatasaray.",
+    "bio": "İlkay Gündoğan เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Galatasaray ใน Super Lig และเป็นตัวแทนทีมชาติ Germany. เส้นทางสโมสร: Galatasaray.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=%C4%B0lkay+G%C3%BCndo%C4%9Fan+Instagram",
       "facebook": "https://www.google.com/search?q=%C4%B0lkay+G%C3%BCndo%C4%9Fan+Facebook",
@@ -2452,7 +2505,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/55dcb01690988705.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/121rws1608670557.png",
     "flag_url": "https://flagcdn.com/w80/de.png",
-    "current_league": "N/A",
+    "current_league": "Super Lig",
     "current_team": "Galatasaray",
     "teams_history": [
       "Galatasaray"
@@ -2464,7 +2517,7 @@
       "goals": 19
     },
     "stats": {
-      "total_goals": 115,
+      "total_goals": 114,
       "total_assists": 80,
       "trophies_count": 18
     },
@@ -2481,7 +2534,8 @@
     ],
     "height_cm": 180.0,
     "weight_kg": 80.0,
-    "birth_date": "1990-10-24"
+    "birth_date": "1990-10-24",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/rhyyig1768854274.png"
   },
   {
     "id": 48,
@@ -2492,18 +2546,18 @@
       "ติอาโก ซิลวา",
       "Thiago Silva"
     ],
-    "bio": "Thiago Silva เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fluminense ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Fluminense.",
+    "bio": "Thiago Silva เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fluminense ใน Brazilian Serie A และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Fluminense.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Thiago+Silva+Instagram",
       "facebook": "https://www.google.com/search?q=Thiago+Silva+Facebook",
       "x": "https://www.google.com/search?q=Thiago+Silva+X+Twitter",
       "youtube": "https://www.youtube.com/results?search_query=Thiago+Silva"
     },
-    "age": 41,
+    "age": 42,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/tixp6d1658771633.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/stvvwp1473538082.png",
     "flag_url": "https://flagcdn.com/w80/br.png",
-    "current_league": "N/A",
+    "current_league": "Brazilian Serie A",
     "current_team": "Fluminense",
     "teams_history": [
       "Fluminense"
@@ -2515,7 +2569,7 @@
       "goals": 7
     },
     "stats": {
-      "total_goals": 40,
+      "total_goals": 63,
       "total_assists": 20,
       "trophies_count": 32
     },
@@ -2532,7 +2586,8 @@
     ],
     "height_cm": 183.0,
     "weight_kg": 79.0,
-    "birth_date": "1984-09-22"
+    "birth_date": "1984-09-22",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/81cvg01750614116.png"
   },
   {
     "id": 49,
@@ -2543,7 +2598,7 @@
       "กัปตันมาร์กี้",
       "Marquinhos"
     ],
-    "bio": "Marquinhos เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Paris SG.",
+    "bio": "Marquinhos เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน Ligue 1 และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Paris SG.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Marquinhos+Instagram",
       "facebook": "https://www.google.com/search?q=Marquinhos+Facebook",
@@ -2562,11 +2617,11 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 89,
+      "caps": 110,
       "goals": 7
     },
     "stats": {
-      "total_goals": 45,
+      "total_goals": 53,
       "total_assists": 15,
       "trophies_count": 30
     },
@@ -2583,7 +2638,8 @@
     ],
     "height_cm": 194.0,
     "weight_kg": 80.0,
-    "birth_date": "1994-05-14"
+    "birth_date": "1994-05-14",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/7x9gtl1766335348.png"
   },
   {
     "id": 50,
@@ -2594,7 +2650,7 @@
       "Danilo",
       "ดานิโล"
     ],
-    "bio": "Danilo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Flamengo ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Flamengo.",
+    "bio": "Danilo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Flamengo ใน Brazilian Serie A และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Flamengo.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Danilo+Instagram",
       "facebook": "https://www.google.com/search?q=Danilo+Facebook",
@@ -2605,7 +2661,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/9qsyun1598691910.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/syptwx1473538074.png",
     "flag_url": "https://flagcdn.com/w80/br.png",
-    "current_league": "N/A",
+    "current_league": "Brazilian Serie A",
     "current_team": "Flamengo",
     "teams_history": [
       "Flamengo"
@@ -2613,11 +2669,11 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 60,
+      "caps": 75,
       "goals": 1
     },
     "stats": {
-      "total_goals": 30,
+      "total_goals": 46,
       "total_assists": 35,
       "trophies_count": 25
     },
@@ -2634,7 +2690,8 @@
     ],
     "height_cm": 173.0,
     "weight_kg": 71.0,
-    "birth_date": "1991-07-15"
+    "birth_date": "1991-07-15",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/6hr4w81750454528.png"
   },
   {
     "id": 51,
@@ -2645,7 +2702,7 @@
       "Raphinha",
       "ราฟินญ่า"
     ],
-    "bio": "Raphinha เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Barcelona ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Barcelona.",
+    "bio": "Raphinha เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Barcelona.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Raphinha+Instagram",
       "facebook": "https://www.google.com/search?q=Raphinha+Facebook",
@@ -2664,11 +2721,11 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 27,
-      "goals": 7
+      "caps": 41,
+      "goals": 11
     },
     "stats": {
-      "total_goals": 135,
+      "total_goals": 156,
       "total_assists": 90,
       "trophies_count": 8
     },
@@ -2685,7 +2742,8 @@
     ],
     "height_cm": 176.0,
     "weight_kg": 68.0,
-    "birth_date": "1996-12-14"
+    "birth_date": "1996-12-14",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/w94spe1726510018.png"
   },
   {
     "id": 52,
@@ -2696,7 +2754,7 @@
       "Gakpo",
       "กัคโป"
     ],
-    "bio": "Cody Gakpo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Liverpool ใน N/A และเป็นตัวแทนทีมชาติ Netherlands เส้นทางสโมสร: Liverpool.",
+    "bio": "Cody Gakpo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Liverpool ใน Premier League และเป็นตัวแทนทีมชาติ Netherlands. เส้นทางสโมสร: Liverpool.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Cody+Gakpo+Instagram",
       "facebook": "https://www.google.com/search?q=Cody+Gakpo+Facebook",
@@ -2715,11 +2773,11 @@
     "national_team": {
       "played": true,
       "team_name": "Netherlands",
-      "caps": 34,
-      "goals": 13
+      "caps": 55,
+      "goals": 24
     },
     "stats": {
-      "total_goals": 100,
+      "total_goals": 148,
       "total_assists": 75,
       "trophies_count": 6
     },
@@ -2736,7 +2794,8 @@
     ],
     "height_cm": 179.0,
     "weight_kg": 64.0,
-    "birth_date": "1999-05-07"
+    "birth_date": "1999-05-07",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/lnikpg1788551025.png"
   },
   {
     "id": 53,
@@ -2748,7 +2807,7 @@
       "Darwin",
       "หนูน"
     ],
-    "bio": "Darwin Núñez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Hilal ใน N/A และเป็นตัวแทนทีมชาติ Uruguay เส้นทางสโมสร: Al-Hilal.",
+    "bio": "Darwin Núñez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Diriyah Club ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Uruguay. เส้นทางสโมสร: Al-Hilal → Diriyah Club.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Darwin+N%C3%BA%C3%B1ez+Instagram",
       "facebook": "https://www.google.com/search?q=Darwin+N%C3%BA%C3%B1ez+Facebook",
@@ -2757,21 +2816,22 @@
     },
     "age": 27,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/6b6yhd1718090345.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/w0b80d1661656916.png",
+    "club_logo_url": "N/A",
     "flag_url": "https://flagcdn.com/w80/uy.png",
     "current_league": "Saudi Pro League",
-    "current_team": "Al-Hilal",
+    "current_team": "Diriyah Club",
     "teams_history": [
-      "Al-Hilal"
+      "Al-Hilal",
+      "Diriyah Club"
     ],
     "national_team": {
       "played": true,
       "team_name": "Uruguay",
-      "caps": 29,
+      "caps": 42,
       "goals": 13
     },
     "stats": {
-      "total_goals": 110,
+      "total_goals": 133,
       "total_assists": 40,
       "trophies_count": 5
     },
@@ -2788,7 +2848,8 @@
     ],
     "height_cm": 187.0,
     "weight_kg": 78.0,
-    "birth_date": "1999-06-24"
+    "birth_date": "1999-06-24",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/i78juc1693941560.png"
   },
   {
     "id": 54,
@@ -2799,7 +2860,7 @@
       "Jota",
       "ดิโอโก้"
     ],
-    "bio": "Diogo Jota เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ _Deceased Soccer ใน N/A และเป็นตัวแทนทีมชาติ Portugal เส้นทางสโมสร: _Deceased Soccer.",
+    "bio": "Diogo Jota เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ _Deceased Soccer และเป็นตัวแทนทีมชาติ Portugal. เส้นทางสโมสร: _Deceased Soccer.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Diogo+Jota+Instagram",
       "facebook": "https://www.google.com/search?q=Diogo+Jota+Facebook",
@@ -2818,11 +2879,11 @@
     "national_team": {
       "played": true,
       "team_name": "Portugal",
-      "caps": 42,
+      "caps": 49,
       "goals": 14
     },
     "stats": {
-      "total_goals": 120,
+      "total_goals": 147,
       "total_assists": 55,
       "trophies_count": 7
     },
@@ -2839,7 +2900,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 70.0,
-    "birth_date": "1996-12-04"
+    "birth_date": "1996-12-04",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/9mty4l1693941467.png"
   },
   {
     "id": 55,
@@ -2850,7 +2912,7 @@
       "ดิอาซ",
       "Luis Diaz"
     ],
-    "bio": "Luis Díaz เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน N/A และเป็นตัวแทนทีมชาติ Colombia เส้นทางสโมสร: Bayern Munich.",
+    "bio": "Luis Díaz เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน Bundesliga และเป็นตัวแทนทีมชาติ Colombia. เส้นทางสโมสร: Bayern Munich.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Luis+D%C3%ADaz+Instagram",
       "facebook": "https://www.google.com/search?q=Luis+D%C3%ADaz+Facebook",
@@ -2869,11 +2931,11 @@
     "national_team": {
       "played": true,
       "team_name": "Colombia",
-      "caps": 55,
-      "goals": 15
+      "caps": 79,
+      "goals": 23
     },
     "stats": {
-      "total_goals": 85,
+      "total_goals": 158,
       "total_assists": 45,
       "trophies_count": 9
     },
@@ -2890,7 +2952,8 @@
     ],
     "height_cm": 180.0,
     "weight_kg": 72.0,
-    "birth_date": "1997-01-13"
+    "birth_date": "1997-01-13",
+    "hero_photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Luis_Diaz_2022.jpg"
   },
   {
     "id": 56,
@@ -2901,7 +2964,7 @@
       "ร็อบโบ้",
       "โรเบิร์ตสัน"
     ],
-    "bio": "Andrew Robertson เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Tottenham Hotspur ใน N/A และเป็นตัวแทนทีมชาติ Scotland เส้นทางสโมสร: Tottenham Hotspur.",
+    "bio": "Andrew Robertson เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Tottenham Hotspur ใน Premier League และเป็นตัวแทนทีมชาติ Scotland. เส้นทางสโมสร: Tottenham Hotspur.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Andrew+Robertson+Instagram",
       "facebook": "https://www.google.com/search?q=Andrew+Robertson+Facebook",
@@ -2920,11 +2983,11 @@
     "national_team": {
       "played": true,
       "team_name": "Scotland",
-      "caps": 74,
-      "goals": 3
+      "caps": 97,
+      "goals": 4
     },
     "stats": {
-      "total_goals": 15,
+      "total_goals": 30,
       "total_assists": 85,
       "trophies_count": 9
     },
@@ -2941,7 +3004,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 63.0,
-    "birth_date": "1994-03-11"
+    "birth_date": "1994-03-11",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/h06rpy1789397400.png"
   },
   {
     "id": 57,
@@ -2952,7 +3016,7 @@
       "กัปตันโอเด",
       "โอเดการ์ด"
     ],
-    "bio": "Martin Ødegaard เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน N/A และเป็นตัวแทนทีมชาติ Norway เส้นทางสโมสร: Arsenal.",
+    "bio": "Martin Ødegaard เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน Premier League และเป็นตัวแทนทีมชาติ Norway. เส้นทางสโมสร: Arsenal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Martin+%C3%98degaard+Instagram",
       "facebook": "https://www.google.com/search?q=Martin+%C3%98degaard+Facebook",
@@ -2971,11 +3035,11 @@
     "national_team": {
       "played": true,
       "team_name": "Norway",
-      "caps": 59,
-      "goals": 3
+      "caps": 74,
+      "goals": 5
     },
     "stats": {
-      "total_goals": 75,
+      "total_goals": 86,
       "total_assists": 80,
       "trophies_count": 7
     },
@@ -2992,7 +3056,8 @@
     ],
     "height_cm": 176.0,
     "weight_kg": 68.0,
-    "birth_date": "1998-12-17"
+    "birth_date": "1998-12-17",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/0dp1xj1788606745.png"
   },
   {
     "id": 58,
@@ -3003,7 +3068,7 @@
       "กาเบรียล เชซุส",
       "Jesus"
     ],
-    "bio": "Gabriel Jesus เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Arsenal.",
+    "bio": "Gabriel Jesus เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ FC Barcelona ใน La Liga และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Arsenal → FC Barcelona.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Gabriel+Jesus+Instagram",
       "facebook": "https://www.google.com/search?q=Gabriel+Jesus+Facebook",
@@ -3012,12 +3077,13 @@
     },
     "age": 29,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/iwt0021678196502.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/8xuc781639493166.png",
     "flag_url": "https://flagcdn.com/w80/br.png",
-    "current_league": "Premier League",
-    "current_team": "Arsenal",
+    "current_league": "La Liga",
+    "current_team": "FC Barcelona",
     "teams_history": [
-      "Arsenal"
+      "Arsenal",
+      "FC Barcelona"
     ],
     "national_team": {
       "played": true,
@@ -3026,7 +3092,7 @@
       "goals": 19
     },
     "stats": {
-      "total_goals": 145,
+      "total_goals": 176,
       "total_assists": 65,
       "trophies_count": 12
     },
@@ -3043,7 +3109,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 73.0,
-    "birth_date": "1997-04-03"
+    "birth_date": "1997-04-03",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/jcifyz1789725894.png"
   },
   {
     "id": 59,
@@ -3054,7 +3121,7 @@
       "Big Gabi",
       "มากัลเญส"
     ],
-    "bio": "Gabriel เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Arsenal.",
+    "bio": "Gabriel เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน Premier League และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Arsenal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Gabriel+Instagram",
       "facebook": "https://www.google.com/search?q=Gabriel+Facebook",
@@ -3073,11 +3140,11 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 9,
+      "caps": 22,
       "goals": 1
     },
     "stats": {
-      "total_goals": 20,
+      "total_goals": 29,
       "total_assists": 5,
       "trophies_count": 4
     },
@@ -3094,7 +3161,8 @@
     ],
     "height_cm": 190.0,
     "weight_kg": 73.0,
-    "birth_date": "1997-12-19"
+    "birth_date": "1997-12-19",
+    "hero_photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Gabriel_Magalhaes_Brazil_V_Morocco_13_June_2026-132_%28cropped%29.jpg/1280px-Gabriel_Magalhaes_Brazil_V_Morocco_13_June_2026-132_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
   },
   {
     "id": 60,
@@ -3105,7 +3173,7 @@
       "Saliba",
       "ซาลิบา"
     ],
-    "bio": "William Saliba เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Arsenal.",
+    "bio": "William Saliba เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Arsenal ใน Premier League และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Arsenal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=William+Saliba+Instagram",
       "facebook": "https://www.google.com/search?q=William+Saliba+Facebook",
@@ -3124,11 +3192,11 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 23,
+      "caps": 38,
       "goals": 0
     },
     "stats": {
-      "total_goals": 10,
+      "total_goals": 9,
       "total_assists": 10,
       "trophies_count": 5
     },
@@ -3145,7 +3213,8 @@
     ],
     "height_cm": 193.0,
     "weight_kg": 85.0,
-    "birth_date": "2001-03-24"
+    "birth_date": "2001-03-24",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/pnctap1788606629.png"
   },
   {
     "id": 61,
@@ -3156,7 +3225,7 @@
       "กัปตันชาก้า",
       "Xhaka"
     ],
-    "bio": "Granit Xhaka เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Sunderland ใน N/A และเป็นตัวแทนทีมชาติ Switzerland เส้นทางสโมสร: Sunderland.",
+    "bio": "Granit Xhaka เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Sunderland ใน Premier League และเป็นตัวแทนทีมชาติ Switzerland. เส้นทางสโมสร: Sunderland.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Granit+Xhaka+Instagram",
       "facebook": "https://www.google.com/search?q=Granit+Xhaka+Facebook",
@@ -3175,11 +3244,11 @@
     "national_team": {
       "played": true,
       "team_name": "Switzerland",
-      "caps": 130,
-      "goals": 14
+      "caps": 152,
+      "goals": 18
     },
     "stats": {
-      "total_goals": 45,
+      "total_goals": 60,
       "total_assists": 55,
       "trophies_count": 10
     },
@@ -3196,7 +3265,8 @@
     ],
     "height_cm": 183.0,
     "weight_kg": 70.0,
-    "birth_date": "1992-09-27"
+    "birth_date": "1992-09-27",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/knw5ip1789395096.png"
   },
   {
     "id": 62,
@@ -3207,7 +3277,7 @@
       "Barella",
       "บาเรลลา"
     ],
-    "bio": "Nicolo Barella เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Milan ใน N/A และเป็นตัวแทนทีมชาติ Italy เส้นทางสโมสร: Inter Milan.",
+    "bio": "Nicolo Barella เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Milan ใน Serie A และเป็นตัวแทนทีมชาติ Italy. เส้นทางสโมสร: Inter Milan.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Nicolo+Barella+Instagram",
       "facebook": "https://www.google.com/search?q=Nicolo+Barella+Facebook",
@@ -3226,11 +3296,11 @@
     "national_team": {
       "played": true,
       "team_name": "Italy",
-      "caps": 57,
+      "caps": 70,
       "goals": 10
     },
     "stats": {
-      "total_goals": 40,
+      "total_goals": 46,
       "total_assists": 70,
       "trophies_count": 8
     },
@@ -3247,7 +3317,8 @@
     ],
     "height_cm": 172.0,
     "weight_kg": 68.0,
-    "birth_date": "1997-02-07"
+    "birth_date": "1997-02-07",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/k03sge1759408783.png"
   },
   {
     "id": 63,
@@ -3258,7 +3329,7 @@
       "เคียซา",
       "เคียซ่า"
     ],
-    "bio": "Federico Chiesa เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Liverpool ใน N/A และเป็นตัวแทนทีมชาติ Italy เส้นทางสโมสร: Liverpool.",
+    "bio": "Federico Chiesa เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Liverpool ใน Premier League และเป็นตัวแทนทีมชาติ Italy. เส้นทางสโมสร: Liverpool.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Federico+Chiesa+Instagram",
       "facebook": "https://www.google.com/search?q=Federico+Chiesa+Facebook",
@@ -3281,7 +3352,7 @@
       "goals": 7
     },
     "stats": {
-      "total_goals": 70,
+      "total_goals": 78,
       "total_assists": 50,
       "trophies_count": 6
     },
@@ -3298,7 +3369,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 70.0,
-    "birth_date": "1997-10-25"
+    "birth_date": "1997-10-25",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/xzkvsm1788591958.png"
   },
   {
     "id": 64,
@@ -3309,7 +3381,7 @@
       "Donnarumma",
       "จิจิโอ้"
     ],
-    "bio": "Gianluigi Donnarumma เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน N/A และเป็นตัวแทนทีมชาติ Italy เส้นทางสโมสร: Manchester City.",
+    "bio": "Gianluigi Donnarumma เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester City ใน Premier League และเป็นตัวแทนทีมชาติ Italy. เส้นทางสโมสร: Manchester City.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Gianluigi+Donnarumma+Instagram",
       "facebook": "https://www.google.com/search?q=Gianluigi+Donnarumma+Facebook",
@@ -3328,7 +3400,7 @@
     "national_team": {
       "played": true,
       "team_name": "Italy",
-      "caps": 66,
+      "caps": 83,
       "goals": 0
     },
     "stats": {
@@ -3349,7 +3421,8 @@
     ],
     "height_cm": 196.0,
     "weight_kg": 90.0,
-    "birth_date": "1999-02-25"
+    "birth_date": "1999-02-25",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/f5rne61789053799.png"
   },
   {
     "id": 65,
@@ -3360,7 +3433,7 @@
       "เตโอ",
       "Theo Hernandez"
     ],
-    "bio": "Théo Hernandez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Hilal ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Al-Hilal.",
+    "bio": "Théo Hernandez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Hilal ใน Saudi Pro League และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Al-Hilal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Th%C3%A9o+Hernandez+Instagram",
       "facebook": "https://www.google.com/search?q=Th%C3%A9o+Hernandez+Facebook",
@@ -3379,11 +3452,11 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 33,
+      "caps": 49,
       "goals": 2
     },
     "stats": {
-      "total_goals": 60,
+      "total_goals": 49,
       "total_assists": 70,
       "trophies_count": 8
     },
@@ -3400,7 +3473,8 @@
     ],
     "height_cm": 184.0,
     "weight_kg": 82.0,
-    "birth_date": "1997-10-06"
+    "birth_date": "1997-10-06",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/4d3g7j1675234242.png"
   },
   {
     "id": 66,
@@ -3411,7 +3485,7 @@
       "ไมค์",
       "เมญ็อง"
     ],
-    "bio": "Mike Maignan เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ AC Milan ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: AC Milan.",
+    "bio": "Mike Maignan เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ AC Milan ใน Serie A และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: AC Milan.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Mike+Maignan+Instagram",
       "facebook": "https://www.google.com/search?q=Mike+Maignan+Facebook",
@@ -3430,7 +3504,7 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 22,
+      "caps": 48,
       "goals": 0
     },
     "stats": {
@@ -3451,7 +3525,8 @@
     ],
     "height_cm": 191.0,
     "weight_kg": 89.0,
-    "birth_date": "1995-07-03"
+    "birth_date": "1995-07-03",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/sw5ukh1758892671.png"
   },
   {
     "id": 67,
@@ -3462,7 +3537,7 @@
       "ราฟาเอล",
       "เลเอา"
     ],
-    "bio": "Rafael Leão เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ AC Milan ใน N/A และเป็นตัวแทนทีมชาติ Portugal เส้นทางสโมสร: AC Milan.",
+    "bio": "Rafael Leão เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Galatasaray ใน Super Lig และเป็นตัวแทนทีมชาติ Portugal. เส้นทางสโมสร: AC Milan → Galatasaray.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Rafael+Le%C3%A3o+Instagram",
       "facebook": "https://www.google.com/search?q=Rafael+Le%C3%A3o+Facebook",
@@ -3471,18 +3546,19 @@
     },
     "age": 27,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m1sh9x1549742563.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wvspur1448806617.png",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/121rws1608670557.png",
     "flag_url": "https://flagcdn.com/w80/pt.png",
-    "current_league": "Serie A",
-    "current_team": "AC Milan",
+    "current_league": "Super Lig",
+    "current_team": "Galatasaray",
     "teams_history": [
-      "AC Milan"
+      "AC Milan",
+      "Galatasaray"
     ],
     "national_team": {
       "played": true,
       "team_name": "Portugal",
-      "caps": 31,
-      "goals": 4
+      "caps": 49,
+      "goals": 6
     },
     "stats": {
       "total_goals": 95,
@@ -3502,7 +3578,8 @@
     ],
     "height_cm": 188.0,
     "weight_kg": 81.0,
-    "birth_date": "1999-06-10"
+    "birth_date": "1999-06-10",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/tlgrvf1758892567.png"
   },
   {
     "id": 68,
@@ -3513,7 +3590,7 @@
       "ชัลฮาโนกลู",
       "Calhanoglu"
     ],
-    "bio": "Hakan Çalhanoğlu เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Milan ใน N/A และเป็นตัวแทนทีมชาติ Turkey เส้นทางสโมสร: Inter Milan.",
+    "bio": "Hakan Çalhanoğlu เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Milan ใน Serie A และเป็นตัวแทนทีมชาติ Turkey. เส้นทางสโมสร: Inter Milan.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Hakan+%C3%87alhano%C4%9Flu+Instagram",
       "facebook": "https://www.google.com/search?q=Hakan+%C3%87alhano%C4%9Flu+Facebook",
@@ -3532,11 +3609,11 @@
     "national_team": {
       "played": true,
       "team_name": "Turkey",
-      "caps": 90,
-      "goals": 19
+      "caps": 108,
+      "goals": 22
     },
     "stats": {
-      "total_goals": 110,
+      "total_goals": 162,
       "total_assists": 125,
       "trophies_count": 9
     },
@@ -3553,7 +3630,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 69.0,
-    "birth_date": "1994-02-08"
+    "birth_date": "1994-02-08",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/hw8uxm1759408821.png"
   },
   {
     "id": 69,
@@ -3564,7 +3642,7 @@
       "ควารัตสเคเลีย",
       "Kvara"
     ],
-    "bio": "Khvicha Kvaratskhelia เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน N/A และเป็นตัวแทนทีมชาติ Georgia เส้นทางสโมสร: Paris SG.",
+    "bio": "Khvicha Kvaratskhelia เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน Ligue 1 และเป็นตัวแทนทีมชาติ Georgia. เส้นทางสโมสร: Paris SG.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Khvicha+Kvaratskhelia+Instagram",
       "facebook": "https://www.google.com/search?q=Khvicha+Kvaratskhelia+Facebook",
@@ -3583,11 +3661,11 @@
     "national_team": {
       "played": true,
       "team_name": "Georgia",
-      "caps": 34,
-      "goals": 16
+      "caps": 50,
+      "goals": 23
     },
     "stats": {
-      "total_goals": 75,
+      "total_goals": 103,
       "total_assists": 80,
       "trophies_count": 6
     },
@@ -3604,7 +3682,8 @@
     ],
     "height_cm": 183.0,
     "weight_kg": 70.0,
-    "birth_date": "2001-02-12"
+    "birth_date": "2001-02-12",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/n4iv5t1766335312.png"
   },
   {
     "id": 70,
@@ -3615,7 +3694,7 @@
       "โอซิมเฮน",
       "หน้ากากโอซิมเฮน"
     ],
-    "bio": "Victor Osimhen เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Galatasaray ใน N/A และเป็นตัวแทนทีมชาติ Nigeria เส้นทางสโมสร: Galatasaray.",
+    "bio": "Victor Osimhen เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Galatasaray ใน Super Lig และเป็นตัวแทนทีมชาติ Nigeria. เส้นทางสโมสร: Galatasaray.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Victor+Osimhen+Instagram",
       "facebook": "https://www.google.com/search?q=Victor+Osimhen+Facebook",
@@ -3626,7 +3705,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/snhzzq1702566147.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/121rws1608670557.png",
     "flag_url": "https://flagcdn.com/w80/ng.png",
-    "current_league": "N/A",
+    "current_league": "Super Lig",
     "current_team": "Galatasaray",
     "teams_history": [
       "Galatasaray"
@@ -3634,11 +3713,11 @@
     "national_team": {
       "played": true,
       "team_name": "Nigeria",
-      "caps": 35,
-      "goals": 21
+      "caps": 52,
+      "goals": 35
     },
     "stats": {
-      "total_goals": 125,
+      "total_goals": 214,
       "total_assists": 40,
       "trophies_count": 8
     },
@@ -3655,7 +3734,8 @@
     ],
     "height_cm": 185.0,
     "weight_kg": 77.0,
-    "birth_date": "1998-12-29"
+    "birth_date": "1998-12-29",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/lw0qcf1769177786.png"
   },
   {
     "id": 71,
@@ -3666,7 +3746,7 @@
       "Kim Min-jae",
       "คิม มินแจ"
     ],
-    "bio": "Min-jae Kim เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน N/A และเป็นตัวแทนทีมชาติ South Korea เส้นทางสโมสร: Bayern Munich.",
+    "bio": "Min-jae Kim เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน Bundesliga และเป็นตัวแทนทีมชาติ South Korea. เส้นทางสโมสร: Bayern Munich.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Min-jae+Kim+Instagram",
       "facebook": "https://www.google.com/search?q=Min-jae+Kim+Facebook",
@@ -3685,11 +3765,11 @@
     "national_team": {
       "played": true,
       "team_name": "South Korea",
-      "caps": 63,
+      "caps": 83,
       "goals": 4
     },
     "stats": {
-      "total_goals": 10,
+      "total_goals": 15,
       "total_assists": 8,
       "trophies_count": 6
     },
@@ -3706,7 +3786,8 @@
     ],
     "height_cm": 190.0,
     "weight_kg": 85.0,
-    "birth_date": "1996-11-15"
+    "birth_date": "1996-11-15",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/m4uh701756408877.png"
   },
   {
     "id": 72,
@@ -3717,14 +3798,14 @@
       "พูลิซิช",
       "กัปตันอเมริกา"
     ],
-    "bio": "Christian Pulisic เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ AC Milan ใน N/A และเป็นตัวแทนทีมชาติ USA เส้นทางสโมสร: AC Milan.",
+    "bio": "Christian Pulisic เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ AC Milan ใน Serie A และเป็นตัวแทนทีมชาติ USA. เส้นทางสโมสร: AC Milan.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Christian+Pulisic+Instagram",
       "facebook": "https://www.google.com/search?q=Christian+Pulisic+Facebook",
       "x": "https://www.google.com/search?q=Christian+Pulisic+X+Twitter",
       "youtube": "https://www.youtube.com/results?search_query=Christian+Pulisic"
     },
-    "age": 27,
+    "age": 28,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/40pxda1669799830.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/wvspur1448806617.png",
     "flag_url": "https://flagcdn.com/w80/us.png",
@@ -3736,11 +3817,11 @@
     "national_team": {
       "played": true,
       "team_name": "USA",
-      "caps": 71,
-      "goals": 30
+      "caps": 90,
+      "goals": 33
     },
     "stats": {
-      "total_goals": 85,
+      "total_goals": 121,
       "total_assists": 70,
       "trophies_count": 8
     },
@@ -3757,7 +3838,8 @@
     ],
     "height_cm": 173.0,
     "weight_kg": 63.0,
-    "birth_date": "1998-09-18"
+    "birth_date": "1998-09-18",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/qwii9r1758893548.png"
   },
   {
     "id": 73,
@@ -3768,7 +3850,7 @@
       "ทิยานี่",
       "ไรน์เดอร์ส"
     ],
-    "bio": "Tijjani Reijnders เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Qadsiah ใน N/A และเป็นตัวแทนทีมชาติ Netherlands เส้นทางสโมสร: Al-Qadsiah.",
+    "bio": "Tijjani Reijnders เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Qadsiah ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Netherlands. เส้นทางสโมสร: Al-Qadsiah.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Tijjani+Reijnders+Instagram",
       "facebook": "https://www.google.com/search?q=Tijjani+Reijnders+Facebook",
@@ -3787,11 +3869,11 @@
     "national_team": {
       "played": true,
       "team_name": "Netherlands",
-      "caps": 17,
-      "goals": 3
+      "caps": 36,
+      "goals": 7
     },
     "stats": {
-      "total_goals": 30,
+      "total_goals": 68,
       "total_assists": 35,
       "trophies_count": 4
     },
@@ -3808,7 +3890,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 65.0,
-    "birth_date": "1998-07-29"
+    "birth_date": "1998-07-29",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/edgl5b1769182353.png"
   },
   {
     "id": 74,
@@ -3819,7 +3902,7 @@
       "เนโต้",
       "เปโดร"
     ],
-    "bio": "Pedro Neto เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน N/A และเป็นตัวแทนทีมชาติ Portugal เส้นทางสโมสร: Chelsea.",
+    "bio": "Pedro Neto เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน Premier League และเป็นตัวแทนทีมชาติ Portugal. เส้นทางสโมสร: Chelsea.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Pedro+Neto+Instagram",
       "facebook": "https://www.google.com/search?q=Pedro+Neto+Facebook",
@@ -3838,11 +3921,11 @@
     "national_team": {
       "played": true,
       "team_name": "Portugal",
-      "caps": 10,
-      "goals": 1
+      "caps": 31,
+      "goals": 3
     },
     "stats": {
-      "total_goals": 35,
+      "total_goals": 39,
       "total_assists": 45,
       "trophies_count": 3
     },
@@ -3859,7 +3942,8 @@
     ],
     "height_cm": 172.0,
     "weight_kg": 62.0,
-    "birth_date": "2000-03-09"
+    "birth_date": "2000-03-09",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/18k5961787691461.png"
   },
   {
     "id": 75,
@@ -3871,7 +3955,7 @@
       "Palmer",
       "ไอ้หนาว"
     ],
-    "bio": "Cole Palmer เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน Premier League และเป็นตัวแทนทีมชาติ England เส้นทางสโมสร: Manchester City → Chelsea.",
+    "bio": "Cole Palmer เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน Premier League และเป็นตัวแทนทีมชาติ England. เส้นทางสโมสร: Manchester City → Chelsea.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Cole+Palmer+Instagram",
       "facebook": "https://www.google.com/search?q=Cole+Palmer+Facebook",
@@ -3891,11 +3975,11 @@
     "national_team": {
       "played": true,
       "team_name": "England",
-      "caps": 9,
+      "caps": 14,
       "goals": 2
     },
     "stats": {
-      "total_goals": 40,
+      "total_goals": 66,
       "total_assists": 25,
       "trophies_count": 6
     },
@@ -3912,7 +3996,8 @@
     ],
     "height_cm": 189.0,
     "weight_kg": 74.0,
-    "birth_date": "2002-05-06"
+    "birth_date": "2002-05-06",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/q6nnho1787689956.png"
   },
   {
     "id": 76,
@@ -3923,7 +4008,7 @@
       "ไคเซโด้",
       "มอยเซส"
     ],
-    "bio": "Moisés Caicedo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน N/A และเป็นตัวแทนทีมชาติ Ecuador เส้นทางสโมสร: Chelsea.",
+    "bio": "Moisés Caicedo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน Premier League และเป็นตัวแทนทีมชาติ Ecuador. เส้นทางสโมสร: Chelsea.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Mois%C3%A9s+Caicedo+Instagram",
       "facebook": "https://www.google.com/search?q=Mois%C3%A9s+Caicedo+Facebook",
@@ -3942,11 +4027,11 @@
     "national_team": {
       "played": true,
       "team_name": "Ecuador",
-      "caps": 46,
+      "caps": 65,
       "goals": 3
     },
     "stats": {
-      "total_goals": 12,
+      "total_goals": 21,
       "total_assists": 20,
       "trophies_count": 4
     },
@@ -3963,7 +4048,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 73.0,
-    "birth_date": "2001-11-02"
+    "birth_date": "2001-11-02",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/7bn8ym1787691033.png"
   },
   {
     "id": 77,
@@ -3974,7 +4060,7 @@
       "รีซ เจมส์",
       "กัปตันเจมส์"
     ],
-    "bio": "Reece James เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Rotherham United ใน N/A และเป็นตัวแทนทีมชาติ England เส้นทางสโมสร: Rotherham United.",
+    "bio": "Reece James เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน Premier League และเป็นตัวแทนทีมชาติ England. เส้นทางสโมสร: Rotherham United → Chelsea.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Reece+James+Instagram",
       "facebook": "https://www.google.com/search?q=Reece+James+Facebook",
@@ -3983,21 +4069,22 @@
     },
     "age": 26,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/uqrxvv1431677357.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/yfoiyf1779788861.png",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/pbf4ul1782638263.png",
     "flag_url": "https://flagcdn.com/w80/gb-eng.png",
-    "current_league": "N/A",
-    "current_team": "Rotherham United",
+    "current_league": "Premier League",
+    "current_team": "Chelsea",
     "teams_history": [
-      "Rotherham United"
+      "Rotherham United",
+      "Chelsea"
     ],
     "national_team": {
       "played": true,
       "team_name": "England",
-      "caps": 16,
-      "goals": 0
+      "caps": 29,
+      "goals": 1
     },
     "stats": {
-      "total_goals": 15,
+      "total_goals": 21,
       "total_assists": 30,
       "trophies_count": 6
     },
@@ -4014,7 +4101,8 @@
     ],
     "height_cm": 183.0,
     "weight_kg": 71.0,
-    "birth_date": "1999-12-08"
+    "birth_date": "1999-12-08",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/d8ifhl1766332522.png"
   },
   {
     "id": 78,
@@ -4025,7 +4113,7 @@
       "คูคูเรย่า",
       "กูกูเรย่า"
     ],
-    "bio": "Marc Cucurella เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: Real Madrid.",
+    "bio": "Marc Cucurella เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Marc+Cucurella+Instagram",
       "facebook": "https://www.google.com/search?q=Marc+Cucurella+Facebook",
@@ -4044,11 +4132,11 @@
     "national_team": {
       "played": true,
       "team_name": "Spain",
-      "caps": 10,
-      "goals": 0
+      "caps": 32,
+      "goals": 1
     },
     "stats": {
-      "total_goals": 10,
+      "total_goals": 17,
       "total_assists": 25,
       "trophies_count": 5
     },
@@ -4065,7 +4153,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 69.0,
-    "birth_date": "1998-07-22"
+    "birth_date": "1998-07-22",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/akqzjg1788113292.png"
   },
   {
     "id": 79,
@@ -4076,7 +4165,7 @@
       "อเล็กซิส",
       "เอล นินโญ่ มาราวีย่า"
     ],
-    "bio": "Alexis Sánchez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Sevilla ใน N/A และเป็นตัวแทนทีมชาติ Chile เส้นทางสโมสร: Sevilla.",
+    "bio": "Alexis Sánchez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ CF Montréal ใน Major League Soccer และเป็นตัวแทนทีมชาติ Chile. เส้นทางสโมสร: Sevilla → CF Montréal.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Alexis+S%C3%A1nchez+Instagram",
       "facebook": "https://www.google.com/search?q=Alexis+S%C3%A1nchez+Facebook",
@@ -4085,21 +4174,22 @@
     },
     "age": 37,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m05tjc1718343405.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/vpsqqx1473502977.png",
+    "club_logo_url": "N/A",
     "flag_url": "https://flagcdn.com/w80/cl.png",
-    "current_league": "La Liga",
-    "current_team": "Sevilla",
+    "current_league": "Major League Soccer",
+    "current_team": "CF Montréal",
     "teams_history": [
-      "Sevilla"
+      "Sevilla",
+      "CF Montréal"
     ],
     "national_team": {
       "played": true,
       "team_name": "Chile",
-      "caps": 166,
+      "caps": 168,
       "goals": 51
     },
     "stats": {
-      "total_goals": 250,
+      "total_goals": 275,
       "total_assists": 160,
       "trophies_count": 20
     },
@@ -4116,7 +4206,8 @@
     ],
     "height_cm": 168.0,
     "weight_kg": 62.0,
-    "birth_date": "1988-12-19"
+    "birth_date": "1988-12-19",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/6bj5hk1762860338.png"
   },
   {
     "id": 80,
@@ -4127,7 +4218,7 @@
       "Cavani",
       "เอล มาทาดอร์"
     ],
-    "bio": "Edinson Cavani เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Boca Juniors ใน N/A และเป็นตัวแทนทีมชาติ Uruguay เส้นทางสโมสร: Boca Juniors.",
+    "bio": "Edinson Cavani เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Boca Juniors ใน Argentine Primera División และเป็นตัวแทนทีมชาติ Uruguay. เส้นทางสโมสร: Boca Juniors.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Edinson+Cavani+Instagram",
       "facebook": "https://www.google.com/search?q=Edinson+Cavani+Facebook",
@@ -4138,7 +4229,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/m9oi0g1515931917.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/bm7krb1775741582.png",
     "flag_url": "https://flagcdn.com/w80/uy.png",
-    "current_league": "N/A",
+    "current_league": "Argentine Primera División",
     "current_team": "Boca Juniors",
     "teams_history": [
       "Boca Juniors"
@@ -4150,7 +4241,7 @@
       "goals": 58
     },
     "stats": {
-      "total_goals": 440,
+      "total_goals": 458,
       "total_assists": 90,
       "trophies_count": 25
     },
@@ -4167,7 +4258,8 @@
     ],
     "height_cm": 184.0,
     "weight_kg": 71.0,
-    "birth_date": "1987-02-14"
+    "birth_date": "1987-02-14",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/xf3lty1750043968.png"
   },
   {
     "id": 81,
@@ -4179,7 +4271,7 @@
       "เอล ปิสโตเลโร่",
       "คิงหลุยส์"
     ],
-    "bio": "Luis Suárez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Miami ใน N/A และเป็นตัวแทนทีมชาติ Uruguay เส้นทางสโมสร: Inter Miami.",
+    "bio": "Luis Suárez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Inter Miami ใน Major League Soccer และเป็นตัวแทนทีมชาติ Uruguay. เส้นทางสโมสร: Inter Miami.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Luis+Su%C3%A1rez+Instagram",
       "facebook": "https://www.google.com/search?q=Luis+Su%C3%A1rez+Facebook",
@@ -4202,7 +4294,7 @@
       "goals": 69
     },
     "stats": {
-      "total_goals": 560,
+      "total_goals": 613,
       "total_assists": 300,
       "trophies_count": 26
     },
@@ -4219,7 +4311,8 @@
     ],
     "height_cm": 182.0,
     "weight_kg": 86.0,
-    "birth_date": "1987-01-24"
+    "birth_date": "1987-01-24",
+    "hero_photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Luis_Su%C3%A1rez_Uruguay.jpg"
   },
   {
     "id": 82,
@@ -4230,7 +4323,7 @@
       "ณเดชน์",
       "มาเน่"
     ],
-    "bio": "Sadio Mané เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Nassr ใน N/A และเป็นตัวแทนทีมชาติ Senegal เส้นทางสโมสร: Al-Nassr.",
+    "bio": "Sadio Mané เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Nassr ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Senegal. เส้นทางสโมสร: Al-Nassr.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Sadio+Man%C3%A9+Instagram",
       "facebook": "https://www.google.com/search?q=Sadio+Man%C3%A9+Facebook",
@@ -4249,11 +4342,11 @@
     "national_team": {
       "played": true,
       "team_name": "Senegal",
-      "caps": 107,
-      "goals": 44
+      "caps": 130,
+      "goals": 54
     },
     "stats": {
-      "total_goals": 260,
+      "total_goals": 311,
       "total_assists": 140,
       "trophies_count": 16
     },
@@ -4270,7 +4363,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 69.0,
-    "birth_date": "1992-04-10"
+    "birth_date": "1992-04-10",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/cify0u1678370417.png"
   },
   {
     "id": 83,
@@ -4281,7 +4375,7 @@
       "พ่อมดแอลจีเรีย",
       "มาห์เรซ"
     ],
-    "bio": "Riyad Mahrez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Ahli ใน N/A และเป็นตัวแทนทีมชาติ Algeria เส้นทางสโมสร: Al-Ahli.",
+    "bio": "Riyad Mahrez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Al-Ahli ใน Saudi Pro League และเป็นตัวแทนทีมชาติ Algeria. เส้นทางสโมสร: Al-Ahli.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Riyad+Mahrez+Instagram",
       "facebook": "https://www.google.com/search?q=Riyad+Mahrez+Facebook",
@@ -4300,11 +4394,11 @@
     "national_team": {
       "played": true,
       "team_name": "Algeria",
-      "caps": 94,
-      "goals": 31
+      "caps": 119,
+      "goals": 40
     },
     "stats": {
-      "total_goals": 200,
+      "total_goals": 214,
       "total_assists": 170,
       "trophies_count": 17
     },
@@ -4321,7 +4415,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 62.0,
-    "birth_date": "1991-02-21"
+    "birth_date": "1991-02-21",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/g0ay2p1771662753.png"
   },
   {
     "id": 84,
@@ -4332,7 +4427,7 @@
       "ยอดมิดฟิลด์",
       "Kante"
     ],
-    "bio": "N'Golo Kanté เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fenerbahçe ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Fenerbahçe.",
+    "bio": "N'Golo Kanté เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fenerbahçe ใน Super Lig และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Fenerbahçe.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=N%27Golo+Kant%C3%A9+Instagram",
       "facebook": "https://www.google.com/search?q=N%27Golo+Kant%C3%A9+Facebook",
@@ -4343,7 +4438,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/f0yeej1778804937.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/twxxvs1448199691.png",
     "flag_url": "https://flagcdn.com/w80/fr.png",
-    "current_league": "N/A",
+    "current_league": "Super Lig",
     "current_team": "Fenerbahçe",
     "teams_history": [
       "Fenerbahçe"
@@ -4351,11 +4446,11 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 61,
+      "caps": 69,
       "goals": 2
     },
     "stats": {
-      "total_goals": 35,
+      "total_goals": 38,
       "total_assists": 40,
       "trophies_count": 15
     },
@@ -4372,7 +4467,8 @@
     ],
     "height_cm": 171.0,
     "weight_kg": 70.0,
-    "birth_date": "1991-03-29"
+    "birth_date": "1991-03-29",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/ld6low1719039995.png"
   },
   {
     "id": 85,
@@ -4383,7 +4479,7 @@
       "ป็อกบรูม",
       "Pogba"
     ],
-    "bio": "Paul Pogba เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Monaco ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Monaco.",
+    "bio": "Paul Pogba เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Monaco ใน Ligue 1 และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Monaco.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Paul+Pogba+Instagram",
       "facebook": "https://www.google.com/search?q=Paul+Pogba+Facebook",
@@ -4406,7 +4502,7 @@
       "goals": 11
     },
     "stats": {
-      "total_goals": 95,
+      "total_goals": 84,
       "total_assists": 110,
       "trophies_count": 13
     },
@@ -4423,7 +4519,8 @@
     ],
     "height_cm": 191.0,
     "weight_kg": 84.0,
-    "birth_date": "1993-03-15"
+    "birth_date": "1993-03-15",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/3fv73s1766238293.png"
   },
   {
     "id": 86,
@@ -4434,7 +4531,7 @@
       "Di Maria",
       "เอล ฟิเดโอ้"
     ],
-    "bio": "Ángel Di María เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Rosario Central ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Rosario Central.",
+    "bio": "Ángel Di María เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Rosario Central ใน Argentine Primera División และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Rosario Central.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=%C3%81ngel+Di+Mar%C3%ADa+Instagram",
       "facebook": "https://www.google.com/search?q=%C3%81ngel+Di+Mar%C3%ADa+Facebook",
@@ -4445,7 +4542,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/q5pu3b1719034409.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/y6q1ds1769660256.png",
     "flag_url": "https://flagcdn.com/w80/ar.png",
-    "current_league": "N/A",
+    "current_league": "Argentine Primera División",
     "current_team": "Rosario Central",
     "teams_history": [
       "Rosario Central"
@@ -4457,7 +4554,7 @@
       "goals": 31
     },
     "stats": {
-      "total_goals": 200,
+      "total_goals": 245,
       "total_assists": 270,
       "trophies_count": 34
     },
@@ -4474,7 +4571,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 75.0,
-    "birth_date": "1988-02-14"
+    "birth_date": "1988-02-14",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/4vji4l1765295910.png"
   },
   {
     "id": 87,
@@ -4485,7 +4583,7 @@
       "De Gea",
       "เด เคอา"
     ],
-    "bio": "David de Gea เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fiorentina ใน N/A และเป็นตัวแทนทีมชาติ Spain เส้นทางสโมสร: Fiorentina.",
+    "bio": "David de Gea เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Fiorentina ใน Serie A และเป็นตัวแทนทีมชาติ Spain. เส้นทางสโมสร: Fiorentina.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=David+de+Gea+Instagram",
       "facebook": "https://www.google.com/search?q=David+de+Gea+Facebook",
@@ -4525,7 +4623,8 @@
     ],
     "height_cm": 192.0,
     "weight_kg": 82.0,
-    "birth_date": "1990-11-07"
+    "birth_date": "1990-11-07",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/w3p74l1758891733.png"
   },
   {
     "id": 88,
@@ -4536,7 +4635,7 @@
       "กูร์ตัว",
       "กูร์กตัวส์"
     ],
-    "bio": "Thibaut Courtois เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ Belgium เส้นทางสโมสร: Real Madrid.",
+    "bio": "Thibaut Courtois เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Belgium. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Thibaut+Courtois+Instagram",
       "facebook": "https://www.google.com/search?q=Thibaut+Courtois+Facebook",
@@ -4555,7 +4654,7 @@
     "national_team": {
       "played": true,
       "team_name": "Belgium",
-      "caps": 102,
+      "caps": 115,
       "goals": 0
     },
     "stats": {
@@ -4576,7 +4675,8 @@
     ],
     "height_cm": 199.0,
     "weight_kg": 94.0,
-    "birth_date": "1992-05-11"
+    "birth_date": "1992-05-11",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/w5p8eo1788111831.png"
   },
   {
     "id": 89,
@@ -4587,7 +4687,7 @@
       "โอบลัค",
       "ยอดนายทวาร"
     ],
-    "bio": "Jan Oblak เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Atletico Madrid ใน N/A และเป็นตัวแทนทีมชาติ Slovenia เส้นทางสโมสร: Atletico Madrid.",
+    "bio": "Jan Oblak เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Atletico Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Slovenia. เส้นทางสโมสร: Atletico Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Jan+Oblak+Instagram",
       "facebook": "https://www.google.com/search?q=Jan+Oblak+Facebook",
@@ -4606,7 +4706,7 @@
     "national_team": {
       "played": true,
       "team_name": "Slovenia",
-      "caps": 68,
+      "caps": 84,
       "goals": 0
     },
     "stats": {
@@ -4627,7 +4727,8 @@
     ],
     "height_cm": 189.0,
     "weight_kg": 84.0,
-    "birth_date": "1993-01-07"
+    "birth_date": "1993-01-07",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/akfmb31762287556.png"
   },
   {
     "id": 90,
@@ -4639,26 +4740,27 @@
       "ดิมี่",
       "ดิมู"
     ],
-    "bio": "Emiliano Martinez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Aston Villa ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Aston Villa.",
+    "bio": "Emiliano Martinez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Chelsea ใน Premier League และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Aston Villa → Chelsea.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Emiliano+Martinez+Instagram",
       "facebook": "https://www.google.com/search?q=Emiliano+Martinez+Facebook",
       "x": "https://www.google.com/search?q=Emiliano+Martinez+X+Twitter",
       "youtube": "https://www.youtube.com/results?search_query=Emiliano+Martinez"
     },
-    "age": 33,
+    "age": 34,
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/7drp311770201331.jpg",
-    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/cgvxt61785930389.png",
+    "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/pbf4ul1782638263.png",
     "flag_url": "https://flagcdn.com/w80/ar.png",
     "current_league": "Premier League",
-    "current_team": "Aston Villa",
+    "current_team": "Chelsea",
     "teams_history": [
-      "Aston Villa"
+      "Aston Villa",
+      "Chelsea"
     ],
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 45,
+      "caps": 67,
       "goals": 0
     },
     "stats": {
@@ -4679,7 +4781,8 @@
     ],
     "height_cm": 195.0,
     "weight_kg": 88.0,
-    "birth_date": "1992-09-02"
+    "birth_date": "1992-09-02",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/ffr5xx1756984715.png"
   },
   {
     "id": 91,
@@ -4690,7 +4793,7 @@
       "Ter Stegen",
       "สเตเก้น"
     ],
-    "bio": "Marc-André ter Stegen เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Ajax ใน N/A และเป็นตัวแทนทีมชาติ Germany เส้นทางสโมสร: Ajax.",
+    "bio": "Marc-André ter Stegen เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Ajax ใน Eredivisie และเป็นตัวแทนทีมชาติ Germany. เส้นทางสโมสร: Ajax.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Marc-Andr%C3%A9+ter+Stegen+Instagram",
       "facebook": "https://www.google.com/search?q=Marc-Andr%C3%A9+ter+Stegen+Facebook",
@@ -4701,7 +4804,7 @@
     "photo_url": "https://r2.thesportsdb.com/images/media/player/thumb/maz3sd1514553586.jpg",
     "club_logo_url": "https://r2.thesportsdb.com/images/media/team/badge/zg9tii1755495289.png",
     "flag_url": "https://flagcdn.com/w80/de.png",
-    "current_league": "N/A",
+    "current_league": "Eredivisie",
     "current_team": "Ajax",
     "teams_history": [
       "Ajax"
@@ -4709,7 +4812,7 @@
     "national_team": {
       "played": true,
       "team_name": "Germany",
-      "caps": 42,
+      "caps": 45,
       "goals": 0
     },
     "stats": {
@@ -4730,7 +4833,8 @@
     ],
     "height_cm": 187.0,
     "weight_kg": 85.0,
-    "birth_date": "1992-04-30"
+    "birth_date": "1992-04-30",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/9w51mf1775286949.png"
   },
   {
     "id": 92,
@@ -4740,7 +4844,7 @@
       "Phonzie",
       "เดวีส์"
     ],
-    "bio": "Alphonso Davies เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน N/A และเป็นตัวแทนทีมชาติ Canada เส้นทางสโมสร: Bayern Munich.",
+    "bio": "Alphonso Davies เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Bayern Munich ใน Bundesliga และเป็นตัวแทนทีมชาติ Canada. เส้นทางสโมสร: Bayern Munich.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Alphonso+Davies+Instagram",
       "facebook": "https://www.google.com/search?q=Alphonso+Davies+Facebook",
@@ -4759,11 +4863,11 @@
     "national_team": {
       "played": true,
       "team_name": "Canada",
-      "caps": 51,
+      "caps": 59,
       "goals": 15
     },
     "stats": {
-      "total_goals": 30,
+      "total_goals": 43,
       "total_assists": 50,
       "trophies_count": 15
     },
@@ -4780,7 +4884,8 @@
     ],
     "height_cm": 178.0,
     "weight_kg": 69.0,
-    "birth_date": "2000-11-02"
+    "birth_date": "2000-11-02",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/11afh31756409066.png"
   },
   {
     "id": 93,
@@ -4791,7 +4896,7 @@
       "Hakimi",
       "ฮาคิมี"
     ],
-    "bio": "Achraf Hakimi เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน N/A และเป็นตัวแทนทีมชาติ Morocco เส้นทางสโมสร: Paris SG.",
+    "bio": "Achraf Hakimi เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน Ligue 1 และเป็นตัวแทนทีมชาติ Morocco. เส้นทางสโมสร: Paris SG.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Achraf+Hakimi+Instagram",
       "facebook": "https://www.google.com/search?q=Achraf+Hakimi+Facebook",
@@ -4810,11 +4915,11 @@
     "national_team": {
       "played": true,
       "team_name": "Morocco",
-      "caps": 77,
-      "goals": 9
+      "caps": 102,
+      "goals": 12
     },
     "stats": {
-      "total_goals": 45,
+      "total_goals": 62,
       "total_assists": 60,
       "trophies_count": 12
     },
@@ -4831,7 +4936,8 @@
     ],
     "height_cm": 180.0,
     "weight_kg": 69.0,
-    "birth_date": "1998-11-04"
+    "birth_date": "1998-11-04",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/oqu69c1766335243.png"
   },
   {
     "id": 94,
@@ -4842,7 +4948,7 @@
       "ลูกัส",
       "ลูคัส"
     ],
-    "bio": "Lucas Hernandez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน N/A และเป็นตัวแทนทีมชาติ France เส้นทางสโมสร: Paris SG.",
+    "bio": "Lucas Hernandez เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Paris SG ใน Ligue 1 และเป็นตัวแทนทีมชาติ France. เส้นทางสโมสร: Paris SG.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Lucas+Hernandez+Instagram",
       "facebook": "https://www.google.com/search?q=Lucas+Hernandez+Facebook",
@@ -4861,11 +4967,11 @@
     "national_team": {
       "played": true,
       "team_name": "France",
-      "caps": 37,
+      "caps": 42,
       "goals": 0
     },
     "stats": {
-      "total_goals": 10,
+      "total_goals": 5,
       "total_assists": 15,
       "trophies_count": 14
     },
@@ -4882,7 +4988,8 @@
     ],
     "height_cm": 174.0,
     "weight_kg": 71.0,
-    "birth_date": "1996-02-14"
+    "birth_date": "1996-02-14",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/2ugny71766335261.png"
   },
   {
     "id": 95,
@@ -4893,7 +5000,7 @@
       "กานาโช่",
       "Garnacho"
     ],
-    "bio": "Alejandro Garnacho เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Aston Villa ใน N/A และเป็นตัวแทนทีมชาติ Argentina เส้นทางสโมสร: Aston Villa.",
+    "bio": "Alejandro Garnacho เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Aston Villa ใน Premier League และเป็นตัวแทนทีมชาติ Argentina. เส้นทางสโมสร: Aston Villa.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Alejandro+Garnacho+Instagram",
       "facebook": "https://www.google.com/search?q=Alejandro+Garnacho+Facebook",
@@ -4912,11 +5019,11 @@
     "national_team": {
       "played": true,
       "team_name": "Argentina",
-      "caps": 6,
+      "caps": 8,
       "goals": 0
     },
     "stats": {
-      "total_goals": 40,
+      "total_goals": 34,
       "total_assists": 30,
       "trophies_count": 4
     },
@@ -4933,7 +5040,8 @@
     ],
     "height_cm": 180.0,
     "weight_kg": 80.0,
-    "birth_date": "2004-07-01"
+    "birth_date": "2004-07-01",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/diaokn1788605013.png"
   },
   {
     "id": 96,
@@ -4944,7 +5052,7 @@
       "น้องไมนู",
       "ไมนู"
     ],
-    "bio": "Kobbie Mainoo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester United ใน N/A และเป็นตัวแทนทีมชาติ England เส้นทางสโมสร: Manchester United.",
+    "bio": "Kobbie Mainoo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester United ใน Premier League และเป็นตัวแทนทีมชาติ England. เส้นทางสโมสร: Manchester United.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Kobbie+Mainoo+Instagram",
       "facebook": "https://www.google.com/search?q=Kobbie+Mainoo+Facebook",
@@ -4963,11 +5071,11 @@
     "national_team": {
       "played": true,
       "team_name": "England",
-      "caps": 9,
+      "caps": 14,
       "goals": 0
     },
     "stats": {
-      "total_goals": 15,
+      "total_goals": 8,
       "total_assists": 15,
       "trophies_count": 3
     },
@@ -4984,7 +5092,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 72.0,
-    "birth_date": "2005-04-19"
+    "birth_date": "2005-04-19",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/cqc0oh1789120518.png"
   },
   {
     "id": 97,
@@ -4995,7 +5104,7 @@
       "ฮอยลุนด์",
       "Hojlund"
     ],
-    "bio": "Rasmus Højlund เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Napoli ใน N/A และเป็นตัวแทนทีมชาติ Denmark เส้นทางสโมสร: Napoli.",
+    "bio": "Rasmus Højlund เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Napoli ใน Serie A และเป็นตัวแทนทีมชาติ Denmark. เส้นทางสโมสร: Napoli.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Rasmus+H%C3%B8jlund+Instagram",
       "facebook": "https://www.google.com/search?q=Rasmus+H%C3%B8jlund+Facebook",
@@ -5014,11 +5123,11 @@
     "national_team": {
       "played": true,
       "team_name": "Denmark",
-      "caps": 18,
-      "goals": 7
+      "caps": 36,
+      "goals": 13
     },
     "stats": {
-      "total_goals": 55,
+      "total_goals": 84,
       "total_assists": 20,
       "trophies_count": 3
     },
@@ -5035,7 +5144,8 @@
     ],
     "height_cm": 192.0,
     "weight_kg": 85.0,
-    "birth_date": "2003-02-04"
+    "birth_date": "2003-02-04",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/jop7ho1762288170.png"
   },
   {
     "id": 98,
@@ -5046,7 +5156,7 @@
       "อาหมัด",
       "ดิยัลโล่"
     ],
-    "bio": "Amad Diallo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester United ใน N/A และเป็นตัวแทนทีมชาติ Ivory Coast เส้นทางสโมสร: Manchester United.",
+    "bio": "Amad Diallo เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Manchester United ใน Premier League และเป็นตัวแทนทีมชาติ Ivory Coast. เส้นทางสโมสร: Manchester United.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Amad+Diallo+Instagram",
       "facebook": "https://www.google.com/search?q=Amad+Diallo+Facebook",
@@ -5065,11 +5175,11 @@
     "national_team": {
       "played": true,
       "team_name": "Ivory Coast",
-      "caps": 6,
-      "goals": 1
+      "caps": 23,
+      "goals": 8
     },
     "stats": {
-      "total_goals": 35,
+      "total_goals": 42,
       "total_assists": 25,
       "trophies_count": 3
     },
@@ -5086,7 +5196,8 @@
     ],
     "height_cm": 173.0,
     "weight_kg": 70.0,
-    "birth_date": "2002-07-11"
+    "birth_date": "2002-07-11",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/rg6wt01789120099.png"
   },
   {
     "id": 99,
@@ -5097,7 +5208,7 @@
       "กูแลร์",
       "Guler"
     ],
-    "bio": "Arda Güler เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ Turkey เส้นทางสโมสร: Real Madrid.",
+    "bio": "Arda Güler เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Turkey. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Arda+G%C3%BCler+Instagram",
       "facebook": "https://www.google.com/search?q=Arda+G%C3%BCler+Facebook",
@@ -5116,11 +5227,11 @@
     "national_team": {
       "played": true,
       "team_name": "Turkey",
-      "caps": 12,
-      "goals": 2
+      "caps": 33,
+      "goals": 7
     },
     "stats": {
-      "total_goals": 20,
+      "total_goals": 35,
       "total_assists": 25,
       "trophies_count": 5
     },
@@ -5137,7 +5248,8 @@
     ],
     "height_cm": 175.0,
     "weight_kg": 70.0,
-    "birth_date": "2005-02-25"
+    "birth_date": "2005-02-25",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/ye6tv41788113953.png"
   },
   {
     "id": 100,
@@ -5148,7 +5260,7 @@
       "บ๊อบบี้",
       "เอ็นดริค"
     ],
-    "bio": "Endrick เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน N/A และเป็นตัวแทนทีมชาติ Brazil เส้นทางสโมสร: Real Madrid.",
+    "bio": "Endrick เป็นนักฟุตบอลอาชีพ ปัจจุบันลงเล่นให้ Real Madrid ใน La Liga และเป็นตัวแทนทีมชาติ Brazil. เส้นทางสโมสร: Real Madrid.",
     "social_links": {
       "instagram": "https://www.google.com/search?q=Endrick+Instagram",
       "facebook": "https://www.google.com/search?q=Endrick+Facebook",
@@ -5167,11 +5279,11 @@
     "national_team": {
       "played": true,
       "team_name": "Brazil",
-      "caps": 11,
-      "goals": 3
+      "caps": 21,
+      "goals": 4
     },
     "stats": {
-      "total_goals": 35,
+      "total_goals": 40,
       "total_assists": 15,
       "trophies_count": 6
     },
@@ -5188,6 +5300,7 @@
     ],
     "height_cm": 173.0,
     "weight_kg": 80.0,
-    "birth_date": "2006-07-21"
+    "birth_date": "2006-07-21",
+    "hero_photo_url": "https://r2.thesportsdb.com/images/media/player/cutout/lhg9vv1788114231.png"
   }
 ]

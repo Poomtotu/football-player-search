@@ -1,52 +1,52 @@
-﻿// ===========================================================================
-// StatsSummary.jsx — แถบสรุปผลลัพธ์และความเร็วการค้นหา (Search Stats Bar)
-// ===========================================================================
-
 import React from 'react';
-import { Zap, Cpu } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
-/**
- * คอมโพเนนต์ StatsSummary สำหรับแสดงจำนวนรายการนักเตะที่พบ, คำค้นหาปัจจุบัน, เวลาความเร็ว (ms), และอัลกอริทึม IR
- * 
- * @param {number} totalShown - จำนวนรายการนักเตะที่แสดงในหน้าปัจจุบัน
- * @param {number} totalAll - จำนวนนักเตะทั้งหมดในฐานข้อมูล
- * @param {string} query - คำค้นหาปัจจุบัน
- * @param {number} searchTime - ความเร็วการค้นหาในหน่วย millisecond (ms)
- */
-export function StatsSummary({ totalShown, totalAll, query, searchTime }) {
+export function StatsSummary({
+  totalShown,
+  totalAll,
+  query,
+  searchTime,
+  selectedLeague = 'ทั้งหมด',
+}) {
+  const hasLeagueFilter = selectedLeague !== 'ทั้งหมด';
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-white border border-gray-200 shadow-sm text-xs">
-        
-        {/* --- ส่วนแสดงจำนวนผลลัพธ์ --- */}
-        <div className="flex items-center space-x-2">
-          <span className="font-semibold text-gray-600">
+    <div className="results-summary-enter mx-auto max-w-7xl px-4 pb-5 pt-7 sm:px-6 lg:px-8">
+      <div className="flex items-end justify-between gap-4 border-b border-slate-200 pb-4">
+        <div>
+          <p className="mb-1.5 text-[10px] font-black uppercase tracking-[0.17em] text-blue-600">
+            {query ? 'Search results' : hasLeagueFilter ? 'League players' : 'Player directory'}
+          </p>
+          <h2 className="text-xl font-black tracking-tight text-slate-950 sm:text-2xl">
             {query ? (
-              <>
-                ผลการค้นหา: <strong className="text-blue-600 font-black text-sm">{totalShown}</strong> รายการ
-                <span className="text-gray-400 ml-1.5 hidden sm:inline">(สำหรับ "{query}")</span>
-              </>
+              <>พบ {totalShown} รายการสำหรับ “{query}”</>
+            ) : hasLeagueFilter ? (
+              <span className="inline-flex items-center gap-2.5">
+                <span>{selectedLeague}</span>
+                <span className="h-5 w-px bg-slate-300" aria-hidden="true" />
+                <span className="text-slate-500">{totalShown} นักเตะ</span>
+              </span>
             ) : (
-              <>
-                แสดงนักเตะยอดนิยม: <strong className="text-blue-600 font-black text-sm">{totalShown}</strong> จาก {totalAll} คน
-              </>
+              <>นักฟุตบอลทั้งหมด {totalShown} คน</>
             )}
-          </span>
+          </h2>
+          {query && hasLeagueFilter ? (
+            <p className="mt-1 text-xs text-slate-500">
+              กรองผลลัพธ์เฉพาะ {selectedLeague}
+            </p>
+          ) : !query && !hasLeagueFilter && totalAll > 0 ? (
+            <p className="mt-1 text-xs text-slate-500">
+              ข้อมูลทั้งหมดในฐานข้อมูล {totalAll} คน
+            </p>
+          ) : null}
         </div>
 
-        {/* --- ส่วนแสดง Latency ความเร็ว (ms) และเครื่องยนต์ IR --- */}
-        <div className="flex items-center space-x-3 text-[11px] text-gray-500 font-medium">
-          {searchTime !== null && (
-            <span className="hidden md:inline-flex items-center text-gray-500">
-              <Zap className="w-3.5 h-3.5 text-amber-500 mr-1" />
-              ความเร็ว: <strong className="text-gray-800 ml-1">{searchTime} ms</strong>
-            </span>
-          )}
-          <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-lg bg-gray-100 border border-gray-200 text-gray-700">
-            <Cpu className="w-3.5 h-3.5 text-blue-600 mr-1" />
-            Okapi BM25 + RapidFuzz WRatio
-          </span>
-        </div>
+        {searchTime !== null && (
+          <div className="hidden items-center gap-1.5 pb-0.5 text-xs text-slate-500 sm:flex">
+            <Zap className="h-3.5 w-3.5" />
+            <span>{searchTime} ms</span>
+          </div>
+        )}
       </div>
     </div>
   );

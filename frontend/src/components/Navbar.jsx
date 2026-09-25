@@ -1,65 +1,106 @@
-// ===========================================================================
-// Navbar.jsx — แถบ Header นำทางด้านบนของเว็บไซต์ (Clean White Theme)
-// ===========================================================================
+import React, { useEffect, useState } from 'react';
+import {
+  Home,
+  Trophy,
+  Users,
+} from 'lucide-react';
 
-import React from 'react';
-import { Database, Sparkles, Trophy } from 'lucide-react';
-import { API_ENDPOINTS } from '../config';
+const NAV_SCROLL_OFFSET = 84;
 
-/**
- * คอมโพเนนต์ Navbar สำหรับแสดงโลโก้, เมนูเปลี่ยนหน้า (Search / User Profile), สถานะ API, และลิงก์ไปยัง Swagger Docs
- */
-export function Navbar({ backendReady, totalPlayers }) {
+export function Navbar({ backendReady, totalPlayers, onResetSearch, isSearchMode = false }) {
+  const [activeHref, setActiveHref] = useState(() => {
+    const hash = window.location.hash;
+    return hash === '#players' || hash === '#leagues' ? hash : '#top';
+  });
+
+  const navItems = [
+    ['หน้าแรก', '#top', Home, true],
+    ['นักเตะทั้งหมด', '#players', Users, true],
+    ['ลีก', '#leagues', Trophy, false],
+  ];
+
+  useEffect(() => {
+    if (isSearchMode) {
+      setActiveHref('#players');
+    }
+  }, [isSearchMode]);
+
+  const scrollToSection = (href) => {
+    if (href === '#top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - NAV_SCROLL_OFFSET;
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: 'smooth',
+    });
+  };
+
+  const handleNavClick = (event, href, shouldReset) => {
+    event.preventDefault();
+    setActiveHref(href);
+    window.history.replaceState(null, '', href);
+
+    if (shouldReset) {
+      onResetSearch?.();
+    }
+
+    // Wait for React to finish the layout change before measuring the target.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollToSection(href);
+      });
+    });
+  };
+
   return (
-    <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        
-        {/* --- ส่วนโลโก้และชื่อแบรนด์ (Logo & Brand) --- */}
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-md shadow-blue-500/20">
-            <Trophy className="w-5 h-5 text-white" />
+    <header id="top" className="site-nav-enter sticky top-0 z-40 border-b border-white/10 bg-[#061225]/95 text-white backdrop-blur-xl">
+      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:px-8">
+        <a
+          href="#top"
+          onClick={(event) => handleNavClick(event, '#top', true)}
+          className="flex min-w-0 items-center gap-3"
+        >
+          <div className="brand-mark flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-blue-400/30 bg-blue-500/10">
+            <Trophy className="h-[18px] w-[18px] text-white" />
           </div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <span className="font-black text-lg tracking-tight text-gray-900">
-                FOOTBALL<span className="text-blue-600">.IR</span>
-              </span>
-              <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 text-[10px] font-bold tracking-wide bg-blue-50 text-blue-700 border border-blue-200 rounded-full">
-                <Sparkles className="w-2.5 h-2.5 mr-1 text-blue-600" />
-                BM25 + Fuzzy
-              </span>
+          <div className="min-w-0">
+            <div className="text-[16px] font-black leading-none tracking-[0.04em]">
+              FOOTBALL<span className="text-blue-400">.IR</span>
             </div>
-            <p className="text-[11px] text-gray-500 hidden sm:block font-medium">
+            <p className="mt-1.5 hidden truncate text-[9px] font-medium text-slate-400 sm:block">
               ระบบค้นหาและจัดการประวัตินักเตะ
             </p>
           </div>
-        </div>
+        </a>
 
+        <nav className="hidden items-center gap-1 lg:flex">
+          {navItems.map(([label, href, Icon, shouldReset]) => {
+            const active = activeHref === href;
 
-        {/* --- ส่วนขวา: ข้อมูลฐานข้อมูล, สถานะเซิร์ฟเวอร์, และลิงก์ Swagger API --- */}
-        <div className="flex items-center space-x-3 sm:space-x-4">
-          
-          {/* 1. จำนวนข้อมูลในฐานข้อมูล */}
-          <div className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200 text-xs text-gray-600 font-medium">
-            <Database className="w-3.5 h-3.5 text-blue-600" />
-            <span>ฐานข้อมูล:</span>
-            <span className="font-bold text-gray-900">{totalPlayers || 100} คน</span>
-          </div>
-
-          {/* 2. ไฟแสดงสถานะการเชื่อมต่อ Backend (Online / Offline Indicator) */}
-          <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200 text-xs font-medium">
-            <span className="relative flex h-2 w-2">
-              {backendReady && (
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              )}
-              <span className={`relative inline-flex rounded-full h-2 w-2 ${backendReady ? 'bg-emerald-500' : 'bg-rose-500'}`}></span>
-            </span>
-            <span className="text-gray-600 hidden sm:inline">
-              API: <strong className={backendReady ? 'text-emerald-600' : 'text-rose-500'}>{backendReady ? 'Online' : 'Offline'}</strong>
-            </span>
-          </div>
-
-        </div>
+            return (
+              <a
+                key={label}
+                href={href}
+                aria-current={active ? 'page' : undefined}
+                onClick={(event) => handleNavClick(event, href, shouldReset)}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-[11px] font-bold transition ${
+                  active
+                    ? 'border border-blue-400/30 bg-blue-600/20 text-white'
+                    : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                }`}
+              >
+                <Icon className="h-3.5 w-3.5" />
+                {label}
+              </a>
+            );
+          })}
+        </nav>
       </div>
     </header>
   );

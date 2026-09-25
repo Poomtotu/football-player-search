@@ -61,3 +61,27 @@ desktop.ini
 # --- Local Tools & Logs ---
 *.log
 tools/
+
+
+# --- Local browser/debug artifacts from data audits ---
+backend/data/chrome_pm_profile/
+backend/data/_*.out
+backend/data/_*.err
+backend/data/_*.html
+backend/data/_*.png
+backend/data/_*.log
+
+# --- Frontend verification screenshots / one-off visual checks ---
+frontend/*_verify*.png
+frontend/edge_*.png
+frontend/player_style_*.png
+frontend/league_strip_*.png
+frontend/orbit_*.png
+frontend/silhouette_*.png
+frontend/radius_verify.png
+frontend/spotlight_verify.png
+frontend/motion_verify*.png
+
+
+# --- Unrelated nested project ---
+/moonkeybank/

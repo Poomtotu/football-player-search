@@ -6,6 +6,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSearch } from './components/HeroSearch';
 import { StatsSummary } from './components/StatsSummary';
+import { LeagueShowcase } from './components/LeagueShowcase';
+import { PopularPlayers } from './components/PopularPlayers';
+import { SearchFilters } from './components/SearchFilters';
 import { PlayerCard } from './components/PlayerCard';
 import { PlayerModal } from './components/PlayerModal';
 import { SkeletonCard } from './components/SkeletonCard';
@@ -148,12 +151,9 @@ export default function App() {
     }
   }, [selectedLeague, allPlayers, debouncedQuery]);
 
-  // --- 4. ฟังก์ชันจัดการเมื่อคลิกเลือกเปลี่ยนแท็บลีก (เคลียร์คำค้นหาอัตโนมัติ) ---
+  // --- 4. ฟังก์ชันจัดการฟิลเตอร์ลีก โดยคงคำค้นหาไว้เพื่อให้กรองผลลัพธ์ต่อได้ ---
   const handleSelectLeague = (league) => {
     setSelectedLeague(league);
-    if (query) {
-      setQuery('');
-    }
   };
 
   // --- 5. ฟังก์ชันจัดการเมื่อผู้ใช้คลิกเลือกชิปคำแนะนำด่วน ---
@@ -168,13 +168,25 @@ export default function App() {
     setSelectedLeague('ทั้งหมด');
   };
 
+  const featuredPlayer =
+    allPlayers.find((player) => player.name_en === 'Erling Haaland') ||
+    allPlayers.find((player) => player.name_en === 'Kylian Mbappé') ||
+    allPlayers[0] ||
+    null;
+
+  const isSearchMode = Boolean(
+    debouncedQuery.trim() || selectedLeague !== 'ทั้งหมด'
+  );
+
   return (
-    <div className="min-h-screen flex flex-col justify-between text-gray-900 selection:bg-blue-600 selection:text-white bg-slate-50">
+    <div className="min-h-screen flex flex-col justify-between text-slate-900 selection:bg-blue-600 selection:text-white bg-[var(--app-bg)]">
       <div>
         {/* แถบ Header ข้างบน */}
-        <Navbar 
-          backendReady={backendReady} 
-          totalPlayers={allPlayers.length} 
+        <Navbar
+          backendReady={backendReady}
+          totalPlayers={allPlayers.length}
+          onResetSearch={handleReset}
+          isSearchMode={isSearchMode}
         />
 
         {/* ส่วนค้นหานักเตะและผลลัพธ์ IR */}
@@ -183,16 +195,40 @@ export default function App() {
               query={query}
               setQuery={setQuery}
               loading={loading}
-              selectedLeague={selectedLeague}
-              setSelectedLeague={handleSelectLeague}
-              totalResults={filteredPlayers.length}
               onSelectChip={handleSelectChip}
+              featuredPlayer={featuredPlayer}
+              players={allPlayers}
+              onOpenModal={setSelectedPlayer}
+              totalPlayers={allPlayers.length}
+              compact={isSearchMode}
             />
+
+            {!isSearchMode && (
+              <>
+                <LeagueShowcase
+                  players={allPlayers}
+                  selectedLeague={selectedLeague}
+                  onSelectLeague={handleSelectLeague}
+                />
+                <PopularPlayers
+                  players={allPlayers}
+                  onOpenModal={setSelectedPlayer}
+                />
+              </>
+            )}
+
+            {isSearchMode && (
+              <SearchFilters
+                players={allPlayers}
+                selectedLeague={selectedLeague}
+                onSelectLeague={handleSelectLeague}
+              />
+            )}
 
             {/* แบนเนอร์แจ้งเตือนแบบ In-page กรณีติดต่อเซิร์ฟเวอร์ไม่ได้ */}
             {backendError && (
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 animate-fade-in">
-                <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-rose-700 text-xs sm:text-sm shadow-sm">
+                <div className="p-4 rounded-lg bg-rose-50 border border-rose-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-rose-700 text-xs sm:text-sm shadow-sm">
                   <div className="flex items-center space-x-3 text-center sm:text-left">
                     <ServerOff className="w-5 h-5 text-rose-600 flex-shrink-0" />
                     <span>
@@ -202,7 +238,7 @@ export default function App() {
                   <button
                     onClick={checkHealthAndLoad}
                     disabled={isRetrying}
-                    className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition-all flex-shrink-0"
+                    className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-md bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition-all flex-shrink-0"
                   >
                     <RefreshCw className={`w-3.5 h-3.5 ${isRetrying ? 'animate-spin' : ''}`} />
                     <span>{isRetrying ? 'กำลังลองใหม่...' : 'ลองใหม่ (Retry)'}</span>
@@ -211,6 +247,9 @@ export default function App() {
               </div>
             )}
 
+            {/* จุดเลื่อนของเมนู "นักเตะทั้งหมด" ให้อยู่ก่อนหัวข้อสรุปผลลัพธ์ */}
+            <div id="players" className="player-results-anchor" aria-hidden="true" />
+
             {/* แถบสรุปผลลัพธ์การค้นหาและความเร็ว (ms) */}
             {!loading && !backendError && (
               <StatsSummary
@@ -218,6 +257,7 @@ export default function App() {
                 totalAll={allPlayers.length}
                 query={debouncedQuery}
                 searchTime={searchTime}
+                selectedLeague={selectedLeague}
               />
             )}
 
@@ -225,18 +265,20 @@ export default function App() {
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
               {loading ? (
                 /* แสดง Skeleton Loading ระหว่างรอข้อมูล */
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                  {[...Array(8)].map((_, i) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
+                  {[...Array(6)].map((_, i) => (
                     <SkeletonCard key={i} />
                   ))}
                 </div>
               ) : filteredPlayers.length > 0 ? (
                 /* แสดงการ์ดนักเตะจริง */
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 animate-fade-in">
-                  {filteredPlayers.map((player) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6 animate-fade-in">
+                  {filteredPlayers.map((player, index) => (
                     <PlayerCard
                       key={player.id}
                       player={player}
+                      index={index}
+                      query={debouncedQuery}
                       onOpenModal={setSelectedPlayer}
                     />
                   ))}
@@ -269,17 +311,6 @@ export default function App() {
         />
       )}
 
-      {/* ส่วนท้ายเว็บไซต์ (Footer) */}
-      <footer className="border-t border-gray-200 bg-white py-8 px-4 text-center text-xs text-gray-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-2">
-            <span className="font-bold text-gray-800">Football Player Information Retrieval System</span>
-          </div>
-          <div>
-            Powered by <strong className="text-blue-600">FastAPI</strong> + <strong className="text-indigo-600">BM25Okapi</strong> + <strong className="text-cyan-600">RapidFuzz</strong>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

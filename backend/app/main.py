@@ -26,7 +26,7 @@ try:
         PlayersListResponse,
         SearchResponse,
     )
-    from app.search_engine import FootballSearchEngine
+    from app.search_engine import DEFAULT_RESULT_THRESHOLD, FootballSearchEngine
 except ImportError:
     from models import (
         HealthResponse,
@@ -34,7 +34,7 @@ except ImportError:
         PlayersListResponse,
         SearchResponse,
     )
-    from search_engine import FootballSearchEngine
+    from search_engine import DEFAULT_RESULT_THRESHOLD, FootballSearchEngine
 
 # ---------------------------------------------------------------------------
 # 1. การตั้งค่าระบบ Logging และ Path ไฟล์ข้อมูล (Path & Logging Configuration)
@@ -102,6 +102,7 @@ app = FastAPI(
         "✨ **ฟีเจอร์เด่น:**\n"
         "- ค้นหาได้ทั้งภาษาไทย, ภาษาอังกฤษ, และฉายา (เช่น 'เมสซี่', 'CR7', 'LM10', 'จอมมารบลู')\n"
         "- รองรับการพิมพ์ผิด (Typo-Tolerant ด้วย RapidFuzz WRatio)\n"
+        "- ตัดคำภาษาไทยสำหรับ BM25 ด้วย PyThaiNLP (newmm)\n"
         "- ให้คะแนน relevance_score จากการผสมผสาน BM25 (55%) และ Fuzzy Search (45%)\n"
         "- ข้อมูลนักเตะกว่า 100 คนพร้อมรูปภาพ สโมสร และสถิติตลอดอาชีพ"
     ),
@@ -258,7 +259,7 @@ async def search_players(
     threshold: Annotated[
         float,
         Query(ge=0.0, le=1.0, description="คะแนน relevance_score ขั้นต่ำ (0.0-1.0)"),
-    ] = 0.0,
+    ] = DEFAULT_RESULT_THRESHOLD,
 ) -> SearchResponse:
     # ตรวจสอบว่า IR Index พร้อมใช้งานก่อนเริ่มค้นหา
     if not search_engine.is_ready:
@@ -337,6 +338,15 @@ if os.path.exists(dist_dir):
         # ถ้าไม่มีไฟล์ ให้ส่ง index.html (SPA routing จัดการเอง)
         index_file = resolved_dist / "index.html"
         if index_file.is_file():
-            return FileResponse(str(index_file))
+            # index.html ต้องไม่ถูก cache เพราะชื่อไฟล์ asset ของ Vite เปลี่ยนทุก build
+            # ถ้า browser เก็บ index เก่าไว้ จะอ้างถึง JS/CSS hash เก่าที่ถูกลบและกลายเป็นหน้าขาว
+            return FileResponse(
+                str(index_file),
+                headers={
+                    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+                    "Pragma": "no-cache",
+                    "Expires": "0",
+                },
+            )
         raise HTTPException(status_code=404, detail="Frontend build index.html not found")
 

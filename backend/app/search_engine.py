@@ -1,6 +1,7 @@
 """
 search_engine.py — Standalone Football Player IR Search Engine
-อ่านข้อมูลจาก players.json และค้นหาด้วย Hybrid IR (BM25 + RapidFuzz)
+อ่านข้อมูลจาก players.json และค้นหาด้วย Hybrid IR
+(BM25 + RapidFuzz + Levenshtein + Jaccard) พร้อม Thai Word Segmentation ด้วย PyThaiNLP
 
 ออกแบบให้ใช้งานเป็น standalone module — ไม่ต้อง import จาก app/ package
 เพื่อให้ scraper.py, tests, และ scripts อื่นๆ ใช้ได้โดยตรง
@@ -8,13 +9,19 @@ search_engine.py — Standalone Football Player IR Search Engine
 Pipeline:
     query
       │
+      ├─► Exact / Alias / Thai pronunciation match
+      ├─► Structured substring match (name / team / league / nation)
       ├─► BM25Okapi  (term-frequency ranking)
       │   corpus = name_en×2 + name_th×2 + aliases×2 + team + league + nation
       │
-      └─► RapidFuzz WRatio  (fuzzy / typo-tolerant matching)
-          เทียบกับ name_en, name_th, aliases, team, league
+      └─► Hybrid lexical similarity
+          ├─ RapidFuzz WRatio
+          ├─ Levenshtein edit-distance percentage
+          └─ Jaccard token similarity (PyThaiNLP/newmm สำหรับภาษาไทย)
 
-    combined_score = 0.55 × BM25_norm + 0.45 × Fuzzy_norm
+    final relevance = deterministic direct-match score
+      หรือ 0.55 × BM25_norm + 0.45 × HybridLexical
+    MATCH บน UI = relevance × 100
 """
 
 import json
@@ -25,8 +32,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from pythainlp.tokenize import word_tokenize
 from rank_bm25 import BM25Okapi
 from rapidfuzz import fuzz
+from rapidfuzz.distance import Levenshtein
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +57,16 @@ BM25_WEIGHT: float = 0.55         # น้ำหนักคะแนน BM25 (5
 FUZZY_WEIGHT: float = 0.45        # น้ำหนักคะแนน Fuzzy (45% ช่วยดักจับคำที่พิมพ์ผิดหรือใกล้เคียง)
 MIN_FUZZY_SCORE: float = 70.0     # RapidFuzz ขั้นต่ำ 70 (ถ้าต่ำกว่า 70 ให้ตัดทิ้งเป็น 0 ทันที เพื่อกันผลลัพธ์มั่ว)
 SHORT_QUERY_LIMIT: int = 3        # คำค้นหา <= 3 ตัวอักษร ให้ใช้เฉพาะ Exact/Substring Match เท่านั้น ห้ามใช้ Fuzzy
+DEFAULT_RESULT_THRESHOLD: float = 0.60  # จาก evaluation set: ตัด noise โดยไม่ลด recall ของชุดทดสอบ
+
+# น้ำหนักภายใน lexical similarity:
+# - WRatio รับมือคำสลับ/บางส่วน/typo ได้ดี
+# - Levenshtein ให้สูตร edit-distance ตามนิยามโดยตรง
+# - Jaccard ช่วย query หลายคำและภาษาไทยหลัง tokenization
+WRATIO_SIGNAL_WEIGHT: float = 0.55
+LEVENSHTEIN_SIGNAL_WEIGHT: float = 0.30
+JACCARD_SIGNAL_WEIGHT: float = 0.15
+MIN_JACCARD_SCORE: float = 0.34  # ต้องมี token overlap อย่างมีนัยสำคัญ
 
 # ค่าน้ำหนักความสำคัญของแต่ละ Field ในการทำ Fuzzy Matching
 # ทำไปทำไม: ชื่อนักเตะ (name_en, name_th, aliases) มีความสำคัญสูงสุด รองลงมาคือสโมสร ลีก และทีมชาติ
@@ -59,7 +78,6 @@ _FUZZY_FIELD_WEIGHTS: dict[str, float] = {
     "current_league": 0.6,
     "nation":         0.5,
 }
-
 
 # ---------------------------------------------------------------------------
 # Text Utilities — ฟังก์ชันแปลงและจัดการข้อความ
@@ -75,12 +93,103 @@ def _normalize(text: str) -> str:
     return unicodedata.normalize("NFKC", str(text)).lower().strip()
 
 
+def _thai_loose_normalize(text: str) -> str:
+    """
+    สร้างรูปแบบค้นหาแบบผ่อนปรนสำหรับชื่อทับศัพท์ภาษาไทย
+
+    รองรับรูปแบบที่ผู้ใช้มักพิมพ์แบบเสียงอ่าน เช่น:
+      เนย์มาร์ -> เนมา
+
+    หลักการ:
+    - normalize/lowercase ตามปกติ
+    - ตัดพยัญชนะที่มีทัณฑฆาต (์) พร้อมเครื่องหมาย เพราะมักไม่ออกเสียง
+    - ตัดวรรณยุกต์/ไม้ไต่คู้เพื่อให้การค้นหาไม่แพ้เพราะเครื่องหมายกำกับเสียง
+
+    ใช้เป็น secondary matching เท่านั้น ไม่แก้ข้อมูลจริงในฐานข้อมูล
+    """
+    value = _normalize(text)
+    if not value:
+        return ""
+
+    result: list[str] = []
+    removable_marks = {"็", "่", "้", "๊", "๋"}
+
+    for ch in value:
+        if ch == "์":
+            if result:
+                result.pop()
+            continue
+        if ch in removable_marks:
+            continue
+        result.append(ch)
+
+    return "".join(result)
+
+
+def _levenshtein_percentage(query: str, target: str) -> float:
+    """
+    Levenshtein % Match ตามสูตร:
+      (1 - distance / max(len(query), len(target))) * 100
+    """
+    q = _normalize(query)
+    t = _normalize(target)
+    if not q and not t:
+        return 100.0
+    if not q or not t:
+        return 0.0
+
+    distance = Levenshtein.distance(q, t)
+    denominator = max(len(q), len(t))
+    return max(0.0, (1.0 - (distance / denominator)) * 100.0)
+
+
+def _jaccard_percentage(query: str, target: str) -> float:
+    """
+    Jaccard % Match ตามสูตร:
+      |A ∩ B| / |A ∪ B| * 100
+
+    ใช้ _tokenize() จึงรองรับ PyThaiNLP/newmm สำหรับภาษาไทยด้วย
+    """
+    a = set(_tokenize(query))
+    b = set(_tokenize(target))
+    if not a and not b:
+        return 100.0
+    if not a or not b:
+        return 0.0
+
+    union = a | b
+    if not union:
+        return 0.0
+    return (len(a & b) / len(union)) * 100.0
+
+
 def _tokenize(text: str) -> list[str]:
     """
-    ทำหน้าที่: ตัดประโยคออกเป็น Tokens (คำย่อย) โดยใช้ whitespace
-    ทำไปทำไม: เพื่อเตรียม Corpus Document สำหรับนำไปป้อนให้อัลกอริทึม BM25 คำนวณความถี่คำ (Term Frequency)
+    ตัดข้อความเป็น token สำหรับ BM25 แบบ hybrid
+    - ภาษาอังกฤษ/ตัวเลขใช้ whitespace tokenization ตามเดิม
+    - chunk ที่มีอักษรไทยจะเก็บ token ต้นฉบับไว้ และเพิ่มผลตัดคำจาก PyThaiNLP (newmm)
+    วิธีนี้ช่วยค้นหาภาษาไทยแบบติดกัน โดยไม่ทำลายชื่อทับศัพท์ที่ตัวตัดคำอาจแบ่งละเอียดเกินไป
     """
-    return [t for t in _normalize(text).split() if t]
+    normalized = _normalize(text)
+    if not normalized:
+        return []
+
+    tokens: list[str] = []
+    for chunk in normalized.split():
+        tokens.append(chunk)
+
+        has_thai = any("\u0E00" <= char <= "\u0E7F" for char in chunk)
+        if not has_thai:
+            continue
+
+        segmented = word_tokenize(chunk, engine="newmm", keep_whitespace=False)
+        tokens.extend(
+            token
+            for token in segmented
+            if token.strip() and token != chunk
+        )
+
+    return tokens
 
 
 # ---------------------------------------------------------------------------
@@ -98,7 +207,9 @@ class _IndexEntry:
     fuzzy_targets: dict[str, list[str]]  # field → list[str] สำหรับ fuzzy
     name_en_norm: str = ""               # normalized name_en
     name_th_norm: str = ""               # normalized name_th
+    name_th_loose_norm: str = ""         # loose Thai pronunciation form
     aliases_norm: list[str] = field(default_factory=list)  # normalized aliases
+    aliases_loose_norm: list[str] = field(default_factory=list)  # loose Thai alias forms
     team_norm: str = ""                  # normalized team
     league_norm: str = ""                # normalized league
     nation_norm: str = ""                # normalized national team
@@ -128,15 +239,27 @@ def _build_entry(player: dict[str, Any]) -> _IndexEntry:
 
     name_en_norm = _normalize(name_en)
     name_th_norm = _normalize(name_th)
+    name_th_loose_norm = _thai_loose_normalize(name_th)
     aliases_norm = [_normalize(a) for a in aliases if a]
+    aliases_loose_norm = [
+        loose
+        for alias in aliases
+        if alias
+        for loose in [_thai_loose_normalize(alias)]
+        if loose and loose != _normalize(alias)
+    ]
     team_norm = _normalize(team)
     league_norm = _normalize(league)
     nation_norm = _normalize(nation)
 
     fuzzy_targets: dict[str, list[str]] = {
         "name_en":        [name_en_norm] if name_en_norm else [],
-        "name_th":        [name_th_norm] if name_th_norm else [],
-        "aliases":        [a for a in aliases_norm if a],
+        "name_th":        list(dict.fromkeys(
+            [x for x in [name_th_norm, name_th_loose_norm] if x]
+        )),
+        "aliases":        list(dict.fromkeys(
+            [a for a in aliases_norm if a] + aliases_loose_norm
+        )),
         "current_team":   [team_norm] if team_norm and team_norm != "n/a" else [],
         "current_league": [league_norm] if league_norm and league_norm != "n/a" else [],
         "nation":         [nation_norm] if nation_norm and nation_norm != "n/a" else [],
@@ -148,7 +271,9 @@ def _build_entry(player: dict[str, Any]) -> _IndexEntry:
         fuzzy_targets=fuzzy_targets,
         name_en_norm=name_en_norm,
         name_th_norm=name_th_norm,
+        name_th_loose_norm=name_th_loose_norm,
         aliases_norm=aliases_norm,
+        aliases_loose_norm=aliases_loose_norm,
         team_norm=team_norm,
         league_norm=league_norm,
         nation_norm=nation_norm,
@@ -267,22 +392,99 @@ class FootballSearchEngine:
             return [0.0] * len(self._entries)
         return list(self._bm25.get_scores(tokens))
 
-    def _fuzzy_score_one(self, query_norm: str, entry: _IndexEntry) -> float:
+    def _hybrid_lexical_score_one(
+        self,
+        query_norm: str,
+        entry: _IndexEntry,
+    ) -> tuple[float, dict[str, float | str]]:
         """
-        คำนวณ fuzzy score สำหรับนักเตะ 1 คน
-        ใช้ WRatio (Weighted Ratio) กับแต่ละ field ที่ normalized ไว้แล้ว
+        รวม 3 lexical signals ต่อ field:
+          1) RapidFuzz WRatio
+          2) Levenshtein percentage
+          3) Jaccard token similarity
+
+        กฎสำคัญ:
+        - threshold ใช้กับ raw similarity ก่อน field weight
+          เพื่อไม่ให้ typo ของ league/team ถูกตัดทิ้งเพราะ field weight ต่ำกว่า 1
+        - Jaccard ใช้เฉพาะ query ที่มีอย่างน้อย 2 token
+        - เลือก field ที่ให้ weighted relevance สูงสุด
+
+        Returns:
+            (best_score_0_to_1, debug_breakdown)
         """
-        best = 0.0
+        query_tokens = set(_tokenize(query_norm))
+        use_jaccard = len(query_tokens) >= 2
+
+        best_score = 0.0
+        best_debug: dict[str, float | str] = {
+            "field": "",
+            "wratio": 0.0,
+            "levenshtein": 0.0,
+            "jaccard": 0.0,
+            "lexical": 0.0,
+        }
+
         for field_name, targets in entry.fuzzy_targets.items():
-            w = _FUZZY_FIELD_WEIGHTS.get(field_name, 0.5)
+            field_weight = _FUZZY_FIELD_WEIGHTS.get(field_name, 0.5)
+
             for target in targets:
                 if not target or target == "n/a":
                     continue
-                score = fuzz.WRatio(query_norm, target, processor=None)
-                weighted = score * w
-                if weighted > best:
-                    best = weighted
-        return best
+
+                wratio = fuzz.WRatio(query_norm, target, processor=None) / 100.0
+                levenshtein = _levenshtein_percentage(query_norm, target) / 100.0
+                jaccard = (
+                    _jaccard_percentage(query_norm, target) / 100.0
+                    if use_jaccard
+                    else 0.0
+                )
+
+                # Candidate gate: typo similarity >= 70% หรือ token overlap >= 34%
+                if (
+                    max(wratio, levenshtein) < (MIN_FUZZY_SCORE / 100.0)
+                    and jaccard < MIN_JACCARD_SCORE
+                ):
+                    continue
+
+                active_weight = WRATIO_SIGNAL_WEIGHT + LEVENSHTEIN_SIGNAL_WEIGHT
+                signal_sum = (
+                    WRATIO_SIGNAL_WEIGHT * wratio
+                    + LEVENSHTEIN_SIGNAL_WEIGHT * levenshtein
+                )
+
+                if use_jaccard:
+                    active_weight += JACCARD_SIGNAL_WEIGHT
+                    signal_sum += JACCARD_SIGNAL_WEIGHT * jaccard
+
+                lexical_similarity = signal_sum / active_weight
+                weighted_score = lexical_similarity * field_weight
+
+                if weighted_score > best_score:
+                    best_score = weighted_score
+                    best_debug = {
+                        "field": field_name,
+                        "wratio": round(wratio, 4),
+                        "levenshtein": round(levenshtein, 4),
+                        "jaccard": round(jaccard, 4),
+                        "lexical": round(weighted_score, 4),
+                    }
+
+        return best_score, best_debug
+
+    @staticmethod
+    def _match_percentage_from_relevance(relevance_score: float) -> float:
+        """
+        แปลง relevance_score ที่ใช้จัดอันดับผลลัพธ์เป็นเปอร์เซ็นต์เดียวกันสำหรับ UI
+
+        การใช้คะแนนต้นทางเดียวกันทำให้ลำดับผลค้นหาและตัวเลข MATCH ไม่ขัดกัน:
+          relevance_score 1.00 -> 100%
+          relevance_score 0.90 -> 90%
+          relevance_score 0.85 -> 85%
+          relevance_score 0.75 -> 75%
+        """
+        score = float(relevance_score)
+        score = max(0.0, min(score, 1.0))
+        return round(score * 100.0, 1)
 
     # ------------------------------------------------------------------
     # Public Search Interface
@@ -292,7 +494,7 @@ class FootballSearchEngine:
         self,
         query: str,
         limit: int = 10,
-        threshold: float = 0.0,
+        threshold: float = DEFAULT_RESULT_THRESHOLD,
     ) -> list[dict[str, Any]]:
         """
         ค้นหานักเตะด้วย Hybrid IR ปรับปรุงใหม่
@@ -321,6 +523,8 @@ class FootballSearchEngine:
         q_norm = _normalize(q_clean)
         if not q_norm:
             return []
+        q_thai_loose = _thai_loose_normalize(q_norm)
+        has_thai_query = any("\u0E00" <= char <= "\u0E7F" for char in q_norm)
 
         # Base short-query protection on normalized Unicode text.
         normalized_query_length = len(q_norm)
@@ -354,19 +558,41 @@ class FootballSearchEngine:
             # 1.3 เป็นส่วนหนึ่งของฉายา (Alias Substring Match = 70% เช่น ค้น 'เมสซี่' เจอ 'เมสซี่ตุรกี')
             elif any(len(q_norm) >= 2 and q_norm in a for a in entry.aliases_norm):
                 score = 0.70
-            # 1.4 ตรงตัวกับสโมสร, ลีก หรือทีมชาติ (Team/League/Nation Exact Match = 85%)
+            # 1.4 Thai pronunciation-friendly form.
+            # เช่น "เนมา" -> "เนย์มาร์" โดยไม่ต้องเพิ่ม alias ทีละคน
+            elif (
+                has_thai_query
+                and len(q_thai_loose) >= 3
+                and (
+                    q_thai_loose == entry.name_th_loose_norm
+                    or q_thai_loose in entry.aliases_loose_norm
+                )
+            ):
+                score = 0.92
+            elif (
+                has_thai_query
+                and len(q_thai_loose) >= 3
+                and (
+                    q_thai_loose in entry.name_th_loose_norm
+                    or any(q_thai_loose in alias for alias in entry.aliases_loose_norm)
+                )
+            ):
+                score = 0.82
+            # 1.5 ตรงตัวกับสโมสร, ลีก หรือทีมชาติ (Team/League/Nation Exact Match = 85%)
             elif (
                 q_norm == entry.team_norm
                 or q_norm == entry.league_norm
                 or q_norm == entry.nation_norm
             ):
                 score = 0.85
-            # 1.5 เป็นส่วนหนึ่งของสโมสร, ลีก หรือทีมชาติ (Team/League Substring = 75%)
-            elif (
-                (len(q_norm) >= 3 and q_norm in entry.team_norm)
-                or (len(q_norm) >= 4 and q_norm in entry.league_norm)
-                or (len(q_norm) >= 3 and q_norm in entry.nation_norm)
-            ):
+            # 1.6 Structured-field substring/prefix.
+            # สโมสรให้น้ำหนักสูงกว่า league/nation เล็กน้อย เพื่อให้ query แบบ
+            # "manchester cit" ชนะ fuzzy match ของ "Manchester United"
+            elif len(q_norm) >= 3 and q_norm in entry.team_norm:
+                score = 0.80
+            elif len(q_norm) >= 4 and q_norm in entry.league_norm:
+                score = 0.75
+            elif len(q_norm) >= 3 and q_norm in entry.nation_norm:
                 score = 0.75
             elif is_short:
                 # -------------------------------------------------------
@@ -376,16 +602,25 @@ class FootballSearchEngine:
                 score = 0.0
             else:
                 # -------------------------------------------------------
-                # 2. Adjust Fuzzy Search Threshold (>= 70):
+                # 2. Hybrid typo/context matching:
+                #    RapidFuzz WRatio + Levenshtein + Jaccard
+                #    แล้วค่อยผสม BM25 เมื่อ query มี token ที่พบในเอกสาร
                 # -------------------------------------------------------
-                raw_fuzzy = self._fuzzy_score_one(q_norm, entry)
-                if raw_fuzzy >= MIN_FUZZY_SCORE:
-                    fuzzy_norm = raw_fuzzy / 100.0
-                    b_norm = (bm25_raw[i] / bm25_max) if bm25_max > 0.0 and bm25_raw[i] > 0.0 else 0.0
+                lexical_score, _lexical_debug = self._hybrid_lexical_score_one(q_norm, entry)
+
+                if lexical_score > 0.0:
+                    b_norm = (
+                        (bm25_raw[i] / bm25_max)
+                        if bm25_max > 0.0 and bm25_raw[i] > 0.0
+                        else 0.0
+                    )
                     if b_norm > 0.0:
-                        score = round(BM25_WEIGHT * b_norm + FUZZY_WEIGHT * fuzzy_norm, 4)
+                        score = round(
+                            BM25_WEIGHT * b_norm + FUZZY_WEIGHT * lexical_score,
+                            4,
+                        )
                     else:
-                        score = round(fuzzy_norm, 4)
+                        score = round(lexical_score, 4)
                 else:
                     score = 0.0
 
@@ -393,8 +628,10 @@ class FootballSearchEngine:
             # 4. Filter: ตัดรายการที่ score = 0 ออก
             # -----------------------------------------------------------
             if score > 0.0 and score >= threshold:
+                score = float(score)
                 result = dict(entry.raw)
                 result["relevance_score"] = score
+                result["match_percentage"] = self._match_percentage_from_relevance(score)
                 results.append(result)
 
         # เรียงลำดับตาม relevance_score จากมากไปน้อย

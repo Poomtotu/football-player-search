@@ -1,4 +1,4 @@
-﻿// ===========================================================================
+// ===========================================================================
 // ErrorNotification.jsx — คอมโพเนนต์ Toast แจ้งเตือนเมื่อระบบหลังบ้านขัดข้อง
 // ===========================================================================
 
@@ -18,10 +18,10 @@ export function ErrorNotification({ error, onRetry, onDismiss, isRetrying }) {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 max-w-md w-full animate-slide-up">
-      <div className="bg-white border-2 border-rose-200 shadow-2xl rounded-2xl p-4 flex items-start space-x-3.5 text-gray-800">
+      <div className="bg-white border border-rose-200 shadow-lg rounded-lg p-4 flex items-start space-x-3.5 text-gray-800">
         
         {/* ไอคอนแจ้งเตือนเซิร์ฟเวอร์หลุด */}
-        <div className="p-2 bg-rose-50 text-rose-600 rounded-xl flex-shrink-0 mt-0.5">
+        <div className="p-2 bg-rose-50 text-rose-600 rounded-md flex-shrink-0 mt-0.5">
           <ServerOff className="w-5 h-5" />
         </div>
 
@@ -51,7 +51,7 @@ export function ErrorNotification({ error, onRetry, onDismiss, isRetrying }) {
             <button
               onClick={onRetry}
               disabled={isRetrying}
-              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 disabled:opacity-50 text-white text-xs font-bold shadow-sm transition-all"
+              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-rose-600 hover:bg-rose-700 disabled:opacity-50 text-white text-xs font-bold shadow-sm transition-all"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isRetrying ? 'animate-spin' : ''}`} />
               <span>{isRetrying ? 'กำลังเชื่อมต่อใหม่...' : 'ลองเชื่อมต่อใหม่ (Retry)'}</span>
