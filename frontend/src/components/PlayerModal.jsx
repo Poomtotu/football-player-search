@@ -391,15 +391,20 @@ export function PlayerModal({ player, onClose }) {
                   <h2 className="text-xl font-black tracking-tight text-slate-950">เส้นทางสโมสร</h2>
                 </div>
 
-                <div className="mt-5">
+                <div className="relative mt-5">
+                  {careerTerms.length > 1 && (
+                    <span
+                      className="absolute bottom-6 left-[6px] top-6 w-px bg-gradient-to-b from-[#d7a53b]/80 via-[#5c7fa6]/80 to-[#3b82f6]/90"
+                      aria-hidden="true"
+                    />
+                  )}
                   {careerTerms.map((team, index) => {
                     const isCurrent = team === displayPlayer.current_team || index === careerTerms.length - 1;
                     return (
                       <div key={`${team}-${index}`} className="relative flex min-h-12 items-center gap-4 pl-7">
-                        {index < careerTerms.length - 1 && (
-                          <span className="absolute bottom-0 left-[6px] top-6 w-px bg-slate-200" />
-                        )}
-                        <span className={`absolute left-0 flex h-3.5 w-3.5 rounded-full border-2 border-white ring-1 ${isCurrent ? 'bg-blue-600 ring-blue-200' : 'bg-slate-300 ring-slate-200'}`} />
+                        <span
+                          className={`absolute left-0 top-1/2 z-10 flex h-3.5 w-3.5 -translate-y-1/2 rounded-full border-2 shadow-[0_0_0_2px_rgba(6,18,37,.88)] ${isCurrent ? 'border-[#f3c85b] bg-blue-500 ring-2 ring-blue-400/35' : 'border-[#d5a43a] bg-[#17385c] ring-1 ring-[#d5a43a]/35'}`}
+                        />
                         <div className="flex min-w-0 flex-1 items-center justify-between gap-3 border-b border-slate-100 py-3">
                           <div className="flex min-w-0 items-center gap-3">
                             <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-400">
