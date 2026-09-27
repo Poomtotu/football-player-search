@@ -1,18 +1,18 @@
 import React from 'react';
 import { Check, SlidersHorizontal } from 'lucide-react';
 
-const LEAGUES = [
-  'ทั้งหมด',
-  'Premier League',
-  'La Liga',
-  'Serie A',
-  'Bundesliga',
-  'Ligue 1',
-  'Saudi Pro League',
-  'Major League Soccer',
-];
-
 export function SearchFilters({ players, selectedLeague, onSelectLeague }) {
+  const leagues = [
+    'ทั้งหมด',
+    ...Array.from(
+      new Set(
+        players
+          .map((player) => (player.current_league || '').trim())
+          .filter((league) => league && league.toLowerCase() !== 'n/a')
+      )
+    ).sort((a, b) => a.localeCompare(b, 'en')),
+  ];
+
   const countFor = (league) => {
     if (league === 'ทั้งหมด') return players.length;
     return players.filter((player) => player.current_league === league).length;
@@ -28,7 +28,7 @@ export function SearchFilters({ players, selectedLeague, onSelectLeague }) {
           </div>
 
           <div className="flex min-w-max items-center gap-1.5">
-            {LEAGUES.map((league) => {
+            {leagues.map((league) => {
               const active = selectedLeague === league;
 
               return (

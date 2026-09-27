@@ -3035,3 +3035,1775 @@ header:hover .brand-mark::after {
     scroll-margin-top: 76px;
   }
 }
+
+
+
+/* ===== Player profile: Black + Gold + Deep Blue ===== */
+.profile-shell {
+  --profile-bg: #07101c;
+  --profile-bg-2: #09111f;
+  --profile-card: #0a1b30;
+  --profile-card-2: #0d223c;
+  --profile-border: #244a6e;
+  --profile-gold: #e0ae32;
+  --profile-gold-hi: #ffc83d;
+  --profile-blue: #2563eb;
+  --profile-text: #f8fafc;
+  --profile-muted: #afc2d9;
+  border-color: rgba(36,74,110,.78) !important;
+  background:
+    radial-gradient(circle at 78% 0%, rgba(37,99,235,.12), transparent 25%),
+    linear-gradient(180deg, #09111f 0%, #07101c 100%) !important;
+  color: var(--profile-text);
+  box-shadow: 0 38px 120px -38px rgba(0,0,0,.92) !important;
+}
+
+.profile-hero-card {
+  isolation: isolate;
+  border: 1px solid rgba(224,174,50,.82) !important;
+  background: #08162b !important;
+  box-shadow:
+    0 0 0 1px rgba(255,200,61,.08),
+    0 0 24px rgba(224,174,50,.16),
+    0 26px 64px -38px rgba(0,0,0,.9) !important;
+}
+.profile-hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(124deg, transparent 0 61%, rgba(255,200,61,.15) 61.2% 61.65%, transparent 62%),
+    linear-gradient(124deg, transparent 0 72%, rgba(224,174,50,.09) 72.2% 72.55%, transparent 73%);
+}
+
+.profile-hero-card::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  right: 14%;
+  top: 38%;
+  width: 180px;
+  height: 110px;
+  pointer-events: none;
+  opacity: .6;
+  background-image: radial-gradient(circle, rgba(255,200,61,.62) 1.25px, transparent 1.5px);
+  background-size: 13px 13px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 28%, #000 82%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 28%, #000 82%, transparent);
+}
+
+.profile-hero-league {
+  color: var(--profile-gold-hi) !important;
+}
+.profile-stat-card {
+  border: 1px solid rgba(36,74,110,.9);
+  background: linear-gradient(180deg, rgba(7,16,28,.86), rgba(10,27,48,.76));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.profile-stat-card svg {
+  color: var(--profile-gold-hi) !important;
+}
+
+.profile-stat-card > div:first-child {
+  color: #b7c6d8 !important;
+}
+
+.profile-stat-card > div:last-child {
+  color: #8fa8c1 !important;
+}
+
+.profile-alias-label {
+  color: #9fb3cb !important;
+}
+
+.profile-alias-row > span:not(.profile-alias-label) {
+  border: 1px solid rgba(36,74,110,.92) !important;
+  background: rgba(9,18,34,.88) !important;
+  color: #b9c9da !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+.profile-alias-row > span:nth-child(2) {
+  border-color: rgba(255,200,61,.86) !important;
+  color: var(--profile-gold-hi) !important;
+  background: linear-gradient(180deg, rgba(224,174,50,.18), rgba(224,174,50,.08)) !important;
+  box-shadow: 0 0 14px rgba(224,174,50,.11);
+}
+.profile-content-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(224,174,50,.42) !important;
+  background:
+    linear-gradient(115deg, rgba(10,27,48,.98), rgba(7,16,28,.96)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.02),
+    0 14px 34px -28px rgba(0,0,0,.9) !important;
+}
+
+.profile-content-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.profile-content-card h2 {
+  color: var(--profile-text) !important;
+}
+
+.profile-content-card p {
+  color: var(--profile-muted) !important;
+}
+
+.profile-section-icon,
+.profile-content-card > div:first-child > span {
+  border: 1px solid rgba(224,174,50,.42) !important;
+  background: linear-gradient(180deg, rgba(224,174,50,.17), rgba(224,174,50,.07)) !important;
+  color: var(--profile-gold-hi) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,200,61,.04), 0 0 16px rgba(224,174,50,.07) !important;
+}
+.profile-strength-chip {
+  border: 1px solid rgba(224,174,50,.38) !important;
+  background: rgba(8,22,39,.84) !important;
+  color: #e8edf5 !important;
+}
+
+.profile-style-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 54%;
+  z-index: 0;
+  opacity: .68;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(37,99,235,.28), transparent 30%),
+    radial-gradient(circle at 45% 85%, rgba(224,174,50,.10), transparent 32%),
+    linear-gradient(135deg, transparent 0 48%, rgba(37,99,235,.11) 48.4% 49%, transparent 49.5%);
+}
+
+.profile-style-card::after {
+  content: "";
+  position: absolute;
+  right: 6%;
+  bottom: -28%;
+  z-index: 1;
+  width: 34%;
+  aspect-ratio: 1.55;
+  border: 1px solid rgba(96,165,250,.16);
+  transform: perspective(380px) rotateX(63deg) rotateZ(-4deg);
+  box-shadow: inset 0 0 0 1px rgba(96,165,250,.03);
+  pointer-events: none;
+}
+.profile-history-card {
+  background:
+    linear-gradient(90deg, rgba(7,16,28,.97), rgba(10,27,48,.92)),
+    repeating-linear-gradient(162deg, transparent 0 18px, rgba(96,165,250,.055) 19px 20px),
+    repeating-linear-gradient(18deg, transparent 0 28px, rgba(224,174,50,.035) 29px 30px) !important;
+}
+
+.profile-content-card .bg-slate-50,
+.profile-content-card .bg-white {
+  background: rgba(13,34,60,.82) !important;
+}
+
+.profile-content-card .border-slate-100,
+.profile-content-card .border-slate-200 {
+  border-color: rgba(36,74,110,.58) !important;
+}
+
+.profile-content-card .text-slate-950,
+.profile-content-card .text-slate-700,
+.profile-content-card .text-slate-600 {
+  color: #e7eef7 !important;
+}
+
+.profile-content-card .text-slate-400 {
+  color: #8fa8c1 !important;
+}
+
+.profile-content-card .bg-blue-50 {
+  background: rgba(224,174,50,.12) !important;
+}
+
+.profile-content-card .text-blue-700,
+.profile-content-card .text-blue-600 {
+  color: var(--profile-gold-hi) !important;
+}
+.profile-info-panel,
+.profile-social-panel {
+  overflow: hidden;
+  border-color: rgba(36,74,110,.88) !important;
+  background:
+    linear-gradient(180deg, rgba(10,27,48,.98), rgba(7,16,28,.98)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.profile-info-panel > div:first-child,
+.profile-social-panel > div:first-child {
+  margin: -20px -20px 20px;
+  padding: 16px 20px;
+  background:
+    linear-gradient(115deg, rgba(10,27,48,.98), rgba(7,16,28,.98)) !important;
+  border-bottom: 1px solid rgba(36,74,110,.6) !important;
+}
+
+.profile-info-panel > div:first-child h2,
+.profile-social-panel > div:first-child h2 {
+  color: var(--profile-text) !important;
+}
+
+.profile-info-panel > div:first-child > span,
+.profile-social-panel > div:first-child > span {
+  border: 1px solid rgba(224,174,50,.44) !important;
+  background: linear-gradient(180deg, rgba(224,174,50,.18), rgba(224,174,50,.08)) !important;
+  color: var(--profile-gold-hi) !important;
+  box-shadow: 0 0 14px rgba(224,174,50,.08) !important;
+}
+.profile-info-panel > div:not(:first-child) > p,
+.profile-info-panel .border-t > p {
+  color: #e7eef7 !important;
+}
+
+.profile-info-panel .border-t {
+  border-color: rgba(36,74,110,.72) !important;
+}
+
+.profile-info-tile,
+.profile-info-wide {
+  border-color: rgba(36,74,110,.92) !important;
+  background: linear-gradient(180deg, rgba(13,34,60,.96), rgba(8,24,42,.96)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+.profile-info-tile:hover,
+.profile-info-wide:hover {
+  border-color: rgba(224,174,50,.55) !important;
+  background: linear-gradient(180deg, rgba(16,42,73,.98), rgba(10,29,51,.98)) !important;
+}
+
+.profile-info-tile svg,
+.profile-info-wide svg {
+  color: var(--profile-gold-hi) !important;
+}
+
+.profile-info-tile p,
+.profile-info-wide p {
+  color: #8fa8c1 !important;
+}
+
+.profile-info-tile strong,
+.profile-info-wide strong {
+  color: var(--profile-text) !important;
+}
+.profile-info-wide > span {
+  border: 1px solid rgba(36,74,110,.78);
+  background: rgba(7,16,28,.86) !important;
+  color: var(--profile-gold-hi) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.profile-social-tile {
+  border-color: rgba(36,74,110,.86) !important;
+  background: rgba(13,34,60,.82) !important;
+  color: #d9e4ef !important;
+}
+
+.profile-social-tile:hover {
+  border-color: rgba(224,174,50,.52) !important;
+  background: rgba(17,42,70,.96) !important;
+  color: var(--profile-gold-hi) !important;
+}
+
+.profile-social-tile svg {
+  color: var(--profile-gold-hi) !important;
+}
+
+.profile-floating-action {
+  border-color: rgba(224,174,50,.8) !important;
+  background: rgba(7,16,28,.92) !important;
+  color: var(--profile-gold-hi) !important;
+  box-shadow: 0 8px 24px -12px rgba(224,174,50,.3) !important;
+}
+
+.profile-floating-action:hover {
+  border-color: var(--profile-gold-hi) !important;
+  background: rgba(34,31,19,.96) !important;
+  color: #fff7d6 !important;
+}
+.player-profile-modal {
+  scrollbar-color: #9a7a2a #081321 !important;
+}
+
+.player-profile-modal::-webkit-scrollbar-track {
+  background: #081321 !important;
+}
+
+.player-profile-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(#c4972d, #7d6225) !important;
+}
+
+.profile-sidebar {
+  align-self: start;
+}
+
+@media (max-width: 1023px) {
+  .profile-sidebar {
+    position: static;
+  }
+
+  .profile-style-card::before,
+  .profile-style-card::after {
+    opacity: .34;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-hero-card::after {
+    right: 3%;
+    width: 120px;
+    opacity: .35;
+  }
+
+  .profile-content-card {
+    border-color: rgba(224,174,50,.32) !important;
+  }
+}
+
+
+/* ===== Player profile reference-match pass ===== */
+.profile-hero-atmosphere {
+  z-index: 0;
+  opacity: .24;
+  filter: blur(12px) saturate(1.2) brightness(.78);
+  transform: scale(1.08);
+}
+
+.profile-hero-base {
+  z-index: 1;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(37,99,235,.34), transparent 30%),
+    linear-gradient(112deg, rgba(5,15,30,.98) 0%, rgba(6,22,43,.97) 45%, rgba(10,37,73,.78) 72%, rgba(8,28,52,.62) 100%);
+}
+
+.profile-hero-fade {
+  z-index: 5;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #071427 0%, rgba(7,20,39,.97) 40%, rgba(7,20,39,.72) 55%, rgba(7,20,39,.12) 78%, transparent 100%),
+    linear-gradient(180deg, rgba(2,8,23,.08), rgba(2,8,23,.12));
+}
+
+.profile-hero-player {
+  z-index: 4;
+  opacity: .98;
+  -webkit-mask-image: linear-gradient(to left, #000 0 78%, rgba(0,0,0,.92) 84%, rgba(0,0,0,.35) 94%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0 78%, rgba(0,0,0,.92) 84%, rgba(0,0,0,.35) 94%, transparent 100%);
+  filter: saturate(1.08) contrast(1.04) brightness(1.02);
+}
+.profile-hero-card {
+  min-height: 348px !important;
+  border-color: rgba(255,200,61,.92) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,200,61,.10),
+    0 0 18px rgba(255,200,61,.22),
+    inset 0 0 24px rgba(224,174,50,.035),
+    0 26px 64px -38px rgba(0,0,0,.92) !important;
+}
+
+.profile-hero-card > .relative.z-10 {
+  min-height: 348px !important;
+}
+
+.profile-hero-card::before {
+  z-index: 6 !important;
+  background:
+    linear-gradient(124deg, transparent 0 60.5%, rgba(255,200,61,.28) 60.7% 61.05%, transparent 61.35%),
+    linear-gradient(124deg, transparent 0 70.5%, rgba(224,174,50,.14) 70.7% 71.02%, transparent 71.35%) !important;
+}
+
+.profile-hero-card::after {
+  z-index: 7 !important;
+  right: 15% !important;
+  top: 42% !important;
+  width: 170px !important;
+  height: 110px !important;
+  opacity: .64 !important;
+  background-image: radial-gradient(circle, rgba(255,200,61,.72) 1.15px, transparent 1.55px) !important;
+  background-size: 12px 12px !important;
+}
+.profile-style-card {
+  min-height: 220px;
+  border-color: rgba(224,174,50,.58) !important;
+  background:
+    radial-gradient(circle at 84% 22%, rgba(37,99,235,.18), transparent 26%),
+    linear-gradient(110deg, rgba(7,20,39,.99) 0%, rgba(9,28,51,.98) 63%, rgba(8,27,50,.95) 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 0 14px rgba(224,174,50,.08) !important;
+}
+
+.profile-style-card::before {
+  inset: 0 !important;
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 78% 14%, rgba(96,165,250,.16), transparent 22%),
+    linear-gradient(135deg, transparent 0 62%, rgba(59,130,246,.12) 62.2% 62.8%, transparent 63%),
+    linear-gradient(135deg, transparent 0 72%, rgba(224,174,50,.06) 72.2% 72.7%, transparent 73%) !important;
+}
+
+.profile-style-card::after {
+  right: 4% !important;
+  bottom: -36% !important;
+  width: 38% !important;
+  opacity: .7;
+  border-color: rgba(96,165,250,.20) !important;
+}
+.profile-style-player {
+  position: absolute;
+  z-index: 1;
+  right: 3%;
+  bottom: -18%;
+  width: 30%;
+  height: 128%;
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: .18;
+  filter: grayscale(1) saturate(.6) brightness(.9) contrast(1.15) sepia(.08);
+  -webkit-mask-image: linear-gradient(to left, #000 55%, rgba(0,0,0,.75) 73%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 55%, rgba(0,0,0,.75) 73%, transparent 100%);
+  pointer-events: none;
+}
+
+.profile-style-card > div,
+.profile-style-card > p,
+.profile-style-card > img + div {
+  position: relative;
+  z-index: 3;
+}
+
+.profile-history-card {
+  min-height: 132px;
+  border-color: rgba(224,174,50,.52) !important;
+  background:
+    linear-gradient(90deg, rgba(7,20,39,.99) 0%, rgba(8,27,50,.96) 60%, rgba(6,20,38,.91) 100%),
+    repeating-linear-gradient(160deg, transparent 0 20px, rgba(96,165,250,.09) 21px 22px),
+    repeating-linear-gradient(20deg, transparent 0 36px, rgba(224,174,50,.05) 37px 38px) !important;
+}
+.profile-history-card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: auto 0 0 48%;
+  height: 72%;
+  pointer-events: none;
+  opacity: .55;
+  background:
+    repeating-linear-gradient(167deg, transparent 0 26px, rgba(96,165,250,.08) 27px 28px),
+    repeating-linear-gradient(13deg, transparent 0 34px, rgba(255,255,255,.025) 35px 36px);
+  -webkit-mask-image: linear-gradient(to left, #000, transparent 95%);
+  mask-image: linear-gradient(to left, #000, transparent 95%);
+}
+
+.profile-info-panel,
+.profile-social-panel {
+  border-color: rgba(36,74,110,.95) !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(37,99,235,.09), transparent 24%),
+    linear-gradient(180deg, #091a2f 0%, #071427 100%) !important;
+}
+
+.profile-info-tile,
+.profile-info-wide {
+  border-color: rgba(50,89,126,.90) !important;
+  background:
+    linear-gradient(180deg, rgba(13,34,60,.98), rgba(8,25,44,.98)) !important;
+}
+
+.profile-info-tile svg,
+.profile-info-wide svg,
+.profile-section-icon svg {
+  filter: drop-shadow(0 0 6px rgba(255,200,61,.16));
+}
+.profile-floating-action {
+  width: 46px !important;
+  height: 46px !important;
+  border-width: 1px !important;
+  box-shadow:
+    0 0 0 1px rgba(255,200,61,.05),
+    0 0 16px rgba(255,200,61,.09) !important;
+}
+
+.profile-alias-row {
+  min-height: 38px;
+}
+
+.profile-alias-row > span:not(.profile-alias-label) {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 14px !important;
+}
+
+.profile-alias-row > span:nth-child(2) {
+  box-shadow:
+    inset 0 0 0 1px rgba(255,200,61,.08),
+    0 0 12px rgba(255,200,61,.15) !important;
+}
+
+@media (max-width: 1023px) {
+  .profile-hero-player {
+    width: 62% !important;
+  }
+
+  .profile-style-player {
+    width: 38%;
+    opacity: .12;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-hero-player {
+    width: 74% !important;
+    opacity: .72;
+  }
+
+  .profile-hero-fade {
+    background:
+      linear-gradient(90deg, #071427 0%, rgba(7,20,39,.94) 52%, rgba(7,20,39,.36) 80%, transparent 100%);
+  }
+
+  .profile-style-player {
+    display: none;
+  }
+}
+
+
+.profile-hero-player.is-photo {
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  width: 58%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .98;
+  -webkit-mask-image: linear-gradient(to left, #000 0 78%, rgba(0,0,0,.92) 84%, rgba(0,0,0,.35) 94%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0 78%, rgba(0,0,0,.92) 84%, rgba(0,0,0,.35) 94%, transparent 100%);
+}
+
+.profile-hero-player.is-cutout {
+  z-index: 4;
+  right: 1%;
+  bottom: -11%;
+  width: 54%;
+  height: 122%;
+  object-fit: contain;
+  object-position: center bottom !important;
+  opacity: 1;
+  filter:
+    drop-shadow(0 18px 28px rgba(0,0,0,.38))
+    saturate(1.08)
+    contrast(1.03)
+    brightness(1.02);
+  -webkit-mask-image: linear-gradient(to left, #000 0 82%, rgba(0,0,0,.92) 88%, rgba(0,0,0,.35) 96%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0 82%, rgba(0,0,0,.92) 88%, rgba(0,0,0,.35) 96%, transparent 100%);
+}
+
+@media (max-width: 1023px) {
+  .profile-hero-player.is-cutout {
+    width: 60%;
+    right: -2%;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-hero-player.is-photo {
+    width: 74%;
+  }
+
+  .profile-hero-player.is-cutout {
+    width: 72%;
+    height: 118%;
+    right: -8%;
+    bottom: -8%;
+    opacity: .78;
+  }
+}
+
+
+/* Restore the hero area to the original blue treatment. Keep the rest of the modal Black + Gold. */
+.profile-hero-original {
+  min-height: 330px !important;
+  border: 1px solid rgba(96,165,250,.22) !important;
+  background: #061225 !important;
+  box-shadow: 0 28px 70px -40px rgba(37,99,235,.7) !important;
+}
+
+.profile-hero-original::before,
+.profile-hero-original::after {
+  display: none !important;
+  content: none !important;
+}
+
+.profile-hero-original > .relative.z-10 {
+  min-height: 330px !important;
+}
+
+.profile-hero-original .profile-hero-league {
+  color: #93c5fd !important;
+}
+
+.profile-hero-original .profile-stat-card {
+  border: 1px solid rgba(255,255,255,.10) !important;
+  background: rgba(0,0,0,.20) !important;
+  box-shadow: none !important;
+}
+
+.profile-hero-original .profile-stat-card svg {
+  color: #93c5fd !important;
+  filter: none !important;
+}
+
+.profile-hero-original .profile-stat-card > div:first-child {
+  color: #94a3b8 !important;
+}
+
+.profile-hero-original .profile-stat-card > div:last-child {
+  color: #94a3b8 !important;
+}
+
+@media (max-width: 640px) {
+  .profile-hero-original {
+    min-height: 330px !important;
+  }
+}
+
+
+/* ===== Luxury corner-light treatment: gold only where light hits the corners ===== */
+.profile-hero-original,
+.profile-content-card,
+.profile-info-panel,
+.profile-social-panel {
+  border-color: rgba(36,74,110,.88) !important;
+}
+
+.profile-style-card,
+.profile-history-card {
+  border-color: rgba(36,74,110,.88) !important;
+}
+
+.profile-corner-glow {
+  position: absolute !important;
+  z-index: 12 !important;
+  inset: -1px !important;
+  display: block;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: .96;
+  background:
+    linear-gradient(90deg, rgba(255,200,61,.98), rgba(224,174,50,.42) 42%, transparent 100%) top left / 118px 1px no-repeat,
+    linear-gradient(180deg, rgba(255,200,61,.95), rgba(224,174,50,.30) 48%, transparent 100%) top left / 1px 72px no-repeat,
+    linear-gradient(270deg, rgba(255,200,61,.92), rgba(224,174,50,.32) 44%, transparent 100%) top right / 102px 1px no-repeat,
+    linear-gradient(180deg, rgba(255,200,61,.82), rgba(224,174,50,.22) 46%, transparent 100%) top right / 1px 58px no-repeat,
+    linear-gradient(90deg, rgba(255,200,61,.58), rgba(224,174,50,.16) 42%, transparent 100%) bottom left / 68px 1px no-repeat,
+    linear-gradient(0deg, rgba(255,200,61,.50), rgba(224,174,50,.13) 44%, transparent 100%) bottom left / 1px 46px no-repeat,
+    linear-gradient(270deg, rgba(255,200,61,.76), rgba(224,174,50,.20) 42%, transparent 100%) bottom right / 86px 1px no-repeat,
+    linear-gradient(0deg, rgba(255,200,61,.68), rgba(224,174,50,.17) 44%, transparent 100%) bottom right / 1px 54px no-repeat,
+    radial-gradient(circle at 0 0, rgba(255,200,61,.16), transparent 52px),
+    radial-gradient(circle at 100% 0, rgba(255,200,61,.13), transparent 48px),
+    radial-gradient(circle at 100% 100%, rgba(224,174,50,.10), transparent 42px);
+  filter:
+    drop-shadow(0 0 3px rgba(255,200,61,.62))
+    drop-shadow(0 0 9px rgba(224,174,50,.18));
+}
+
+.profile-style-card .profile-corner-glow,
+.profile-history-card .profile-corner-glow {
+  opacity: .82;
+}
+
+.profile-history-card .profile-corner-glow {
+  background:
+    linear-gradient(90deg, rgba(255,200,61,.92), rgba(224,174,50,.34) 44%, transparent 100%) top left / 94px 1px no-repeat,
+    linear-gradient(180deg, rgba(255,200,61,.86), rgba(224,174,50,.22) 48%, transparent 100%) top left / 1px 58px no-repeat,
+    linear-gradient(270deg, rgba(255,200,61,.55), rgba(224,174,50,.12) 45%, transparent 100%) bottom right / 72px 1px no-repeat,
+    linear-gradient(0deg, rgba(255,200,61,.48), rgba(224,174,50,.10) 45%, transparent 100%) bottom right / 1px 42px no-repeat,
+    radial-gradient(circle at 0 0, rgba(255,200,61,.14), transparent 46px);
+}
+
+
+/* Player emphasis without changing the original hero composition. */
+.profile-player-emphasis {
+  position: absolute;
+  z-index: 3;
+  top: -8%;
+  right: -4%;
+  width: 62%;
+  height: 118%;
+  pointer-events: none;
+  opacity: .96;
+  background:
+    radial-gradient(ellipse at 61% 42%, rgba(255,255,255,.13) 0%, rgba(96,165,250,.09) 22%, transparent 47%),
+    radial-gradient(ellipse at 64% 58%, rgba(255,200,61,.12) 0%, transparent 38%),
+    linear-gradient(122deg, transparent 0 47%, rgba(255,200,61,.10) 47.3% 47.8%, transparent 48.2%),
+    linear-gradient(122deg, transparent 0 61%, rgba(96,165,250,.10) 61.3% 61.8%, transparent 62.2%);
+  -webkit-mask-image: linear-gradient(to left, #000 0%, #000 72%, rgba(0,0,0,.6) 88%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 0%, #000 72%, rgba(0,0,0,.6) 88%, transparent 100%);
+}
+
+.profile-player-emphasis::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  top: 41%;
+  width: 180px;
+  height: 112px;
+  opacity: .62;
+  background-image: radial-gradient(circle, rgba(255,200,61,.70) 1.15px, transparent 1.5px);
+  background-size: 13px 13px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 25%, #000 82%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 25%, #000 82%, transparent);
+}
+
+.profile-hero-original-player {
+  z-index: 5;
+  filter:
+    drop-shadow(0 18px 24px rgba(0,0,0,.32))
+    drop-shadow(0 0 12px rgba(96,165,250,.08))
+    saturate(1.07)
+    contrast(1.03);
+}
+
+.profile-hero-original .player-profile-grid {
+  opacity: .38 !important;
+}
+
+.profile-hero-original {
+  box-shadow:
+    0 24px 58px -38px rgba(0,0,0,.82),
+    inset 0 0 0 1px rgba(96,165,250,.03) !important;
+}
+
+.profile-style-card {
+  box-shadow:
+    0 18px 42px -34px rgba(0,0,0,.86),
+    inset 0 1px 0 rgba(255,255,255,.02) !important;
+}
+
+.profile-history-card {
+  box-shadow:
+    0 16px 38px -34px rgba(0,0,0,.82),
+    inset 0 1px 0 rgba(255,255,255,.018) !important;
+}
+
+@media (max-width: 640px) {
+  .profile-player-emphasis {
+    right: -18%;
+    width: 82%;
+    opacity: .72;
+  }
+
+  .profile-player-emphasis::after {
+    opacity: .32;
+  }
+}
+
+
+/* Stronger localized gold glints — not a full gold frame. */
+.profile-corner-glow {
+  opacity: 1 !important;
+  background:
+    linear-gradient(90deg, #ffd45a 0%, rgba(255,200,61,.86) 20%, rgba(224,174,50,.34) 58%, transparent 100%) top left / 150px 2px no-repeat,
+    linear-gradient(180deg, #ffd45a 0%, rgba(255,200,61,.72) 24%, rgba(224,174,50,.22) 62%, transparent 100%) top left / 2px 86px no-repeat,
+    linear-gradient(270deg, #ffd45a 0%, rgba(255,200,61,.72) 22%, rgba(224,174,50,.24) 58%, transparent 100%) top right / 126px 2px no-repeat,
+    linear-gradient(180deg, #ffd45a 0%, rgba(255,200,61,.58) 25%, rgba(224,174,50,.18) 60%, transparent 100%) top right / 2px 72px no-repeat,
+    linear-gradient(90deg, rgba(255,212,90,.84) 0%, rgba(224,174,50,.24) 50%, transparent 100%) bottom left / 92px 2px no-repeat,
+    linear-gradient(0deg, rgba(255,212,90,.78) 0%, rgba(224,174,50,.18) 54%, transparent 100%) bottom left / 2px 58px no-repeat,
+    linear-gradient(270deg, rgba(255,212,90,.92) 0%, rgba(224,174,50,.28) 48%, transparent 100%) bottom right / 108px 2px no-repeat,
+    linear-gradient(0deg, rgba(255,212,90,.82) 0%, rgba(224,174,50,.20) 50%, transparent 100%) bottom right / 2px 64px no-repeat,
+    radial-gradient(circle at 0 0, rgba(255,212,90,.34), rgba(224,174,50,.10) 24px, transparent 54px),
+    radial-gradient(circle at 100% 0, rgba(255,212,90,.26), rgba(224,174,50,.08) 22px, transparent 50px),
+    radial-gradient(circle at 100% 100%, rgba(255,212,90,.18), transparent 44px) !important;
+  filter:
+    drop-shadow(0 0 3px rgba(255,212,90,.92))
+    drop-shadow(0 0 11px rgba(224,174,50,.34)) !important;
+}
+
+.profile-style-card .profile-corner-glow {
+  opacity: .92 !important;
+}
+
+.profile-history-card .profile-corner-glow {
+  opacity: .84 !important;
+}
+
+.profile-player-emphasis {
+  background:
+    radial-gradient(ellipse at 62% 38%, rgba(255,255,255,.18) 0%, rgba(96,165,250,.10) 20%, transparent 43%),
+    radial-gradient(ellipse at 62% 54%, rgba(255,200,61,.17) 0%, rgba(224,174,50,.07) 22%, transparent 43%),
+    linear-gradient(122deg, transparent 0 47%, rgba(255,200,61,.13) 47.3% 47.8%, transparent 48.2%),
+    linear-gradient(122deg, transparent 0 61%, rgba(96,165,250,.12) 61.3% 61.8%, transparent 62.2%) !important;
+}
+
+.profile-hero-original-player {
+  filter:
+    drop-shadow(0 20px 28px rgba(0,0,0,.38))
+    drop-shadow(0 0 16px rgba(96,165,250,.13))
+    drop-shadow(0 0 7px rgba(255,200,61,.06))
+    saturate(1.09)
+    contrast(1.04) !important;
+}
+
+
+/* ===== Final luxury light pass: corner glow, no gold frame, no dot cluster ===== */
+.profile-player-emphasis::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Gold should read as reflected light at the corners, not as a border line. */
+.profile-corner-glow {
+  inset: 0 !important;
+  border-radius: inherit;
+  opacity: 1 !important;
+  background:
+    radial-gradient(ellipse 120px 82px at 0% 0%,
+      rgba(255,240,190,.86) 0%,
+      rgba(255,206,78,.42) 16%,
+      rgba(224,174,50,.16) 34%,
+      transparent 68%),
+    radial-gradient(ellipse 112px 78px at 100% 0%,
+      rgba(255,235,174,.74) 0%,
+      rgba(255,200,61,.34) 18%,
+      rgba(224,174,50,.12) 36%,
+      transparent 68%),
+    radial-gradient(ellipse 92px 64px at 0% 100%,
+      rgba(255,218,112,.40) 0%,
+      rgba(224,174,50,.14) 28%,
+      transparent 68%),
+    radial-gradient(ellipse 104px 70px at 100% 100%,
+      rgba(255,224,132,.54) 0%,
+      rgba(224,174,50,.16) 28%,
+      transparent 68%) !important;
+  filter:
+    drop-shadow(0 0 8px rgba(255,205,72,.24))
+    drop-shadow(0 0 20px rgba(224,174,50,.10)) !important;
+}
+
+/* Keep the actual card edge cool/dark so the gold never becomes a full frame. */
+.profile-hero-original,
+.profile-style-card,
+.profile-history-card {
+  border-color: rgba(43,76,108,.82) !important;
+}
+
+/* Soft gold spotlight behind the player; no dots. */
+.profile-player-emphasis {
+  opacity: 1 !important;
+  background:
+    radial-gradient(ellipse 48% 58% at 67% 42%,
+      rgba(255,246,210,.18) 0%,
+      rgba(255,213,92,.12) 22%,
+      rgba(224,174,50,.05) 42%,
+      transparent 66%),
+    radial-gradient(ellipse 40% 44% at 78% 68%,
+      rgba(96,165,250,.11) 0%,
+      transparent 64%),
+    linear-gradient(122deg,
+      transparent 0 50%,
+      rgba(255,215,110,.055) 50.4% 51.2%,
+      transparent 51.6%),
+    linear-gradient(122deg,
+      transparent 0 65%,
+      rgba(96,165,250,.07) 65.3% 66%,
+      transparent 66.4%) !important;
+  mix-blend-mode: screen;
+}
+
+.profile-hero-original-player {
+  filter:
+    drop-shadow(0 22px 30px rgba(0,0,0,.42))
+    drop-shadow(0 0 18px rgba(96,165,250,.12))
+    drop-shadow(0 0 12px rgba(255,205,72,.08))
+    saturate(1.10)
+    contrast(1.045)
+    brightness(1.025) !important;
+}
+
+/* Slight corner-light intensity hierarchy for the lower cards. */
+.profile-style-card .profile-corner-glow {
+  opacity: .78 !important;
+}
+
+.profile-history-card .profile-corner-glow {
+  opacity: .58 !important;
+}
+
+@media (max-width: 640px) {
+  .profile-corner-glow {
+    background:
+      radial-gradient(ellipse 86px 62px at 0% 0%, rgba(255,235,174,.68), rgba(255,200,61,.20) 28%, transparent 68%),
+      radial-gradient(ellipse 78px 58px at 100% 0%, rgba(255,224,132,.52), rgba(224,174,50,.16) 30%, transparent 68%),
+      radial-gradient(ellipse 72px 50px at 100% 100%, rgba(255,218,112,.32), transparent 68%) !important;
+  }
+}
+
+
+/* Hero-only polished corner glints: short reflections, never a continuous frame. */
+.profile-hero-original .profile-corner-glow::before,
+.profile-hero-original .profile-corner-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 92px;
+  height: 86px;
+  pointer-events: none;
+  opacity: .92;
+}
+
+.profile-hero-original .profile-corner-glow::before {
+  left: 0;
+  border-top-left-radius: inherit;
+  background:
+    radial-gradient(circle at 3px 3px, rgba(255,248,216,.96) 0 2px, rgba(255,211,91,.54) 4px, transparent 14px),
+    linear-gradient(90deg, rgba(255,231,154,.92), rgba(255,200,61,.38) 42%, transparent 78%) 0 0 / 72px 1px no-repeat,
+    linear-gradient(180deg, rgba(255,231,154,.86), rgba(255,200,61,.28) 44%, transparent 80%) 0 0 / 1px 62px no-repeat;
+  filter:
+    drop-shadow(0 0 4px rgba(255,220,116,.68))
+    drop-shadow(0 0 13px rgba(224,174,50,.22));
+}
+
+.profile-hero-original .profile-corner-glow::after {
+  right: 0;
+  border-top-right-radius: inherit;
+  background:
+    radial-gradient(circle at calc(100% - 3px) 3px, rgba(255,248,216,.90) 0 2px, rgba(255,211,91,.48) 4px, transparent 14px),
+    linear-gradient(270deg, rgba(255,231,154,.82), rgba(255,200,61,.32) 42%, transparent 78%) 100% 0 / 68px 1px no-repeat,
+    linear-gradient(180deg, rgba(255,231,154,.76), rgba(255,200,61,.24) 44%, transparent 80%) 100% 0 / 1px 58px no-repeat;
+  filter:
+    drop-shadow(0 0 4px rgba(255,220,116,.58))
+    drop-shadow(0 0 12px rgba(224,174,50,.18));
+}
+
+
+/* =========================================================
+   Reference-match final pass — deep blue, luxury gold light
+   ========================================================= */
+
+/* Overall modal tone from the reference image */
+.profile-shell {
+  background:
+    radial-gradient(circle at 77% -4%, rgba(27,87,166,.14), transparent 29%),
+    linear-gradient(180deg, #05111f 0%, #06101d 48%, #050d18 100%) !important;
+}
+
+/* Hero: dark navy on the left, luminous royal blue on the right */
+.profile-hero-original {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 16px !important;
+  border: 1px solid rgba(42,72,105,.88) !important;
+  background:
+    radial-gradient(ellipse 48% 72% at 78% 22%, rgba(37,99,235,.32) 0%, rgba(15,65,127,.18) 34%, transparent 70%),
+    linear-gradient(103deg, #031326 0%, #04172c 44%, #07244a 69%, #0a3163 100%) !important;
+  box-shadow:
+    0 28px 66px -42px rgba(0,0,0,.96),
+    inset 0 1px 0 rgba(255,255,255,.025),
+    inset 0 -1px 0 rgba(23,55,92,.32) !important;
+}
+
+/* Gold/blue light beams like the reference */
+.profile-hero-original::before {
+  display: block !important;
+  content: "" !important;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: .92;
+  background:
+    linear-gradient(126deg,
+      transparent 0 61.0%,
+      rgba(255,215,105,.06) 61.2%,
+      rgba(255,218,110,.30) 61.55%,
+      rgba(255,214,96,.08) 62.0%,
+      transparent 62.45%),
+    linear-gradient(126deg,
+      transparent 0 72.6%,
+      rgba(96,165,250,.03) 72.8%,
+      rgba(96,165,250,.15) 73.2%,
+      rgba(96,165,250,.04) 73.65%,
+      transparent 74.0%),
+    linear-gradient(126deg,
+      transparent 0 84.2%,
+      rgba(255,211,91,.08) 84.45%,
+      rgba(255,211,91,.18) 84.8%,
+      transparent 85.35%);
+}
+
+/* Soft bokeh/haze only — no dot grid */
+.profile-hero-original::after {
+  display: block !important;
+  content: "" !important;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .95;
+  background:
+    radial-gradient(circle at 47% 14%, rgba(126,190,255,.18) 0 11px, rgba(91,165,241,.08) 12px, transparent 32px),
+    radial-gradient(circle at 53% 9%, rgba(255,255,255,.12) 0 8px, transparent 27px),
+    radial-gradient(circle at 88% 19%, rgba(133,196,255,.14) 0 13px, transparent 36px),
+    radial-gradient(circle at 91% 32%, rgba(255,224,145,.08) 0 9px, transparent 30px);
+  filter: blur(.2px);
+}
+
+/* No cluster of small circular dots behind the player */
+.profile-player-emphasis::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Soft light halo behind the player to separate the subject */
+.profile-player-emphasis {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 1 !important;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse 36% 58% at 69% 43%,
+      rgba(255,248,220,.20) 0%,
+      rgba(255,214,96,.105) 23%,
+      rgba(224,174,50,.035) 43%,
+      transparent 67%),
+    radial-gradient(ellipse 42% 56% at 80% 48%,
+      rgba(71,139,236,.14) 0%,
+      transparent 68%),
+    linear-gradient(122deg,
+      transparent 0 53.4%,
+      rgba(255,215,105,.045) 53.8% 54.7%,
+      transparent 55.2%);
+}
+
+/* Player remains the strongest visual layer */
+.profile-hero-original-player {
+  z-index: 5 !important;
+  filter:
+    drop-shadow(0 28px 34px rgba(0,0,0,.43))
+    drop-shadow(0 0 18px rgba(74,139,232,.13))
+    drop-shadow(0 0 12px rgba(255,205,78,.08))
+    saturate(1.09)
+    contrast(1.045)
+    brightness(1.025) !important;
+}
+
+/* Reference uses gold, not blue, for hero metadata highlights */
+.profile-hero-original .profile-hero-league {
+  color: #f1c552 !important;
+  text-shadow: 0 0 12px rgba(224,174,50,.12);
+}
+
+.profile-hero-original .profile-stat-card {
+  border: 1px solid rgba(51,83,119,.70) !important;
+  background:
+    linear-gradient(180deg, rgba(4,16,31,.78), rgba(4,17,33,.66)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 10px 26px -23px rgba(0,0,0,.75) !important;
+}
+
+.profile-hero-original .profile-stat-card svg {
+  color: #f0be35 !important;
+  filter: drop-shadow(0 0 5px rgba(240,190,53,.14)) !important;
+}
+
+.profile-hero-original .profile-stat-card > div:first-child {
+  color: #aabed6 !important;
+}
+
+.profile-hero-original .profile-stat-card > div:last-child {
+  color: #8da5bd !important;
+}
+
+/* Main luxury corner light: blue edge stays visible, gold is only reflected light */
+.profile-hero-original .profile-corner-glow {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 12 !important;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 1 !important;
+  background:
+    radial-gradient(ellipse 138px 88px at 0% 0%,
+      rgba(255,247,211,.90) 0%,
+      rgba(255,215,102,.43) 17%,
+      rgba(224,174,50,.13) 39%,
+      transparent 70%),
+    radial-gradient(ellipse 126px 84px at 100% 0%,
+      rgba(255,242,196,.82) 0%,
+      rgba(255,208,82,.36) 18%,
+      rgba(224,174,50,.10) 39%,
+      transparent 70%),
+    radial-gradient(ellipse 92px 60px at 0% 100%,
+      rgba(255,224,139,.33) 0%,
+      rgba(224,174,50,.10) 32%,
+      transparent 72%),
+    radial-gradient(ellipse 106px 68px at 100% 100%,
+      rgba(255,228,150,.43) 0%,
+      rgba(224,174,50,.12) 31%,
+      transparent 72%) !important;
+  filter:
+    drop-shadow(0 0 5px rgba(255,213,94,.28))
+    drop-shadow(0 0 17px rgba(224,174,50,.11)) !important;
+}
+
+/* The short “extended” reflections from the top corners */
+.profile-hero-original .profile-corner-glow::before,
+.profile-hero-original .profile-corner-glow::after {
+  content: "" !important;
+  position: absolute;
+  top: 0;
+  width: 154px;
+  height: 96px;
+  pointer-events: none;
+  opacity: 1 !important;
+}
+
+.profile-hero-original .profile-corner-glow::before {
+  left: 0;
+  border-top-left-radius: inherit;
+  background:
+    linear-gradient(90deg,
+      rgba(255,238,177,.96) 0%,
+      rgba(255,204,67,.72) 15%,
+      rgba(224,174,50,.27) 52%,
+      transparent 100%) 0 0 / 136px 1px no-repeat,
+    linear-gradient(180deg,
+      rgba(255,239,181,.92) 0%,
+      rgba(255,204,67,.54) 18%,
+      rgba(224,174,50,.18) 53%,
+      transparent 100%) 0 0 / 1px 82px no-repeat,
+    radial-gradient(circle at 3px 3px,
+      rgba(255,252,228,.96) 0 2px,
+      rgba(255,211,91,.52) 5px,
+      transparent 17px);
+  filter:
+    drop-shadow(0 0 4px rgba(255,218,106,.78))
+    drop-shadow(0 0 14px rgba(224,174,50,.23));
+}
+
+.profile-hero-original .profile-corner-glow::after {
+  right: 0;
+  border-top-right-radius: inherit;
+  background:
+    linear-gradient(270deg,
+      rgba(255,238,177,.92) 0%,
+      rgba(255,204,67,.66) 15%,
+      rgba(224,174,50,.24) 52%,
+      transparent 100%) 100% 0 / 128px 1px no-repeat,
+    linear-gradient(180deg,
+      rgba(255,239,181,.84) 0%,
+      rgba(255,204,67,.46) 18%,
+      rgba(224,174,50,.14) 53%,
+      transparent 100%) 100% 0 / 1px 74px no-repeat,
+    radial-gradient(circle at calc(100% - 3px) 3px,
+      rgba(255,251,225,.91) 0 2px,
+      rgba(255,211,91,.45) 5px,
+      transparent 17px);
+  filter:
+    drop-shadow(0 0 4px rgba(255,218,106,.68))
+    drop-shadow(0 0 13px rgba(224,174,50,.20));
+}
+
+/* Lower cards use the same palette but less gold intensity */
+.profile-style-card,
+.profile-history-card {
+  border-color: rgba(39,70,104,.90) !important;
+  background:
+    radial-gradient(circle at 82% 10%, rgba(54,119,208,.095), transparent 24%),
+    linear-gradient(100deg, #051426 0%, #061a32 58%, #082448 100%) !important;
+}
+
+.profile-style-card .profile-corner-glow {
+  opacity: .60 !important;
+}
+
+.profile-history-card .profile-corner-glow {
+  opacity: .42 !important;
+}
+
+/* Sidebar should share the exact same navy family */
+.profile-info-panel,
+.profile-social-panel {
+  border-color: rgba(40,72,106,.92) !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(37,99,235,.085), transparent 23%),
+    linear-gradient(180deg, #07192d 0%, #061426 100%) !important;
+}
+
+.profile-info-tile,
+.profile-info-wide {
+  border-color: rgba(48,84,120,.88) !important;
+  background:
+    linear-gradient(180deg, #0b213b 0%, #081a30 100%) !important;
+}
+
+/* Keep gold icons warm and luminous like the reference */
+.profile-info-tile svg,
+.profile-info-wide svg,
+.profile-section-icon svg {
+  color: #f0be35 !important;
+  filter: drop-shadow(0 0 5px rgba(240,190,53,.16)) !important;
+}
+
+@media (max-width: 640px) {
+  .profile-hero-original {
+    border-radius: 13px !important;
+  }
+
+  .profile-hero-original .profile-corner-glow::before,
+  .profile-hero-original .profile-corner-glow::after {
+    width: 102px;
+    height: 72px;
+  }
+}
+
+
+/* Reference polish correction: no dotted cluster; sharper corner reflections. */
+.profile-hero-original .player-profile-grid {
+  display: none !important;
+}
+
+/* Make the corner light read like a reflected streak, not a yellow frame. */
+.profile-hero-original .profile-corner-glow {
+  background:
+    linear-gradient(90deg,
+      rgba(255,239,181,.98) 0%,
+      rgba(255,204,67,.72) 10%,
+      rgba(224,174,50,.30) 36%,
+      transparent 70%) top left / 280px 1px no-repeat,
+    linear-gradient(180deg,
+      rgba(255,239,181,.94) 0%,
+      rgba(255,204,67,.56) 14%,
+      rgba(224,174,50,.22) 40%,
+      transparent 72%) top left / 1px 118px no-repeat,
+    linear-gradient(270deg,
+      rgba(255,239,181,.92) 0%,
+      rgba(255,204,67,.62) 11%,
+      rgba(224,174,50,.26) 38%,
+      transparent 72%) top right / 210px 1px no-repeat,
+    linear-gradient(180deg,
+      rgba(255,239,181,.86) 0%,
+      rgba(255,204,67,.48) 15%,
+      rgba(224,174,50,.18) 42%,
+      transparent 72%) top right / 1px 102px no-repeat,
+    linear-gradient(90deg,
+      rgba(255,220,132,.55) 0%,
+      rgba(224,174,50,.18) 36%,
+      transparent 76%) bottom left / 92px 1px no-repeat,
+    linear-gradient(270deg,
+      rgba(255,226,147,.66) 0%,
+      rgba(224,174,50,.20) 38%,
+      transparent 78%) bottom right / 124px 1px no-repeat,
+    radial-gradient(ellipse 106px 70px at 0 0,
+      rgba(255,247,211,.82) 0%,
+      rgba(255,213,94,.34) 18%,
+      rgba(224,174,50,.10) 42%,
+      transparent 74%),
+    radial-gradient(ellipse 98px 68px at 100% 0,
+      rgba(255,243,199,.74) 0%,
+      rgba(255,208,82,.30) 20%,
+      rgba(224,174,50,.08) 44%,
+      transparent 74%),
+    radial-gradient(ellipse 72px 48px at 100% 100%,
+      rgba(255,226,145,.28) 0%,
+      rgba(224,174,50,.07) 40%,
+      transparent 74%) !important;
+  filter:
+    drop-shadow(0 0 4px rgba(255,218,106,.44))
+    drop-shadow(0 0 14px rgba(224,174,50,.16)) !important;
+}
+
+/* Avoid double drawing from the older corner pseudo elements. */
+.profile-hero-original .profile-corner-glow::before,
+.profile-hero-original .profile-corner-glow::after {
+  display: none !important;
+}
+
+/* Slight vignette makes the player and gold reflections feel more premium. */
+.profile-hero-original {
+  box-shadow:
+    0 30px 70px -46px rgba(0,0,0,.98),
+    inset 0 0 70px rgba(0,0,0,.11),
+    inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.profile-hero-original-player {
+  filter:
+    drop-shadow(0 28px 34px rgba(0,0,0,.46))
+    drop-shadow(0 0 20px rgba(74,139,232,.15))
+    drop-shadow(0 0 13px rgba(255,205,78,.09))
+    saturate(1.10)
+    contrast(1.05)
+    brightness(1.025) !important;
+}
+
+
+/* Fix inherited pseudo layers so no legacy dot pattern can leak through. */
+.profile-hero-original::before {
+  background:
+    linear-gradient(126deg,
+      transparent 0 61.0%,
+      rgba(255,215,105,.06) 61.2%,
+      rgba(255,218,110,.32) 61.55%,
+      rgba(255,214,96,.08) 62.0%,
+      transparent 62.45%),
+    linear-gradient(126deg,
+      transparent 0 72.6%,
+      rgba(96,165,250,.03) 72.8%,
+      rgba(96,165,250,.16) 73.2%,
+      rgba(96,165,250,.04) 73.65%,
+      transparent 74.0%),
+    linear-gradient(126deg,
+      transparent 0 84.2%,
+      rgba(255,211,91,.08) 84.45%,
+      rgba(255,211,91,.19) 84.8%,
+      transparent 85.35%) !important;
+}
+
+.profile-hero-original::after {
+  background-image: none !important;
+  background:
+    radial-gradient(circle at 47% 14%, rgba(126,190,255,.18) 0 11px, rgba(91,165,241,.08) 12px, transparent 32px),
+    radial-gradient(circle at 53% 9%, rgba(255,255,255,.12) 0 8px, transparent 27px),
+    radial-gradient(circle at 88% 19%, rgba(133,196,255,.14) 0 13px, transparent 36px),
+    radial-gradient(circle at 91% 32%, rgba(255,224,145,.08) 0 9px, transparent 30px) !important;
+  background-size: auto !important;
+}
+
+/* More obvious luxury streaks at the corners; still not a full frame. */
+.profile-hero-original .profile-corner-glow {
+  background:
+    linear-gradient(90deg,
+      rgba(255,246,206,.98) 0%,
+      rgba(255,215,105,.90) 7%,
+      rgba(255,200,61,.56) 18%,
+      rgba(224,174,50,.25) 42%,
+      transparent 74%) top left / 330px 2px no-repeat,
+    linear-gradient(180deg,
+      rgba(255,246,206,.96) 0%,
+      rgba(255,215,105,.78) 8%,
+      rgba(255,200,61,.42) 22%,
+      rgba(224,174,50,.18) 48%,
+      transparent 76%) top left / 2px 132px no-repeat,
+    linear-gradient(270deg,
+      rgba(255,244,199,.96) 0%,
+      rgba(255,215,105,.84) 8%,
+      rgba(255,200,61,.48) 20%,
+      rgba(224,174,50,.22) 43%,
+      transparent 76%) top right / 268px 2px no-repeat,
+    linear-gradient(180deg,
+      rgba(255,244,199,.91) 0%,
+      rgba(255,215,105,.70) 9%,
+      rgba(255,200,61,.35) 24%,
+      rgba(224,174,50,.15) 48%,
+      transparent 76%) top right / 2px 118px no-repeat,
+    linear-gradient(90deg,
+      rgba(255,226,145,.58) 0%,
+      rgba(255,200,61,.24) 30%,
+      transparent 74%) bottom left / 110px 1px no-repeat,
+    linear-gradient(270deg,
+      rgba(255,231,154,.72) 0%,
+      rgba(255,200,61,.28) 32%,
+      transparent 76%) bottom right / 148px 1px no-repeat,
+    radial-gradient(ellipse 116px 76px at 0 0,
+      rgba(255,248,218,.88) 0%,
+      rgba(255,216,104,.40) 17%,
+      rgba(224,174,50,.12) 41%,
+      transparent 72%),
+    radial-gradient(ellipse 108px 74px at 100% 0,
+      rgba(255,245,207,.82) 0%,
+      rgba(255,212,94,.35) 18%,
+      rgba(224,174,50,.10) 42%,
+      transparent 72%),
+    radial-gradient(ellipse 78px 50px at 100% 100%,
+      rgba(255,229,151,.31) 0%,
+      rgba(224,174,50,.08) 42%,
+      transparent 74%) !important;
+  filter:
+    drop-shadow(0 0 5px rgba(255,220,116,.56))
+    drop-shadow(0 0 16px rgba(224,174,50,.20)) !important;
+}
+
+
+/* ===== Final border visibility pass =====
+   Keep the luxury gold corner-light effect, but make the card edge clearly visible. */
+.profile-hero-original {
+  border: 1.6px solid rgba(79, 121, 170, 0.96) !important;
+  box-shadow:
+    0 0 0 1px rgba(11, 31, 54, 0.95),
+    0 30px 70px -46px rgba(0,0,0,.98),
+    inset 0 0 70px rgba(0,0,0,.11),
+    inset 0 0 0 1px rgba(126, 174, 230, 0.055) !important;
+}
+
+.profile-style-card,
+.profile-history-card {
+  border: 1.4px solid rgba(67, 106, 151, 0.92) !important;
+  box-shadow:
+    0 0 0 1px rgba(9, 27, 48, 0.9),
+    0 18px 42px -34px rgba(0,0,0,.86),
+    inset 0 0 0 1px rgba(114, 160, 216, 0.04) !important;
+}
+
+.profile-info-panel,
+.profile-social-panel {
+  border: 1.35px solid rgba(62, 101, 145, 0.92) !important;
+}
+
+.profile-info-tile,
+.profile-info-wide {
+  border: 1.25px solid rgba(72, 113, 160, 0.94) !important;
+}
+
+/* ===== Player detail gold-frame reference pass (profile modal only) ===== */
+.profile-hero-original,
+.profile-content-card,
+.profile-info-panel,
+.profile-social-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.profile-hero-original {
+  border: 1.35px solid rgba(211, 164, 67, .88) !important;
+  box-shadow:
+    0 0 0 1px rgba(72, 47, 12, .54),
+    0 0 20px -10px rgba(240, 188, 73, .44),
+    0 30px 70px -46px rgba(0,0,0,.98),
+    inset 0 0 42px rgba(255, 206, 91, .025) !important;
+}
+
+.profile-hero-original::after {
+  display: none !important;
+  content: none !important;
+}
+
+.profile-hero-original .player-profile-grid {
+  display: none !important;
+}
+
+.profile-player-emphasis {
+  background:
+    linear-gradient(126deg,
+      transparent 0 55%,
+      rgba(255, 218, 111, .045) 55.3% 55.8%,
+      transparent 56.2%),
+    linear-gradient(126deg,
+      transparent 0 69%,
+      rgba(91, 161, 245, .075) 69.25% 69.8%,
+      transparent 70.2%) !important;
+  mix-blend-mode: screen;
+}
+
+.profile-hero-original .profile-corner-glow {
+  inset: 0 !important;
+  z-index: 12 !important;
+  opacity: 1 !important;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, #fff3bf 0%, #f3c55e 8%, #c88e28 27%, transparent 58%) top left / 48% 2px no-repeat,
+    linear-gradient(270deg, #fff0b5 0%, #efbd50 9%, #b97c1f 29%, transparent 60%) top right / 45% 2px no-repeat,
+    linear-gradient(180deg, #fff3bf 0%, #efbd50 10%, #b97c1f 34%, transparent 68%) top left / 2px 46% no-repeat,
+    linear-gradient(180deg, #fff0b5 0%, #e7ae3d 11%, #a86c18 34%, transparent 68%) top right / 2px 43% no-repeat,
+
+    linear-gradient(90deg, #f1c75f 0%, #b98224 28%, transparent 66%) bottom left / 31% 1.5px no-repeat,
+    linear-gradient(270deg, #f7d06c 0%, #bd8728 30%, transparent 68%) bottom right / 36% 1.5px no-repeat,
+    linear-gradient(0deg, #e8b545 0%, #a56c19 34%, transparent 72%) bottom left / 1.5px 28% no-repeat,
+    linear-gradient(0deg, #f0c45b 0%, #ab711c 34%, transparent 72%) bottom right / 1.5px 31% no-repeat,
+    radial-gradient(ellipse 95px 62px at 0 0, rgba(255,242,190,.56), rgba(235,180,65,.18) 30%, transparent 72%),
+    radial-gradient(ellipse 92px 60px at 100% 0, rgba(255,238,178,.50), rgba(232,174,58,.16) 30%, transparent 72%),
+    radial-gradient(ellipse 72px 48px at 0 100%, rgba(245,199,94,.25), transparent 70%),
+    radial-gradient(ellipse 78px 50px at 100% 100%, rgba(248,205,103,.29), transparent 70%) !important;
+  filter:
+    drop-shadow(0 0 4px rgba(255, 220, 128, .58))
+    drop-shadow(0 0 13px rgba(224, 174, 50, .19)) !important;
+}
+
+.profile-hero-original .profile-corner-glow::before,
+.profile-hero-original .profile-corner-glow::after {
+  display: none !important;
+  content: none !important;
+}
+
+.profile-content-card {
+  border: 1.2px solid rgba(190, 142, 47, .68) !important;
+  box-shadow:
+    0 0 0 1px rgba(54, 37, 12, .42),
+    0 18px 42px -34px rgba(0,0,0,.86),
+    inset 0 0 0 1px rgba(255,224,143,.025) !important;
+}
+
+.profile-style-card .profile-corner-glow,
+.profile-history-card .profile-corner-glow {
+  inset: 0 !important;
+  opacity: 1 !important;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, #ffe9a2 0%, #d5a13d 17%, transparent 58%) top left / 36% 2px no-repeat,
+    linear-gradient(270deg, #ffe698 0%, #ce9634 18%, transparent 58%) top right / 32% 2px no-repeat,
+    linear-gradient(180deg, #ffe9a2 0%, #c98f2e 19%, transparent 62%) top left / 2px 36% no-repeat,
+    linear-gradient(180deg, #ffe698 0%, #c58a2b 19%, transparent 62%) top right / 2px 32% no-repeat,
+    linear-gradient(90deg, rgba(232,182,73,.70), transparent 67%) bottom left / 24% 1px no-repeat,
+    linear-gradient(270deg, rgba(239,192,83,.76), transparent 67%) bottom right / 28% 1px no-repeat !important;
+  filter: drop-shadow(0 0 5px rgba(242,190,78,.28)) !important;
+}
+
+.profile-info-panel,
+.profile-social-panel {
+  border: 1.2px solid rgba(184, 137, 45, .66) !important;
+  box-shadow:
+    0 0 0 1px rgba(51, 34, 10, .38),
+    0 18px 44px -34px rgba(0,0,0,.84),
+    inset 0 0 0 1px rgba(255,223,138,.02) !important;
+}
+
+.profile-info-panel::before,
+.profile-social-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255,235,169,.88), rgba(211,157,51,.36), transparent 46%) top left / 48% 1.5px no-repeat,
+    linear-gradient(270deg, rgba(255,231,157,.82), rgba(201,145,42,.32), transparent 48%) top right / 44% 1.5px no-repeat,
+    linear-gradient(180deg, rgba(255,235,169,.72), rgba(196,139,36,.26), transparent 55%) top left / 1.5px 32% no-repeat,
+    linear-gradient(180deg, rgba(255,231,157,.68), rgba(190,132,32,.24), transparent 55%) top right / 1.5px 30% no-repeat;
+  filter: drop-shadow(0 0 4px rgba(239,185,71,.22));
+}
+
+.profile-info-panel > *,
+.profile-social-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-info-tile,
+.profile-info-wide {
+  border-color: rgba(66, 108, 154, .92) !important;
+}
+
+.profile-floating-action {
+  border-color: rgba(231, 181, 67, .86) !important;
+  color: #f2c556 !important;
+  box-shadow:
+    0 0 0 1px rgba(101,67,14,.34),
+    0 0 15px -6px rgba(239,185,71,.5),
+    0 12px 28px -16px rgba(2,8,23,.8) !important;
+}
+
+.profile-floating-action:hover {
+  border-color: rgba(255, 218, 119, .96) !important;
+  color: #ffe8a2 !important;
+  background: rgba(14,31,51,.96) !important;
+}
+
+@media (max-width: 640px) {
+  .profile-hero-original {
+    border-width: 1.2px !important;
+  }
+
+  .profile-hero-original .profile-corner-glow {
+    background:
+      linear-gradient(90deg, #fff0b3, #d59f38 22%, transparent 68%) top left / 52% 2px no-repeat,
+      linear-gradient(270deg, #ffecaa, #cb9130 22%, transparent 68%) top right / 46% 2px no-repeat,
+      linear-gradient(180deg, #fff0b3, #cb9130 22%, transparent 68%) top left / 2px 34% no-repeat,
+      linear-gradient(180deg, #ffecaa, #c28627 22%, transparent 68%) top right / 2px 31% no-repeat !important;
+  }
+}
+
+
+/* Face-safe hero lighting: keep decorative beams behind the player. */
+.profile-hero-original::before {
+  z-index: 2 !important;
+  opacity: .72 !important;
+  background:
+    linear-gradient(126deg,
+      transparent 0 47.5%,
+      rgba(255,215,105,.045) 47.8%,
+      rgba(255,218,110,.20) 48.15%,
+      rgba(255,214,96,.055) 48.55%,
+      transparent 49.0%),
+    linear-gradient(126deg,
+      transparent 0 87.0%,
+      rgba(96,165,250,.025) 87.25%,
+      rgba(96,165,250,.12) 87.65%,
+      rgba(96,165,250,.03) 88.05%,
+      transparent 88.45%),
+    linear-gradient(126deg,
+      transparent 0 95.0%,
+      rgba(255,211,91,.035) 95.25%,
+      rgba(255,211,91,.10) 95.6%,
+      transparent 96.0%) !important;
+}
+
+.profile-player-emphasis {
+  z-index: 3 !important;
+  background:
+    radial-gradient(ellipse 34% 50% at 84% 52%,
+      rgba(71,139,236,.09) 0%,
+      transparent 66%) !important;
+}
+
+.profile-hero-original-player {
+  z-index: 11 !important;
+  opacity: 1 !important;
+}
+
+
+/* Minimal single close control for player profile modal */
+.profile-close-action {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 40;
+}
+
+.profile-close-button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(218, 169, 58, .52);
+  border-radius: 8px;
+  background: rgba(5, 18, 34, .72);
+  color: rgba(245, 201, 91, .92);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 5px 14px -10px rgba(0,0,0,.72);
+  backdrop-filter: blur(8px);
+  transition:
+    border-color .18s ease,
+    background-color .18s ease,
+    color .18s ease,
+    transform .18s ease;
+}
+
+.profile-close-button:hover {
+  border-color: rgba(246, 204, 101, .82);
+  background: rgba(9, 27, 48, .9);
+  color: #ffe28b;
+}
+
+.profile-close-button:active {
+  transform: scale(.94);
+}
+
+.profile-close-button:focus-visible {
+  outline: 2px solid rgba(246, 204, 101, .38);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .profile-close-action {
+    top: 12px;
+    right: 12px;
+  }
+
+  .profile-close-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+  }
+}
+
+
+/* Final placement: keep close button inside the player-info header */
+.profile-info-header {
+  padding-right: 6px;
+}
+
+.profile-info-header .profile-close-button {
+  width: 28px !important;
+  height: 28px !important;
+  margin-right: 2px;
+  border: 1px solid rgba(218, 169, 58, .46) !important;
+  border-radius: 7px !important;
+  background: rgba(5, 18, 34, .60) !important;
+  color: rgba(245, 201, 91, .88) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(6px);
+}
+
+.profile-info-header .profile-close-button:hover {
+  border-color: rgba(246, 204, 101, .74) !important;
+  background: rgba(10, 26, 45, .84) !important;
+  color: #ffe28b !important;
+}
+
+.profile-info-header .profile-close-button:active {
+  transform: scale(.95);
+}
+
+@media (max-width: 640px) {
+  .profile-info-header {
+    padding-right: 2px;
+  }
+
+  .profile-info-header .profile-close-button {
+    width: 26px !important;
+    height: 26px !important;
+    margin-right: 0;
+    border-radius: 6px !important;
+  }
+}
+
+
+/* Final close icon style: no frame, light by default, gold on hover */
+.profile-info-header .profile-close-button {
+  width: 32px !important;
+  height: 32px !important;
+  margin-right: 2px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: rgba(226, 232, 240, .90) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.profile-info-header .profile-close-button:hover {
+  border: none !important;
+  background: transparent !important;
+  color: #f5c95b !important;
+}
+
+.profile-info-header .profile-close-button:focus-visible {
+  outline: none !important;
+}
+
+@media (max-width: 640px) {
+  .profile-info-header .profile-close-button {
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 0 !important;
+  }
+}
+
+
+/* Larger close icon, still frameless */
+.profile-info-header .profile-close-button {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+@media (max-width: 640px) {
+  .profile-info-header .profile-close-button {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}

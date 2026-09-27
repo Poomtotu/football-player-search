@@ -1,6 +1,6 @@
 # ⚽ Football Player Information Retrieval (IR) System
 
-ระบบค้นหาและจัดอันดับประวัตินักฟุตบอลระดับโลก (100 คน) ด้วยเทคนิค **Hybrid Information Retrieval (Okapi BM25 + RapidFuzz WRatio)** พร้อม **Web Application UI (React + Vite + Tailwind CSS)** ในธีม **Modern Dark Mode** สไตล์สปอร์ต
+ระบบค้นหาและจัดอันดับประวัตินักฟุตบอลระดับโลก (100 คน) ด้วยเทคนิค **Hybrid Information Retrieval (Okapi BM25 + Hybrid Lexical)** พร้อม **Web Application UI (React + Vite + Tailwind CSS)** ในธีม **Modern Dark Mode** สไตล์สปอร์ต
 
 ---
 
@@ -41,8 +41,7 @@ football-player-search/
 │   │   ├── search_engine.py  # ระบบค้นหา IR (RapidFuzz + BM25)
 │   │   ├── scraper.py        # สคริปต์สแครปปิ้งข้อมูลนักเตะ
 │   │   ├── models.py         # Pydantic v2 Models
-│   │   ├── data_loader.py    # Data loader helpers
-│   │   └── ir_engine.py      # Core IR algorithms
+│   │   └── __init__.py       # Python package marker
 │   ├── data/
 │   │   ├── players.json      # ฐานข้อมูล JSON (100 นักเตะ)
 │   │   └── mock_players.json # Fallback mock data
@@ -72,7 +71,16 @@ football-player-search/
 
 ## 🧠 หลักการทำงานของระบบ Information Retrieval (IR Deep-Dive)
 
-ระบบใช้สถาปัตยกรรม **Hybrid Search Pipeline** ที่รวมสองกระบวนการเข้าด้วยกัน:
+Source Code ปัจจุบันใช้ Query normalization แบบ Trim + Lowercase + Unicode NFKC, Thai loose normalization,
+PyThaiNLP `newmm`, Exact Match, Substring Match, Player Alias Match, Club Alias Resolution,
+Multi-field Search, RapidFuzz WRatio, Levenshtein Distance, Jaccard Similarity, BM25,
+Relevance Ranking, Threshold และ Top-K
+
+ระบบ **ไม่ได้ใช้** TF-IDF, Cosine Similarity, Custom Inverted Index, Stemming, Lemmatization,
+Stopword Removal, Embedding, Semantic Search, Vector Search หรือ AI/ML Ranker
+
+ระบบใช้สถาปัตยกรรม **Hybrid Search Pipeline** โดย Direct Match จะถูกตรวจสอบก่อน
+จากนั้นจึงใช้ BM25 + lexical similarity สำหรับ typo/context matching:
 
 ```
                       ┌────────────────────────────────────────┐
@@ -83,14 +91,14 @@ football-player-search/
                   ▼                                               ▼
      ┌─────────────────────────┐                     ┌─────────────────────────┐
      │      Okapi BM25         │                     │    RapidFuzz WRatio     │
-     │  (Lexical & Term Match) │                     │ (Typo & Fuzzy Matching) │
+     │  (Lexical & Term Match) │                     │ (WRatio + Lev + Jaccard) │
      └────────────┬────────────┘                     └────────────┬────────────┘
                   │                                               │
                   ▼                                               ▼
-         Raw BM25 Scores                                 Raw Fuzzy Scores (0-100)
+         Raw BM25 Scores                                 Weighted Lexical Score (0-1)
                   │                                               │
                   ▼                                               ▼
-       Min-Max Normalization                           Max-Score Normalization
+       Candidate Max Normalize                           Best Field × Field Weight
             (0.0 - 1.0)                                     (0.0 - 1.0)
                   │                                               │
                   └───────────────────────┬───────────────────────┘
@@ -98,7 +106,7 @@ football-player-search/
                                           ▼
                        ┌─────────────────────────────────────┐
                        │       Linear Weighted Sum           │
-                       │  Score = 0.55×BM25 + 0.45×Fuzzy    │
+                       │  Score = 0.55×BM25 + 0.45×Lexical    │
                        └──────────────────┬──────────────────┘
                                           │
                                           ▼
@@ -137,23 +145,41 @@ $$\text{Score}_{\text{BM25}}(D, Q) = \sum_{i=1}^{n} \text{IDF}(q_i) \cdot \frac{
 - ชื่อภาษาอังกฤษ (`name_en`): น้ำหนัก **1.0**
 - ชื่อภาษาไทย (`name_th`): น้ำหนัก **1.0**
 - ฉายา (`aliases`): น้ำหนัก **1.0**
-- สโมสรปัจจุบัน (`current_team`): น้ำหนัก **0.7**
-- ลีกปัจจุบัน (`current_league`): น้ำหนัก **0.5**
-- ประเทศทีมชาติ (`national_team`): น้ำหนัก **0.4**
+- สโมสรปัจจุบัน (`current_team`): น้ำหนัก **0.8**
+- ลีกปัจจุบัน (`current_league`): น้ำหนัก **0.6**
+- ประเทศทีมชาติ (`national_team`): น้ำหนัก **0.5**
 
 ---
 
 ### 3.3 Normalization & Linear Combination
 
-เนื่องจากคะแนน Raw BM25 (ช่วงค่าขึ้นกับขนาดคลัง) และคะแนน Fuzzy (0–100) มีมาตราส่วนไม่เท่ากัน ระบบจึงทำการ Normalize ให้อยู่ในช่วง $[0.0, 1.0]$:
+ก่อนค้นหา Query จะถูก `strip`, `lowercase` และ Unicode NFKC และภาษาไทยมี loose normalization เป็น secondary signal
 
-$$\text{BM25}_{\text{norm}} = \frac{\text{Score}_{\text{BM25}}}{\max(\text{Scores}_{\text{BM25}})}$$
+สำหรับ typo/context matching ระบบคำนวณ lexical similarity จาก:
+- RapidFuzz WRatio น้ำหนัก 0.55
+- Levenshtein similarity น้ำหนัก 0.30
+- Jaccard token similarity น้ำหนัก 0.15 เมื่อ Query มีอย่างน้อย 2 tokens
 
-$$\text{Fuzzy}_{\text{norm}} = \frac{\text{Score}_{\text{Fuzzy}}}{\max(\text{Scores}_{\text{Fuzzy}})}$$
+จากนั้นคูณด้วย field weight ของ field ที่ match ดีที่สุด และใช้ gate ขั้นต่ำ WRatio/Levenshtein 70% หรือ Jaccard 0.34
 
-จากนั้นรวมคะแนนเป็น **`relevance_score`**:
+BM25 จะ normalize ด้วยคะแนนสูงสุดของ candidate set ที่ผ่าน League filter:
 
-$$\text{relevance\_score} = 0.55 \cdot \text{BM25}_{\text{norm}} + 0.45 \cdot \text{Fuzzy}_{\text{norm}}$$
+$$\text{BM25}_{\text{norm}} = \frac{\text{Score}_{\text{BM25}}}{\max(\text{Candidate BM25 Scores})}$$
+
+ถ้าทั้ง BM25 และ lexical signal มีค่า ระบบใช้:
+
+$$\text{relevance\_score} = 0.55 \cdot \text{BM25}_{\text{norm}} + 0.45 \cdot \text{Lexical}$$
+
+Direct exact/substring/alias matches ใช้ deterministic direct-match score ก่อนเข้า hybrid path
+จากนั้นเรียงตาม `relevance_score` → Threshold → Top-K
+
+`match_percentage` เป็นชั้นสำหรับแสดงผลแยกจาก Ranking Score แล้ว และเป็น **descriptive relevance ไม่ใช่ probability/accuracy**
+
+- Exact player/team/league/nation และ known club alias ที่ resolve แบบ deterministic แสดง 100% เพราะ field identity ตรงกับ Query
+- Club partial ใช้ `raw_relevance × sqrt(query_character_coverage / club_candidate_count)` เพื่อลดคะแนนเมื่อคำค้นสั้นหรือกำกวม
+- ตัวอย่างจากข้อมูลปัจจุบัน: `Manchester City` และ `Man City` เป็น strong identity match, ส่วน `Manchester` / `City` เป็น partial และลดตาม ambiguity
+- Human ground truth ยังไม่มีจริง จึงยัง **ไม่ fit isotonic/logistic calibration** และเก็บ `human_label=null` ไว้สำหรับ reviewer ใน `backend/data/search_human_relevance_review.json`
+- ชุด evaluation ปัจจุบันอยู่ที่ `backend/data/search_eval_queries.json` และครอบคลุม 133 queries หลายประเภท
 
 ---
 
@@ -201,6 +227,14 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 - **Swagger API Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
 - **Production Web App:** [http://localhost:8000](http://localhost:8000) (เสิร์ฟตรงจาก FastAPI)
 
+#### `/api/reload` Security
+
+- Local development สามารถเรียก `POST /api/reload` โดยไม่ใส่ key ได้ เมื่อไม่ได้รันใน production
+- Production/Vercel ต้องตั้ง `RELOAD_API_KEY`; ถ้าไม่มี key ระบบจะปฏิเสธ `/api/reload` ด้วย HTTP 403
+- เมื่อกำหนด key แล้ว ต้องส่งค่าเดียวกันผ่าน header `X-API-Key`
+- สามารถกำหนด `APP_ENV=production` เพื่อบังคับ production behavior นอก Vercel
+- ตัวอย่าง environment อยู่ที่ `backend/.env.example`; ห้ามใส่ secret จริงลง Git
+
 ---
 
 ### 4.2 รัน Frontend Dev Server (React + Vite)
@@ -227,7 +261,7 @@ npm run dev -- --host
 ### 🌐 การเปิดใช้งานแบบ Cross-Origin (CORS) & เข้าถึงจากเครื่องอื่น
 
 1. **Backend (FastAPI):**
-   - มีการติดตั้ง `CORSMiddleware` ใน `app/main.py` โดยอนุญาต `allow_origins=["*"]`, `allow_credentials=True`, `allow_methods=["*"]`, `allow_headers=["*"]` เพื่อให้เครื่องลูกข่ายหรือ Frontend จากทุก Domain/Port เชื่อมต่อได้
+   - มีการติดตั้ง `CORSMiddleware` ใน `app/main.py` โดยอ่าน Origin จากตัวแปร `CORS_ORIGINS`; ค่า default อนุญาต localhost/127.0.0.1 ที่พอร์ต 3000 และ 5173 และยังใช้ `allow_methods=["*"]`, `allow_headers=["*"]`
    - สั่งรัน uvicorn ด้วย `--host 0.0.0.0` เพื่อเปิดรับการเชื่อมต่อจากภายนอกเครื่อง
 
 2. **Frontend (React):**
@@ -252,7 +286,7 @@ python scraper.py
 ## 📡 API Specification & cURL Examples
 
 ### 1. ค้นหานักเตะด้วย Hybrid IR
-`GET /api/players/search?q={query}&limit={limit}&threshold={threshold}`
+`GET /api/players/search?q={query}&league={league}&limit={limit}&threshold={threshold}`
 
 ```bash
 # ค้นหาด้วยชื่อภาษาไทย

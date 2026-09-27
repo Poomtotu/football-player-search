@@ -21,11 +21,13 @@ Pipeline:
 
     final relevance = deterministic direct-match score
       หรือ 0.55 × BM25_norm + 0.45 × HybridLexical
-    MATCH บน UI = relevance × 100
+    MATCH บน UI = match-type-aware descriptive relevance
+    (แยกจาก ranking score และไม่ใช่ probability/accuracy)
 """
 
 import json
 import logging
+import math
 import os
 import unicodedata
 from dataclasses import dataclass, field
@@ -79,6 +81,27 @@ _FUZZY_FIELD_WEIGHTS: dict[str, float] = {
     "nation":         0.5,
 }
 
+# Centralized club aliases. These are common, specific aliases only.
+# team_variants maps the canonical club name to spellings that actually occur in players.json.
+CLUB_ALIAS_GROUPS: dict[str, dict[str, tuple[str, ...]]] = {
+    "manchester city": {
+        "aliases": ("man city", "mcfc"),
+        "team_variants": ("manchester city",),
+    },
+    "manchester united": {
+        "aliases": ("man utd", "man united", "mufc"),
+        "team_variants": ("manchester united",),
+    },
+    "paris saint-germain": {
+        "aliases": ("psg",),
+        "team_variants": ("paris saint-germain", "paris sg"),
+    },
+    "barcelona": {
+        "aliases": ("barca", "barça", "fcb"),
+        "team_variants": ("barcelona", "fc barcelona"),
+    },
+}
+
 # ---------------------------------------------------------------------------
 # Text Utilities — ฟังก์ชันแปลงและจัดการข้อความ
 # ---------------------------------------------------------------------------
@@ -91,6 +114,45 @@ def _normalize(text: str) -> str:
     if not text:
         return ""
     return unicodedata.normalize("NFKC", str(text)).lower().strip()
+
+
+def _resolve_club_alias(query_norm: str) -> str | None:
+    """Return a canonical club name only for a known, specific alias."""
+    for canonical, group in CLUB_ALIAS_GROUPS.items():
+        if query_norm in group["aliases"]:
+            return canonical
+    return None
+
+
+def _team_matches_resolved_alias(team_norm: str, canonical: str) -> bool:
+    group = CLUB_ALIAS_GROUPS.get(canonical)
+    if not group:
+        return team_norm == canonical
+    return team_norm in group["team_variants"]
+
+
+def _canonical_team_identity(team_norm: str) -> str:
+    """Collapse known spelling variants/aliases to one club identity."""
+    for canonical, group in CLUB_ALIAS_GROUPS.items():
+        if (
+            team_norm == canonical
+            or team_norm in group["team_variants"]
+            or team_norm in group["aliases"]
+        ):
+            return canonical
+    return team_norm
+
+
+def _query_intent_from_match_type(match_type: str) -> str:
+    if match_type.startswith(("exact_player", "exact_thai", "exact_alias", "player_", "alias_", "thai_", "hybrid_")):
+        return "player"
+    if match_type.startswith("team_") or match_type == "exact_team":
+        return "club"
+    if match_type.startswith("league_") or match_type == "exact_league":
+        return "league"
+    if match_type.startswith("nation_"):
+        return "nation"
+    return "unknown"
 
 
 def _thai_loose_normalize(text: str) -> str:
@@ -383,6 +445,40 @@ class FootballSearchEngine:
     # Scoring Helpers
     # ------------------------------------------------------------------
 
+    def _club_candidate_identities(self, query_norm: str) -> set[str]:
+        """Distinct club identities whose current-team text contains the query."""
+        if not query_norm:
+            return set()
+        return {
+            _canonical_team_identity(entry.team_norm)
+            for entry in self._entries
+            if entry.team_norm
+            and entry.team_norm != "n/a"
+            and query_norm in entry.team_norm
+        }
+
+    def _has_direct_player_match(self, query_norm: str, thai_loose: str) -> bool:
+        """Whether query directly targets a player name/alias rather than club text."""
+        for entry in self._entries:
+            if (
+                query_norm == entry.name_en_norm
+                or query_norm == entry.name_th_norm
+                or query_norm in entry.aliases_norm
+            ):
+                return True
+            if len(query_norm) >= 2 and (
+                query_norm in entry.name_en_norm
+                or query_norm in entry.name_th_norm
+                or any(query_norm in alias for alias in entry.aliases_norm)
+            ):
+                return True
+            if len(thai_loose) >= 3 and (
+                thai_loose == entry.name_th_loose_norm
+                or thai_loose in entry.aliases_loose_norm
+            ):
+                return True
+        return False
+
     def _bm25_scores(self, query: str) -> list[float]:
         """คำนวณ BM25 raw scores สำหรับ query"""
         if self._bm25 is None or not self._entries:
@@ -472,18 +568,36 @@ class FootballSearchEngine:
         return best_score, best_debug
 
     @staticmethod
-    def _match_percentage_from_relevance(relevance_score: float) -> float:
+    def _display_match_percentage(
+        relevance_score: float,
+        match_type: str = "",
+        club_ambiguity_count: int = 0,
+        query_norm: str = "",
+        matched_team_norm: str = "",
+    ) -> float:
         """
-        แปลง relevance_score ที่ใช้จัดอันดับผลลัพธ์เป็นเปอร์เซ็นต์เดียวกันสำหรับ UI
+        Descriptive relevance for UI; this is not a probability/accuracy value.
 
-        การใช้คะแนนต้นทางเดียวกันทำให้ลำดับผลค้นหาและตัวเลข MATCH ไม่ขัดกัน:
-          relevance_score 1.00 -> 100%
-          relevance_score 0.90 -> 90%
-          relevance_score 0.85 -> 85%
-          relevance_score 0.75 -> 75%
+        Exact field identity and deterministic known-alias resolution display
+        as 100%. Club partials are reduced by query coverage and the number of
+        distinct club identities matching the same partial query. This method
+        is deliberately simple until real human labels are available.
         """
-        score = float(relevance_score)
-        score = max(0.0, min(score, 1.0))
+        score = max(0.0, min(float(relevance_score), 1.0))
+        exact_types = {
+            "exact_player_name", "exact_thai_name", "exact_alias",
+            "exact_team", "team_alias", "team_variant",
+            "exact_league", "nation_exact",
+        }
+        if match_type in exact_types:
+            return 100.0
+
+        if match_type == "team_substring" and query_norm and matched_team_norm:
+            coverage = min(1.0, len(query_norm) / max(1, len(matched_team_norm)))
+            ambiguity = max(1, int(club_ambiguity_count or 0))
+            descriptive = score * 100.0 * math.sqrt(coverage / ambiguity)
+            return round(max(0.0, min(descriptive, 100.0)), 1)
+
         return round(score * 100.0, 1)
 
     # ------------------------------------------------------------------
@@ -495,6 +609,7 @@ class FootballSearchEngine:
         query: str,
         limit: int = 10,
         threshold: float = DEFAULT_RESULT_THRESHOLD,
+        league: str | None = None,
     ) -> list[dict[str, Any]]:
         """
         ค้นหานักเตะด้วย Hybrid IR ปรับปรุงใหม่
@@ -525,6 +640,36 @@ class FootballSearchEngine:
             return []
         q_thai_loose = _thai_loose_normalize(q_norm)
         has_thai_query = any("\u0E00" <= char <= "\u0E7F" for char in q_norm)
+        resolved_club_alias = _resolve_club_alias(q_norm)
+        query_team_identity = _canonical_team_identity(q_norm)
+        club_candidate_identities = self._club_candidate_identities(q_norm)
+        if resolved_club_alias:
+            club_candidate_identities = {resolved_club_alias}
+        club_ambiguity_count = len(club_candidate_identities)
+        has_direct_player_match = self._has_direct_player_match(q_norm, q_thai_loose)
+        detected_query_intent = (
+            "player"
+            if has_direct_player_match
+            else "club"
+            if club_candidate_identities
+            else "unknown"
+        )
+
+        league_norm = _normalize(league or "")
+        candidate_indices = [
+            i
+            for i, entry in enumerate(self._entries)
+            if not league_norm or entry.league_norm == league_norm
+        ]
+        if detected_query_intent == "club":
+            candidate_indices = [
+                i
+                for i in candidate_indices
+                if _canonical_team_identity(self._entries[i].team_norm)
+                in club_candidate_identities
+            ]
+        if not candidate_indices:
+            return []
 
         # Base short-query protection on normalized Unicode text.
         normalized_query_length = len(q_norm)
@@ -532,34 +677,40 @@ class FootballSearchEngine:
 
         # คำนวณ BM25
         bm25_raw = self._bm25_scores(q_clean)
-        bm25_max = max(bm25_raw, default=0.0)
+        bm25_max = max((bm25_raw[i] for i in candidate_indices), default=0.0)
 
         results: list[dict[str, Any]] = []
 
-        for i, entry in enumerate(self._entries):
+        for i in candidate_indices:
+            entry = self._entries[i]
             score = 0.0
+            match_type = ""
 
             # -----------------------------------------------------------
             # 1. Exact & Substring Match First:
             # -----------------------------------------------------------
-            # 1.1 ตรงตัวแบบสมบูรณ์กับชื่อหรือฉายาหลัก (Exact Match = 100%)
-            if (
-                q_norm == entry.name_th_norm
-                or q_norm == entry.name_en_norm
-                or any(q_norm == a for a in entry.aliases_norm)
-            ):
+            # 1.1 Exact player / Thai / player-alias matches.
+            if q_norm == entry.name_en_norm:
                 score = 1.0
-            # 1.2 เป็นส่วนหนึ่งของชื่อจริง (Name Substring Match = 90% เช่น ค้น 'Lionel' เจอ 'Lionel Messi')
+                match_type = "exact_player_name"
+            elif q_norm == entry.name_th_norm:
+                score = 1.0
+                match_type = "exact_thai_name"
+            elif any(q_norm == a for a in entry.aliases_norm):
+                score = 1.0
+                match_type = "exact_alias"
+            # 1.2 Player-name substring.
             elif (
                 len(q_norm) >= 2
                 and (q_norm in entry.name_th_norm or q_norm in entry.name_en_norm)
             ):
                 score = 0.90
-            # 1.3 เป็นส่วนหนึ่งของฉายา (Alias Substring Match = 70% เช่น ค้น 'เมสซี่' เจอ 'เมสซี่ตุรกี')
+                match_type = "player_substring"
+            # 1.3 Player-alias substring.
             elif any(len(q_norm) >= 2 and q_norm in a for a in entry.aliases_norm):
                 score = 0.70
+                match_type = "alias_substring"
             # 1.4 Thai pronunciation-friendly form.
-            # เช่น "เนมา" -> "เนย์มาร์" โดยไม่ต้องเพิ่ม alias ทีละคน
             elif (
                 has_thai_query
                 and len(q_thai_loose) >= 3
@@ -569,6 +720,7 @@ class FootballSearchEngine:
                 )
             ):
                 score = 0.92
+                match_type = "thai_loose_exact"
             elif (
                 has_thai_query
                 and len(q_thai_loose) >= 3
@@ -578,22 +730,47 @@ class FootballSearchEngine:
                 )
             ):
                 score = 0.82
-            # 1.5 ตรงตัวกับสโมสร, ลีก หรือทีมชาติ (Team/League/Nation Exact Match = 85%)
+                match_type = "thai_loose_substring"
+            # 1.5 Known club aliases are resolved before generic partial/fuzzy matching.
             elif (
-                q_norm == entry.team_norm
-                or q_norm == entry.league_norm
-                or q_norm == entry.nation_norm
+                resolved_club_alias
+                and _team_matches_resolved_alias(entry.team_norm, resolved_club_alias)
             ):
                 score = 0.85
-            # 1.6 Structured-field substring/prefix.
-            # สโมสรให้น้ำหนักสูงกว่า league/nation เล็กน้อย เพื่อให้ query แบบ
-            # "manchester cit" ชนะ fuzzy match ของ "Manchester United"
+                match_type = "team_alias"
+            elif q_norm == entry.team_norm:
+                score = 0.85
+                match_type = "exact_team"
+            elif (
+                query_team_identity
+                and query_team_identity != q_norm
+                and query_team_identity == _canonical_team_identity(entry.team_norm)
+            ):
+                score = 0.80
+                match_type = "team_variant"
+            elif (
+                query_team_identity in CLUB_ALIAS_GROUPS
+                and q_norm == query_team_identity
+                and query_team_identity == _canonical_team_identity(entry.team_norm)
+            ):
+                score = 0.80
+                match_type = "team_variant"
+            elif q_norm == entry.league_norm:
+                score = 0.85
+                match_type = "exact_league"
+            elif q_norm == entry.nation_norm:
+                score = 0.85
+                match_type = "nation_exact"
+            # 1.6 Structured-field partial matching remains distinct from known aliases.
             elif len(q_norm) >= 3 and q_norm in entry.team_norm:
                 score = 0.80
+                match_type = "team_substring"
             elif len(q_norm) >= 4 and q_norm in entry.league_norm:
                 score = 0.75
+                match_type = "league_substring"
             elif len(q_norm) >= 3 and q_norm in entry.nation_norm:
                 score = 0.75
+                match_type = "nation_substring"
             elif is_short:
                 # -------------------------------------------------------
                 # 3. Short Query Protection (len <= 3):
@@ -606,9 +783,25 @@ class FootballSearchEngine:
                 #    RapidFuzz WRatio + Levenshtein + Jaccard
                 #    แล้วค่อยผสม BM25 เมื่อ query มี token ที่พบในเอกสาร
                 # -------------------------------------------------------
-                lexical_score, _lexical_debug = self._hybrid_lexical_score_one(q_norm, entry)
+                lexical_score, lexical_debug = self._hybrid_lexical_score_one(q_norm, entry)
+
+                # Short Thai queries can look deceptively similar to unrelated Thai aliases
+                # (e.g. "ซาลา" vs "ซาก้า"/"ดีบาล่า"/"ซาลิบา"). Exact/substring/
+                # Thai-loose alias paths were already checked above, so suppress only the
+                # remaining generic fuzzy-alias fallback for this narrow case.
+                if (
+                    has_thai_query
+                    and len(q_thai_loose) <= 4
+                    and lexical_debug.get("field") == "aliases"
+                ):
+                    lexical_score = 0.0
 
                 if lexical_score > 0.0:
+                    match_type = {
+                        "current_team": "team_fuzzy",
+                        "current_league": "league_fuzzy",
+                        "nation": "nation_fuzzy",
+                    }.get(str(lexical_debug.get("field", "")), "hybrid_bm25_fuzzy")
                     b_norm = (
                         (bm25_raw[i] / bm25_max)
                         if bm25_max > 0.0 and bm25_raw[i] > 0.0
@@ -630,8 +823,28 @@ class FootballSearchEngine:
             if score > 0.0 and score >= threshold:
                 score = float(score)
                 result = dict(entry.raw)
+                effective_match_type = match_type or "hybrid_bm25_fuzzy"
                 result["relevance_score"] = score
-                result["match_percentage"] = self._match_percentage_from_relevance(score)
+                result["match_percentage"] = self._display_match_percentage(
+                    score,
+                    effective_match_type,
+                    club_ambiguity_count=club_ambiguity_count,
+                    query_norm=q_norm,
+                    matched_team_norm=entry.team_norm,
+                )
+                result["_match_type"] = effective_match_type
+                result["_query_intent"] = (
+                    detected_query_intent
+                    if detected_query_intent != "unknown"
+                    else _query_intent_from_match_type(effective_match_type)
+                )
+                result["_club_ambiguity_count"] = (
+                    club_ambiguity_count
+                    if result["_query_intent"] == "club"
+                    else 0
+                )
+                if resolved_club_alias:
+                    result["_resolved_club_alias"] = resolved_club_alias
                 results.append(result)
 
         # เรียงลำดับตาม relevance_score จากมากไปน้อย

@@ -58,7 +58,7 @@ export const PlayerCard = React.memo(function PlayerCard({ player, onOpenModal, 
 
     return (
       <div className="text-right flex-shrink-0">
-        <div className="text-[9px] uppercase tracking-[0.14em] font-bold text-slate-500">Match</div>
+        <div className="text-[9px] uppercase tracking-[0.14em] font-bold text-slate-500">Relevance</div>
         <div className={`mt-0.5 text-sm font-black ${tone}`}>{percentage}%</div>
       </div>
     );

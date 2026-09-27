@@ -102,19 +102,13 @@ export default function App() {
       const startTime = performance.now();
 
       try {
-        // ยิงคำค้นหาไปยัง /api/players/search?q=...
-        const res = await fetch(API_ENDPOINTS.search(debouncedQuery));
+        // ส่ง League ไป Backend เพื่อกรองก่อน Ranking/Threshold/Top-K
+        const res = await fetch(API_ENDPOINTS.search(debouncedQuery, 50, selectedLeague));
         if (!res.ok) throw new Error(`Search request failed (${res.status})`);
         const data = await res.json();
 
         if (isMounted) {
-          let results = data.results || [];
-
-          // กรองต่อตามฟิลเตอร์ลีกที่เลือก
-          if (selectedLeague !== 'ทั้งหมด') {
-            results = results.filter((p) => p.current_league === selectedLeague);
-          }
-
+          const results = data.results || [];
           setFilteredPlayers(results);
           setBackendError(null);
           setBackendReady(true);

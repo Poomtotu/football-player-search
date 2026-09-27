@@ -86,7 +86,7 @@ class PlayerSearchResult(Player):
         ...,
         ge=0.0,
         le=100.0,
-        description="เปอร์เซ็นต์ relevance ของผลค้นหา (relevance_score × 100) สำหรับแสดงบน UI"
+        description="เปอร์เซ็นต์ความตรงกับคำค้นสำหรับแสดงบน UI แยกจากคะแนนที่ใช้จัดอันดับ"
     )
 
 

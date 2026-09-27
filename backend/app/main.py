@@ -9,6 +9,7 @@
 # 4. ให้บริการ REST API Endpoints (/health, /api/players, /api/players/search, /api/players/{id})
 # ===========================================================================
 
+import hmac
 import logging
 import os
 from contextlib import asynccontextmanager
@@ -197,7 +198,27 @@ async def get_all_players() -> PlayersListResponse:
 
 
 # --- Endpoint 7.2.1: /api/reload (รีโหลดข้อมูล JSON และเตรียม Index ใหม่ทันที) ---
-RELOAD_API_KEY = os.getenv("RELOAD_API_KEY", "")
+def _is_production_environment() -> bool:
+    """Detect deployed/production runtime without making local development stricter."""
+    app_env = os.getenv("APP_ENV", "").strip().lower()
+    return bool(os.getenv("VERCEL")) or app_env in {"production", "prod"}
+
+
+def _enforce_reload_access(request: Request) -> None:
+    """Require a secret in production; allow keyless reload only for local development."""
+    reload_api_key = os.getenv("RELOAD_API_KEY", "").strip()
+    if reload_api_key:
+        provided_key = request.headers.get("X-API-Key", "")
+        if not hmac.compare_digest(provided_key, reload_api_key):
+            raise HTTPException(status_code=403, detail="Forbidden: Invalid or missing API Key")
+        return
+
+    if _is_production_environment():
+        raise HTTPException(
+            status_code=403,
+            detail="Forbidden: /api/reload is disabled until RELOAD_API_KEY is configured",
+        )
+
 
 @app.post(
     "/api/reload",
@@ -206,10 +227,7 @@ RELOAD_API_KEY = os.getenv("RELOAD_API_KEY", "")
     description="รีโหลดไฟล์ข้อมูลนักเตะและสร้างดัชนี BM25 + RapidFuzz ใหม่ทันทีโดยไม่ต้องรีสตาร์ตเซิร์ฟเวอร์",
 )
 async def reload_data(request: Request):
-    if RELOAD_API_KEY:
-        provided_key = request.headers.get("X-API-Key", "")
-        if provided_key != RELOAD_API_KEY:
-            raise HTTPException(status_code=403, detail="Forbidden: Invalid or missing API Key")
+    _enforce_reload_access(request)
 
     if os.path.exists(DATA_PATH) and os.path.getsize(DATA_PATH) > 2:
         data_path = DATA_PATH
@@ -252,6 +270,10 @@ async def search_players(
             example="เมสซี่",
         ),
     ],
+    league: Annotated[
+        str | None,
+        Query(max_length=100, description="กรอง current_league ก่อนจัดอันดับ เช่น 'Premier League'"),
+    ] = None,
     limit: Annotated[
         int,
         Query(ge=1, le=100, description="จำนวนผลลัพธ์สูงสุดที่ต้องการ"),
@@ -268,7 +290,12 @@ async def search_players(
             detail="ระบบค้นหา (IR Index) ยังไม่พร้อมใช้งาน กรุณารอสักครู่",
         )
 
-    results = search_engine.search(query=q, limit=limit, threshold=threshold)
+    results = search_engine.search(
+        query=q,
+        limit=limit,
+        threshold=threshold,
+        league=league,
+    )
 
     return SearchResponse(
         query=q,

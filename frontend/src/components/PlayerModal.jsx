@@ -5,7 +5,6 @@ import {
   Award,
   Building2,
   CalendarDays,
-  Check,
   CircleUserRound,
   ExternalLink,
   FileText,
@@ -15,7 +14,6 @@ import {
   Link2,
   Ruler,
   Scale,
-  Share2,
   Shield,
   Shirt,
   Target,
@@ -25,7 +23,6 @@ import {
 } from 'lucide-react';
 
 export function PlayerModal({ player, onClose }) {
-  const [copied, setCopied] = React.useState(false);
   const [detailPlayer, setDetailPlayer] = React.useState(null);
 
   useEffect(() => {
@@ -106,13 +103,6 @@ export function PlayerModal({ player, onClose }) {
     ['เบอร์เสื้อ', displayPlayer.shirt_number ? `#${displayPlayer.shirt_number}` : null],
   ];
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(
-      `${window.location.origin}/?q=${encodeURIComponent(displayPlayer.name_en)}`
-    );
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1800);
-  };
   const statItems = [
     {
       label: 'Goals',
@@ -226,39 +216,22 @@ export function PlayerModal({ player, onClose }) {
         className="modal-backdrop fixed inset-0 bg-[#020817]/80 backdrop-blur-[4px]"
       />
 
-      <article className="player-profile-modal profile-shell modal-panel relative z-10 my-2 w-full max-w-[1380px] overflow-hidden rounded-[14px] border border-white/10 bg-[#f4f6f8] shadow-[0_36px_110px_-35px_rgba(0,0,0,.8)] sm:my-4">
-        <div className="absolute right-4 top-4 z-40 flex items-center gap-2">
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="profile-floating-action flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-slate-950/45 text-white shadow-lg backdrop-blur-md transition hover:bg-slate-950/70"
-            title="คัดลอกลิงก์นักเตะ"
-          >
-            {copied ? <Check className="h-4 w-4 text-emerald-300" /> : <Share2 className="h-4 w-4" />}
-          </button>
-          <button
-            type="button"
-            onClick={onClose}
-            className="profile-floating-action flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-slate-950/45 text-white shadow-lg backdrop-blur-md transition hover:bg-slate-950/70"
-            title="ปิด (Esc)"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-
+      <article className="player-profile-modal profile-shell modal-panel relative z-10 my-2 w-full max-w-[1380px] overflow-hidden rounded-[14px] border shadow-[0_36px_110px_-35px_rgba(0,0,0,.8)] sm:my-4">
         <div className="grid gap-5 p-4 sm:p-5 lg:grid-cols-[minmax(0,1fr)_390px]">
           <main className="min-w-0 space-y-5">
-            <section className="profile-hero-card relative min-h-[330px] overflow-hidden rounded-[12px] bg-[#061225] shadow-[0_24px_70px_-38px_rgba(15,23,42,.8)]">
+            <section className="profile-hero-card profile-hero-original relative min-h-[330px] overflow-hidden rounded-[12px] bg-[#061225] shadow-[0_24px_70px_-38px_rgba(15,23,42,.8)]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(59,130,246,.38),transparent_34%),linear-gradient(115deg,#061225_0%,#08254f_58%,#0b3268_100%)]" />
               <div className="player-profile-grid absolute inset-0 opacity-70" />
               <div className="absolute inset-0 bg-gradient-to-r from-[#061225] via-[#061225]/85 to-transparent" />
+              <span className="profile-corner-glow" aria-hidden="true" />
+              <span className="profile-player-emphasis" aria-hidden="true" />
 
               {heroPhotoUrl && heroPhotoUrl !== 'N/A' && (
                 <img
                   src={heroPhotoUrl}
                   alt={displayPlayer.name_en}
                   referrerPolicy="no-referrer"
-                  className="absolute bottom-0 object-cover opacity-95 [mask-image:linear-gradient(to_left,#000_74%,transparent_100%)]"
+                  className="profile-hero-original-player absolute bottom-0 object-cover opacity-95 [mask-image:linear-gradient(to_left,#000_74%,transparent_100%)]"
                   style={{
                     width: heroImageTuning.width,
                     height: heroImageTuning.height,
@@ -274,7 +247,7 @@ export function PlayerModal({ player, onClose }) {
 
               <div className="relative z-10 flex min-h-[330px] max-w-[58%] flex-col p-6 sm:p-8">
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-300">
+                  <p className="profile-hero-league text-[11px] font-bold uppercase tracking-[0.18em]">
                     {displayPlayer.current_league || 'Football Player'}
                   </p>
                   <h1 className="mt-3 text-4xl font-black leading-[.95] tracking-[-0.045em] text-white sm:text-5xl">
@@ -310,7 +283,7 @@ export function PlayerModal({ player, onClose }) {
 
                 <div className="mt-auto grid grid-cols-2 gap-2 pt-7 sm:grid-cols-4">
                   {statItems.map(({ label, value, detail, icon: Icon }) => (
-                    <div key={label} className="rounded-md border border-white/10 bg-black/20 px-3 py-2.5 backdrop-blur-sm">
+                    <div key={label} className="profile-stat-card rounded-md px-3 py-2.5 backdrop-blur-sm">
                       <div className="flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.1em] text-slate-400">
                         <Icon className="h-3.5 w-3.5 text-blue-300" />
                         {label}
@@ -324,8 +297,8 @@ export function PlayerModal({ player, onClose }) {
             </section>
 
             {aliases.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2 px-2">
-                <span className="text-xs font-bold text-slate-400">ชื่ออื่น</span>
+              <div className="profile-alias-row flex flex-wrap items-center gap-2 px-2">
+                <span className="profile-alias-label text-xs font-bold">ฉายา</span>
                 {aliases.map((alias, index) => (
                   <span key={`${alias}-${index}`} className="rounded-md border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600">
                     {alias}
@@ -335,9 +308,10 @@ export function PlayerModal({ player, onClose }) {
             )}
 
             {(profileSummary || strengths.length > 0) && (
-              <section className="profile-content-card rounded-[10px] bg-white p-5 sm:p-6">
+              <section className="profile-content-card profile-style-card rounded-[10px] p-5 sm:p-6">
+                <span className="profile-corner-glow" aria-hidden="true" />
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-blue-600">
+                  <span className="profile-section-icon flex h-10 w-10 items-center justify-center rounded-md">
                     <Target className="h-5 w-5" />
                   </span>
                   <h2 className="text-xl font-black tracking-tight text-slate-950">สไตล์การเล่นและจุดเด่น</h2>
@@ -348,7 +322,7 @@ export function PlayerModal({ player, onClose }) {
                 {strengths.length > 0 && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {strengths.map((item, index) => (
-                      <span key={`${item}-${index}`} className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-700">
+                      <span key={`${item}-${index}`} className="profile-strength-chip rounded-md px-3 py-2 text-xs font-bold">
                         {item}
                       </span>
                     ))}
@@ -357,9 +331,10 @@ export function PlayerModal({ player, onClose }) {
               </section>
             )}
 
-            <section className="profile-content-card rounded-[10px] bg-white p-5 sm:p-6">
+            <section className="profile-content-card profile-history-card rounded-[10px] p-5 sm:p-6">
+              <span className="profile-corner-glow" aria-hidden="true" />
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-blue-600">
+                <span className="profile-section-icon flex h-10 w-10 items-center justify-center rounded-md">
                   <FileText className="h-5 w-5" />
                 </span>
                 <h2 className="text-xl font-black tracking-tight text-slate-950">ประวัตินักเตะ</h2>
@@ -444,13 +419,22 @@ export function PlayerModal({ player, onClose }) {
             )}
           </main>
 
-          <aside className="space-y-5">
-            <section className="rounded-[10px] border border-slate-200 bg-white p-5 shadow-[0_16px_36px_-32px_rgba(15,23,42,.45)]">
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-blue-600">
+          <aside className="profile-sidebar space-y-5">
+            <section className="profile-info-panel rounded-[10px] border p-5 shadow-[0_16px_36px_-32px_rgba(15,23,42,.45)]">
+              <div className="profile-info-header flex items-center gap-3">
+                <span className="profile-section-icon flex h-10 w-10 items-center justify-center rounded-md">
                   <CircleUserRound className="h-5 w-5" />
                 </span>
                 <h2 className="text-xl font-black tracking-tight text-slate-950">ข้อมูลนักเตะ</h2>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="profile-close-button ml-auto flex h-9 w-9 flex-shrink-0 items-center justify-center"
+                  title="ปิด (Esc)"
+                  aria-label="ปิด"
+                >
+                  <X className="h-[22px] w-[22px]" />
+                </button>
               </div>
 
               <div className="mt-5">
@@ -517,9 +501,9 @@ export function PlayerModal({ player, onClose }) {
             </section>
 
             {Object.keys(socialLinks).length > 0 && (
-              <section className="rounded-[10px] border border-slate-200 bg-white p-5 shadow-[0_16px_36px_-32px_rgba(15,23,42,.45)]">
+              <section className="profile-social-panel rounded-[10px] border p-5 shadow-[0_16px_36px_-32px_rgba(15,23,42,.45)]">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-blue-600">
+                  <span className="profile-section-icon flex h-10 w-10 items-center justify-center rounded-md">
                     <Link2 className="h-5 w-5" />
                   </span>
                   <h2 className="text-lg font-black tracking-tight text-slate-950">ติดตามนักเตะ</h2>
